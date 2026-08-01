@@ -1,0 +1,148 @@
+.platform-section {
+  background: var(--navy-900);
+  padding: 100px 0;
+}
+
+.platform-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.platform-copy {
+  text-align: left;
+}
+
+.platform-eyebrow {
+  color: var(--brand-purple-light);
+}
+
+.platform-heading {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--on-dark-strong);
+  margin: 0 0 18px;
+}
+
+.platform-text {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--on-dark);
+  margin: 0 0 32px;
+}
+
+.platform-checklist {
+  list-style: none;
+  margin: 0 0 36px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.platform-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--on-dark-strong);
+}
+
+.platform-check-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(134, 59, 255, 0.18);
+  color: var(--brand-purple-light);
+}
+
+.platform-cta {
+  padding: 14px 28px;
+}
+
+.platform-visual {
+  position: relative;
+}
+
+.platform-visual-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(134, 59, 255, 0.35),
+    transparent 60%
+  ),
+  radial-gradient(circle at 70% 70%, rgba(34, 211, 238, 0.25), transparent 60%);
+  filter: blur(20px);
+}
+
+.platform-visual-frame {
+  position: relative;
+  background: var(--navy-700);
+  border: 1px solid var(--navy-border);
+  border-radius: 16px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.platform-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.55;
+}
+
+.platform-orb--purple {
+  width: 180px;
+  height: 180px;
+  background: var(--brand-purple);
+  top: -40px;
+  right: -40px;
+}
+
+.platform-orb--teal {
+  width: 160px;
+  height: 160px;
+  background: var(--brand-teal);
+  bottom: -50px;
+  left: -30px;
+}
+
+.platform-visual-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.platform-visual-tile {
+  min-height: 120px;
+  border-radius: 12px;
+  background: linear-gradient(
+    160deg,
+    rgba(134, 59, 255, 0.3),
+    rgba(34, 211, 238, 0.12)
+  );
+  border: 1px solid var(--navy-border);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 900px) {
+  .platform-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .platform-heading {
+    font-size: 28px;
+  }
+}
