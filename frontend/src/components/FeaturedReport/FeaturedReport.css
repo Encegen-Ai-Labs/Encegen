@@ -1,0 +1,157 @@
+.featured-report-section {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.featured-report-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch;
+  border-radius: 24px;
+  background: var(--navy-800);
+  min-height: 380px;
+}
+
+.featured-report-glow {
+  position: absolute;
+  inset: 0;
+  left: 30%;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at 78% 50%,
+    rgba(134, 59, 255, 0.65) 0%,
+    rgba(134, 59, 255, 0.22) 45%,
+    rgba(134, 59, 255, 0) 75%
+  );
+  pointer-events: none;
+}
+
+.featured-report-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 56px 48px;
+}
+
+.featured-report-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--brand-purple-light);
+}
+
+.featured-report-title {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  max-width: 560px;
+}
+
+.featured-report-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+  margin: 0;
+}
+
+.featured-report-meta {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.featured-report-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.featured-report-actions .btn-solid {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.featured-report-actions .btn-outline {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.featured-report-graphic {
+  position: absolute;
+  inset: 0;
+  left: 45%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 40px 0 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.featured-report-graphic-year {
+  font-family: var(--heading);
+  font-weight: 800;
+  font-size: 220px;
+  line-height: 0.85;
+  letter-spacing: -6px;
+  color: rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+}
+
+.featured-report-graphic-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .featured-report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-report-graphic {
+    position: relative;
+    align-items: center;
+    padding: 0 32px 32px;
+  }
+
+  .featured-report-graphic-year {
+    font-size: 120px;
+    letter-spacing: -3px;
+  }
+
+  .featured-report-body {
+    padding: 44px 32px 24px;
+  }
+
+  .featured-report-title {
+    font-size: 26px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-report-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+}

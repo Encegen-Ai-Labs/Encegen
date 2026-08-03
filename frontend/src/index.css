@@ -50,6 +50,14 @@
   --status-red: #ef4444;
   --status-amber: #f59e0b;
 
+  /* Insights category tags */
+  --tag-blog: var(--brand-purple);
+  --tag-report: var(--accent-blue);
+  --tag-customer-story: var(--status-green);
+  --tag-webinar: var(--brand-teal);
+  --tag-podcast: var(--accent-violet);
+  --tag-video: var(--accent-maroon);
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
