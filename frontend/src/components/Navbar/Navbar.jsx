@@ -56,9 +56,9 @@ export default function Navbar() {
 
         {/* Search & Desktop CTA */}
         <div className="navbar-actions">
-          <button className="search-btn" aria-label="Search">
+          <Link to="/search" className="search-btn" aria-label="Search">
             <FiSearch size={18} />
-          </button>
+          </Link>
           <a href="#demo" className="cta-button">Get a demo</a>
         </div>
 

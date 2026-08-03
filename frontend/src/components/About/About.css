@@ -1,84 +1,313 @@
-.about-section {
-  background: var(--lavender-bg);
-  padding: 100px 0;
+/* ==========================================================
+   ABOUT SECTION
+========================================================== */
+
+.about-section{
+    background:#F6F7FF;
+    padding:90px 0;
+    overflow:hidden;
 }
 
-.about-container {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: center;
+.about-container{
+
+    width:min(1200px,92%);
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:470px 470px;
+    justify-content:space-between;
+    gap:70px;
+
+    align-items:center;
 }
 
-.about-copy {
-  text-align: left;
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.about-copy{
+    text-align:left;
 }
 
-.about-heading {
-  font-family: var(--heading);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin: 0 0 20px;
+.eyebrow{
+
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:#7868FF;
+}
+.about-heading{
+    font-size:42px;
+    line-height:1.15;
+    max-width:470px;
+    font-weight:800;
+    letter-spacing:-1.5px;
+    color:#131938;
+    margin:0 0 22px;
+}
+.about-text{
+    color:#6C7695;
+
+    font-size:16px;
+line-height:1.75;
+max-width:430px;
+color:#6E7897;
+}
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.about-stats{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
 }
 
-.about-text {
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink-muted);
-  margin: 0;
+/* ==========================================================
+   CARD
+========================================================== */
+
+.about-stat-card{
+
+    position:relative;
+
+    background:#ffffff;
+
+    border-radius:16px;
+
+    padding:18px 26px;
+height:78px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.08);
 }
 
-.about-stats {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Animated colored line */
+
+.about-stat-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:20px;
+
+    width:4px;
+
+    height:34px;
+
+    border-radius:5px;
+
+    transition:.35s ease;
 }
 
-.about-stat-card {
-  background: #ffffff;
-  border-left: 4px solid var(--brand-purple);
-  border-radius: 10px;
-  padding: 22px 26px;
-  box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.15);
-  text-align: left;
+/* Different colors */
+
+.about-stat-card:nth-child(1)::before{
+
+    background:#6B5CFF;
 }
 
-.about-stat-top {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 6px;
+.about-stat-card:nth-child(2)::before{
+
+    background:#20D6C7;
 }
 
-.about-stat-value {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.02em;
+.about-stat-card:nth-child(3)::before{
+
+    background:#FF8A2A;
 }
 
-.about-stat-label {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--brand-purple);
+/* Hover */
+
+.about-stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 24px 45px rgba(70,50,180,.16);
 }
 
-.about-stat-detail {
-  font-size: 14.5px;
-  color: var(--ink-muted);
-  margin: 0;
+/* Grow left border */
+
+.about-stat-card:hover::before{
+
+    height:65%;
+
+    top:18%;
 }
 
-@media (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+/* ==========================================================
+   CONTENT
+========================================================== */
 
-  .about-heading {
-    font-size: 28px;
-  }
+.about-stat-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:6px;
+}
+
+.about-stat-value{
+
+    font-size:18px;
+
+    font-weight:800;
+
+    color:#111938;
+
+    line-height:1;
+}
+
+.about-stat-label{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#111938;
+}
+
+.about-stat-detail{
+    margin-left:0;
+    margin-top:3px;
+    padding-left:52px;
+    font-size:13px;
+}
+
+/* ==========================================================
+   NICE HOVER EFFECT
+========================================================== */
+
+.about-stat-card:hover .about-stat-value{
+
+    color:#6B5CFF;
+}
+
+.about-stat-card:hover .about-stat-label{
+
+    transform:translateX(4px);
+
+    transition:.35s;
+}
+
+.about-stat-card:hover .about-stat-detail{
+
+    color:#5C6585;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1024px){
+
+.about-container{
+
+grid-template-columns:1fr;
+
+gap:55px;
+
+}
+
+.about-heading{
+
+font-size:42px;
+
+max-width:100%;
+
+}
+
+.about-text{
+
+max-width:100%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.about-section{
+
+padding:80px 0;
+
+}
+
+.about-heading{
+
+font-size:34px;
+
+letter-spacing:-1px;
+
+}
+
+.about-text{
+
+font-size:16px;
+
+}
+
+.about-stat-card{
+
+padding:20px;
+
+}
+
+.about-stat-value{
+
+font-size:28px;
+
+}
+
+.about-stat-label{
+
+font-size:20px;
+
+}
+
+.about-stat-detail{
+
+margin-left:0;
+
+margin-top:10px;
+
+}
+
+.about-stat-top{
+
+flex-wrap:wrap;
+
+}
+
 }
