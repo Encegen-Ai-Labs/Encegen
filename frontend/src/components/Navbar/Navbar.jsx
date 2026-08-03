@@ -46,7 +46,7 @@ export default function Navbar() {
               Products <FiChevronDown className="chevron-icon" />
             </a>
           </div>
-          <a href="#insights" className="nav-item">Insights</a>
+          <Link to="/insights" className="nav-item">Insights</Link>
           <div className="nav-dropdown">
             <Link to="/about" className="nav-item">
               Company <FiChevronDown className="chevron-icon" />
@@ -79,7 +79,7 @@ export default function Navbar() {
           <a href="#solutions" className="mobile-nav-item" onClick={toggleMenu}>Solutions</a>
           <a href="#resources" className="mobile-nav-item" onClick={toggleMenu}>Resources</a>
           <a href="#products" className="mobile-nav-item" onClick={toggleMenu}>Products</a>
-          <a href="#insights" className="mobile-nav-item" onClick={toggleMenu}>Insights</a>
+          <Link to="/insights" className="mobile-nav-item" onClick={toggleMenu}>Insights</Link>
           <Link to="/about" className="mobile-nav-item" onClick={toggleMenu}>Company</Link>
           <a href="#demo" className="mobile-cta-button" onClick={toggleMenu}>Get a demo</a>
         </div>
