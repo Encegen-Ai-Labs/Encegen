@@ -1,4 +1,5 @@
 import { FiCheck, FiX } from 'react-icons/fi';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './Frustration.css';
 
 const PROMISES = [
@@ -14,8 +15,10 @@ const REALITIES = [
 ];
 
 export default function Frustration() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="frustration-section">
+    <section ref={ref} className={`frustration-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container frustration-container">
         <div className="frustration-copy">
           <span className="eyebrow frustration-chapter">CHAPTER 01</span>

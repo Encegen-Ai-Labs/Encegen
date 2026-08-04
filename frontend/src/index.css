@@ -39,12 +39,28 @@
   --section-border: #e5e7eb;
   --container-width: 1280px;
 
+  /* Fluid layout tokens — drive spacing off viewport width instead of fixed breakpoints */
+  --gutter: clamp(20px, 5vw, 40px);
+  --section-py: clamp(56px, 9vw, 110px);
+  --section-py-lg: clamp(90px, 12vw, 160px);
+  --card-gap: clamp(16px, 2.5vw, 28px);
+
   /* Extended accent palette (About page value cards, status indicators) */
   --accent-blue: #2453eb;
   --accent-teal-deep: #0f8f7c;
   --accent-maroon: #7a1f2b;
   --accent-olive: #4a5320;
   --accent-violet: #6d28d9;
+  --accent-olive-bright: #b7c23c;
+
+  /* Deep/muted card fills for the About "What we stand for" cards —
+     paired with a brighter border in the same hue (reusing tokens above) */
+  --value-purple-bg: #2b1256;
+  --value-blue-bg: #0e2050;
+  --value-teal-bg: #08302a;
+  --value-maroon-bg: #33101a;
+  --value-olive-bg: #20240d;
+  --value-violet-bg: #260f47;
 
   --status-green: #22c55e;
   --status-red: #ef4444;
@@ -58,8 +74,8 @@
   --tag-podcast: var(--accent-violet);
   --tag-video: var(--accent-maroon);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -110,17 +126,10 @@ body {
 }
 
 .container {
-  width: var(--container-width);
-  max-width: 100%;
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
   box-sizing: border-box;
-}
-
-@media (max-width: 640px) {
-  .container {
-    padding: 0 20px;
-  }
 }
 
 h1,
@@ -131,22 +140,15 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: clamp(32px, 4.5vw, 56px);
   letter-spacing: -1.68px;
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
 h2 {
-  font-size: 24px;
+  font-size: clamp(19px, 2vw, 24px);
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
 p {
   margin: 0;
@@ -173,15 +175,17 @@ code {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  max-width: 100%;
+  box-sizing: border-box;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: clamp(14px, 1.4vw, 15px);
   font-weight: 600;
-  padding: 13px 24px;
+  padding: clamp(11px, 1.6vw, 13px) clamp(18px, 3vw, 24px);
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   border: 1.5px solid transparent;
-  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
@@ -189,9 +193,25 @@ code {
   transform: translateY(-1px);
 }
 
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn svg {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
 .btn-solid {
   background: var(--brand-gradient);
   color: #fff;
+}
+
+.btn-solid:hover {
+  box-shadow: 0 10px 25px -8px rgba(134, 59, 255, 0.5);
 }
 
 .btn-outline {
@@ -217,7 +237,7 @@ code {
 
 .eyebrow {
   display: inline-block;
-  font-size: 12.5px;
+  font-size: clamp(11px, 1vw, 12.5px);
   font-weight: 700;
   letter-spacing: 1.2px;
   color: var(--brand-purple);
@@ -230,12 +250,41 @@ code {
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
+  font-size: clamp(24px, 3vw, 30px);
   margin: 0 0 16px;
 }
 
 .section-subtext {
   color: var(--ink-muted);
-  font-size: 17px;
+  font-size: clamp(15px, 1.6vw, 17px);
   line-height: 1.6;
   margin: 0;
+}
+
+/* Scroll-in reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

@@ -6,7 +6,7 @@
   position: relative;
   overflow: hidden;
   background: #070c2d;
-  padding: 140px 0 70px;
+  padding: clamp(110px, 15vw, 140px) 0 clamp(50px, 7vw, 70px);
 }
 
 .hero-container {
@@ -88,11 +88,11 @@
 
   max-width: 980px;
 
-  font-size: 82px;
+  font-size: clamp(34px, 7vw, 82px);
 
   line-height: .95;
 
-  letter-spacing: -3px;
+  letter-spacing: -0.03em;
 
   font-weight: 800;
 
@@ -111,7 +111,7 @@
 
   color: #B7C0E3;
 
-  font-size: 20px;
+  font-size: clamp(16px, 1.8vw, 20px);
 
   line-height: 1.7;
 
@@ -310,17 +310,7 @@
 
 @media (max-width:1024px){
 
-.hero-section{
-
-padding:120px 0 60px;
-
-}
-
 .hero-heading{
-
-font-size:60px;
-
-letter-spacing:-2px;
 
 max-width:760px;
 
@@ -328,15 +318,7 @@ max-width:760px;
 
 .hero-subtext{
 
-font-size:18px;
-
 max-width:600px;
-
-}
-
-.hero-image img{
-
-max-width:900px;
 
 }
 
@@ -348,27 +330,9 @@ max-width:900px;
 
 @media (max-width:768px){
 
-.hero-section{
-
-padding:110px 0 50px;
-
-}
-
 .hero-heading{
 
-font-size:42px;
-
 line-height:1.05;
-
-letter-spacing:-1px;
-
-}
-
-.hero-subtext{
-
-font-size:17px;
-
-line-height:1.6;
 
 }
 
@@ -377,8 +341,6 @@ line-height:1.6;
 flex-direction:column;
 
 width:100%;
-
-max-width:320px;
 
 }
 
@@ -406,7 +368,7 @@ animation:none;
 
 .hero-image::before{
 
-width:320px;
+width:min(320px, 80vw);
 
 height:180px;
 
@@ -419,18 +381,6 @@ height:180px;
 ========================================================== */
 
 @media (max-width:480px){
-
-.hero-heading{
-
-font-size:34px;
-
-}
-
-.hero-subtext{
-
-font-size:16px;
-
-}
 
 .hero-badge{
 

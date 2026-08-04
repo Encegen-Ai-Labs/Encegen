@@ -1,7 +1,7 @@
 .about-hero-section {
   position: relative;
   background: var(--navy-900);
-  padding: 160px 0 120px;
+  padding: clamp(120px, 16vw, 160px) 0 clamp(70px, 10vw, 120px);
   overflow: hidden;
 }
 
@@ -27,7 +27,7 @@
 .about-hero-heading {
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 58px;
+  font-size: clamp(30px, 5vw, 58px);
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--on-dark-strong);
@@ -36,7 +36,7 @@
 }
 
 .about-hero-subtext {
-  font-size: 19px;
+  font-size: clamp(16px, 1.6vw, 19px);
   line-height: 1.6;
   color: var(--on-dark);
   max-width: 620px;
@@ -48,28 +48,13 @@
   gap: 16px;
 }
 
-@media (max-width: 1024px) {
-  .about-hero-section {
-    padding: 130px 0 80px;
-  }
-
-  .about-hero-heading {
-    font-size: 38px;
-  }
-
-  .about-hero-subtext {
-    font-size: 17px;
-  }
-}
-
 @media (max-width: 640px) {
-  .about-hero-heading {
-    font-size: 30px;
-  }
-
   .about-hero-actions {
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+  }
+
+  .about-hero-actions .btn {
+    width: 100%;
   }
 }

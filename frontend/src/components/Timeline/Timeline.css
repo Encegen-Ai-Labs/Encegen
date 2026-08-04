@@ -1,12 +1,12 @@
 .timeline-section {
   background: var(--navy-900);
-  padding: 110px 0 100px;
+  padding: clamp(70px, 10vw, 110px) 0 clamp(64px, 9vw, 100px);
 }
 
 .timeline-quote {
   font-family: var(--heading);
   font-weight: 600;
-  font-size: 28px;
+  font-size: clamp(20px, 2.4vw, 28px);
   line-height: 1.5;
   color: var(--on-dark-strong);
   text-align: center;
@@ -20,14 +20,14 @@
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--brand-purple-light);
-  margin: 0 0 88px;
+  margin: 0 0 clamp(48px, 8vw, 88px);
 }
 
 .timeline-track {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: clamp(20px, 3vw, 32px);
 }
 
 .timeline-track::before {
@@ -44,6 +44,7 @@
   position: relative;
   text-align: left;
   padding-top: 60px;
+  cursor: default;
 }
 
 .timeline-year {
@@ -57,6 +58,7 @@
   background: var(--brand-gradient);
   padding: 5px 12px;
   border-radius: 999px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .timeline-node {
@@ -68,6 +70,7 @@
   border-radius: 50%;
   background: var(--brand-purple-light);
   box-shadow: 0 0 0 4px rgba(134, 59, 255, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .timeline-title {
@@ -75,6 +78,7 @@
   font-weight: 700;
   color: var(--on-dark-strong);
   margin: 0 0 10px;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .timeline-description {
@@ -82,17 +86,29 @@
   line-height: 1.6;
   color: var(--on-dark-muted);
   margin: 0;
+  transition: color 0.25s ease;
+}
+
+.timeline-step:hover .timeline-year {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -6px rgba(134, 59, 255, 0.6);
+}
+
+.timeline-step:hover .timeline-node {
+  transform: scale(1.6);
+  box-shadow: 0 0 0 6px rgba(134, 59, 255, 0.3);
+}
+
+.timeline-step:hover .timeline-title {
+  color: var(--brand-purple-light);
+  transform: translateX(2px);
+}
+
+.timeline-step:hover .timeline-description {
+  color: var(--on-dark-strong);
 }
 
 @media (max-width: 900px) {
-  .timeline-quote {
-    font-size: 22px;
-  }
-
-  .timeline-attribution {
-    margin-bottom: 56px;
-  }
-
   .timeline-track {
     grid-template-columns: 1fr;
     gap: 40px;

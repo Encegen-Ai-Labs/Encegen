@@ -1,12 +1,12 @@
 .insights-grid-section {
   background: var(--lavender-bg);
-  padding: 20px 0 100px;
+  padding: 20px 0 var(--section-py);
 }
 
 .insights-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--card-gap);
 }
 
 .insights-load-more-row {
@@ -37,14 +37,3 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-  .insights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .insights-grid {
-    grid-template-columns: 1fr;
-  }
-}

@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './Team.css';
 
 const TEAM = [
@@ -30,8 +31,10 @@ const TEAM = [
 const RULE_AVATARS = ['AR', 'PN', 'MB', 'SC', 'JD'];
 
 export default function Team() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="team-section">
+    <section ref={ref} className={`team-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container">
         <div className="team-header">
           <span className="eyebrow">CHAPTER 04</span>

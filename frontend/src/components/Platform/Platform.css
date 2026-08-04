@@ -1,12 +1,13 @@
 .platform-section {
   background: var(--navy-900);
-  padding: 100px 0;
+  padding: var(--section-py) 0;
+  overflow: hidden;
 }
 
 .platform-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
 }
 
@@ -21,7 +22,7 @@
 .platform-heading {
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 36px;
+  font-size: clamp(26px, 3vw, 36px);
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: var(--on-dark-strong);
@@ -136,13 +137,3 @@
   backdrop-filter: blur(6px);
 }
 
-@media (max-width: 900px) {
-  .platform-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .platform-heading {
-    font-size: 28px;
-  }
-}

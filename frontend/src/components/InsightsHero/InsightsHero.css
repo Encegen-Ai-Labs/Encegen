@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   background: var(--navy-800);
-  padding: 150px 0 90px;
+  padding: clamp(110px, 15vw, 150px) 0 clamp(56px, 8vw, 90px);
 }
 
 .insights-hero-glow {
@@ -50,9 +50,9 @@
 
 .insights-hero-heading {
   max-width: 820px;
-  font-size: 64px;
+  font-size: clamp(30px, 5.5vw, 64px);
   line-height: 1.05;
-  letter-spacing: -2px;
+  letter-spacing: -0.03em;
   font-weight: 800;
   color: #ffffff;
   margin: 0 0 22px;
@@ -61,7 +61,7 @@
 .insights-hero-subtext {
   max-width: 620px;
   color: #b7c0e3;
-  font-size: 18px;
+  font-size: clamp(15px, 1.7vw, 18px);
   line-height: 1.7;
   margin: 0 0 40px;
 }
@@ -72,33 +72,15 @@
   gap: 16px;
 }
 
-@media (max-width: 1024px) {
-  .insights-hero-section {
-    padding: 120px 0 70px;
-  }
-
-  .insights-hero-heading {
-    font-size: 44px;
-    letter-spacing: -1px;
-  }
-}
-
 @media (max-width: 640px) {
-  .insights-hero-heading {
-    font-size: 34px;
-  }
-
-  .insights-hero-subtext {
-    font-size: 16px;
-  }
-
   .insights-hero-actions {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    gap: 14px;
   }
 
   .insights-hero-actions .btn {
     width: 100%;
+    box-shadow: none;
   }
 }

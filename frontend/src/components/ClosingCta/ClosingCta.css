@@ -1,6 +1,6 @@
 .closing-cta-section {
   background: linear-gradient(180deg, var(--lavender-bg) 0%, #ffffff 100%);
-  padding: 110px 0 100px;
+  padding: clamp(70px, 10vw, 110px) 0 clamp(64px, 9vw, 100px);
 }
 
 .closing-cta-container {
@@ -13,7 +13,7 @@
 .closing-cta-heading {
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 42px;
+  font-size: clamp(26px, 3.6vw, 42px);
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -45,13 +45,12 @@
 }
 
 @media (max-width: 640px) {
-  .closing-cta-heading {
-    font-size: 30px;
-  }
-
   .closing-cta-actions {
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+  }
+
+  .closing-cta-actions .btn {
+    width: 100%;
   }
 }

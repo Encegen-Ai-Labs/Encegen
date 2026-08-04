@@ -1,11 +1,11 @@
 .browse-topic-section {
   background: #ffffff;
-  padding: 90px 0 100px;
+  padding: clamp(56px, 8vw, 90px) 0 var(--section-py);
   text-align: center;
 }
 
 .browse-topic-heading {
-  font-size: 30px;
+  font-size: clamp(24px, 2.8vw, 30px);
   margin: 0 0 32px;
 }
 

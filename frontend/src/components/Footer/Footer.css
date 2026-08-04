@@ -3,17 +3,16 @@
   width: 100%;
   background-color: #030712;
   color: #94a3b8;
-  padding: 80px 0 40px;
+  padding: var(--section-py) 0 40px;
   box-sizing: border-box;
   text-align: left;
   font-family: inherit;
 }
 
 .footer-container {
-  width: 1280px;
-  max-width: 100%;
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
   box-sizing: border-box;
 }
 
@@ -21,7 +20,7 @@
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr;
-  gap: 40px;
+  gap: var(--card-gap);
 }
 
 /* Brand Column */

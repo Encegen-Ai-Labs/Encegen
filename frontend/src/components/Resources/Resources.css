@@ -1,17 +1,19 @@
 .resources-section {
   background: #ffffff;
-  padding: 100px 0;
+  padding: var(--section-py) 0;
 }
 
 .resources-header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 44px;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
 
 .resources-heading {
-  font-size: 30px;
+  font-size: clamp(24px, 2.8vw, 30px);
   margin: 0;
 }
 
@@ -31,8 +33,8 @@
 
 .resources-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--card-gap);
 }
 
 .resource-card {
@@ -131,13 +133,8 @@
 }
 
 @media (max-width: 900px) {
-  .resources-grid {
-    grid-template-columns: 1fr;
-  }
-
   .resources-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
   }
 }
