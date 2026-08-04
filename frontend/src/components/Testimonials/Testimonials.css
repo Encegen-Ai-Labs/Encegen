@@ -1,16 +1,16 @@
 .testimonials-section {
   background: #ffffff;
-  padding: 100px 0;
+  padding: var(--section-py) 0;
 }
 
 .testimonials-header {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 40px;
+  margin: 0 auto clamp(28px, 4vw, 40px);
 }
 
 .testimonials-heading {
-  font-size: 34px;
+  font-size: clamp(24px, 3.2vw, 34px);
   margin: 0;
 }
 
@@ -155,10 +155,6 @@
 }
 
 @media (max-width: 640px) {
-  .testimonials-heading {
-    font-size: 26px;
-  }
-
   .testimonials-subrow {
     flex-direction: column;
     align-items: flex-start;

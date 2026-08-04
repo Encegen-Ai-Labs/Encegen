@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './Timeline.css';
 
 const STEPS = [
@@ -28,8 +29,10 @@ const STEPS = [
 ];
 
 export default function Timeline() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="timeline-section">
+    <section ref={ref} className={`timeline-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container">
         <blockquote className="timeline-quote">
           &ldquo;We sat in a boardroom watching a $4M AI pilot fail in real

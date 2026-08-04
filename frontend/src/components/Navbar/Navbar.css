@@ -26,10 +26,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1280px;
-  max-width: 100%;
+  width: min(var(--container-width), 100%);
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
   box-sizing: border-box;
 }
 
@@ -71,7 +70,7 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(16px, 2.5vw, 32px);
 }
 
 .nav-item {

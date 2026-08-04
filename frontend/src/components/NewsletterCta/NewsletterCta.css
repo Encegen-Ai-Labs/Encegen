@@ -1,6 +1,6 @@
 .newsletter-cta-section {
   background: var(--brand-gradient);
-  padding: 100px 0;
+  padding: var(--section-py) 0;
 }
 
 .newsletter-cta-container {
@@ -13,14 +13,14 @@
 .newsletter-cta-heading {
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 40px;
+  font-size: clamp(26px, 4vw, 40px);
   letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0 0 16px;
 }
 
 .newsletter-cta-subtext {
-  font-size: 17px;
+  font-size: clamp(15px, 1.6vw, 17px);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   max-width: 520px;
@@ -74,10 +74,6 @@
 }
 
 @media (max-width: 560px) {
-  .newsletter-cta-heading {
-    font-size: 30px;
-  }
-
   .newsletter-cta-form {
     flex-direction: column;
     align-items: stretch;

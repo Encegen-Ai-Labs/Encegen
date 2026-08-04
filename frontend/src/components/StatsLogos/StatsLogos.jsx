@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './StatsLogos.css';
 
 const STATS = [
@@ -23,8 +24,10 @@ const CLIENT_CHIPS = [
 const REAL_LOGOS = ['Siemens', 'Vodafone', 'Airbus', 'IBM'];
 
 export default function StatsLogos() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="stats-logos-section">
+    <section ref={ref} className={`stats-logos-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container">
         <div className="stats-logos-stats">
           {STATS.map((stat) => (

@@ -1,6 +1,6 @@
 .featured-report-section {
   background: #ffffff;
-  padding: 100px 0;
+  padding: var(--section-py) 0;
 }
 
 .featured-report-card {
@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: stretch;
-  border-radius: 24px;
+  border-radius: clamp(18px, 2.5vw, 24px);
   background: var(--navy-800);
   min-height: 380px;
 }
@@ -35,7 +35,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  padding: 56px 48px;
+  padding: clamp(28px, 6vw, 56px) clamp(20px, 5vw, 48px);
 }
 
 .featured-report-tag {
@@ -51,7 +51,7 @@
 .featured-report-title {
   font-family: var(--heading);
   font-weight: 700;
-  font-size: 32px;
+  font-size: clamp(22px, 3vw, 32px);
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -60,7 +60,7 @@
 }
 
 .featured-report-description {
-  font-size: 16px;
+  font-size: clamp(15px, 1.6vw, 16px);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   max-width: 480px;
@@ -76,8 +76,9 @@
 .featured-report-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: clamp(10px, 2vw, 14px);
   margin-top: 10px;
+  width: 100%;
 }
 
 .featured-report-actions .btn-solid {
@@ -98,7 +99,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 40px 0 0;
+  padding: 0 clamp(20px, 4vw, 40px) 0 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -106,15 +107,15 @@
 .featured-report-graphic-year {
   font-family: var(--heading);
   font-weight: 800;
-  font-size: 220px;
+  font-size: clamp(48px, 14vw, 220px);
   line-height: 0.85;
-  letter-spacing: -6px;
+  letter-spacing: -0.03em;
   color: rgba(255, 255, 255, 0.18);
   white-space: nowrap;
 }
 
 .featured-report-graphic-label {
-  font-size: 14px;
+  font-size: clamp(10px, 1vw, 14px);
   font-weight: 700;
   letter-spacing: 2px;
   text-align: right;
@@ -127,31 +128,35 @@
     grid-template-columns: 1fr;
   }
 
+  .featured-report-glow {
+    left: 0;
+    background: radial-gradient(
+      ellipse at 50% 75%,
+      rgba(134, 59, 255, 0.55) 0%,
+      rgba(134, 59, 255, 0.18) 45%,
+      rgba(134, 59, 255, 0) 75%
+    );
+  }
+
   .featured-report-graphic {
     position: relative;
+    inset: auto;
+    left: 0;
+    width: 100%;
     align-items: center;
-    padding: 0 32px 32px;
+    padding: 0 clamp(20px, 5vw, 32px) clamp(20px, 4vw, 32px);
   }
 
-  .featured-report-graphic-year {
-    font-size: 120px;
-    letter-spacing: -3px;
-  }
-
-  .featured-report-body {
-    padding: 44px 32px 24px;
+  .featured-report-graphic-label {
+    text-align: center;
   }
 
   .featured-report-title {
-    font-size: 26px;
     max-width: none;
   }
-}
 
-@media (max-width: 640px) {
   .featured-report-actions {
     flex-direction: column;
     align-items: stretch;
-    width: 100%;
   }
 }

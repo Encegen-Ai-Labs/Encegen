@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './RunsBusiness.css';
 
 const BULLETS = [
@@ -33,8 +34,10 @@ const STATUS_CLASS = {
 };
 
 export default function RunsBusiness() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="runs-business-section">
+    <section ref={ref} className={`runs-business-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container runs-business-container">
         <div className="runs-business-copy">
           <span className="eyebrow">CHAPTER 03</span>

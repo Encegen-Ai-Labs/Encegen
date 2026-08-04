@@ -1,8 +1,11 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './ClosingCta.css';
 
 export default function ClosingCta() {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section className="closing-cta-section">
+    <section ref={ref} className={`closing-cta-section reveal ${visible ? 'is-visible' : ''}`}>
       <div className="container closing-cta-container">
         <h2 className="closing-cta-heading">
           This story isn't over.

@@ -1,6 +1,6 @@
 .logostrip-section {
   background: #ffffff;
-  padding: 56px 0;
+  padding: clamp(36px, 6vw, 56px) 0;
   border-bottom: 1px solid var(--section-border);
 }
 
@@ -18,11 +18,11 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: clamp(20px, 4vw, 48px);
 }
 
 .logostrip-name {
-  font-size: 20px;
+  font-size: clamp(15px, 1.8vw, 20px);
   font-weight: 700;
   color: #94a3b8;
   letter-spacing: -0.02em;
@@ -31,14 +31,4 @@
 
 .logostrip-name:hover {
   color: var(--ink);
-}
-
-@media (max-width: 768px) {
-  .logostrip-row {
-    gap: 28px;
-  }
-
-  .logostrip-name {
-    font-size: 16px;
-  }
 }
