@@ -36,13 +36,13 @@ export default function Navbar() {
         {/* Desktop Navigation Links */}
         <div className="navbar-links">
           <div className="nav-dropdown">
-            <a href="#solutions" className="nav-item">
+            <a href="/solutions" className="nav-item">
               Solutions <FiChevronDown className="chevron-icon" />
             </a>
           </div>
-          <a href="#resources" className="nav-item">Resources</a>
+          <a href="/resources" className="nav-item">Resources</a>
           <div className="nav-dropdown">
-            <a href="#products" className="nav-item">
+            <a href="/products" className="nav-item">
               Products <FiChevronDown className="chevron-icon" />
             </a>
           </div>
@@ -76,9 +76,9 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown Overlay */}
       <div className={`mobile-menu-overlay ${isOpen ? 'active' : ''}`}>
         <div className="mobile-menu-links">
-          <a href="#solutions" className="mobile-nav-item" onClick={toggleMenu}>Solutions</a>
-          <a href="#resources" className="mobile-nav-item" onClick={toggleMenu}>Resources</a>
-          <a href="#products" className="mobile-nav-item" onClick={toggleMenu}>Products</a>
+          <a href="/solutions" className="mobile-nav-item" onClick={toggleMenu}>Solutions</a>
+          <a href="/resources" className="mobile-nav-item" onClick={toggleMenu}>Resources</a>
+          <a href="/products" className="mobile-nav-item" onClick={toggleMenu}>Products</a>
           <Link to="/insights" className="mobile-nav-item" onClick={toggleMenu}>Insights</Link>
           <Link to="/about" className="mobile-nav-item" onClick={toggleMenu}>Company</Link>
           <a href="#demo" className="mobile-cta-button" onClick={toggleMenu}>Get a demo</a>

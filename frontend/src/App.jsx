@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Search from './pages/Search'
 import Insights from './pages/Insights'
+import Resources from './pages/Resources' 
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
           <Route path="/insights" element={<Insights />} />
+          <Route path="/resources" element={<Resources />} /> 
         </Routes>
       </main>
       <Footer />

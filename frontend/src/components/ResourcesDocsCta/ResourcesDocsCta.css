@@ -1,0 +1,129 @@
+.docs-cta-section {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.docs-cta-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; /* Increased gap to give the code block room */
+  align-items: center;
+}
+
+.docs-cta-content {
+  max-width: 500px;
+}
+
+.docs-cta-heading {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--ink);
+  margin: 0 0 20px;
+  line-height: 1.1;
+}
+
+.docs-cta-subtext {
+  font-size: 17px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.docs-cta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.docs-cta-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.docs-check-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f0ecfc; /* Light lavender background */
+  color: var(--brand-purple); /* Purple checkmark */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs-btn {
+  background: #f0ecfc; /* Match Figma light background */
+  color: var(--brand-purple); /* Match Figma text color */
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 14.5px;
+}
+
+.docs-btn:hover {
+  background: var(--brand-purple);
+  color: #ffffff;
+}
+
+/* Code Window UI */
+.docs-cta-visual {
+  width: 100%;
+}
+
+.code-window {
+  background: var(--navy-800);
+  border-radius: 16px;
+  border: 1px solid var(--navy-border);
+  box-shadow: 0 24px 48px -12px rgba(10, 14, 28, 0.25);
+  overflow: hidden;
+  width: 100%;
+}
+
+.code-header {
+  padding: 16px 20px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.code-body {
+  margin: 0;
+  padding: 32px 40px;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.8; /* Increased line height for readability */
+  color: #cbd5e1;
+}
+
+/* Syntax Highlighting */
+.code-body .keyword { color: #c678dd; }
+.code-body .class-name { color: #e5c07b; }
+.code-body .string { color: #98c379; }
+.code-body .function { color: #61afef; }
+
+@media (max-width: 900px) {
+  .docs-cta-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .docs-cta-content {
+    max-width: 100%;
+  }
+}
