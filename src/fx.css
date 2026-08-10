@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Scroll & entrance animations (Celonis-style motion)
+   ========================================================================== */
+
+/* --- Scroll reveal (classes added by ScrollFX.tsx) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --- Hero entrance cascade (plays on every page load / route change) --- */
+@keyframes fx-hero-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.phero__badge,
+.phero__title,
+.phero__sub,
+.phero__actions,
+.phero__trusted,
+.hero__badge,
+.hero__title,
+.hero__sub,
+.hero__ctas,
+.hero__badges,
+.careers-hero__badge,
+.careers-hero h1,
+.careers-hero p,
+.careers-hero__search,
+.careers-hero__meta,
+.search-hero h1,
+.search-hero__bar,
+.search-hero__suggestions,
+.jd-hero__badge,
+.jd-hero__crumbs,
+.jd-hero__row,
+.why-hero__grid > * {
+  animation: fx-hero-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.phero__title,
+.hero__title,
+.careers-hero h1,
+.search-hero h1,
+.jd-hero__crumbs {
+  animation-delay: 0.08s;
+}
+.phero__sub,
+.hero__sub,
+.careers-hero p,
+.search-hero__bar,
+.jd-hero__row {
+  animation-delay: 0.16s;
+}
+.phero__actions,
+.hero__ctas,
+.careers-hero__search,
+.search-hero__suggestions {
+  animation-delay: 0.24s;
+}
+.phero__trusted,
+.hero__badges,
+.careers-hero__meta,
+.why-hero__grid > *:last-child {
+  animation-delay: 0.32s;
+}
+
+/* Hero visuals drift in a touch later */
+.home-hero-visual,
+.phero .console,
+.phero .mock {
+  animation: fx-hero-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phero__badge,
+  .phero__title,
+  .phero__sub,
+  .phero__actions,
+  .phero__trusted,
+  .hero__badge,
+  .hero__title,
+  .hero__sub,
+  .hero__ctas,
+  .hero__badges,
+  .careers-hero__badge,
+  .careers-hero h1,
+  .careers-hero p,
+  .careers-hero__search,
+  .careers-hero__meta,
+  .search-hero h1,
+  .search-hero__bar,
+  .search-hero__suggestions,
+  .jd-hero__badge,
+  .jd-hero__crumbs,
+  .jd-hero__row,
+  .why-hero__grid > *,
+  .home-hero-visual,
+  .phero .console,
+  .phero .mock {
+    animation: none;
+  }
+}
+
+/* --- Logo marquee (home "trusted by" strip) --- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  width: max-content;
+  animation: fx-marquee 26s linear infinite;
+}
+.marquee__track:hover {
+  animation-play-state: paused;
+}
+@keyframes fx-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+
+/* --- Navbar link underline grows in from the left --- */
+.navbar__link {
+  position: relative;
+  border-bottom: none;
+}
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--purple-600);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.navbar__link:hover::after,
+.navbar__link--active::after,
+.navbar__group:hover .navbar__link::after {
+  transform: scaleX(1);
+}
+
+/* --- Generic button arrow micro-slide --- */
+.kbtn svg {
+  transition: transform 0.2s ease;
+}
+.kbtn:hover svg {
+  transform: translateX(3px);
+}
