@@ -2,10 +2,10 @@ import { ArtTile, Btn, PageHero, SectionHead } from '../../components/kit'
 import './company.css'
 
 const VALUES = [
-  { icon: '👁', title: 'Transparency', desc: 'We believe radical visibility drives better decisions.' },
-  { icon: '💡', title: 'Innovation', desc: "We push boundaries to reimagine what's possible." },
-  { icon: '❤', title: 'Customer First', desc: 'Everything we build starts with customer value.' },
-  { icon: '🛡', title: 'Integrity', desc: 'We act with honesty in everything we do.' },
+  { icon: '🛡', title: 'Integrity', desc: "We say what's true, price what's fair, and stand behind what we build." },
+  { icon: '❤', title: 'Customer first', desc: "Every project starts with the client's problem, not our product catalogue." },
+  { icon: '💡', title: 'Quality', desc: "We'd rather ship something solid than something fast and forgettable." },
+  { icon: '👁', title: 'Responsibility', desc: 'We build AI that respects the people who use it and the ones it affects.' },
 ]
 
 const LEADERS = [
@@ -30,15 +30,15 @@ export default function About() {
   return (
     <>
       <PageHero
-        badge="Our Story"
+        badge="Who we are"
         title={
           <>
-            We Believe Every Process
+            We build AI that
             <br />
-            <span className="accent-purple">Should Be Understood</span>
+            <span className="accent-purple">businesses can actually use.</span>
           </>
         }
-        sub="Encegen was founded on a simple idea: businesses run on processes, and the best businesses are the ones that truly understand theirs."
+        sub="Encegen AI Labs is a Pune-based AI research and software company. We take the promise of artificial intelligence — often loud, rarely practical — and turn it into working software that solves real problems for real businesses."
         trusted={['Founded 2011', '3,500+ Employees', '30+ Global offices']}
         trustedLabel="at a glance"
       />
@@ -47,16 +47,18 @@ export default function About() {
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">Our Mission</p>
-            <h2 className="left-title">Making processes transparent for the world.</h2>
+            <p className="shead__eyebrow">Our mission</p>
+            <h2 className="left-title">Making AI practical for the businesses that need it.</h2>
             <p className="left-copy">
-              We are on a mission to reveal how businesses actually operate. By uncovering hidden
-              inefficiencies and automating solutions, we help the world's most complex
-              organizations become more agile, sustainable, and productive.
+              Most companies hear about AI constantly and see very little of it in their day-to-day.
+              We started Encegen to close that gap — to take AI out of the demo and put it into the
+              tools people actually work with.
             </p>
             <p className="left-copy">
-              Process Intelligence isn't just about data; it's about clarity. It's about giving
-              leaders the confidence to act based on reality, not assumptions.
+              We research, design and build custom AI and software: models trained on a client's own
+              domain, applications that fit how a team already works, and the digital groundwork
+              that makes both run. The goal is simple — technology that earns its place by making
+              the work better.
             </p>
           </div>
           <ArtTile variant="blue" className="about-photo" />
@@ -121,8 +123,8 @@ export default function About() {
               <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
                 Careers
               </p>
-              <h2>Help us transform the way the world works.</h2>
-              <p>Join a fast-growing team of builders, thinkers, and problem solvers.</p>
+              <h2>Come build with us.</h2>
+              <p>We're a growing team in Pune, hiring across engineering, sales, design and consulting. If you like turning hard problems into working software, we'd like to meet you.</p>
               <div className="careers-band__chips">
                 <span>Software Engineer</span>
                 <span>Product Manager</span>
@@ -130,7 +132,7 @@ export default function About() {
               </div>
               <div style={{ marginTop: 28 }}>
                 <Btn to="/careers" variant="white">
-                  View all open roles →
+                  See open roles
                 </Btn>
               </div>
             </div>

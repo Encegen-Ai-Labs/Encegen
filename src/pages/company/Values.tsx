@@ -4,38 +4,38 @@ import './company.css'
 const VALUES = [
   {
     num: '01',
-    title: 'Curiosity Over Certainty',
-    desc: 'We will tell you when AI is the wrong answer. We chase the truth relentlessly, even when it challenges our assumptions.',
+    title: 'Integrity over hype',
+    desc: "We'll tell you when AI isn't the right tool. We'd rather lose a sale than oversell one.",
     art: 'blue',
   },
   {
     num: '02',
-    title: 'Delivering Without Ego',
-    desc: 'We move fast and never cut corners. Velocity without compromise, shipping quality at speed.',
+    title: "The customer's problem comes first",
+    desc: "We start with what the client actually needs, not with what we happen to have built.",
     art: 'magenta',
   },
   {
     num: '03',
-    title: 'Build in the Open',
-    desc: 'Your success is our only KPI. Deep partnership over transactional delivery.',
+    title: 'Quality is the baseline',
+    desc: "We ship things we're willing to put our name on. Solid beats flashy, every time.",
     art: 'cyan',
   },
   {
     num: '04',
-    title: 'Speak with Intention',
-    desc: 'No jargon. No confusion. Just results. Every word earns its place.',
+    title: 'Responsible by default',
+    desc: "We build AI that respects the people using it and the people it affects. That's not a feature — it's the floor.",
     art: 'purple',
   },
   {
     num: '05',
-    title: 'Human-Centered AI',
-    desc: 'AI should amplify people, never replace them. Technology serves humanity.',
+    title: 'Curiosity keeps us honest',
+    desc: "We keep learning, keep questioning, and keep testing our own assumptions before a client has to.",
     art: 'green',
   },
   {
     num: '06',
-    title: 'Built to Last',
-    desc: 'We build for 10 years, not the next demo. Durable architecture, sustainable growth.',
+    title: 'Better together',
+    desc: "The best work here comes from people sharing early, disagreeing openly, and building on each other's ideas.",
     art: 'orange',
   },
 ]
@@ -77,9 +77,9 @@ export default function Values() {
   return (
     <>
       <PageHero
-        badge="Our Values"
-        title="We don't just build AI. We raise it."
-        sub="Six core values guide every technical, operational, and interpersonal decision we make at Encegen – from complex neural architecture to human partnership."
+        badge="Our values"
+        title="What we stand for."
+        sub="A handful of principles shape how we research, how we build, and how we work with the people who trust us. They're not decoration — they're how we make calls when the answer isn't obvious."
         actions={
           <>
             <Btn to="/our-story" variant="white">
