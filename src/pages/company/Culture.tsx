@@ -3,24 +3,24 @@ import './company.css'
 
 const PRINCIPLES = [
   {
-    title: 'Curiosity Over Certainty',
-    desc: "We ask questions that haven't been asked. We explore paths that haven't been mapped. Certainty is comfortable; curiosity is how we grow.",
+    title: 'Curiosity over certainty',
+    desc: "We ask the awkward questions early, while they're still cheap to answer.",
   },
   {
-    title: 'Ownership Without Ego',
-    desc: 'Every person here owns their work end to end. We celebrate results, not titles. The best idea wins – regardless of who said it.',
+    title: 'Ownership without ego',
+    desc: 'You own your work end to end. The best idea wins, whoever it comes from.',
   },
   {
-    title: 'Build in the Open',
-    desc: "We share early, iterate publicly, and welcome scrutiny. Transparency isn't a policy – it's how we think.",
+    title: 'Build in the open',
+    desc: "We share early and welcome the tough feedback. It's how the work gets better.",
   },
   {
-    title: 'Speed with Intention',
-    desc: 'We move fast but never recklessly. Every shortcut we skip today saves us a month tomorrow.',
+    title: 'Speed with intention',
+    desc: "We move fast, but we don't cut the corners that come back to bite us.",
   },
   {
-    title: 'Human-Centered AI',
-    desc: "Technology serves people, not the other way around. Every feature we ship must make someone's life genuinely better.",
+    title: 'Human-centered AI',
+    desc: "Every feature has to make someone's actual day better. If it doesn't, we don't ship it.",
   },
 ]
 
@@ -61,9 +61,9 @@ export default function Culture() {
   return (
     <>
       <PageHero
-        badge="Our Culture"
-        title="We don't just build AI. We raise it."
-        sub="At Encegen, intelligence isn't manufactured — it's cultivated. Every model, every agent, every system is built with intention, care, and relentless curiosity."
+        badge="Our culture"
+        title="Small team. Real ownership. Work that ships."
+        sub="Encegen is a place where the person who has the idea gets to build it. We keep the team small, the layers few, and the focus on work that actually reaches people."
         actions={
           <>
             <Btn to="/careers" variant="white">
@@ -155,9 +155,9 @@ export default function Culture() {
       </section>
 
       <ClosingCTA
-        line1="Ready to do the best work of your life?"
-        sub="We're not for everyone — and that's the point. If this resonates, we'd love to meet you."
-        primary={{ label: 'View Open Roles →', to: '/careers' }}
+        line1="Like the sound of this?"
+        sub="We're not for everyone, and that's the point. If small teams, real ownership and shipping work you're proud of sounds right, come see what we're hiring for."
+        primary={{ label: 'See open roles', to: '/careers' }}
         secondary={{ label: 'Our Story', to: '/our-story' }}
         checks={['Remote-first', '14 open roles', 'Backed by Sequoia & Accel']}
       />

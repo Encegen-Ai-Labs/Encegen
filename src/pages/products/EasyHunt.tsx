@@ -20,37 +20,37 @@ const STAT_TILES = [
 const HOW = [
   {
     num: '01',
-    title: 'SEARCH',
-    desc: 'Enter any keyword — owner name, survey number, CTS number, village name, or litigation reference across millions of government-sourced records instantly.',
+    title: 'Search',
+    desc: 'Type any keyword — owner name, survey number, CTS number, village or remark — and search across the full set of government-sourced records at once.',
   },
   {
     num: '02',
-    title: 'DISCOVER',
-    desc: 'AI retrieves, ranks, and cross-references matching property records. View complete ownership history, encumbrances, mutations, and linked documents in one place.',
+    title: 'Discover',
+    desc: 'Easy Hunt pulls up every matching entry and lays out the complete record — ownership details, dates, land details and linked documents — side by side, ready to read.',
   },
   {
     num: '03',
-    title: 'DECIDE',
-    desc: 'Assess risk, verify titles, and make confident property decisions backed by comprehensive, AI-verified intelligence.',
+    title: 'Decide',
+    desc: 'Export what you need as PDF or Excel, share it with your client or team, and move ahead with a full picture instead of a partial one.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '🔎', title: 'Intelligent Keyword Search', desc: 'Search by owner, survey number, CTS, village, document type, or litigation reference across millions of records.' },
-  { icon: '🏛', title: 'Government-Sourced Data', desc: 'Verified records sourced directly from official government datasets, registries, and land record portals.' },
-  { icon: '✨', title: 'AI-Powered Matching', desc: 'Smart fuzzy matching handles transliterations, spelling variations, and partial matches across languages.' },
-  { icon: '⚡', title: 'Instant Due Diligence', desc: 'Complete property intelligence retrieved in seconds — ownership history, encumbrances, mutations, litigation.' },
-  { icon: '⚖', title: 'Legal Risk Detection', desc: 'Automatically identify title defects, pending litigations, disputed ownership, and encumbrance flags.' },
-  { icon: '🔐', title: 'Enterprise Security', desc: 'SOC 2 compliant, end-to-end encryption, role-based access, audit trails, and data residency compliance.' },
+  { icon: '🔎', title: 'Deep keyword search', desc: 'Search by owner, survey number, CTS, village, document type or remark across the full dataset in one query.' },
+  { icon: '🏛', title: 'Government-sourced data', desc: 'Built from official Maharashtra datasets like Bhulekh and Mahabhumi, covering key areas including Pune, Mumbai and Nagpur.' },
+  { icon: '✨', title: 'Smart name matching', desc: 'Handles spelling variations and transliterations, so a name spelled two ways still surfaces the right record.' },
+  { icon: '⚡', title: 'Full records, not snippets', desc: 'See the complete entry — ownership, survey details, dates and remarks — in one place, without switching files.' },
+  { icon: '⚖', title: 'Export to PDF or Excel', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
+  { icon: '🔐', title: 'Search history', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
 ]
 
 const STAKEHOLDERS = [
-  { icon: '⚖', title: 'Property Lawyers & Advocates', desc: 'Accelerate title searches and legal verification with AI-powered due diligence.' },
-  { icon: '📋', title: 'Title Search Consultants', desc: 'Complete due diligence reports 10x faster with comprehensive property intelligence.' },
-  { icon: '🏗', title: 'Real Estate Developers', desc: 'Assess land records, ownership history, and risks before land acquisition.' },
-  { icon: '🏦', title: 'Banks & NBFCs', desc: 'Verify property titles instantly for mortgage underwriting and loan approvals.' },
-  { icon: '🏛', title: 'Government Departments', desc: 'Streamline land records management, queries, and inter-departmental verification.' },
-  { icon: '🗺', title: 'Land Acquisition Teams', desc: 'Research ownership history, encumbrances, and litigation at scale across regions.' },
+  { icon: '⚖', title: 'Lawyers & advocates', desc: 'Move through title searches and verification far faster during due diligence.' },
+  { icon: '📋', title: 'Title search consultants', desc: 'Complete reports in a fraction of the time with full records in one view.' },
+  { icon: '🏗', title: 'Real estate & developers', desc: 'Check ownership history and land details before committing to a deal.' },
+  { icon: '🏦', title: 'Banks & NBFCs', desc: 'Speed up property checks for mortgage and loan verification.' },
+  { icon: '🏛', title: 'Investors & consultants', desc: 'Spot what needs a closer look before money changes hands.' },
+  { icon: '🗺', title: 'Verification agencies', desc: 'Handle high volumes of property checks without adding hours.' },
 ]
 
 const TESTIMONIALS = [
@@ -83,23 +83,23 @@ const TESTIMONIALS = [
 const FAQ = [
   {
     q: 'What is Easy Hunt?',
-    a: 'Easy Hunt is an AI-powered Property Intelligence Platform that helps professionals search and analyze property records from government-sourced datasets.',
+    a: "A keyword search platform for Maharashtra land records, built from government datasets like Bhulekh and Mahabhumi. Type any term — owner name, survey number, village — and get the full matching records in seconds. It's made for quick discovery, not official verification.",
   },
   {
-    q: 'Who is Easy Hunt for?',
-    a: 'Property lawyers, title search consultants, real estate developers, banks, NBFCs, government departments, and land acquisition teams.',
+    q: 'How is it different from government portals?',
+    a: 'Portals like IGR, Bhulekh and Mahabhumi show one record at a time and have no keyword search. Easy Hunt scans the bulk data instantly and shows complete matching entries at once — cutting the time on a title search dramatically.',
   },
   {
-    q: 'How accurate is the data?',
-    a: 'Our data is sourced directly from official government registries and verified using AI-powered cross-referencing.',
+    q: 'What data does it cover?',
+    a: 'Maharashtra property records — owner names, survey numbers, CTS details, villages, dates and remarks — sourced from public government datasets. Coverage is strongest in areas like Pune, Mumbai and Nagpur, and is expanding.',
   },
   {
-    q: 'Is my data secure?',
-    a: 'Yes. Easy Hunt is SOC 2 compliant with end-to-end encryption, role-based access control, and audit trails.',
+    q: 'Is the data official or legally valid?',
+    a: 'No — it\'s research data from government sources, meant for fast discovery. Always confirm any match on the official portals (IGR eSearch, Mahabhumi) before using it for legal purposes. Easy Hunt helps you find what to check, quickly.',
   },
   {
-    q: 'How do I get started?',
-    a: 'Sign up for a free trial at easyhunt.in and start searching property records instantly.',
+    q: 'Who is it for?',
+    a: 'Lawyers, real estate agents, brokers, investors, banks and NBFCs, and anyone running property title searches or due diligence in Maharashtra.',
   },
 ]
 
@@ -166,19 +166,19 @@ export default function EasyHunt() {
   return (
     <>
       <PageHero
-        badge="✦ AI-Powered Property Intelligence"
+        badge="Property search for Maharashtra, powered by AI"
         title={
           <>
-            Transform Property Research
+            Find any land record
             <br />
-            into Intelligent Decisions
+            in seconds, not hours.
           </>
         }
-        sub="Easy Hunt centralizes fragmented property data into a single intelligent platform — search by owner name, survey number, CTS number, village name, or litigation reference and retrieve complete property records within seconds."
+        sub="Easy Hunt searches Maharashtra property records the moment you type. Enter an owner name, survey number, CTS number or village and pull up complete matching entries instantly — so title searches and due diligence that used to take an afternoon take a coffee break."
         actions={
           <>
-            <Btn variant="white">Start Searching →</Btn>
-            <Btn variant="outline-light">Book a Demo</Btn>
+            <Btn variant="white">Book a demo</Btn>
+            <Btn variant="outline-light">See how it works</Btn>
           </>
         }
         trusted={['SBI Legal', 'National Housing Bank', 'HDFC Law', 'Shardul Amarchand', 'AZB & Partners', 'JSA Law']}
@@ -192,11 +192,12 @@ export default function EasyHunt() {
         <div className="container split">
           <div>
             <p className="shead__eyebrow">Chapter 01</p>
-            <h2 className="left-title">Most property research still happens the hard way</h2>
+            <h2 className="left-title">Property research still happens the slow way.</h2>
             <p className="left-copy">
-              Every day, property lawyers, title search consultants, and real estate developers
-              spend hours manually searching across scattered PDFs, Excel files, and government
-              portals. Critical records get buried. Legal risks go unnoticed. Decisions get delayed.
+              Lawyers, title consultants and developers still lose hours to the same routine —
+              opening scattered PDFs, scrolling messy Excel files, and checking one government
+              portal after another. Records get missed. Risks slip through. Decisions wait on
+              paperwork that should take seconds.
             </p>
           </div>
           <div className="stat-tiles">
@@ -212,7 +213,7 @@ export default function EasyHunt() {
 
       <GradBand
         tone="orange"
-        quote="What if every property decision was backed by complete intelligence — retrieved in 30 seconds, not 30 hours?"
+        quote="What if every property check was backed by complete records — pulled up in thirty seconds, not thirty hours?"
       />
 
       {/* Chapter 02 */}
@@ -220,12 +221,13 @@ export default function EasyHunt() {
         <div className="container split">
           <div>
             <p className="shead__eyebrow">Chapter 02</p>
-            <h2 className="left-title">We believe every property record should be instantly accessible</h2>
+            <h2 className="left-title">Every land record should be a search away.</h2>
             <p className="left-copy">
-              Property intelligence should be as fast and reliable as a Google search. Unlike
-              traditional methods, Easy Hunt uses AI to understand context, not just keywords –
-              matching owner names across transliterations, connecting survey numbers to historical
-              records, and surfacing litigation risks automatically.
+              Finding a property record should feel as simple as a web search. Easy Hunt reads the
+              government data the way a person would — matching owner names across spelling and
+              transliteration differences, linking survey numbers to their history, and pulling
+              every related entry into one clean view. You stop hunting through files and start
+              reading answers.
             </p>
           </div>
           <MockPanel
@@ -333,9 +335,9 @@ export default function EasyHunt() {
 
       <ClosingCTA
         dark
-        line1="This is just the beginning"
-        sub="Join 500+ organizations transforming property research with AI-powered intelligence. Start your free trial today."
-        primary={{ label: 'Start Free Trial →' }}
+        line1="Search smarter. Decide faster."
+        sub="See how much time Easy Hunt takes off a single title search. Book a demo and try it on a real query."
+        primary={{ label: 'Book a demo' }}
         secondary={{ label: 'Book a Demo' }}
         checks={['Enterprise Security', '24/7 Support', 'API Access']}
       />
