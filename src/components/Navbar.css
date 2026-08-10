@@ -40,25 +40,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-sm);
   height: 84px;
 }
 
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: var(--space-md);
 }
 
 .navbar__link {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 500;
   color: var(--ink-900);
   transition: color 0.15s ease;
-  padding: 6px 0;
+  padding: var(--space-3xs) 0;
   border-bottom: 2px solid transparent;
 }
 
@@ -176,19 +176,19 @@
   display: flex;
   align-items: stretch;
   gap: 0;
-  padding: 34px 0 42px;
+  padding: var(--space-md) 0 var(--space-lg);
 }
 
 /* Featured card (left) */
 .navbar__mega-card {
   flex-shrink: 0;
-  width: 190px;
+  width: clamp(10rem, 8.5rem + 3vw, 12.5rem);
   min-height: 160px;
-  margin-right: 44px;
+  margin-right: var(--space-lg);
   border-radius: 10px;
   background: var(--navy-950);
   color: #ffffff;
-  padding: 18px;
+  padding: var(--space-xs);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -199,7 +199,7 @@
   box-shadow: 0 16px 30px rgba(22, 20, 60, 0.3);
 }
 .navbar__mega-card > span:first-child {
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 600;
   line-height: 1.35;
 }
@@ -222,25 +222,25 @@
 /* Link columns */
 .navbar__mega-col {
   flex: 1;
-  padding: 4px 0 4px 40px;
+  padding: var(--space-3xs) 0 var(--space-3xs) var(--space-md);
   border-left: 1px solid #e9e8f2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 .navbar__mega-col h4 {
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gray-500);
-  margin-bottom: 20px;
+  margin-bottom: var(--space-xs);
 }
 .navbar__mega-link {
-  font-size: 15.5px;
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--ink-900);
-  padding: 9px 0;
+  padding: var(--space-2xs) 0;
   transition: color 0.12s ease, transform 0.18s ease;
 }
 .navbar__mega-link:hover {
@@ -259,7 +259,7 @@
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-xs);
 }
 
 .navbar__search {
@@ -279,11 +279,11 @@
 }
 
 .navbar__demo {
-  padding: 13px 26px;
+  padding: var(--space-xs) var(--space-sm);
   border-radius: 12px;
   background: var(--lavender-100);
   color: var(--purple-600);
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 600;
   box-shadow: 0 6px 14px rgba(101, 83, 238, 0.18);
   transition: background 0.15s ease, transform 0.15s ease;
@@ -294,8 +294,75 @@
   transform: translateY(-1px);
 }
 
+/* Mobile menu toggle — hidden on desktop where the full nav is shown */
+.navbar__burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--lavender-100);
+  color: var(--ink-900);
+}
+.navbar__burger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.navbar--on-dark .navbar__burger {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+/* Mobile menu panel — plain list, no motion/animation on open-close.
+   Capped to the remaining viewport height and internally scrollable so a
+   long, flattened link list never gets trapped below the fold inside the
+   fixed-position header (which the page's own scroll can't reach). */
+.navbar__mobile-panel {
+  display: none;
+}
+.navbar__mobile-panel.is-open {
+  display: block;
+  max-height: calc(100vh - 84px);
+  overflow-y: auto;
+  background: #ffffff;
+  border-top: 1px solid #eeedf6;
+  box-shadow: 0 20px 40px rgba(22, 20, 60, 0.12);
+}
+.navbar__mobile-inner {
+  padding: var(--space-sm) 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+.navbar__mobile-link {
+  display: block;
+  padding: var(--space-2xs) 0;
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--ink-900);
+  border-bottom: 1px solid #eeedf6;
+}
+.navbar__mobile-group-label {
+  padding-top: var(--space-xs);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+
 @media (max-width: 960px) {
   .navbar__links {
     display: none;
+  }
+  .navbar__burger {
+    display: inline-flex;
   }
 }

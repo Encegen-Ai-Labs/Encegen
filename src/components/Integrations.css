@@ -1,10 +1,10 @@
 .integrations {
   background: var(--navy-950);
-  padding: 110px 0 120px;
+  padding: var(--space-2xl) 0 var(--space-2xl);
 }
 
 .integrations__title {
-  font-size: clamp(32px, 4.5vw, 52px);
+  font-size: clamp(2rem, 1.7rem + 1.5vw, 3.25rem);
   font-weight: 800;
   line-height: 1.15;
   text-align: center;
@@ -12,9 +12,9 @@
 }
 
 .integrations__sub {
-  margin: 20px auto 0;
+  margin: var(--space-sm) auto 0;
   max-width: 640px;
-  font-size: 19px;
+  font-size: var(--fs-md);
   line-height: 1.6;
   text-align: center;
   color: #a8a5cb;
@@ -23,8 +23,8 @@
 .integrations__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 26px 30px;
-  margin-top: 60px;
+  gap: var(--space-lg) var(--space-md);
+  margin-top: var(--space-xl);
 }
 
 .integrations__pill {
@@ -34,7 +34,7 @@
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: 17px;
+  font-size: var(--fs-lg);
   font-weight: 700;
   box-shadow: 0 0 26px rgba(158, 140, 255, 0.5);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -48,15 +48,15 @@
 .integrations__more {
   display: flex;
   justify-content: center;
-  margin-top: 52px;
+  margin-top: var(--space-lg);
 }
 
 .integrations__more-link {
-  padding: 18px 34px;
+  padding: var(--space-sm) var(--space-md);
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: 16.5px;
+  font-size: var(--fs-md);
   font-weight: 600;
   box-shadow: 0 0 26px rgba(158, 140, 255, 0.55);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -76,7 +76,7 @@
 @media (max-width: 720px) {
   .integrations__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    gap: var(--space-sm);
   }
 
   .integrations__pill {

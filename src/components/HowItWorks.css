@@ -1,25 +1,26 @@
 .hiw {
   background: var(--lavender-50);
-  padding: 96px 0 110px;
+  padding: var(--space-2xl) 0 var(--space-2xl);
 }
 
 .hiw__panel {
-  margin-top: 64px;
+  margin-top: var(--space-xl);
   background: var(--panel-navy);
   border-radius: 22px;
-  padding: 30px 34px;
+  padding: var(--space-sm) var(--space-md);
   box-shadow: 0 30px 60px rgba(22, 20, 60, 0.28);
 }
 
 .hiw__layer-head {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--space-xs);
 }
 
 .hiw__layer-title {
-  font-size: 13px;
+  font-size: var(--fs-sm);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -36,8 +37,8 @@
 .hiw__live {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
+  gap: var(--space-2xs);
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -69,20 +70,20 @@
 .hiw__chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 18px;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
 }
 
 .hiw__chip {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-xs);
   border-radius: 12px;
   background: var(--chip-navy);
   border: 1px solid var(--chip-border);
   color: #ffffff;
-  font-size: 15px;
+  font-size: var(--fs-base);
   font-weight: 600;
 }
 
@@ -96,7 +97,7 @@
 .hiw-connector {
   position: relative;
   height: 46px;
-  margin: 18px 0;
+  margin: var(--space-xs) 0;
 }
 
 .hiw-connector__line {
@@ -123,12 +124,12 @@
 .hiw__engine {
   border: 1px solid rgba(122, 99, 255, 0.55);
   border-radius: 8px;
-  padding: 24px 26px 30px;
+  padding: var(--space-sm) var(--space-sm) var(--space-md);
   background: rgba(255, 255, 255, 0.012);
 }
 
 .hiw__engine-tag {
-  font-size: 12px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -138,15 +139,15 @@
 .hiw__engine-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
-  gap: 36px;
+  gap: var(--space-md);
   align-items: center;
-  margin-top: 26px;
+  margin-top: var(--space-xs);
 }
 
 .hiw__features {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-xs);
 }
 
 .hiw__features li {
@@ -168,25 +169,25 @@
 
 .hiw__features strong {
   color: #ffffff;
-  font-size: 15.5px;
+  font-size: var(--fs-sub);
   font-weight: 700;
-  margin-right: 8px;
+  margin-right: var(--space-2xs);
 }
 
 .hiw__features span {
   color: #9d9ac2;
-  font-size: 14px;
+  font-size: var(--fs-base);
 }
 
 .hiw__features--tight {
-  gap: 10px;
-  margin-top: 14px;
+  gap: var(--space-2xs);
+  margin-top: var(--space-xs);
 }
 
 .hiw__mini-label {
   display: block;
-  margin-top: 20px;
-  font-size: 12px;
+  margin-top: var(--space-xs);
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -218,7 +219,7 @@
   height: 7px;
   border-radius: 999px;
   background: #1c2158;
-  margin-top: 10px;
+  margin-top: var(--space-2xs);
   overflow: hidden;
 }
 
@@ -231,9 +232,9 @@
 }
 
 .hiw-graph__caption {
-  margin-top: 12px;
+  margin-top: var(--space-2xs);
   align-self: flex-start;
-  font-size: 11.5px;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--purple-400);
@@ -242,9 +243,9 @@
 /* Donut */
 .hiw-donut {
   position: relative;
-  width: 128px;
-  height: 128px;
-  margin-top: 20px;
+  width: clamp(6.5rem, 5.8rem + 2.5vw, 9rem);
+  height: clamp(6.5rem, 5.8rem + 2.5vw, 9rem);
+  margin-top: var(--space-xs);
 }
 
 .hiw-donut__label {
@@ -259,13 +260,13 @@
 
 .hiw-donut__label strong {
   color: #ffffff;
-  font-size: 24px;
+  font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
   font-weight: 800;
 }
 
 .hiw-donut__label span {
   color: var(--purple-400);
-  font-size: 9.5px;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -274,15 +275,15 @@
 .hiw__actions {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, max-content));
-  gap: 16px;
-  margin-top: 18px;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
 }
 
 .hiw__action {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 22px 14px 18px;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-xs);
   border-radius: 12px;
   background: var(--chip-navy);
   border: 1px solid var(--chip-border);
@@ -296,7 +297,7 @@
 .hiw__action strong {
   display: block;
   color: #ffffff;
-  font-size: 15px;
+  font-size: var(--fs-base);
   font-weight: 700;
 }
 
@@ -304,7 +305,7 @@
   display: block;
   margin-top: 2px;
   color: #67e8f9;
-  font-size: 11px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   letter-spacing: 0.1em;
 }
@@ -312,10 +313,10 @@
 @media (max-width: 900px) {
   .hiw__engine-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: var(--space-md);
   }
 
   .hiw__panel {
-    padding: 24px 20px;
+    padding: var(--space-xs) var(--space-sm);
   }
 }
