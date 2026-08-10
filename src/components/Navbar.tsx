@@ -120,6 +120,7 @@ const NAV: NavItem[] = [
 export default function Navbar() {
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -127,6 +128,10 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   const onDark = !scrolled && !LIGHT_HERO_PATHS.includes(pathname)
   const cls = [
@@ -190,8 +195,44 @@ export default function Navbar() {
           <a href="#" className="navbar__demo">
             Get a demo
           </a>
+          <button
+            type="button"
+            className="navbar__burger"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </div>
+
+      <div className={`navbar__mobile-panel ${mobileOpen ? 'is-open' : ''}`}>
+        <nav className="container navbar__mobile-inner" aria-label="Mobile navigation">
+          {NAV.map((item) =>
+            item.mega ? (
+              <div key={item.label}>
+                <span className="navbar__mobile-group-label">{item.label}</span>
+                <Link to={item.mega.featured.to} className="navbar__mobile-link">
+                  {item.mega.featured.title}
+                </Link>
+                {item.mega.columns.flatMap((col) => col.links).map((link) => (
+                  <Link key={link.label} to={link.to} className="navbar__mobile-link">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <Link key={item.label} to={item.to!} className="navbar__mobile-link">
+                {item.label}
+              </Link>
+            ),
+          )}
+        </nav>
+      </div>
+
       <div className="navbar__backdrop" aria-hidden="true" />
     </header>
   )

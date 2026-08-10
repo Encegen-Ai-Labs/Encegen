@@ -1,43 +1,43 @@
 .security {
   background: var(--lavender-50);
-  padding: 110px 0 90px;
+  padding: var(--space-2xl) 0 var(--space-xl);
 }
 
 .security__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-  margin-top: 60px;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 .security__card {
   background: #ffffff;
   border: 1px solid #e9e8f4;
   border-radius: 16px;
-  padding: 30px 28px 34px;
+  padding: var(--space-md) var(--space-sm) clamp(1.5rem, 1.3rem + 0.6vw, 2.125rem);
   box-shadow: 0 10px 24px rgba(22, 20, 60, 0.05);
 }
 
 .security__icon {
   display: grid;
   place-items: center;
-  width: 56px;
-  height: 56px;
+  width: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
+  height: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
   border-radius: 13px;
   background: var(--lavender-100);
   color: var(--purple-600);
 }
 
 .security__card h3 {
-  margin-top: 22px;
-  font-size: 19px;
+  margin-top: var(--space-xs);
+  font-size: var(--fs-h3-card);
   font-weight: 700;
   color: var(--ink-900);
 }
 
 .security__card p {
-  margin-top: 12px;
-  font-size: 15.5px;
+  margin-top: var(--space-2xs);
+  font-size: var(--fs-sub);
   line-height: 1.6;
   color: var(--gray-600);
 }
@@ -45,16 +45,16 @@
 .security__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 44px;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
 }
 
 .security__badge {
-  padding: 13px 26px;
+  padding: var(--space-xs) var(--space-sm);
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: 15px;
+  font-size: var(--fs-base);
   font-weight: 600;
   box-shadow: 0 8px 18px rgba(22, 20, 60, 0.12);
 }

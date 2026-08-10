@@ -5,12 +5,12 @@
 
 /* ---------- Typography tokens ---------- */
 :root {
-  --fs-eyebrow: 13.5px;
-  --fs-h2: clamp(30px, 4vw, 46px);
-  --fs-h3-card: 19px;
-  --fs-sub: 18px;
-  --fs-body: 15px;
-  --fs-card-body: 14.5px;
+  --fs-eyebrow: clamp(0.75rem, 0.71rem + 0.2vw, 0.84375rem);
+  --fs-h2: clamp(1.875rem, 1.55rem + 1.6vw, 2.875rem);
+  --fs-h3-card: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --fs-sub: clamp(1rem, 0.94rem + 0.24vw, 1.125rem);
+  --fs-body: clamp(0.875rem, 0.83rem + 0.18vw, 0.9375rem);
+  --fs-card-body: clamp(0.85rem, 0.81rem + 0.15vw, 0.90625rem);
   --lh-heading: 1.18;
   --lh-body: 1.62;
 }
@@ -56,7 +56,7 @@
 
 /* Split-section left titles */
 .left-title {
-  font-size: clamp(26px, 3.2vw, 36px);
+  font-size: clamp(1.625rem, 1.4rem + 1.1vw, 2.25rem);
   font-weight: 800;
   line-height: 1.22;
 }
@@ -88,7 +88,7 @@
 }
 .sresult h3,
 .job-row__info h3 {
-  font-size: 18px;
+  font-size: var(--fs-sub);
   font-weight: 700;
 }
 
@@ -129,9 +129,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-3xs);
   border-radius: 999px;
-  font-size: 16px;
+  font-size: var(--fs-md);
   font-weight: 600;
   line-height: 1;
   border: none;
@@ -141,7 +141,7 @@
 .hero__cta,
 .cta__button,
 .integrations__more-link {
-  padding: 15px 30px;
+  padding: var(--space-sm) var(--space-md);
 }
 .hero__cta:hover,
 .cta__button:hover,
@@ -158,22 +158,22 @@
 .newsletter__form button,
 .sfilter__clear {
   border-radius: 999px;
-  padding: 12px 24px;
-  font-size: 14.5px;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--fs-base);
   font-weight: 600;
   line-height: 1;
 }
 .apply-submit {
   border-radius: 999px;
-  padding: 15px;
+  padding: var(--space-sm);
   width: 100%;
-  font-size: 15.5px;
+  font-size: var(--fs-base);
 }
 
 /* Header button keeps its size but joins the pill family */
 .navbar__demo {
-  padding: 13px 26px;
-  font-size: 15px;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--fs-base);
 }
 .navbar__search {
   border-radius: 999px;
@@ -194,20 +194,20 @@
 
 /* ---------- Fixed header: heroes start under the overlay ---------- */
 .phero {
-  padding-top: 140px;
+  padding-top: clamp(6.5rem, 6rem + 2vw, 8.75rem);
 }
 .hero {
-  padding-top: 160px;
+  padding-top: clamp(7.25rem, 6.7rem + 2.2vw, 10rem);
 }
 .careers-hero {
-  padding-top: 140px;
+  padding-top: clamp(6.5rem, 6rem + 2vw, 8.75rem);
 }
 .search-hero {
-  padding-top: 130px;
+  padding-top: clamp(6rem, 5.5rem + 2vw, 8.125rem);
 }
 .jd-hero {
-  padding-top: 130px;
+  padding-top: clamp(6rem, 5.5rem + 2vw, 8.125rem);
 }
 .why-hero {
-  padding-top: 150px;
+  padding-top: clamp(6.75rem, 6.2rem + 2.2vw, 9.375rem);
 }

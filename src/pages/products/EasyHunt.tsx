@@ -118,46 +118,48 @@ function Console() {
         </span>
         <span className="console__btn">Search AI</span>
       </div>
-      <table className="console__table">
-        <thead>
-          <tr>
-            <th>Owner Name</th>
-            <th>Survey / CTS No.</th>
-            <th>Village</th>
-            <th>Document Type</th>
-            <th>Confidence</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Godrej Properties Ltd</td>
-            <td>Survey 10A/A</td>
-            <td>Vikhroli</td>
-            <td>Mutation Entry (Partial)</td>
-            <td>
-              <span className="console__match">98% Match</span>
-            </td>
-          </tr>
-          <tr>
-            <td>Ramesh J. Mehta &amp; Ors</td>
-            <td>CTS 4629</td>
-            <td>Bandra</td>
-            <td>Index II Registry</td>
-            <td>
-              <span className="console__match">89% Match</span>
-            </td>
-          </tr>
-          <tr>
-            <td>Tata Housing Development</td>
-            <td>Survey 22/1/B</td>
-            <td>Mulund</td>
-            <td>Litigation Clearance</td>
-            <td>
-              <span className="console__match">84% Match</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="console__table-wrap">
+        <table className="console__table">
+          <thead>
+            <tr>
+              <th>Owner Name</th>
+              <th>Survey / CTS No.</th>
+              <th>Village</th>
+              <th>Document Type</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Godrej Properties Ltd</td>
+              <td>Survey 10A/A</td>
+              <td>Vikhroli</td>
+              <td>Mutation Entry (Partial)</td>
+              <td>
+                <span className="console__match">98% Match</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Ramesh J. Mehta &amp; Ors</td>
+              <td>CTS 4629</td>
+              <td>Bandra</td>
+              <td>Index II Registry</td>
+              <td>
+                <span className="console__match">89% Match</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Tata Housing Development</td>
+              <td>Survey 22/1/B</td>
+              <td>Mulund</td>
+              <td>Litigation Clearance</td>
+              <td>
+                <span className="console__match">84% Match</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
