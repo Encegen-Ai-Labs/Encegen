@@ -206,7 +206,22 @@
 .faq details[open] summary::after {
   content: '–';
 }
-.faq details p {
+/* Smooth open/close via CSS grid-rows instead of the browser's native
+   instant display:none toggle. Declaring `display:grid` here (rather than
+   only under `details[open]`) overrides the UA default that hides
+   non-summary details content, so the collapse/expand is what's actually
+   visible instead of an instant snap. */
+.faq__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-base) var(--ease-out);
+}
+.faq details[open] .faq__content {
+  grid-template-rows: 1fr;
+}
+.faq__content > p {
+  overflow: hidden;
+  min-height: 0;
   margin-top: var(--space-xs);
   font-size: var(--fs-card-body);
   line-height: 1.65;
