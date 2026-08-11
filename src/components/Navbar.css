@@ -320,20 +320,32 @@
   color: #ffffff;
 }
 
-/* Mobile menu panel — plain list, no motion/animation on open-close.
-   Capped to the remaining viewport height and internally scrollable so a
-   long, flattened link list never gets trapped below the fold inside the
-   fixed-position header (which the page's own scroll can't reach). */
+/* Mobile menu panel — fast fade + slide on open/close (display can't be
+   transitioned, so the panel stays in the DOM and collapses via
+   max-height/opacity/transform instead). Capped to the remaining viewport
+   height and internally scrollable so a long, flattened link list never
+   gets trapped below the fold inside the fixed-position header (which the
+   page's own scroll can't reach). border-top-width (rather than a static
+   1px border) animates alongside max-height so no stray divider line is
+   visible while the panel is collapsed. */
 .navbar__mobile-panel {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  background: #ffffff;
+  border-top: 0 solid #eeedf6;
+  box-shadow: 0 20px 40px rgba(22, 20, 60, 0.12);
+  transition: max-height var(--duration-base) var(--ease-out), opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-top-width var(--duration-fast) var(--ease-out);
 }
 .navbar__mobile-panel.is-open {
-  display: block;
   max-height: calc(100vh - 84px);
   overflow-y: auto;
-  background: #ffffff;
-  border-top: 1px solid #eeedf6;
-  box-shadow: 0 20px 40px rgba(22, 20, 60, 0.12);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-top-width: 1px;
 }
 .navbar__mobile-inner {
   padding: var(--space-sm) 0 var(--space-md);

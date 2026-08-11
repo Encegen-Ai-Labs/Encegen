@@ -328,7 +328,9 @@ export default function EasyHunt() {
             {FAQ.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
-                <p>{f.a}</p>
+                <div className="faq__content">
+                  <p>{f.a}</p>
+                </div>
               </details>
             ))}
           </div>

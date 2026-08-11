@@ -103,10 +103,6 @@
   box-shadow: 0 10px 24px rgba(22, 20, 60, 0.06);
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s ease;
-}
-.acard:hover {
-  transform: translateY(-3px);
 }
 .acard__art {
   border-radius: 0;

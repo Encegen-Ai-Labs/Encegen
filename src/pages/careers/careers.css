@@ -147,11 +147,6 @@
   background: #ffffff;
   border: 1px solid #e9e8f4;
   box-shadow: 0 8px 20px rgba(22, 20, 60, 0.05);
-  transition: transform 0.13s ease, box-shadow 0.13s ease;
-}
-.job-row:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(22, 20, 60, 0.09);
 }
 .job-row__info {
   flex: 1;

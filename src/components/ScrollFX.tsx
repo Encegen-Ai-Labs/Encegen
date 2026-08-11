@@ -57,6 +57,9 @@ const REVEAL_SELECTORS = [
   '.newsletter__form',
   '.jd-offer',
   '.apply-card',
+  '.sresult',
+  '.gband__quote',
+  '.voice',
 ]
 
 const COUNTER_SELECTORS = [
@@ -65,6 +68,12 @@ const COUNTER_SELECTORS = [
   '.home-stats__grid strong',
   '.tstat strong',
   '.stat-tile strong',
+  // NOTE: .home-facts__card strong is deliberately NOT included — unlike the
+  // other counters, its label is a nested <span> child (not a sibling), and
+  // animateCount()'s textContent overwrite would permanently destroy that
+  // child element on first reveal (losing its distinct label styling). Fixing
+  // that would require restructuring the JSX, which is out of scope for an
+  // animation-only pass.
 ]
 
 const REDUCED = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches

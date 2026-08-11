@@ -26,10 +26,6 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 12px 26px rgba(22, 20, 60, 0.06);
-  transition: transform 0.15s ease;
-}
-.agent-card:hover {
-  transform: translateY(-3px);
 }
 .agent-card__art {
   border-radius: 0;
@@ -285,11 +281,9 @@
   font-size: var(--fs-lg);
   font-weight: 600;
   color: var(--ink-900);
-  transition: color 0.12s ease, transform 0.12s ease;
 }
 .proc-list a:hover {
   color: var(--purple-600);
-  transform: translateX(4px);
 }
 .proc-list a::before {
   content: '→';

@@ -198,10 +198,6 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(22, 20, 60, 0.06);
-  transition: transform 0.15s ease;
-}
-.home-res-card:hover {
-  transform: translateY(-3px);
 }
 .home-res-card__art {
   border-radius: 0;

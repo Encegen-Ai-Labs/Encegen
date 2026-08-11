@@ -2,6 +2,28 @@
    Scroll & entrance animations (Celonis-style motion)
    ========================================================================== */
 
+/* --- Shared motion tokens — reused by every rule in this file --- */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.15s;
+  --duration-base: 0.2s;
+  --lift-sm: -2px;
+  --lift-md: -4px;
+}
+
+/* --- Global reduced-motion safety net. The specific overrides further down
+   already fully disable their own animations; this is additive insurance so
+   every new hover/transition rule in this file is covered automatically. --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* --- Scroll reveal (classes added by ScrollFX.tsx) --- */
 .reveal {
   opacity: 0;
@@ -183,4 +205,89 @@
 }
 .kbtn:hover svg {
   transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Component-type interaction states — one rule per shared component TYPE,
+   applied via selector groups so every instance of that type (across every
+   page) animates identically. See plan doc for the full audit/rationale.
+   ========================================================================== */
+
+/* --- 1. Card family: every bordered/shadowed content box lifts the same
+   way on hover, regardless of which page or file defines its layout. --- */
+.fcard, .tcard, .modules__card, .security__card, .acard, .agent-card, .disc-card,
+.home-res-card, .team-card, .press, .voice, .benefit, .principle, .day-row__card,
+.flag-item, .numcard, .price-card, .dept-card, .city-card, .award-card, .job-row,
+.sresult, .apply-card, .tstat, .stat-tile, .home-facts__card, .leader, .compare-item {
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+.fcard:hover, .tcard:hover, .modules__card:hover, .security__card:hover, .acard:hover,
+.agent-card:hover, .disc-card:hover, .home-res-card:hover, .team-card:hover, .press:hover,
+.voice:hover, .benefit:hover, .principle:hover, .day-row__card:hover, .flag-item:hover,
+.numcard:hover, .price-card:hover, .dept-card:hover, .city-card:hover, .award-card:hover,
+.job-row:hover, .sresult:hover, .apply-card:hover, .tstat:hover, .stat-tile:hover,
+.home-facts__card:hover, .leader:hover, .compare-item:hover {
+  transform: translateY(var(--lift-md));
+  box-shadow: 0 20px 40px rgba(22, 20, 60, 0.12);
+}
+/* Dark-surface cards: same lift/timing, purple-tinted glow instead of a
+   neutral shadow (matches how .hero__cta / .integrations__pill already
+   treat dark surfaces elsewhere on the site). */
+.ucase, .dcard {
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+.ucase:hover, .dcard:hover {
+  transform: translateY(var(--lift-md));
+  box-shadow: 0 20px 40px rgba(101, 83, 238, 0.28);
+}
+
+/* --- 2. Solid button family: every filled CTA-style button lifts the same
+   amount. Each button keeps its own existing background/shadow color. --- */
+.kbtn, .hero__cta, .cta__button, .job-row__apply, .apply-submit,
+.newsletter__form button, .search-hero__bar button, .console__btn {
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out);
+}
+.kbtn:hover, .hero__cta:hover, .cta__button:hover, .job-row__apply:hover, .apply-submit:hover,
+.newsletter__form button:hover, .search-hero__bar button:hover, .console__btn:hover {
+  transform: translateY(var(--lift-sm));
+}
+
+/* --- 3. Glow-pill family --- */
+.integrations__pill, .integrations__more-link {
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+.integrations__pill:hover, .integrations__more-link:hover {
+  transform: translateY(var(--lift-sm));
+  box-shadow: 0 0 38px rgba(158, 140, 255, 0.55);
+}
+
+/* --- 4. Filter/tab/chip pill family: border+color swap, no lift. --- */
+.pill-tabs button, .topic-pills span, .search-hero__suggestions span,
+.job-filters button, .search-tabs button, .sfilter__clear, .pagination button {
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+.pill-tabs button:hover, .topic-pills span:hover, .search-hero__suggestions span:hover,
+.job-filters button:hover, .search-tabs button:hover, .sfilter__clear:hover, .pagination button:hover {
+  border-color: var(--purple-400);
+  color: var(--purple-600);
+}
+
+/* --- 5. Text-link-with-arrow family: the "Read →" / "View roles →"
+   pattern gets a small rightward nudge. Each link keeps its own existing
+   hover color declared where it already is. --- */
+.home-ind-link, .modules__link, .proc-list a, .acard__foot a, .sresult__foot a, .press a, .dept-card a {
+  transition: color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+.home-ind-link:hover, .modules__link:hover, .proc-list a:hover, .acard__foot a:hover,
+.sresult__foot a:hover, .press a:hover, .dept-card a:hover {
+  transform: translateX(3px);
+}
+
+/* --- 6. Form focus family: every text input gets the same focus border. --- */
+.newsletter__form input, .search-hero__bar input, .careers-hero__search input {
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.newsletter__form input:focus, .search-hero__bar input:focus, .careers-hero__search input:focus {
+  border-color: var(--purple-500);
+  outline: none;
 }
