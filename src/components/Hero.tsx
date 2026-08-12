@@ -14,13 +14,13 @@ export default function Hero() {
         <span className="hero__badge">THE ENCEGEN PLATFORM</span>
 
         <h1 className="hero__title">
-          One Platform to Run{' '}
-          <span className="hero__title-accent">Every Business Process</span>
+          One layer to run{' '}
+          <span className="hero__title-accent">every business process</span>
         </h1>
 
         <p className="hero__sub">
-          Encegen connects your data, processes, and systems into a single
-          intelligent layer &ndash; giving every team the clarity to act.
+          Encegen connects your data, your processes, and your systems into
+          one intelligent layer &ndash; so every team has the clarity to act.
         </p>
 
         <div className="hero__ctas">

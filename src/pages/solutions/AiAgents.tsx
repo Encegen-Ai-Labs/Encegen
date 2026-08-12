@@ -15,12 +15,12 @@ import {
 import './solutions.css'
 
 const AGENTS = [
-  { icon: '🧾', title: 'AP Exception Agent', desc: 'Resolves every AP exception before your team sees it.', tag: 'Finance', art: 'purple' },
-  { icon: '🔁', title: 'Invoice Matching', desc: 'Matches invoices 3-way across any ERP, automatically.', tag: 'AP', art: 'blue' },
-  { icon: '🧑‍💼', title: 'Onboarding Agent', desc: 'Gets new hires fully set up across HR, IT and facilities.', tag: 'HR', art: 'green' },
-  { icon: '🎧', title: 'Support Ticket Agent', desc: 'Reads, categorizes, routes and resolves support tickets.', tag: 'Support', art: 'cyan' },
-  { icon: '🛡', title: 'Compliance Monitor', desc: 'Watches every transaction for violations before they happen.', tag: 'Compliance', art: 'orange' },
-  { icon: '📈', title: 'Demand Planning', desc: 'Reads market signals and adjusts inventory forecasts daily.', tag: 'Planning', art: 'magenta' },
+  { icon: '🧾', title: 'AP Exception Agent', desc: 'Clears accounts-payable exceptions before they ever reach a human queue.', tag: 'Finance', art: 'purple' },
+  { icon: '🔁', title: 'Invoice Matching', desc: 'Runs three-way matches across any ERP, automatically, every time.', tag: 'AP', art: 'blue' },
+  { icon: '🧑‍💼', title: 'Onboarding Agent', desc: 'Gets a new hire fully set up across HR, IT, and facilities on day one.', tag: 'HR', art: 'green' },
+  { icon: '🎧', title: 'Support Ticket Agent', desc: 'Reads, sorts, routes, and resolves incoming tickets without a hand-off.', tag: 'Support', art: 'cyan' },
+  { icon: '🛡', title: 'Compliance Monitor', desc: 'Watches every transaction and flags a breach before it becomes one.', tag: 'Compliance', art: 'orange' },
+  { icon: '📈', title: 'Demand Planning', desc: 'Reads the signals and adjusts your inventory forecast daily, not quarterly.', tag: 'Planning', art: 'magenta' },
 ]
 
 const USE_CASES = [
@@ -28,7 +28,7 @@ const USE_CASES = [
     tags: ['NLP', 'Finance'],
     color: '#22c55e',
     title: 'Accounts Payable',
-    desc: 'Auto-resolve invoice exceptions before they escalate – reconcile discrepancies, validate vendors, and route approvals.',
+    desc: 'Catch and resolve invoice exceptions before they escalate — reconcile mismatches, validate vendors, and route approvals on their own.',
     metric: '73% fewer exceptions',
     compare: 'Manual: 17% → AI: 73%',
   },
@@ -36,7 +36,7 @@ const USE_CASES = [
     tags: ['Vision', 'Support'],
     color: '#3b82f6',
     title: 'Customer Support',
-    desc: 'Auto-triage and resolve tickets without human routing – classify intent, fetch context, and send answers instantly.',
+    desc: 'Triage and resolve tickets without manual routing — read intent, pull context, and answer in the moment.',
     metric: '45% auto-resolution',
     compare: 'Manual: 17% → AI: 83%',
   },
@@ -44,7 +44,7 @@ const USE_CASES = [
     tags: ['ML', 'HR'],
     color: '#8b5cf6',
     title: 'HR & Onboarding',
-    desc: 'Fully set up new hires across HR, IT, and facilities – create accounts, assign policies, and notify teams automatically.',
+    desc: 'Stand up a new hire across HR, IT, and facilities — accounts created, policies assigned, teams notified, no checklist required.',
     metric: '3× faster onboarding',
     compare: 'Manual: 1× → AI: 5×',
   },
@@ -52,7 +52,7 @@ const USE_CASES = [
     tags: ['NLP', 'Supply Chain'],
     color: '#22d3ee',
     title: 'Supply Chain',
-    desc: 'Monitor demand signals and adjust forecasts daily – read market data, detect anomalies, and update inventory plans.',
+    desc: 'Track demand signals and adjust forecasts daily — read the market, spot the anomaly, update the plan.',
     metric: '91% forecast accuracy',
     compare: 'Baseline: 80% → AI: 91%',
   },
@@ -60,7 +60,7 @@ const USE_CASES = [
     tags: ['Vision', 'Compliance'],
     color: '#f59e0b',
     title: 'Compliance',
-    desc: 'Watch every transaction for violations in real time – detect anomalies, flag risks, and keep audit trails current.',
+    desc: 'Watch every transaction in real time — surface risk, flag deviations, and keep the audit trail current on its own.',
     metric: 'Zero manual audits',
     compare: 'Manual: 3/day → AI: 0',
   },
@@ -68,18 +68,18 @@ const USE_CASES = [
     tags: ['ML', 'Finance'],
     color: '#ec4899',
     title: 'Financial Close',
-    desc: 'Reconcile accounts and flag anomalies automatically – match transactions, validate journals, and close books faster.',
+    desc: 'Reconcile accounts and flag anomalies automatically — match transactions, validate journals, close the books sooner.',
     metric: '2× faster close',
     compare: 'Manual: 1× → AI: 2×',
   },
 ]
 
 const STEPS = [
-  { num: '01', title: 'Trigger', meta: 'Step 1', desc: 'Webhook, schedule, or system event', chips: ['Event detected', 'Instant'] },
-  { num: '02', title: 'Context', meta: 'Step 2', desc: 'ERP, CRM, and system data gathered', chips: ['Data fetched', 'Cross-system'] },
-  { num: '03', title: 'Decide', meta: 'Step 3', desc: 'AI reasoning engine chooses action', chips: ['Model inference', 'Policy check'] },
-  { num: '04', title: 'Execute', meta: 'Step 4', desc: 'Takes action directly in your system', chips: ['Action taken', 'Logged'] },
-  { num: '05', title: 'Verify', meta: 'Step 5', desc: 'Confirms outcome and notifies team', chips: ['Audit trail', 'Notification'] },
+  { num: '01', title: 'Trigger', meta: 'Step 1', desc: 'A webhook, a schedule, or a system event sets it off.', chips: ['Event detected', 'Instant'] },
+  { num: '02', title: 'Context', meta: 'Step 2', desc: 'The agent gathers what it needs from your ERP, CRM, and connected systems.', chips: ['Data fetched', 'Cross-system'] },
+  { num: '03', title: 'Decide', meta: 'Step 3', desc: 'The reasoning engine weighs the options and picks the right action against your rules.', chips: ['Model inference', 'Policy check'] },
+  { num: '04', title: 'Execute', meta: 'Step 4', desc: 'It acts directly in your system — no export, no hand-off.', chips: ['Action taken', 'Logged'] },
+  { num: '05', title: 'Verify', meta: 'Step 5', desc: 'It confirms the outcome, writes the audit trail, and notifies the team.', chips: ['Audit trail', 'Notification'] },
 ]
 
 const TESTIMONIALS = [
@@ -120,38 +120,38 @@ export default function AiAgents() {
     <>
       <PageHero
         badge={<>● Encegen AI Labs · Agent Automation</>}
-        title="Your team is stuck doing work a machine should do."
-        sub="Every day, thousands of process exceptions pile up. Your best people are buried in manual reviews, chasing approvals, copy-pasting between systems – when they could be solving real problems."
+        title="Your team is doing work a machine should have finished hours ago."
+        sub="Every day, exceptions pile up — approvals waiting, records re-keyed between systems, queues that only move when a person clears them. That's your best people spending their hours on work an agent can own end to end."
         actions={
           <>
-            <Btn variant="white">See how AI agents fix this →</Btn>
+            <Btn variant="white">See how agents handle it →</Btn>
             <Btn variant="outline-light">Watch the demo</Btn>
           </>
         }
         trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
       />
 
-      <GradBand quote="But what if every exception resolved itself?" />
+      <GradBand quote="What if the exception cleared itself before anyone opened the queue?" />
 
       {/* Turning point */}
       <section className="section section--light">
         <div className="container">
           <SectionHead
             eyebrow="Chapter 2 · The Turning Point"
-            title="Imagine waking up and finding everything already done."
+            title="Imagine the work being done before you're even in the room."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <p className="left-copy">
-                At 3:47am, an invoice arrives with a discrepancy. <strong>In the old world:</strong>{' '}
-                it sits in a queue until morning. Someone manually reviews it, emails the vendor,
-                waits for a reply.
+                An invoice lands overnight with a mismatch. <strong>The old way:</strong>{' '}
+                it waits in a queue until morning, gets reviewed by hand, bounced to the vendor, and
+                sits there until someone follows up.
               </p>
               <p className="left-copy">
-                <strong>With Encegen AI Agents:</strong> the exception is caught in milliseconds.
-                The agent cross-references your ERP, checks the purchase order, queries the vendor
-                system, reconciles the discrepancy – and resolves it. All before your team's first
-                coffee.
+                <strong>With an Encegen agent:</strong> the mismatch is caught the moment it arrives.
+                The agent checks the purchase order, reconciles against your ERP, queries the vendor
+                system, and closes the exception — cleanly, with a full trail — before the first
+                login of the day.
               </p>
               <div className="sol-chip-row">
                 <span className="sol-chip">3:47am — exception detected</span>
@@ -186,8 +186,8 @@ export default function AiAgents() {
         <div className="container">
           <SectionHead
             eyebrow="Chapter 3 · The Team"
-            title="Meet your new team. They never sleep, never miss, never quit."
-            sub="6 specialized AI agents, each trained for a specific mission in your operations."
+            title="Meet the team that clocks in at every hour and never drops a task."
+            sub="Specialised agents, each built for one job in your operation — and each accountable for finishing it."
           />
           <div className="cards-3">
             {AGENTS.map((a) => (
@@ -208,7 +208,7 @@ export default function AiAgents() {
       {/* Use cases */}
       <section className="section section--dark">
         <div className="container">
-          <SectionHead eyebrow="Use Cases" title="AI solving the problems that matter." dark />
+          <SectionHead eyebrow="Use Cases" title="Agents pointed at the work that actually costs you." dark />
           <div className="cards-2">
             {USE_CASES.map((u) => (
               <UseCaseCard key={u.title} {...u} />
@@ -222,8 +222,8 @@ export default function AiAgents() {
         <div className="container">
           <SectionHead
             eyebrow="The Moment"
-            title="From the moment it triggers to the moment it's resolved."
-            sub="A structured path from trigger to resolution – with clear milestones and measurable outcomes."
+            title="From the trigger to the resolution, here's the whole path."
+            sub="Five clean steps from the event firing to the outcome confirmed — every one logged, every one measurable."
           />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
@@ -251,7 +251,7 @@ export default function AiAgents() {
         trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
         line1="Your story starts with"
         line2="one agent."
-        sub="No generic tools. No off-the-shelf models. Just enterprise-grade AI agents built precisely for your operational challenge – deployed in 24 hours."
+        sub="No generic tool, no off-the-shelf model. One agent, built for your exact bottleneck, live in days — then a second, then a team."
         primary={{ label: 'Deploy an agent →' }}
         secondary={{ label: 'Talk to an expert' }}
         checks={['SOC 2 protected', 'Live in 24 hrs', 'No lock-in contract']}

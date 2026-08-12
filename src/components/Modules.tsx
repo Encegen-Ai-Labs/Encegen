@@ -13,37 +13,37 @@ const MODULES = [
     icon: SearchIcon,
     title: 'Process Mining',
     description:
-      'Automatically map every process variant from your system data in real time.',
+      'Maps every version of a process straight from your system data, in real time.',
   },
   {
     icon: ZapIcon,
     title: 'Execution Management',
     description:
-      'Orchestrate actions across your enterprise from a single control plane.',
+      'Runs actions across the enterprise from one control plane.',
   },
   {
     icon: SparklesIcon,
     title: 'AI Insights',
     description:
-      'Surface root causes and opportunities with AI-driven process analysis.',
+      'Surfaces the root causes and the openings with AI-driven analysis.',
   },
   {
     icon: RefreshIcon,
     title: 'Action Flows',
     description:
-      'Trigger automated fixes directly inside SAP, Salesforce, and ServiceNow.',
+      'Triggers the fix directly inside the systems you already run.',
   },
   {
     icon: PenIcon,
     title: 'Studio',
     description:
-      'Build custom process apps and dashboards with a no-code visual editor.',
+      'Builds custom process apps and dashboards with a no-code editor.',
   },
   {
     icon: CodeIcon,
     title: 'Data Push API',
     description:
-      'Connect any data source with pre-built connectors and open APIs.',
+      'Connects any source with pre-built connectors and open APIs.',
   },
 ]
 
@@ -52,10 +52,10 @@ export default function Modules() {
     <section className="modules">
       <div className="container">
         <p className="section-eyebrow">Platform Modules</p>
-        <h2 className="section-title">Everything you need, fully integrated.</h2>
+        <h2 className="section-title">Everything working together, not bolted alongside.</h2>
         <p className="section-sub">
-          Deploy specialized tools that work together to solve complex process
-          problems.
+          Specialised tools that combine to solve the process problems one
+          tool can't.
         </p>
 
         <div className="modules__grid">

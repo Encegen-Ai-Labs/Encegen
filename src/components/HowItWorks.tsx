@@ -98,10 +98,10 @@ export default function HowItWorks() {
     <section className="hiw">
       <div className="container">
         <p className="section-eyebrow">How It Works</p>
-        <h2 className="section-title">Three layers. One unified platform.</h2>
+        <h2 className="section-title">Three layers. One connected platform.</h2>
         <p className="section-sub">
-          Connect data, analyze processes, and trigger actions &ndash; all from
-          a single, scalable architecture.
+          Connect your data, understand your processes, and act on what you
+          find &ndash; from one architecture that scales.
         </p>
 
         <div className="hiw__panel">
@@ -140,7 +140,7 @@ export default function HowItWorks() {
                 <ul className="hiw__features">
                   <li>
                     <strong>AI Process Mining</strong>
-                    <span>Real-time variant detection</span>
+                    <span>Sees how work really flows, in real time</span>
                   </li>
                   <li>
                     <strong>Root Cause Analysis</strong>

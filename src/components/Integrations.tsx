@@ -21,8 +21,8 @@ export default function Integrations() {
       <div className="container">
         <h2 className="integrations__title">Works with the tools your teams already use.</h2>
         <p className="integrations__sub">
-          Encegen is built on open standards to integrate seamlessly with your
-          existing IT infrastructure.
+          Built on open standards, so it fits into your existing setup
+          instead of fighting it.
         </p>
 
         <div className="integrations__grid">
