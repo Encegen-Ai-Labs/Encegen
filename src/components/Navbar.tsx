@@ -48,9 +48,9 @@ const NAV: NavItem[] = [
         {
           heading: 'By Industry',
           links: [
-            { label: 'Manufacturing', to: '/solutions/use-cases' },
-            { label: 'Financial Services', to: '/solutions/use-cases' },
-            { label: 'Healthcare', to: '/solutions/use-cases' },
+            { label: 'Manufacturing', to: '/solutions/use-cases#manufacturing' },
+            { label: 'Financial Services', to: '/solutions/use-cases#financial-services' },
+            { label: 'Healthcare', to: '/solutions/use-cases#healthcare' },
             { label: 'All industries', to: '/solutions/use-cases' },
           ],
         },

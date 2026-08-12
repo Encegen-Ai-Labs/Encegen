@@ -138,6 +138,78 @@ const USE_CASES = [
   },
 ]
 
+const INDUSTRIES = [
+  {
+    id: 'manufacturing',
+    tag: 'Manufacturing',
+    title: 'Manufacturing',
+    intro:
+      "On a factory floor, the cost of a problem is measured in downtime, scrap, and missed shipments. AI closes the gap between 'something went wrong' and 'it's already handled.'",
+    points: [
+      {
+        title: 'Keep production moving',
+        desc: 'Watch every line in real time, catch the deviation as it happens, and flag the fix before it becomes a stoppage.',
+      },
+      {
+        title: 'See the whole supply chain',
+        desc: 'Read demand signals, spot the disruption early, and re-plan inventory before a shortage reaches the line.',
+      },
+      {
+        title: 'Hold the quality line',
+        desc: 'Vision models trained on your own product images catch the micro-defects standard checks wave through — the ones that reach the customer.',
+      },
+    ],
+    startsWith:
+      'Most manufacturers begin with the highest-volume, most-measurable process — usually supply chain visibility or quality inspection — and expand from there.',
+  },
+  {
+    id: 'financial-services',
+    tag: 'Financial Services',
+    title: 'Financial Services',
+    intro:
+      'In finance, every workflow runs under a regulator\'s eye and a fraud team\'s clock. AI has to move fast and leave a clean trail — we build for both.',
+    points: [
+      {
+        title: 'Catch fraud as it moves',
+        desc: 'Read transaction patterns in real time, flag the anomaly before it clears, and cut the false positives that bury your review team.',
+      },
+      {
+        title: 'Make compliance less manual',
+        desc: 'Monitor transactions, assemble the documentation, and keep the audit trail current — so reporting stops eating the week.',
+      },
+      {
+        title: 'Speed the decisions that wait on people',
+        desc: 'Pull and check the documents behind onboarding, KYC, and credit so the judgment calls reach a human faster.',
+      },
+    ],
+    startsWith:
+      'Fraud and document automation tend to show returns first — high volume, clear before-and-after — which makes them the natural place to prove value.',
+  },
+  {
+    id: 'healthcare',
+    tag: 'Healthcare',
+    title: 'Healthcare',
+    intro:
+      'In healthcare, the administrative load pulls people away from patients. AI takes the repeatable weight off the back office — with a human always in the loop where it counts.',
+    points: [
+      {
+        title: 'Lighten the documentation load',
+        desc: 'Turn clinical notes into structured records and draft the paperwork, so clinicians spend less of the day typing and more of it with patients.',
+      },
+      {
+        title: 'Clean up the revenue cycle',
+        desc: 'Check claims before they go out, flag the ones likely to bounce, and pull the missing documentation straight from the record.',
+      },
+      {
+        title: 'Take the wait out of prior authorisation',
+        desc: 'Gather the documentation, check it against payer criteria, and prepare the packet — compressing days of back-and-forth into hours.',
+      },
+    ],
+    startsWith:
+      'Documentation and revenue-cycle work score highest on volume, measurability, and safety — errors get caught by a human before they ever reach care — which is why most teams start there.',
+  },
+]
+
 const TESTIMONIALS = [
   {
     tag: 'Siemens',
@@ -315,6 +387,38 @@ export default function UseCases() {
               <UseCaseCard key={u.title} {...u} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* By Industry */}
+      <section className="section section--light">
+        <div className="container">
+          <SectionHead
+            eyebrow="By Industry"
+            title="Built for the way your industry actually runs."
+            sub="The same intelligence layer, shaped to the pressures of your sector — the workflows, the regulation, the margins that don't leave much room for error."
+          />
+          {INDUSTRIES.map((industry) => (
+            <div key={industry.id} id={industry.id} style={{ scrollMarginTop: 100, marginTop: 56 }}>
+              <span className="disc-card__tag">{industry.tag}</span>
+              <h3 className="left-title" style={{ marginTop: 14 }}>{industry.title}</h3>
+              <p className="left-copy" style={{ marginTop: 12 }}>{industry.intro}</p>
+              <div className="cards-3" style={{ marginTop: 28 }}>
+                {industry.points.map((p) => (
+                  <article className="fcard" key={p.title}>
+                    <h3>{p.title}</h3>
+                    <p>{p.desc}</p>
+                  </article>
+                ))}
+              </div>
+              <p className="left-copy" style={{ marginTop: 20, fontSize: 14 }}>
+                <strong>Where it starts:</strong> {industry.startsWith}
+              </p>
+            </div>
+          ))}
+          <p className="left-copy" style={{ marginTop: 48, textAlign: 'center' }}>
+            Don't see your industry? The layer isn't industry-specific — it learns yours. Tell us how you operate and we'll show you where it fits.
+          </p>
         </div>
       </section>
 
