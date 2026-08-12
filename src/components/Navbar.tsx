@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import Logo from './Logo'
+import logo from '../assets/logo.png'
 import { ArrowRight, ChevronDown, SearchIcon } from './icons'
 import './Navbar.css'
 
 /* Routes whose hero/banner is light — the transparent header shows dark text there */
-const LIGHT_HERO_PATHS = ['/careers', '/search']
+
 
 type MegaColumn = {
   heading: string
@@ -77,6 +77,9 @@ const NAV: NavItem[] = [
           links: [
             { label: 'Easy Hunt', to: '/products/easy-hunt' },
             { label: 'HR Portal', to: '/products/hr-portal' },
+            { label: 'Resume Builder', to: '/products/resume-builder' },
+            { label: 'Resume Analyzer', to: '/products/resume-analyzer' },
+            { label: 'Voice Agent', to: '/products/voice-agent' },
             { label: 'CBMS', to: '/platform' },
             { label: 'HMS', to: '/platform' },
           ],
@@ -133,19 +136,18 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [pathname])
 
-  const onDark = !scrolled && !LIGHT_HERO_PATHS.includes(pathname)
-  const cls = [
-    'navbar',
-    scrolled ? 'navbar--scrolled' : 'navbar--top',
-    onDark ? 'navbar--on-dark' : '',
-  ]
-    .filter(Boolean)
-    .join(' ')
+
+const cls = [
+  'navbar',
+  scrolled ? 'navbar--scrolled' : 'navbar--top',
+].join(' ')
 
   return (
     <header className={cls}>
       <div className="container navbar__inner">
-        <Logo variant={onDark ? 'light' : 'dark'} />
+             <Link to="/" className="navbar__logo">
+  <img src={logo} alt="Encegen AI Labs" />
+</Link>
 
         <nav className="navbar__links" aria-label="Main navigation">
           {NAV.map((item) =>

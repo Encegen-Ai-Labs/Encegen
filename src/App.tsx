@@ -13,6 +13,9 @@ import WebEcommerce from './pages/solutions/WebEcommerce'
 import UseCases from './pages/solutions/UseCases'
 import EasyHunt from './pages/products/EasyHunt'
 import HrPortal from './pages/products/HrPortal'
+import ResumeBuilder from './pages/products/ResumeBuilder'
+import ResumeAnalyzer from './pages/products/ResumeAnalyzer'
+import VoiceAgent from './pages/products/VoiceAgent'
 import About from './pages/company/About'
 import OurStory from './pages/company/OurStory'
 import Values from './pages/company/Values'
@@ -61,6 +64,9 @@ export default function App() {
           <Route path="/solutions/use-cases" element={<UseCases />} />
           <Route path="/products/easy-hunt" element={<EasyHunt />} />
           <Route path="/products/hr-portal" element={<HrPortal />} />
+          <Route path="/products/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/products/resume-analyzer" element={<ResumeAnalyzer />} />
+          <Route path="/products/voice-agent" element={<VoiceAgent />} />
           <Route path="/about" element={<About />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/values" element={<Values />} />

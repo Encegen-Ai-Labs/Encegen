@@ -1,380 +1,1003 @@
+/* ==========================================================
+   NAVBAR - BASE
+========================================================== */
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
-  background: transparent;
-  box-shadow: none;
-  transition: background 0.28s ease, box-shadow 0.28s ease;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  box-shadow: 0 1px 0 rgba(20, 20, 50, 0.08);
+
+  transition:
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
+
+
+/* ==========================================================
+   SCROLLED NAVBAR
+========================================================== */
 
 .navbar--scrolled {
   background: #ffffff;
-  box-shadow: 0 1px 0 rgba(22, 20, 60, 0.06), 0 12px 30px rgba(22, 20, 60, 0.08);
+
+  box-shadow:
+    0 1px 0 rgba(20, 20, 50, 0.06),
+    0 8px 25px rgba(20, 20, 50, 0.08);
 }
 
-/* Light-on-dark theme while the transparent header overlays a dark banner */
-.navbar--on-dark .navbar__link {
-  color: #ffffff;
-}
-.navbar--on-dark .navbar__link:hover {
-  color: var(--purple-300);
-}
-.navbar--on-dark .navbar__link--active {
-  color: var(--purple-300);
-}
-.navbar--on-dark .navbar__search,
-.navbar--on-dark .navbar__demo {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  color: #ffffff;
-  box-shadow: none;
-}
-.navbar--on-dark .navbar__search:hover,
-.navbar--on-dark .navbar__demo:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
+
+/* ==========================================================
+   NAVBAR INNER
+========================================================== */
 
 .navbar__inner {
+  width: min(1400px, 92%);
+
+  height: 82px;
+
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  height: 84px;
+
+  gap: 30px;
 }
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.navbar__logo {
+  width: 190px;
+  height: 58px;
+
+  flex: 0 0 190px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  text-decoration: none;
+}
+
+.navbar__logo img {
+  display: block;
+
+  width: 180px;
+  height: auto;
+
+  max-width: 180px;
+  max-height: 58px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  margin: 0;
+
+  transition: transform 0.2s ease;
+}
+
+.navbar__logo:hover img {
+  transform: scale(1.02);
+}
+
+
+/* ==========================================================
+   DESKTOP NAVIGATION
+========================================================== */
 
 .navbar__links {
+  flex: 1;
+
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  justify-content: center;
+
+  gap: 34px;
+
+  min-width: 0;
 }
+
+
+/* ==========================================================
+   NAV LINK
+========================================================== */
 
 .navbar__link {
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+
   gap: 5px;
-  font-size: var(--fs-md);
+
+  padding: 8px 0;
+
+  margin: 0;
+
+  font-family: inherit;
+
+  font-size: 16px;
+  line-height: 1.2;
+
   font-weight: 500;
-  color: var(--ink-900);
-  transition: color 0.15s ease;
-  padding: var(--space-3xs) 0;
+
+  color: #111111 !important;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
   border-bottom: 2px solid transparent;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
+
+
+/* Hover */
 
 .navbar__link:hover {
-  color: var(--purple-600);
+  color: #5b45d6 !important;
 }
+
+
+/* Active */
 
 .navbar__link--active {
-  color: var(--purple-600);
-  border-bottom-color: var(--purple-600);
+  color: #5b45d6 !important;
+
+  border-bottom-color: #5b45d6;
 }
+
+
+/* ==========================================================
+   CHEVRON
+========================================================== */
 
 .navbar__chevron {
-  margin-top: 2px;
-}
+  width: 15px;
+  height: 15px;
 
-/* Mega menu — full-width panel anchored to the header */
-.navbar__group {
-  position: static;
-}
+  flex-shrink: 0;
 
-.navbar__mega {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  border-top: 1px solid #eeedf6;
-  box-shadow: 0 30px 50px rgba(22, 20, 60, 0.14);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-18px) scaleY(0.96);
-  transform-origin: top center;
-  /* springy overshoot curve = bounce on open */
+  color: #111111 !important;
+
+  stroke: #111111 !important;
+
+  margin-top: 1px;
+
   transition:
-    opacity 0.22s ease,
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    visibility 0s linear 0.22s;
-  z-index: 60;
+    transform 0.25s ease;
 }
 
-.navbar__group:hover .navbar__mega,
-.navbar__group:focus-within .navbar__mega {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scaleY(1);
-  transition:
-    opacity 0.22s ease,
-    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
-    visibility 0s;
-}
-
-/* Chevron flips while its menu is open */
-.navbar__chevron {
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 .navbar__group:hover .navbar__chevron,
 .navbar__group:focus-within .navbar__chevron {
   transform: rotate(180deg);
 }
 
-/* Staggered reveal: featured card first, then each column */
-.navbar__mega-card,
-.navbar__mega-col {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.28s ease, transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.navbar__group:hover .navbar__mega-card,
-.navbar__group:focus-within .navbar__mega-card {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.06s;
-}
-.navbar__group:hover .navbar__mega-col,
-.navbar__group:focus-within .navbar__mega-col {
-  opacity: 1;
-  transform: translateY(0);
-}
-.navbar__group:hover .navbar__mega-col:nth-of-type(1),
-.navbar__group:focus-within .navbar__mega-col:nth-of-type(1) {
-  transition-delay: 0.12s;
-}
-.navbar__group:hover .navbar__mega-col:nth-of-type(2),
-.navbar__group:focus-within .navbar__mega-col:nth-of-type(2) {
-  transition-delay: 0.18s;
-}
-.navbar__group:hover .navbar__mega-col:nth-of-type(3),
-.navbar__group:focus-within .navbar__mega-col:nth-of-type(3) {
-  transition-delay: 0.24s;
-}
 
-/* Blurred page backdrop while any mega menu is open */
-.navbar__backdrop {
-  position: fixed;
-  inset: 0;
-  top: 84px;
-  background: rgba(13, 12, 43, 0.28);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
-  z-index: 40;
-  pointer-events: none;
-}
-.navbar:has(.navbar__group:hover) .navbar__backdrop,
-.navbar:has(.navbar__group:focus-within) .navbar__backdrop {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.25s ease, visibility 0s;
-}
-
-.navbar__mega-inner {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  padding: var(--space-md) 0 var(--space-lg);
-}
-
-/* Featured card (left) */
-.navbar__mega-card {
-  flex-shrink: 0;
-  width: clamp(10rem, 8.5rem + 3vw, 12.5rem);
-  min-height: 160px;
-  margin-right: var(--space-lg);
-  border-radius: 10px;
-  background: var(--navy-950);
-  color: #ffffff;
-  padding: var(--space-xs);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.navbar__mega-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 30px rgba(22, 20, 60, 0.3);
-}
-.navbar__mega-card > span:first-child {
-  font-size: var(--fs-md);
-  font-weight: 600;
-  line-height: 1.35;
-}
-.navbar__mega-arrow {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-  transition: background 0.14s ease, border-color 0.14s ease;
-}
-.navbar__mega-card:hover .navbar__mega-arrow {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: var(--navy-950);
-}
-
-/* Link columns */
-.navbar__mega-col {
-  flex: 1;
-  padding: var(--space-3xs) 0 var(--space-3xs) var(--space-md);
-  border-left: 1px solid #e9e8f2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.navbar__mega-col h4 {
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  margin-bottom: var(--space-xs);
-}
-.navbar__mega-link {
-  font-size: var(--fs-base);
-  font-weight: 500;
-  color: var(--ink-900);
-  padding: var(--space-2xs) 0;
-  transition: color 0.12s ease, transform 0.18s ease;
-}
-.navbar__mega-link:hover {
-  color: var(--purple-600);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transform: translateX(4px);
-}
-.navbar__mega-arrow svg {
-  transition: transform 0.2s ease;
-}
-.navbar__mega-card:hover .navbar__mega-arrow svg {
-  transform: translateX(3px);
-}
+/* ==========================================================
+   RIGHT ACTIONS
+========================================================== */
 
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+
+  gap: 10px;
+
+  flex: 0 0 auto;
 }
 
+
+/* ==========================================================
+   SEARCH BUTTON
+========================================================== */
+
 .navbar__search {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: var(--lavender-100);
-  color: var(--purple-600);
-  box-shadow: 0 4px 10px rgba(101, 83, 238, 0.14);
-  transition: background 0.15s ease;
+
+  border-radius: 10px;
+
+  background: #f1efff;
+
+  color: #111111 !important;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 3px 10px rgba(91, 69, 214, 0.12);
+
+  transition:
+    background 0.2s ease,
+    transform 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.navbar__search svg {
+  width: 19px;
+  height: 19px;
+
+  color: #111111 !important;
+
+  stroke: #111111 !important;
+    transition:
+    color 0.25s ease,
+    stroke 0.25s ease,
+    transform 0.25s ease;
+
 }
 
 .navbar__search:hover {
-  background: #e2ddfb;
+  background: #5b45d6;
+  color: #ffffff !important;
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(91,69,214,0.28);
 }
+.navbar__search:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+
+  transform: scale(1.08);
+}
+
+
+/* ==========================================================
+   GET DEMO
+========================================================== */
 
 .navbar__demo {
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 12px;
-  background: var(--lavender-100);
-  color: var(--purple-600);
-  font-size: var(--fs-md);
-  font-weight: 600;
-  box-shadow: 0 6px 14px rgba(101, 83, 238, 0.18);
-  transition: background 0.15s ease, transform 0.15s ease;
-}
+  min-height: 42px;
 
-.navbar__demo:hover {
-  background: #e2ddfb;
-  transform: translateY(-1px);
-}
-
-/* Mobile menu toggle — hidden on desktop where the full nav is shown */
-.navbar__burger {
-  display: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  padding: 0 18px;
+
+  border-radius: 10px;
+
+  background: #f1efff;
+
+  color: #111111 !important;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 3px 10px rgba(91, 69, 214, 0.12);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+
+.navbar__demo:hover {
+  background: #e5e1ff;
+
+  transform: translateY(-1px);
+    box-shadow:
+    0 8px 20px rgba(91, 69, 214, 0.3);
+}
+
+
+/* ==========================================================
+   IMPORTANT OVERRIDE
+   Even if JSX adds navbar--on-dark,
+   navbar will remain white with black text.
+========================================================== */
+
+.navbar--on-dark {
+  background: #ffffff;
+}
+
+.navbar--on-dark .navbar__link {
+  color: #111111 !important;
+}
+
+.navbar--on-dark .navbar__link:hover {
+  color: #5b45d6 !important;
+}
+
+.navbar--on-dark .navbar__link--active {
+  color: #5b45d6 !important;
+}
+
+.navbar--on-dark .navbar__chevron {
+  color: #111111 !important;
+  stroke: #111111 !important;
+}
+
+.navbar--on-dark .navbar__search {
+  background: #f1efff;
+  color: #111111 !important;
+  border: 0;
+}
+
+.navbar--on-dark .navbar__search svg {
+  color: #111111 !important;
+  stroke: #111111 !important;
+}
+
+.navbar--on-dark .navbar__demo {
+  background: #f1efff;
+  color: #111111 !important;
+  border: 0;
+}
+
+
+/* ==========================================================
+   MEGA MENU
+========================================================== */
+
+.navbar__group {
+  position: static;
+}
+
+
+/* Mega menu container */
+
+.navbar__mega {
+  position: absolute;
+
+  top: 82px;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border-top: 1px solid #eeeeee;
+
+  box-shadow:
+    0 20px 45px rgba(20, 20, 50, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-12px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.25s ease,
+    visibility 0.2s ease;
+
+  z-index: 100;
+}
+
+
+/* Open */
+
+.navbar__group:hover .navbar__mega,
+.navbar__group:focus-within .navbar__mega {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+/* ==========================================================
+   MEGA MENU INNER
+========================================================== */
+
+.navbar__mega-inner {
+  width: min(1400px, 92%);
+
+  margin: 0 auto;
+
+  padding: 28px 0 34px;
+
+  display: flex;
+  align-items: stretch;
+
+  gap: 0;
+}
+
+
+/* ==========================================================
+   FEATURED CARD
+========================================================== */
+
+.navbar__mega-card {
+  width: 190px;
+
+  min-height: 155px;
+
+  flex-shrink: 0;
+
+  margin-right: 30px;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  background: #11102f;
+
+  color: #ffffff;
+
+  display: flex;
   flex-direction: column;
-  gap: 4px;
-  background: var(--lavender-100);
-  color: var(--ink-900);
+  justify-content: space-between;
+
+  text-decoration: none;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s ease,
+    box-shadow 0.2s ease;
 }
-.navbar__burger span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
+
+.navbar__group:hover .navbar__mega-card,
+.navbar__group:focus-within .navbar__mega-card {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.05s;
 }
-.navbar--on-dark .navbar__burger {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+
+.navbar__mega-card:hover {
+  box-shadow:
+    0 12px 28px rgba(20, 20, 50, 0.22);
+
+  transform: translateY(-2px);
+}
+
+.navbar__mega-card > span:first-child {
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+/* Arrow */
+
+.navbar__mega-arrow {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
   color: #ffffff;
 }
 
-/* Mobile menu panel — fast fade + slide on open/close (display can't be
-   transitioned, so the panel stays in the DOM and collapses via
-   max-height/opacity/transform instead). Capped to the remaining viewport
-   height and internally scrollable so a long, flattened link list never
-   gets trapped below the fold inside the fixed-position header (which the
-   page's own scroll can't reach). border-top-width (rather than a static
-   1px border) animates alongside max-height so no stray divider line is
-   visible while the panel is collapsed. */
-.navbar__mobile-panel {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
-  background: #ffffff;
-  border-top: 0 solid #eeedf6;
-  box-shadow: 0 20px 40px rgba(22, 20, 60, 0.12);
-  transition: max-height var(--duration-base) var(--ease-out), opacity var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-top-width var(--duration-fast) var(--ease-out);
-}
-.navbar__mobile-panel.is-open {
-  max-height: calc(100vh - 84px);
-  overflow-y: auto;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  border-top-width: 1px;
-}
-.navbar__mobile-inner {
-  padding: var(--space-sm) 0 var(--space-md);
+
+/* ==========================================================
+   MEGA MENU COLUMNS
+========================================================== */
+
+.navbar__mega-col {
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    4px 25px
+    4px 25px;
+
+  border-left: 1px solid #e8e8ef;
+
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xs);
-}
-.navbar__mobile-link {
-  display: block;
-  padding: var(--space-2xs) 0;
-  font-size: var(--fs-md);
-  font-weight: 500;
-  color: var(--ink-900);
-  border-bottom: 1px solid #eeedf6;
-}
-.navbar__mobile-group-label {
-  padding-top: var(--space-xs);
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray-500);
+  align-items: flex-start;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s ease;
 }
 
+.navbar__group:hover .navbar__mega-col,
+.navbar__group:focus-within .navbar__mega-col {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.navbar__group:hover .navbar__mega-col:nth-of-type(1) {
+  transition-delay: 0.08s;
+}
+
+.navbar__group:hover .navbar__mega-col:nth-of-type(2) {
+  transition-delay: 0.12s;
+}
+
+.navbar__group:hover .navbar__mega-col:nth-of-type(3) {
+  transition-delay: 0.16s;
+}
+
+
+/* Column heading */
+
+.navbar__mega-col h4 {
+  margin: 0 0 12px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: #777777;
+}
+
+
+/* Mega links */
+
+.navbar__mega-link {
+  display: block;
+
+  padding: 7px 0;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.navbar__mega-link:hover {
+  color: #5b45d6;
+
+  transform: translateX(3px);
+}
+
+
+/* ==========================================================
+   BACKDROP
+========================================================== */
+
+.navbar__backdrop {
+  position: fixed;
+
+  top: 82px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(13, 12, 43, 0.18);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+
+  z-index: 40;
+}
+
+.navbar:has(.navbar__group:hover) .navbar__backdrop,
+.navbar:has(.navbar__group:focus-within) .navbar__backdrop {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* ==========================================================
+   MOBILE BURGER
+========================================================== */
+
+.navbar__burger {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background: #f1efff;
+
+  color: #111111;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  cursor: pointer;
+}
+
+.navbar__burger span {
+  display: block;
+
+  width: 20px;
+  height: 2px;
+
+  background: #111111;
+
+  border-radius: 2px;
+}
+
+
+/* ==========================================================
+   MOBILE PANEL
+========================================================== */
+
+.navbar__mobile-panel {
+  position: absolute;
+
+  top: 82px;
+  left: 0;
+  right: 0;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  background: #ffffff;
+
+  border-top: 1px solid transparent;
+
+  box-shadow:
+    0 15px 30px rgba(20, 20, 50, 0.1);
+
+  transform: translateY(-8px);
+
+  transition:
+    max-height 0.3s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.navbar__mobile-panel.is-open {
+  max-height: calc(100vh - 82px);
+
+  overflow-y: auto;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+
+  border-top-color: #eeeeee;
+}
+
+
+/* Mobile inner */
+
+.navbar__mobile-inner {
+  width: min(92%, 700px);
+
+  margin: 0 auto;
+
+  padding: 18px 0 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+/* Mobile links */
+
+.navbar__mobile-link {
+  display: block;
+
+  padding: 13px 0;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.navbar__mobile-link:hover {
+  color: #5b45d6;
+}
+
+
+/* Group title */
+
+.navbar__mobile-group-label {
+  display: block;
+
+  padding-top: 14px;
+  padding-bottom: 7px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: #777777;
+}
+
+
+/* ==========================================================
+   TABLET / LAPTOP
+========================================================== */
+
+@media (max-width: 1200px) {
+
+  .navbar__inner {
+    width: 94%;
+
+    gap: 20px;
+  }
+
+  .navbar__logo {
+    width: 165px;
+
+    flex-basis: 165px;
+  }
+
+  .navbar__logo img {
+    width: 160px;
+
+    max-width: 160px;
+  }
+
+  .navbar__links {
+    gap: 20px;
+  }
+
+  .navbar__link {
+    font-size: 15px;
+  }
+
+  .navbar__demo {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
 @media (max-width: 960px) {
+
+  .navbar__inner {
+    height: 76px;
+
+    width: 92%;
+  }
+
   .navbar__links {
     display: none;
   }
+
+  .navbar__logo {
+    width: 165px;
+
+    height: 52px;
+
+    flex-basis: 165px;
+  }
+
+  .navbar__logo img {
+    width: 160px;
+
+    max-width: 160px;
+
+    max-height: 52px;
+  }
+
   .navbar__burger {
     display: inline-flex;
+  }
+
+  .navbar__mega {
+    display: none;
+  }
+
+  .navbar__backdrop {
+    top: 76px;
+  }
+
+  .navbar__mobile-panel {
+    top: 76px;
+  }
+
+  .navbar__mobile-panel.is-open {
+    max-height: calc(100vh - 76px);
+  }
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+  .navbar__inner {
+    width: 92%;
+
+    height: 68px;
+
+    gap: 10px;
+  }
+
+  .navbar__logo {
+    width: 145px;
+
+    height: 46px;
+
+    flex-basis: 145px;
+  }
+
+  .navbar__logo img {
+    width: 140px;
+
+    max-width: 140px;
+
+    max-height: 46px;
+  }
+
+  .navbar__actions {
+    gap: 7px;
+  }
+
+  .navbar__search {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar__burger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar__demo {
+    display: none;
+  }
+
+  .navbar__backdrop {
+    top: 68px;
+  }
+
+  .navbar__mobile-panel {
+    top: 68px;
+  }
+
+  .navbar__mobile-panel.is-open {
+    max-height: calc(100vh - 68px);
+  }
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 380px) {
+
+  .navbar__inner {
+    width: 94%;
+  }
+
+  .navbar__logo {
+    width: 125px;
+
+    height: 42px;
+
+    flex-basis: 125px;
+  }
+
+  .navbar__logo img {
+    width: 120px;
+
+    max-width: 120px;
+
+    max-height: 42px;
+  }
+
+  .navbar__search,
+  .navbar__burger {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar *,
+  .navbar {
+    transition: none !important;
   }
 }

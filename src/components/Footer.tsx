@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Logo from './Logo'
+import logo from '../assets/footerlogo.png'
 import { LinkedInIcon, XIcon, YoutubeIcon } from './icons'
 import './Footer.css'
 
@@ -53,7 +53,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <Logo variant="light" size={64} />
+                       <Link to="/" className="navbar__logo">
+              <img src={logo} alt="Encegen AI Labs" />
+            </Link>
             <p>
               AI-powered solutions for the modern enterprise. Transforming
               businesses with intelligent automation and research.
