@@ -2,7 +2,6 @@ import {
   Btn,
   ClosingCTA,
   GradBand,
-  MockPanel,
   PageHero,
   SectionHead,
   TestimonialCard,
@@ -146,7 +145,7 @@ export default function ResumeBuilder() {
         </div>
       </section>
 
-      <GradBand tone="blue" quote="A great career deserves a great resume. Make yours count." />
+      <GradBand tone="purple" quote="A great career deserves a great resume. Make yours count." />
 
       <section id="how-it-works" className="section section--lavender">
         <div className="container">

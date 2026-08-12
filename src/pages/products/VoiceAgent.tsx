@@ -2,7 +2,6 @@ import {
   Btn,
   ClosingCTA,
   GradBand,
-  MockPanel,
   PageHero,
   SectionHead,
   TestimonialCard,
