@@ -31,10 +31,10 @@ export default function Security() {
     <section className="security">
       <div className="container">
         <p className="section-eyebrow">Security &amp; Compliance</p>
-        <h2 className="section-title">Enterprise-grade security, built in from day one.</h2>
+        <h2 className="section-title">Security built in from day one.</h2>
         <p className="section-sub">
-          Protect your data and operations with robust controls and independent
-          audits.
+          Protect your data and your operations with strong controls and
+          clear practices.
         </p>
 
         <div className="security__grid">

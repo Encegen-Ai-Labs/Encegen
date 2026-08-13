@@ -17,7 +17,7 @@ const CHANNELS = [
   {
     tag: 'SEO & Content',
     title: 'Search & Content Marketing',
-    desc: 'Data-driven content strategies and technical SEO that compound over time – building traffic you own.',
+    desc: "Technical SEO and content built to compound, so you're building traffic you actually own.",
     meta: '65% avg lower CAC',
     note: 'Organic',
     art: 'green',
@@ -25,7 +25,7 @@ const CHANNELS = [
   {
     tag: 'Paid Advertising',
     title: 'Paid Media Management',
-    desc: 'Google, Meta, LinkedIn campaigns managed for maximum ROAS with AI-powered bid optimisation.',
+    desc: 'Google, Meta, and LinkedIn campaigns run for return, with AI handling the bid optimisation.',
     meta: '6.4× avg ROAS',
     note: 'Paid',
     art: 'orange',
@@ -33,7 +33,7 @@ const CHANNELS = [
   {
     tag: 'Email & Automation',
     title: 'Email & Marketing Automation',
-    desc: 'Automated sequences that nurture leads, retain customers, and drive repeat purchases.',
+    desc: 'Sequences that nurture leads, hold on to customers, and bring them back to buy again.',
     meta: '40% higher retention',
     note: 'Automation',
     art: 'cyan',
@@ -45,30 +45,30 @@ const USE_CASES = [
     tags: ['D2C', 'Brand Scale-Up'],
     color: '#22c55e',
     title: 'D2C Brand Scale-Up',
-    desc: 'AI-paid media and email automation that took a D2C fashion brand from $200k to $1.2M MRR in 9 months.',
+    desc: 'AI-run paid media and email automation that take a growing D2C brand from early traction to serious monthly revenue.',
     metric: '6.4× ROAS',
   },
   {
     tags: ['SaaS', 'Lead Generation'],
     color: '#3b82f6',
     title: 'SaaS Lead Generation',
-    desc: 'Content and paid search strategy that grew organic qualified leads by 340% while reducing CAC by 65%.',
+    desc: 'A content and paid-search system that grows qualified organic leads while pulling the cost of acquisition down.',
     metric: '340% lead growth',
   },
   {
     tags: ['E-commerce', 'Revenue'],
     color: '#f59e0b',
     title: 'E-commerce Revenue',
-    desc: 'Email automation and conversion optimisation that added 40% to monthly revenue with zero additional ad spend.',
+    desc: 'Email automation and conversion work that add real monthly revenue without a rupee more in ad spend.',
     metric: '+40% revenue',
   },
 ]
 
 const STEPS = [
-  { num: '01', title: 'Audit & Strategy', meta: 'Wk 1-2', desc: 'Full marketing audit, competitor analysis, growth roadmap' },
-  { num: '02', title: 'Setup & Launch', meta: 'Wk 2-4', desc: 'Tracking, attribution, campaign launch, automation setup' },
-  { num: '03', title: 'Optimise', meta: 'Wk 5-8', desc: 'A/B testing, bid optimisation, creative iteration' },
-  { num: '04', title: 'Scale', meta: 'Wk 9+', desc: 'Scale winning campaigns, expand channels, compound results' },
+  { num: '01', title: 'Audit & Strategy', meta: 'Wk 1-2', desc: 'A full marketing audit, a look at the competition, and a growth roadmap worth following.' },
+  { num: '02', title: 'Setup & Launch', meta: 'Wk 2-4', desc: 'Tracking, attribution, automation, and the first campaigns live.' },
+  { num: '03', title: 'Optimise', meta: 'Wk 5-8', desc: 'A/B testing, bid tuning, and creative iteration on what the data shows.' },
+  { num: '04', title: 'Scale', meta: 'Wk 9+', desc: "Pour fuel on what's working, add channels, and let the results build on each other." },
 ]
 
 const TESTIMONIALS = [
@@ -111,12 +111,12 @@ export default function DigitalMarketing() {
         badge={<>● Encegen AI Labs · Digital Marketing · SEO · Paid Ads · Growth</>}
         title={
           <>
-            Data-Driven Growth Strategies
+            Growth you can trace back
             <br />
-            That Actually Deliver.
+            to the rupee that made it.
           </>
         }
-        sub="From AI-powered SEO to full-funnel paid advertising – Encegen builds growth systems that acquire, convert, and retain customers at scale."
+        sub="From AI-driven SEO to full-funnel paid media, we build growth systems that acquire, convert, and keep customers — and show you exactly which channel did the work."
         actions={
           <>
             <Btn variant="white">Start growing →</Btn>
@@ -141,27 +141,27 @@ export default function DigitalMarketing() {
         <div className="container">
           <SectionHead
             eyebrow="The Problem"
-            title="Most agencies run ads. Very few build growth systems."
+            title="Most agencies run ads. Very few build a growth system."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <p className="left-copy">
-                <strong>In the old world:</strong> your agency reports vanity metrics (impressions,
-                clicks, reach) that don't correlate to revenue. Campaigns are siloed (paid, SEO,
-                email) and attribution is opaque. You can't see which audiences are driving real
-                value, and decisions are made on gut feel rather than data.
+                <strong>The old way:</strong> you get a report full of impressions, clicks, and
+                reach — numbers that feel like progress but never tie back to revenue. Channels run
+                in separate silos, attribution is a black box, and the big calls get made on gut
+                feel.
               </p>
               <p className="left-copy">
-                <strong>With Encegen:</strong> you get a full-funnel growth system where every
-                channel works together. AI optimisation runs continuously, and CRM integration gives
-                you a single source of truth. You see exactly which audiences are converting, which
-                messages are working, and which levers to pull next.
+                <strong>With Encegen:</strong> every channel works off the same system. AI
+                optimisation runs around the clock, your CRM becomes the single source of truth, and
+                you can see exactly which audiences convert, which messages land, and which lever to
+                pull next.
               </p>
               <ul className="check-list">
                 <li>Full-funnel attribution across paid, SEO, email, and CRM</li>
-                <li>AI-powered optimisation running continuously (24/7)</li>
-                <li>CRM integration for audience ownership and unified reporting</li>
-                <li>Weekly performance reports and ongoing A/B testing</li>
+                <li>AI-driven optimisation running continuously, not campaign to campaign</li>
+                <li>CRM integration so you own the audience and the reporting</li>
+                <li>Weekly performance reviews and always-on A/B testing</li>
               </ul>
             </div>
             <MockPanel
@@ -194,34 +194,33 @@ export default function DigitalMarketing() {
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <h3 className="left-title" style={{ fontSize: 24 }}>
-                Most ad agencies optimise for clicks. We optimise for LTV.
+                Most agencies optimise for the click. We optimise for the customer who stays.
               </h3>
               <p className="left-copy">
-                Every campaign we run is designed around one question: what is the real cost of
-                acquiring a customer who stays? We build full-funnel paid media systems connected to
-                your CRM, optimised by AI, and measured against lifetime revenue — not surface-level
-                vanity metrics.
+                Every campaign we run answers one question: what does it really cost to acquire a
+                customer who sticks around? We build full-funnel paid media wired to your CRM, tuned
+                by AI, and measured against lifetime value — not the vanity numbers that look good in
+                a slide.
               </p>
               <ul className="check-list">
                 <li>
-                  <strong>Full-funnel attribution from ad to revenue</strong> — track every dollar
-                  from click to close
+                  <strong>Attribution from the ad all the way to closed revenue</strong> — every
+                  rupee tracked
                 </li>
                 <li>
-                  <strong>AI-powered bid optimisation running 24/7</strong> — continuous improvement
-                  without manual fatigue
+                  <strong>AI bid optimisation running around the clock</strong>, without the manual
+                  grind
                 </li>
                 <li>
-                  <strong>Connected to your CRM and e-commerce data</strong> — unified decisioning
-                  across channels
+                  <strong>Wired into your CRM and commerce data</strong> for one connected view
                 </li>
                 <li>
-                  <strong>Weekly performance reports with full transparency</strong> — no black
-                  boxes; you own the data and the model
+                  <strong>Weekly reporting with nothing hidden</strong> — you own the data and the
+                  model
                 </li>
               </ul>
               <div style={{ marginTop: 30 }}>
-                <Btn variant="lavender">See our paid media approach →</Btn>
+                <Btn variant="lavender">See how we run paid media →</Btn>
               </div>
             </div>
             <MockPanel
@@ -243,7 +242,7 @@ export default function DigitalMarketing() {
       {/* Channels */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="Chapter 2 · How We Grow You" title="Six growth channels. One unified strategy." />
+          <SectionHead eyebrow="Chapter 2 · How We Grow You" title="Three growth channels. One system behind them." />
           <div className="cards-3">
             {CHANNELS.map((c) => (
               <article key={c.title} className="disc-card">
@@ -280,7 +279,7 @@ export default function DigitalMarketing() {
       {/* Process */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="Chapter 3 · The Process" title="From strategy to compounding growth." />
+          <SectionHead eyebrow="Chapter 3 · The Process" title="From a strategy to growth that compounds." />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
           </div>
@@ -310,7 +309,7 @@ export default function DigitalMarketing() {
         trusted={['D2C Brands', 'SaaS', 'E-commerce', 'Enterprises']}
         line1="Your growth story starts with the"
         line2="right data."
-        sub="Tell us your current CAC, revenue goals, and biggest bottleneck. We will build the growth system to get you there."
+        sub="Tell us your current cost of acquisition, your revenue goal, and your biggest bottleneck. We'll build the system to close the gap."
         primary={{ label: 'Start growing →' }}
         secondary={{ label: 'View case studies' }}
         checks={['30-day support', '2-week setup', 'Fixed-price engagement']}

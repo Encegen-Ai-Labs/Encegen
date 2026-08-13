@@ -28,10 +28,20 @@ import Resources from './pages/Resources'
 import SearchPage from './pages/SearchPage'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
+    if (hash) {
+      // Deferred slightly: on first mount for a route, images/fonts below the
+      // fold can still be settling layout, which would make an immediate
+      // scrollIntoView land against a stale position. A short delay lets
+      // that settle first.
+      const id = window.setTimeout(() => {
+        document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' })
+      }, 120)
+      return () => window.clearTimeout(id)
+    }
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [pathname, hash])
   return null
 }
 

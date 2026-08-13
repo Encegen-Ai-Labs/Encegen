@@ -16,7 +16,7 @@ const PRODUCTS = [
   {
     tag: 'Talent Management',
     title: 'TalentBridge',
-    desc: 'AI-powered internship & placement platform connecting interns, corporates, and TPOs with intelligent matching and tracking.',
+    desc: 'An AI-powered internship and placement platform that matches candidates, corporates, and placement teams — and tracks every step in one place.',
     meta: '3-6 months delivery',
     note: 'Enterprise',
     art: 'purple',
@@ -24,7 +24,7 @@ const PRODUCTS = [
   {
     tag: 'Property & Search',
     title: 'Easy Hunt',
-    desc: 'Document bifurcation and property search platform — organize large data sheets and annotate documents with intelligent search.',
+    desc: 'A property search and document platform that turns sprawling land records into something you can actually search, sort, and act on.',
     meta: 'Live in 6 weeks',
     note: 'Startup',
     art: 'cyan',
@@ -32,7 +32,7 @@ const PRODUCTS = [
   {
     tag: 'Hostel Mgmt',
     title: 'HMS',
-    desc: 'AI-powered hostel management system — room allocation, student onboarding, and occupancy optimization in one platform.',
+    desc: 'An AI-assisted hostel management system: room allocation, student onboarding, and occupancy — handled in one platform.',
     meta: 'Enterprise-grade',
     note: 'Enterprise',
     art: 'green',
@@ -40,12 +40,12 @@ const PRODUCTS = [
 ]
 
 const STEPS = [
-  { num: '01', title: 'Discovery', meta: 'Wk 1-2', desc: 'Requirements, user research, technical scoping' },
-  { num: '02', title: 'Architecture', meta: 'Wk 3-4', desc: 'System design, stack decisions, API contracts' },
-  { num: '03', title: 'Design', meta: 'Wk 5-6', desc: 'UI/UX design, prototyping, user testing' },
-  { num: '04', title: 'Build', meta: 'Wk 7-10', desc: 'Agile sprints, CI/CD pipeline, QA testing' },
-  { num: '05', title: 'Test', meta: 'Wk 11-12', desc: 'Load testing, security audit, UAT' },
-  { num: '06', title: 'Launch', meta: 'Wk 13+', desc: 'Deployment, monitoring, 30-day support' },
+  { num: '01', title: 'Discovery', meta: 'Wk 1-2', desc: 'Requirements, user research, and honest technical scoping before anything gets built.' },
+  { num: '02', title: 'Architecture', meta: 'Wk 3-4', desc: 'System design, stack decisions, and the API contracts everything else hangs on.' },
+  { num: '03', title: 'Design', meta: 'Wk 5-6', desc: 'Interface and experience design, prototyped and tested with real users.' },
+  { num: '04', title: 'Build', meta: 'Wk 7-10', desc: 'Agile sprints on a proper CI/CD pipeline, with QA in the loop from the start.' },
+  { num: '05', title: 'Test', meta: 'Wk 11-12', desc: "Load testing, a security pass, and user acceptance before anyone says 'go'." },
+  { num: '06', title: 'Launch', meta: 'Wk 13+', desc: 'Deployment, monitoring, and 30 days of support while it beds in.' },
 ]
 
 const STACK = [
@@ -107,12 +107,12 @@ export default function CustomSoftware() {
         badge={<>● Encegen AI Labs · Custom Software · AI-Native · Enterprise Scale</>}
         title={
           <>
-            Enterprise Software Built for
+            Enterprise software built for
             <br />
-            How You Actually Work
+            how you actually work.
           </>
         }
-        sub="We design and build scalable, AI-native software platforms that fit your exact operational needs – not the other way around. Delivered in months, not years."
+        sub="We design and build scalable, AI-native platforms that fit your operation — not software you have to bend your operation around. Delivered in months, not years."
         actions={
           <>
             <Btn variant="white">Start a project →</Btn>
@@ -136,19 +136,19 @@ export default function CustomSoftware() {
         <div className="container">
           <SectionHead
             eyebrow="Chapter 1 · The Problem"
-            title="Every day your team works around software that was never built for them."
+            title="Every week, your team works around software that was never built for them."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <p className="left-copy">
-                <strong>In the old world:</strong> your team opens a 15-year-old system, exports a
-                CSV, pastes it into Excel, formats it manually, emails it to 3 people, and waits 4
-                days for approvals. Every. Single. Week.
+                <strong>The old way:</strong> open a system that predates half the team, export a
+                CSV, paste it into a spreadsheet, format it by hand, email three people, and wait
+                days for sign-off. Every single week.
               </p>
               <p className="left-copy">
-                <strong>With Encegen custom software:</strong> that entire process becomes a single
-                button. Data flows automatically, approvals are instant, and your team finally
-                focuses on work that actually matters.
+                <strong>With custom software from Encegen:</strong> that whole chain becomes one
+                button. Data moves on its own, approvals happen in the flow, and your team spends its
+                time on the work that actually needs a human.
               </p>
               <div className="sol-chip-row">
                 <span className="sol-chip">4-day process</span>
@@ -158,9 +158,9 @@ export default function CustomSoftware() {
                 72% of enterprise workflows can be fully automated with purpose-built software
               </p>
               <ul className="check-list">
-                <li>Full IP ownership - no vendor lock-in, ever</li>
-                <li>Fixed-price delivery - no budget surprises</li>
-                <li>3× higher team adoption vs generic tools</li>
+                <li>Full IP ownership — the code is yours, no lock-in, ever</li>
+                <li>Fixed-price delivery — the number we quote is the number you pay</li>
+                <li>Built for adoption — tools your team actually wants to open</li>
               </ul>
             </div>
             <MockPanel
@@ -191,7 +191,7 @@ export default function CustomSoftware() {
       {/* What we build */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead eyebrow="What We Build" title="Platforms that run businesses." />
+          <SectionHead eyebrow="What We Build" title="Platforms that run the business, not just report on it." />
           <div className="cards-3">
             {PRODUCTS.map((p) => (
               <article key={p.title} className="disc-card">
@@ -216,7 +216,7 @@ export default function CustomSoftware() {
       {/* How we build */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="How We Build" title="From brief to production in 3-6 months." />
+          <SectionHead eyebrow="How We Build" title="From brief to production, on a schedule you can plan around." />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
           </div>
@@ -230,7 +230,7 @@ export default function CustomSoftware() {
       {/* Stack */}
       <section className="section section--dark">
         <div className="container">
-          <SectionHead eyebrow="Our Stack" title="Modern technologies. Battle-tested in production." dark />
+          <SectionHead eyebrow="Our Stack" title="Modern tools, chosen because they hold up in production." dark />
           <div className="stack-grid">
             {STACK.map((s) => (
               <div key={s.name} className="stack-chip">
@@ -258,7 +258,7 @@ export default function CustomSoftware() {
         trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
         line1="Ready to build software that fits"
         line2="your business perfectly?"
-        sub="Tell us what you need to build. We'll scope it, design it, and deliver it – in 3-6 months."
+        sub="Tell us what you need. We'll scope it, design it, and ship it — on a fixed price and a timeline you can hold us to."
         primary={{ label: 'Start a project →' }}
         secondary={{ label: 'See case studies' }}
         checks={['Full IP transfer', '3-6 month delivery', 'Fixed-price engagement']}

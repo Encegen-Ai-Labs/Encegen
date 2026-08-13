@@ -15,25 +15,25 @@ const CAPABILITIES = [
   {
     icon: '🔍',
     title: 'Process Discovery',
-    desc: 'AI automatically maps every process variant from raw event data - no manual modeling required.',
+    desc: 'Maps how work actually flows from raw system data — no manual modelling.',
     tag: 'Automated',
   },
   {
     icon: '💡',
     title: 'Root Cause Analysis',
-    desc: 'AI pinpoints exactly why processes break down - tracing issues through thousands of upstream steps in milliseconds.',
+    desc: 'Traces a problem back through the steps that caused it, in seconds not weeks.',
     tag: 'Intelligent',
   },
   {
     icon: '⚡',
     title: 'Recommended Actions',
-    desc: 'AI generates prioritized, executable recommendations for each process gap - ranked by business impact.',
+    desc: 'Turns each gap into a ranked, ready-to-run recommendation, ordered by impact.',
     tag: 'Proactive',
   },
   {
     icon: '🔄',
     title: 'Continuous Optimization',
-    desc: 'AI monitors processes 24/7, adapts to change and automatically refines recommendations as your business evolves.',
+    desc: 'Watches the work around the clock and adjusts as the business changes.',
     tag: 'Adaptive',
   },
 ]
@@ -41,22 +41,22 @@ const CAPABILITIES = [
 const WITHOUT = [
   {
     title: 'Decisions made on stale data',
-    desc: 'Teams act on reports that are weeks old, missing critical process deviations.',
+    desc: 'Teams act on reports that are already weeks out of date.',
     chip: '4-6 week lag',
   },
   {
     title: 'Exceptions handled manually',
-    desc: 'Every process exception requires human intervention - slowing operations and burning out teams.',
+    desc: 'Every exception needs a person, which slows everything and burns people out.',
     chip: '70% manual',
   },
   {
     title: 'No visibility across systems',
-    desc: 'SAP, Salesforce, and ServiceNow data sit in silos - no unified view of what is actually happening.',
+    desc: 'Data sits in silos, so no one sees the whole picture.',
     chip: '12+ systems',
   },
   {
     title: 'Reactive, not proactive',
-    desc: 'Problems are discovered after they cause damage - not before they even happen.',
+    desc: "Problems get found after they've done the damage.",
     chip: '$4.3M avg cost',
   },
 ]
@@ -64,22 +64,22 @@ const WITHOUT = [
 const WITH = [
   {
     title: 'Real-time process visibility',
-    desc: 'AI maps every process variant the moment it happens - no sampling, no delays, no assumptions.',
+    desc: 'Work is mapped as it happens — no sampling, no lag.',
     chip: 'Live data',
   },
   {
     title: 'Automated exception handling',
-    desc: 'AI detects, routes, and resolves process exceptions automatically before they escalate.',
+    desc: 'Exceptions get caught, routed, and resolved before they escalate.',
     chip: '87% automated',
   },
   {
     title: 'Unified intelligence layer',
-    desc: 'One connected view across SAP, Salesforce, and any other system in your stack.',
+    desc: 'A single picture across every system in your stack.',
     chip: '1 platform',
   },
   {
     title: 'Predictive, not reactive',
-    desc: 'AI identifies problems before they occur, recommending action days ahead of impact.',
+    desc: 'Problems get flagged before they land.',
     chip: '3.2× faster',
   },
 ]
@@ -98,43 +98,115 @@ const USE_CASES = [
     tags: ['Finance'],
     color: '#22c55e',
     title: 'Accounts Payable Automation',
-    desc: 'AI identifies bottlenecks, flags duplicates, and auto-routes exceptions – reducing AP cycle time by up to 65%.',
+    desc: "AI finds the bottlenecks, flags duplicates, and routes exceptions on its own — so AP stops being a queue.",
     metric: '65% faster',
   },
   {
     tags: ['Supply Chain'],
     color: '#22d3ee',
     title: 'Supply Chain Resilience',
-    desc: 'AI monitors supply chain in real time, predicts disruptions, and recommends re-routing actions.',
+    desc: 'AI watches the chain in real time, sees the disruption coming, and recommends the re-route.',
     metric: '99.4% on-time',
   },
   {
     tags: ['Finance'],
     color: '#8b5cf6',
     title: 'Order-to-Cash Excellence',
-    desc: 'AI detects revenue leakage in the O2C cycle, identifies at-risk orders, and triggers automatic remediation.',
+    desc: 'AI catches revenue leaking out of the cycle, spots the at-risk orders, and triggers the fix.',
     metric: '40% DSO reduction',
   },
   {
     tags: ['IT Ops'],
     color: '#3b82f6',
     title: 'IT Service Management',
-    desc: 'AI auto-resolves routine tickets, predicts service degradation, optimizes ITSM workflows end-to-end.',
+    desc: 'AI resolves the routine tickets, predicts the degradation, and tightens the whole workflow.',
     metric: '3× faster resolution',
   },
   {
     tags: ['Manufacturing'],
     color: '#f59e0b',
     title: 'Manufacturing Operations',
-    desc: 'AI monitors production processes, flags compliance deviations, and optimizes throughput in real time.',
+    desc: 'AI watches production, flags the deviation, and keeps throughput moving.',
     metric: '22% OEE improvement',
   },
   {
     tags: ['Procurement'],
     color: '#ec4899',
     title: 'Procurement Intelligence',
-    desc: 'AI surfaces savings opportunities, flags maverick spend, and ensures compliance automatically.',
+    desc: 'AI surfaces the savings, flags the off-contract spend, and keeps compliance clean.',
     metric: '$2.4M avg savings',
+  },
+]
+
+const INDUSTRIES = [
+  {
+    id: 'manufacturing',
+    tag: 'Manufacturing',
+    title: 'Manufacturing',
+    intro:
+      "On a factory floor, the cost of a problem is measured in downtime, scrap, and missed shipments. AI closes the gap between 'something went wrong' and 'it's already handled.'",
+    points: [
+      {
+        title: 'Keep production moving',
+        desc: 'Watch every line in real time, catch the deviation as it happens, and flag the fix before it becomes a stoppage.',
+      },
+      {
+        title: 'See the whole supply chain',
+        desc: 'Read demand signals, spot the disruption early, and re-plan inventory before a shortage reaches the line.',
+      },
+      {
+        title: 'Hold the quality line',
+        desc: 'Vision models trained on your own product images catch the micro-defects standard checks wave through — the ones that reach the customer.',
+      },
+    ],
+    startsWith:
+      'Most manufacturers begin with the highest-volume, most-measurable process — usually supply chain visibility or quality inspection — and expand from there.',
+  },
+  {
+    id: 'financial-services',
+    tag: 'Financial Services',
+    title: 'Financial Services',
+    intro:
+      'In finance, every workflow runs under a regulator\'s eye and a fraud team\'s clock. AI has to move fast and leave a clean trail — we build for both.',
+    points: [
+      {
+        title: 'Catch fraud as it moves',
+        desc: 'Read transaction patterns in real time, flag the anomaly before it clears, and cut the false positives that bury your review team.',
+      },
+      {
+        title: 'Make compliance less manual',
+        desc: 'Monitor transactions, assemble the documentation, and keep the audit trail current — so reporting stops eating the week.',
+      },
+      {
+        title: 'Speed the decisions that wait on people',
+        desc: 'Pull and check the documents behind onboarding, KYC, and credit so the judgment calls reach a human faster.',
+      },
+    ],
+    startsWith:
+      'Fraud and document automation tend to show returns first — high volume, clear before-and-after — which makes them the natural place to prove value.',
+  },
+  {
+    id: 'healthcare',
+    tag: 'Healthcare',
+    title: 'Healthcare',
+    intro:
+      'In healthcare, the administrative load pulls people away from patients. AI takes the repeatable weight off the back office — with a human always in the loop where it counts.',
+    points: [
+      {
+        title: 'Lighten the documentation load',
+        desc: 'Turn clinical notes into structured records and draft the paperwork, so clinicians spend less of the day typing and more of it with patients.',
+      },
+      {
+        title: 'Clean up the revenue cycle',
+        desc: 'Check claims before they go out, flag the ones likely to bounce, and pull the missing documentation straight from the record.',
+      },
+      {
+        title: 'Take the wait out of prior authorisation',
+        desc: 'Gather the documentation, check it against payer criteria, and prepare the packet — compressing days of back-and-forth into hours.',
+      },
+    ],
+    startsWith:
+      'Documentation and revenue-cycle work score highest on volume, measurability, and safety — errors get caught by a human before they ever reach care — which is why most teams start there.',
   },
 ]
 
@@ -178,29 +250,29 @@ export default function UseCases() {
         badge="Encegen AI"
         title={
           <>
-            Put AI to Work Across <span className="accent-blue">Every Business Process</span>
+            Put AI to work across <span className="accent-blue">every part of the business</span>
           </>
         }
-        sub="Encegen AI doesn't just surface insights - it acts. Embed intelligent automation directly into your SAP, Salesforce, and ServiceNow workflows."
+        sub="Encegen AI doesn't stop at insight — it acts. We build intelligent automation into the systems your teams already run on, from finance to operations to support."
       />
 
       {/* AI understands */}
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">Process Intelligence + AI</p>
-            <h2 className="left-title">AI that understands your business - not just your data.</h2>
+            <p className="shead__eyebrow">Context + AI</p>
+            <h2 className="left-title">AI that understands your business — not just your data.</h2>
             <p className="left-copy">
-              Most AI tools analyze data in isolation. Encegen AI understands full process context,
-              identifies breakdowns, and triggers automated fixes directly in operational systems.
+              Most tools look at data in isolation. Encegen AI reads the full context of how work
+              moves, finds where it breaks, and acts to fix it inside the systems you already use.
             </p>
             <div className="proc-list">
-              <a href="#">Trained on real process event data, not static rules</a>
-              <a href="#">Connects AI insights directly to system actions</a>
-              <a href="#">Continuously learns with every process cycle</a>
+              <a href="#">Trained on how your processes really run, not on static rules</a>
+              <a href="#">Connects insight directly to action</a>
+              <a href="#">Learns a little more with every cycle</a>
             </div>
             <div style={{ marginTop: 32 }}>
-              <Btn variant="lavender">Learn how it works →</Btn>
+              <Btn variant="lavender">See how it works →</Btn>
             </div>
           </div>
           <MockPanel
@@ -221,7 +293,7 @@ export default function UseCases() {
       {/* Capabilities */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead eyebrow="AI Capabilities" title="Four ways AI transforms your operations." />
+          <SectionHead eyebrow="AI Capabilities" title="Four ways AI changes how you operate." />
           <div className="cards-2">
             {CAPABILITIES.map((c) => (
               <article key={c.title} className="fcard">
@@ -245,8 +317,8 @@ export default function UseCases() {
         <div className="container">
           <SectionHead
             eyebrow="The Problem We Solve"
-            title="Most enterprises are running blind. Encegen fixes that."
-            sub="Your operational data holds the answers - but without process intelligence, it stays locked in your systems. Encegen unlocks it."
+            title="Most teams are running half-blind. We fix that."
+            sub="The answers are already in your systems — they're just locked in. Encegen unlocks them and acts on them."
           />
           <div className="cards-2" style={{ alignItems: 'start' }}>
             <div className="compare-col">
@@ -309,12 +381,44 @@ export default function UseCases() {
       {/* Use cases */}
       <section className="section section--dark">
         <div className="container">
-          <SectionHead eyebrow="Use Cases" title="AI-powered solutions for your most critical processes." dark />
+          <SectionHead eyebrow="Use Cases" title="AI aimed at your most important processes." dark />
           <div className="cards-3">
             {USE_CASES.map((u) => (
               <UseCaseCard key={u.title} {...u} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* By Industry */}
+      <section className="section section--light">
+        <div className="container">
+          <SectionHead
+            eyebrow="By Industry"
+            title="Built for the way your industry actually runs."
+            sub="The same intelligence layer, shaped to the pressures of your sector — the workflows, the regulation, the margins that don't leave much room for error."
+          />
+          {INDUSTRIES.map((industry) => (
+            <div key={industry.id} id={industry.id} style={{ scrollMarginTop: 100, marginTop: 56 }}>
+              <span className="disc-card__tag">{industry.tag}</span>
+              <h3 className="left-title" style={{ marginTop: 14 }}>{industry.title}</h3>
+              <p className="left-copy" style={{ marginTop: 12 }}>{industry.intro}</p>
+              <div className="cards-3" style={{ marginTop: 28 }}>
+                {industry.points.map((p) => (
+                  <article className="fcard" key={p.title}>
+                    <h3>{p.title}</h3>
+                    <p>{p.desc}</p>
+                  </article>
+                ))}
+              </div>
+              <p className="left-copy" style={{ marginTop: 20, fontSize: 14 }}>
+                <strong>Where it starts:</strong> {industry.startsWith}
+              </p>
+            </div>
+          ))}
+          <p className="left-copy" style={{ marginTop: 48, textAlign: 'center' }}>
+            Don't see your industry? The layer isn't industry-specific — it learns yours. Tell us how you operate and we'll show you where it fits.
+          </p>
         </div>
       </section>
 
@@ -343,8 +447,8 @@ export default function UseCases() {
         trusted={['Siemens', 'Uber', 'Airbus']}
         trustedLabel="join 5,000+ companies transforming their operations"
         line1="Ready to put AI to work?"
-        sub="See how Encegen AI can transform your highest-priority processes in 30 days."
-        primary={{ label: 'Get AI demo →' }}
+        sub="See what Encegen AI can do for your highest-priority processes."
+        primary={{ label: 'Get an AI demo →' }}
         secondary={{ label: 'Download the AI guide' }}
         checks={['70+ industries', '300% avg ROI', '$2.4T business value']}
       />

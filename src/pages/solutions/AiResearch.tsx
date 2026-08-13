@@ -16,33 +16,33 @@ import './solutions.css'
 const FLAGSHIP_ITEMS = [
   {
     title: 'Domain-specific training data curation',
-    desc: 'We curate the exact data your model needs to learn your domain.',
+    desc: "We curate the exact data your model needs to learn your world, not the internet's.",
     chips: ['8% factor in model accuracy', '2.3× better than generic', '<2 wks curation avg'],
   },
   {
     title: 'Proprietary context injection',
-    desc: 'We inject your workflows, terminology and business rules into the model.',
+    desc: 'Your workflows, terminology, and business rules go into the model, so its answers fit your reality.',
     chips: ['Business-rule grounding', 'Terminology alignment'],
   },
   {
     title: 'Hallucination elimination techniques',
-    desc: 'We reduce false positives and ensure outputs are grounded in evidence.',
+    desc: 'We ground outputs in evidence and cut false positives, combining retrieval with alignment so the model stays honest.',
     chips: ['<0.5% error rate achieved', 'RLHF + RAG combined', 'Production-tested method'],
   },
   {
     title: 'Continuous learning pipelines',
-    desc: 'Models stay up-to-date as your business evolves and new data arrives.',
+    desc: 'The model keeps pace as your business changes, with retraining that triggers on its own and no downtime to ship it.',
     chips: ['+1.2% accuracy per month', 'Auto-retraining triggers', 'Zero downtime updates'],
   },
 ]
 
 const DISCIPLINES = [
-  { title: 'LLM Fine-Tuning', desc: 'Custom language models trained on your domain data, documentation and decisions.', tag: 'Language', art: 'purple' },
-  { title: 'Computer Vision', desc: 'Visual inspection, document parsing, and image classification for your workflows.', tag: 'Vision', art: 'cyan' },
-  { title: 'Predictive Intelligence', desc: 'Forecasting and anomaly detection trained on your operational time-series data.', tag: 'Forecasting', art: 'orange' },
+  { title: 'LLM Fine-Tuning', desc: 'Custom language models trained on your domain, your documents, and your decisions.', tag: 'Language', art: 'purple' },
+  { title: 'Computer Vision', desc: 'Visual inspection, document parsing, and image classification tuned to your workflows.', tag: 'Vision', art: 'cyan' },
+  { title: 'Predictive Intelligence', desc: 'Forecasting and anomaly detection built on your own operational time-series data.', tag: 'Forecasting', art: 'orange' },
   { title: 'NLP & Understanding', desc: 'Extract, classify, and reason over contracts, emails, tickets, and reports.', tag: 'Text AI', art: 'blue' },
-  { title: 'Reinforcement Learning', desc: 'Agents that learn optimal actions in your environment through guided exploration.', tag: 'Agents', art: 'green' },
-  { title: 'Multimodal AI', desc: 'AI that understands text, images, tables, and structured data together – as humans do.', tag: 'Multimodal', art: 'magenta' },
+  { title: 'Reinforcement Learning', desc: 'Agents that learn the best action in your environment through guided exploration.', tag: 'Agents', art: 'green' },
+  { title: 'Multimodal AI', desc: 'Models that read text, images, tables, and structured data together — the way people do.', tag: 'Multimodal', art: 'magenta' },
 ]
 
 const STEPS = [
@@ -50,35 +50,35 @@ const STEPS = [
     num: '01',
     title: 'Discovery',
     meta: 'Week 1-2',
-    desc: 'Stakeholder workshops, problem framing, data landscape audit, feasibility scoring and ROI estimation.',
+    desc: 'Stakeholder workshops, problem framing, a data-landscape audit, and an honest feasibility and ROI read before anyone writes code.',
     chips: ['Problem brief', 'Data audit report'],
   },
   {
     num: '02',
     title: 'Data Strategy',
     meta: 'Week 3-5',
-    desc: 'Data sourcing, cleaning pipeline, annotation guidelines, synthetic data generation, and train/test split design.',
+    desc: "Sourcing, a cleaning pipeline, annotation guidelines, synthetic data where it helps, and a train/test split that holds up.",
     chips: ['Clean dataset', 'Labeling schema'],
   },
   {
     num: '03',
     title: 'Architecture',
     meta: 'Week 6-7',
-    desc: 'Foundation model selection, fine-tuning strategy, evaluation framework design, and baseline experiment runs.',
+    desc: 'Foundation-model selection, a fine-tuning strategy, an evaluation framework, and baseline runs to measure against.',
     chips: ['Model blueprint', 'Baseline metrics'],
   },
   {
     num: '04',
     title: 'Training & Validate',
     meta: 'Week 8-11',
-    desc: 'Iterative training runs, hyperparameter tuning, RLHF alignment, red-teaming, and benchmark validation against targets.',
+    desc: 'Iterative training, tuning, alignment, red-teaming, and validation against the targets we agreed on.',
     chips: ['Validated model', 'Eval scorecard'],
   },
   {
     num: '05',
     title: 'Deployment',
     meta: 'Week 12-14',
-    desc: 'API integration, monitoring setup, A/B testing, team handover, documentation, and 30-day support period.',
+    desc: 'API integration, monitoring, A/B testing, handover, documentation, and a 30-day support window.',
     chips: ['Live in production', 'Full documentation'],
   },
 ]
@@ -88,7 +88,7 @@ const USE_CASES = [
     tags: ['NLP', 'Finance'],
     color: '#22c55e',
     title: 'Financial Document Intelligence',
-    desc: 'Custom NLP model reads 50,000+ contracts, extracts key clauses, flags anomalies – 98% accuracy vs 72% with generic models.',
+    desc: 'A custom NLP model reads through contracts at scale, pulls the clauses that matter, and flags the anomalies a generic model walks straight past.',
     metric: '98% accuracy',
     compare: 'Generic GPT: 72% → Encegen: 98%',
   },
@@ -96,7 +96,7 @@ const USE_CASES = [
     tags: ['Vision', 'Manufacturing'],
     color: '#3b82f6',
     title: 'Manufacturing Defect Detection',
-    desc: 'Computer vision model trained on 2M+ product images detects micro-defects invisible to standard models. Zero false negatives.',
+    desc: 'A vision model trained on your product images catches the micro-defects standard models miss — the ones that reach the customer.',
     metric: '0.2% miss rate',
     compare: 'Generic: 5.2% → Encegen: 0.2%',
   },
@@ -104,7 +104,7 @@ const USE_CASES = [
     tags: ['ML', 'Supply Chain'],
     color: '#f59e0b',
     title: 'Demand Forecasting AI',
-    desc: 'LSTM model trained on 9 years of client-specific supply chain data outperforms generic forecasting by 3× on out-of-distribution events.',
+    desc: 'A model trained on your own supply-chain history holds up where generic forecasting falls apart: the odd events, the edge cases, the days that actually cost you.',
     metric: '3× accuracy uplift',
     compare: 'Generic: 1× → Encegen: 3×',
   },
@@ -150,12 +150,12 @@ export default function AiResearch() {
         badge={<>● Encegen AI Labs · Custom AI Research &amp; Engineering</>}
         title={
           <>
-            AI Built for the Exact Problem
+            AI built for the exact problem
             <br />
-            No One Else Will Solve
+            no one else will touch.
           </>
         }
-        sub="Off-the-shelf AI solves generic problems. We build custom AI – fine-tuned on your data, designed for your workflows, grounded in your business context."
+        sub="Off-the-shelf models solve generic problems. We build custom AI — trained on your data, shaped to your workflows, and grounded in how your business actually runs."
         actions={
           <>
             <Btn variant="white">Start a project →</Btn>
@@ -179,17 +179,17 @@ export default function AiResearch() {
         <div className="container">
           <SectionHead
             eyebrow="Flagship Capability"
-            title="LLM Fine-Tuning That Actually Understands Your Business."
+            title="Language models that actually understand your business."
           />
           <div className="split" style={{ marginTop: 56, alignItems: 'start' }}>
             <div>
               <h3 className="left-title" style={{ fontSize: 24 }}>
-                From generic to domain-expert in 12 weeks.
+                From generic to domain-expert, on your data.
               </h3>
               <p className="left-copy">
-                Most language models know everything about nothing specific. We fine-tune foundation
-                models on your proprietary data – contracts, tickets, SOPs, transaction history –
-                until they understand your business as well as your best employees.
+                Most models know a little about everything and nothing about you. We fine-tune
+                foundation models on your own material — contracts, tickets, SOPs, transaction
+                history — until the model reads your domain the way your most experienced people do.
               </p>
               <div className="flag-list">
                 {FLAGSHIP_ITEMS.map((f) => (
@@ -245,8 +245,8 @@ export default function AiResearch() {
         <div className="container">
           <SectionHead
             eyebrow="All Capabilities"
-            title="Six research disciplines. One expert team."
-            sub="Built to solve the problems generic models cannot touch."
+            title="Six research disciplines. One team that ships."
+            sub="Built for the problems generic models can't reach."
           />
           <div className="cards-3">
             {DISCIPLINES.map((d) => (
@@ -270,8 +270,8 @@ export default function AiResearch() {
         <div className="container">
           <SectionHead
             eyebrow="Our Process"
-            title="Research to production in 14 weeks."
-            sub="A structured path from problem definition to deployed AI – with clear milestones and measurable outcomes."
+            title="Research to production, with milestones you can hold us to."
+            sub="A clear path from problem to deployed model — every stage with an outcome you can see."
           />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
@@ -314,9 +314,9 @@ export default function AiResearch() {
 
       <ClosingCTA
         trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
-        line1="Tell us your problem."
+        line1="Tell us the problem."
         line2="We'll build the AI."
-        sub="No generic tools. No off-the-shelf models. Just research-grade custom AI built precisely for your business challenge – delivered in 14 weeks."
+        sub="No generic tool, no off-the-shelf model. Research-grade custom AI, built for your exact challenge and delivered on a timeline you can plan around."
         primary={{ label: 'Start a project →' }}
         secondary={{ label: 'Talk to a researcher' }}
         checks={['NDA-protected engagements', '14-week delivery guarantee', 'No lock-in contract']}

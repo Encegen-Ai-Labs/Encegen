@@ -16,31 +16,31 @@ const PRODUCTS = [
   {
     tag: 'Marketing Website',
     title: 'Marketing Websites',
-    desc: 'High-performance landing pages and brand sites built for speed, SEO, and conversion.',
+    desc: 'Fast landing pages and brand sites built for speed, search, and conversion.',
     meta: '98/100 PageSpeed avg',
     art: 'purple',
   },
   {
     tag: 'E-commerce',
     title: 'E-commerce Platforms',
-    desc: 'Full-scale online stores with cart, checkout, inventory, and AI-powered product recommendations.',
+    desc: 'Full online stores — cart, checkout, inventory, and AI-driven product recommendations.',
     meta: '3× conversion lift',
     art: 'orange',
   },
   {
     tag: 'Custom Web App',
     title: 'Custom Web Apps',
-    desc: 'Bespoke dashboards, portals, and tools tailored precisely to your workflow and users.',
+    desc: 'Dashboards, portals, and internal tools shaped to your workflow and your users.',
     meta: '2-week starter',
     art: 'cyan',
   },
 ]
 
 const STEPS = [
-  { num: '01', title: 'Brief & Strategy', meta: 'Wk 1', desc: 'Goals, target audience, conversion strategy, and content planning' },
-  { num: '02', title: 'Design & Prototype', meta: 'Wk 2-3', desc: 'High-fidelity screens and an interactive prototype for your sign-off' },
-  { num: '03', title: 'Build & Test', meta: 'Wk 4-6', desc: 'Performance-first code, cross-device testing, and conversion optimisation' },
-  { num: '04', title: 'Launch & Grow', meta: 'Wk 7+', desc: 'Go live with analytics, SEO setup, and 30 days of dedicated support' },
+  { num: '01', title: 'Brief & Strategy', meta: 'Wk 1', desc: 'Goals, audience, conversion strategy, and content planning.' },
+  { num: '02', title: 'Design & Prototype', meta: 'Wk 2-3', desc: 'High-fidelity screens and a clickable prototype for your sign-off.' },
+  { num: '03', title: 'Build & Test', meta: 'Wk 4-6', desc: 'Performance-first code, tested across devices and tuned for conversion.' },
+  { num: '04', title: 'Launch & Grow', meta: 'Wk 7+', desc: 'Go live with analytics and SEO in place, plus 30 days of support.' },
 ]
 
 const STACK = [
@@ -102,12 +102,12 @@ export default function WebEcommerce() {
         badge={<>● Encegen AI Labs · Web Development · E-commerce · Performance-First</>}
         title={
           <>
-            Websites That Convert.
+            Websites that convert.
             <br />
-            Stores That Scale.
+            Stores that scale.
           </>
         }
-        sub="From high-performance marketing sites to full-scale e-commerce platforms – we build digital experiences that drive measurable, compounding growth."
+        sub="From high-performance marketing sites to full-scale commerce platforms, we build digital experiences that drive measurable, compounding growth — not just ones that photograph well."
         actions={
           <>
             <Btn variant="white">Get a website →</Btn>
@@ -131,20 +131,19 @@ export default function WebEcommerce() {
         <div className="container">
           <SectionHead
             eyebrow="The Problem"
-            title="Every week, your team loses hours to a website that was built to look good - not to perform."
+            title="Every week, a site built to look good — not to perform — quietly costs you customers."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <p className="left-copy">
-                <strong>In the old way:</strong> your potential customer lands on your site, waits 6
-                seconds for it to load, struggles to find what they need, and clicks away. You never
-                know why. Your team rebuilds the same page three times. The agency is already
-                working on the next project.
+                <strong>The old way:</strong> a visitor lands, waits for a slow page, can't find what
+                they came for, and leaves. You never learn why. Your team rebuilds the same page a
+                third time while the agency has already moved on to the next client.
               </p>
               <p className="left-copy">
-                <strong>With Encegen:</strong> your site loads in under 1.8 seconds, every page is
-                designed around a specific conversion goal, and you see exactly what is working –
-                with weekly performance reports and ongoing A/B testing.
+                <strong>With Encegen:</strong> the page loads fast, every screen is built around a
+                clear action, and you can see exactly what's working — backed by real analytics and
+                A/B testing that never stops.
               </p>
               <div className="sol-chip-row">
                 <span className="sol-chip">6-sec load, 2% conversion</span>
@@ -155,9 +154,9 @@ export default function WebEcommerce() {
                 costing you customers
               </p>
               <ul className="check-list">
-                <li>Sub-2 second load times - industry-leading performance</li>
-                <li>Conversion-rate optimised from first wireframe</li>
-                <li>Built-in analytics, A/B testing, and weekly reports</li>
+                <li>Fast load times — performance engineered in, not bolted on</li>
+                <li>Conversion-focused from the first wireframe</li>
+                <li>Analytics, A/B testing, and weekly reporting built in</li>
               </ul>
             </div>
             <MockPanel
@@ -185,37 +184,35 @@ export default function WebEcommerce() {
         <div className="container">
           <SectionHead
             eyebrow="Flagship Service"
-            title="Performance-optimised websites built for revenue, not just awards."
+            title="Sites built for revenue, not for the awards shelf."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div>
               <h3 className="left-title" style={{ fontSize: 24 }}>
-                We design every page with one obsession - getting visitors to take action.
+                We design every page around one obsession — getting the visitor to act.
               </h3>
               <p className="left-copy">
-                Most websites look good in screenshots. Ours perform in production. Every layout,
-                every load-time millisecond, every CTA is engineered for conversion.
+                Plenty of sites look great in a screenshot. Ours perform in production. Every layout,
+                every millisecond of load time, every call to action is engineered to move someone
+                one step closer to buying.
               </p>
               <ul className="check-list">
                 <li>
-                  <strong>Conversion-rate optimised from wireframe one</strong> — every element
-                  placed for maximum action
+                  <strong>Conversion-optimised from wireframe one</strong> — every element earns its
+                  place
                 </li>
                 <li>
-                  <strong>Sub-2 second load times guaranteed</strong> — 98/100 PageSpeed engineered
-                  from day one
+                  <strong>Fast load times engineered from day one</strong>, not patched in later
                 </li>
                 <li>
-                  <strong>Built-in A/B testing and analytics</strong> — data-driven iteration from
-                  launch day
+                  <strong>A/B testing and analytics built in</strong>, so you iterate on evidence
                 </li>
                 <li>
-                  <strong>SEO-ready at the foundation</strong> — technical SEO baked in, not bolted
-                  on
+                  <strong>Technical SEO in the foundation</strong>, not bolted on at the end
                 </li>
               </ul>
               <div style={{ marginTop: 30 }}>
-                <Btn variant="lavender">Explore our approach →</Btn>
+                <Btn variant="lavender">See our approach →</Btn>
               </div>
             </div>
             <MockPanel
@@ -239,8 +236,8 @@ export default function WebEcommerce() {
         <div className="container">
           <SectionHead
             eyebrow="What We Build"
-            title="Three types of digital products. One conversion-obsessed team."
-            sub="High-performance marketing sites, full-scale e-commerce platforms, and bespoke web apps."
+            title="Three kinds of build. One conversion-obsessed team."
+            sub="Fast marketing sites, full-scale commerce platforms, and custom web apps."
           />
           <div className="cards-3">
             {PRODUCTS.map((p) => (
@@ -267,8 +264,8 @@ export default function WebEcommerce() {
         <div className="container">
           <SectionHead
             eyebrow="How We Deliver"
-            title="From a conversation to a live, converting website."
-            sub="A clear, transparent process with no surprises — from your first brief to a live site that performs."
+            title="From a first conversation to a live site that performs."
+            sub="A clear, no-surprises process — from the brief to a site that actually pulls its weight."
           />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
@@ -285,8 +282,8 @@ export default function WebEcommerce() {
         <div className="container">
           <SectionHead
             eyebrow="Our Web & E-commerce Stack"
-            title="Conversion-optimised technologies. Proven in production."
-            sub="We choose every tool in your stack specifically for web performance, e-commerce reliability, and conversion rate optimisation - not just what is popular."
+            title="Tools chosen for speed, reliability, and conversion."
+            sub="We pick every tool in your stack for web performance, commerce reliability, and conversion — not because it's the name of the month."
             dark
           />
           <div className="stack-grid">
@@ -298,8 +295,8 @@ export default function WebEcommerce() {
             ))}
           </div>
           <p style={{ marginTop: 30, textAlign: 'center', fontSize: 13.5, color: '#8f8ab8' }}>
-            Platform chosen based on your business model - Shopify for scalable stores, headless for
-            custom experiences, WooCommerce for content-first brands.
+            The platform fits the business — a scalable store on Shopify, a headless build for
+            something custom, WooCommerce for a content-first brand.
           </p>
         </div>
       </section>
@@ -320,7 +317,7 @@ export default function WebEcommerce() {
         trusted={['D2C Brands', 'Retailers', 'SaaS', 'Enterprises']}
         line1="Your website story starts with"
         line2="one conversation."
-        sub="Tell us what you need to build. We will design it, build it, and make sure it performs."
+        sub="Tell us what you need to build. We'll design it, build it, and make sure it performs."
         primary={{ label: 'Get a website →' }}
         secondary={{ label: 'See case studies' }}
         checks={['30-day support', '2-week delivery', 'Fixed-price engagement']}

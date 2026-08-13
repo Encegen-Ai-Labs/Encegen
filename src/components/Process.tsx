@@ -5,23 +5,23 @@ const STEPS = [
   {
     number: '01',
     icon: PlugIcon,
-    title: 'Connect Your Data',
+    title: 'Connect your data',
     description:
-      'Plug Encegen into your existing systems - SAP, Salesforce, Oracle and more - in days, not months.',
+      'Plug Encegen into the systems you already run — in days, not months.',
   },
   {
     number: '02',
     icon: SearchIcon,
-    title: 'Discover Process Reality',
+    title: "See what's really happening",
     description:
-      'AI automatically maps, mines, and analyzes every process variant across your entire operation.',
+      'AI maps, mines, and analyses how every process actually runs across your operation.',
   },
   {
     number: '03',
     icon: ZapIcon,
-    title: 'Act and Optimize',
+    title: 'Act and optimise',
     description:
-      'Push AI-guided recommendations directly back into your systems and automate fixes at scale.',
+      'Push AI-guided fixes back into your systems and automate them at scale.',
   },
 ]
 
