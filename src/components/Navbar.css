@@ -81,7 +81,7 @@
 }
 
 /* ==========================================================
-   NAV LINK
+   DESKTOP NAV LINK
 ========================================================== */
 
 .navbar__link {
@@ -117,10 +117,6 @@
   border-bottom-color: #5b45d6;
 }
 
-/* ==========================================================
-   CHEVRON
-========================================================== */
-
 .navbar__chevron {
   width: 15px;
   height: 15px;
@@ -137,7 +133,7 @@
 }
 
 /* ==========================================================
-   RIGHT ACTIONS
+   RIGHT ACTIONS (DESKTOP)
 ========================================================== */
 
 .navbar__actions {
@@ -146,10 +142,6 @@
   gap: 10px;
   flex: 0 0 auto;
 }
-
-/* ==========================================================
-   SEARCH BUTTON
-========================================================== */
 
 .navbar__search {
   width: 42px;
@@ -186,10 +178,6 @@
   transform: scale(1.08);
 }
 
-/* ==========================================================
-   GET DEMO
-========================================================== */
-
 .navbar__demo {
   min-height: 42px;
   display: inline-flex;
@@ -215,36 +203,7 @@
 }
 
 /* ==========================================================
-   IMPORTANT OVERRIDE
-========================================================== */
-
-.navbar--on-dark {
-  background: #ffffff;
-}
-
-.navbar--on-dark .navbar__link {
-  color: #111111 !important;
-}
-
-.navbar--on-dark .navbar__link:hover,
-.navbar--on-dark .navbar__link--active {
-  color: #5b45d6 !important;
-}
-
-.navbar--on-dark .navbar__chevron {
-  color: #111111 !important;
-  stroke: #111111 !important;
-}
-
-.navbar--on-dark .navbar__search,
-.navbar--on-dark .navbar__demo {
-  background: #f1efff;
-  color: #111111 !important;
-  border: 0;
-}
-
-/* ==========================================================
-   MEGA MENU
+   MEGA MENU (DESKTOP)
 ========================================================== */
 
 .navbar__group {
@@ -378,35 +337,7 @@
 }
 
 /* ==========================================================
-   BACKDROP
-========================================================== */
-
-.navbar__backdrop {
-  position: fixed;
-  top: 82px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(13, 12, 43, 0.25);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 40;
-}
-
-.navbar:has(.navbar__group:hover) .navbar__backdrop,
-.navbar:has(.navbar__group:focus-within) .navbar__backdrop,
-.navbar__backdrop.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* ==========================================================
-   HAMBURGER & CROSS ICON ANIMATION
+   HAMBURGER & CROSS BUTTON
 ========================================================== */
 
 .navbar__burger {
@@ -437,7 +368,7 @@
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Morph to CROSS icon when active */
+/* CROSS ICON ACTIVE STATE */
 .navbar__burger.is-active {
   background: #5b45d6;
 }
@@ -460,7 +391,7 @@
 }
 
 /* ==========================================================
-   MOBILE PANEL & ACCORDION (POLISHED & CONSISTENT)
+   MOBILE DRAWER & UNIFORM FONTS (FIXED SECTION)
 ========================================================== */
 
 .navbar__mobile-panel {
@@ -494,13 +425,12 @@
 .navbar__mobile-inner {
   width: min(90%, 600px);
   margin: 0 auto;
-  padding: 24px 0 32px;
+  padding: 20px 0 32px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
-/* --- Search Bar --- */
+/* Search bar on mobile */
 .navbar__mobile-search-wrap {
   margin-bottom: 12px;
 }
@@ -518,11 +448,7 @@
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.navbar__mobile-search-btn:active {
-  background: #eae6fe;
+  box-sizing: border-box;
 }
 
 .navbar__mobile-search-btn svg {
@@ -531,39 +457,42 @@
   flex-shrink: 0;
 }
 
-/* --- Menu Links (Fixes Bold/Faint Text Discrepancy) --- */
+/* 🛑 EXACT UNIFORM FONT STYLING FOR ALL MAIN MENU ITEMS 🛑 */
 .navbar__mobile-link--top,
 .navbar__mobile-group-btn {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 4px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #f0f0f5;
-  font-family: inherit;
-  font-size: 17px;
-  font-weight: 600; /* Uniform font weight for all top-level items */
-  color: #1a1a2e;
-  text-decoration: none;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 18px 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #f0f0f5 !important;
+  
+  /* Font properties forced to be identical */
+  font-family: inherit !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: #111122 !important;
+  text-decoration: none !important;
+  
   cursor: pointer;
   text-align: left;
+  box-sizing: border-box;
+  margin: 0 !important;
   transition: color 0.2s ease;
 }
 
 .navbar__mobile-link--top:hover,
-.navbar__mobile-group-btn:hover {
-  color: #5b45d6;
+.navbar__mobile-group-btn:hover,
+.navbar__mobile-group-btn.is-expanded {
+  color: #5b45d6 !important;
 }
 
 .navbar__mobile-chevron {
-  color: #1a1a2e;
+  color: #111122;
   transition: transform 0.25s ease, color 0.25s ease;
-}
-
-.navbar__mobile-group-btn.is-expanded {
-  color: #5b45d6;
 }
 
 .navbar__mobile-group-btn.is-expanded .navbar__mobile-chevron {
@@ -571,14 +500,14 @@
   color: #5b45d6;
 }
 
-/* --- Accordion Dropdown Content --- */
+/* Accordion Inside Drawer */
 .navbar__mobile-accordion {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease;
   background: #fafafd;
   border-radius: 12px;
-  margin: 4px 0 8px;
+  margin: 6px 0 10px;
   padding: 0 16px;
 }
 
@@ -599,7 +528,6 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(17, 16, 47, 0.15);
 }
 
 .navbar__mobile-subcol {
@@ -623,14 +551,13 @@
   font-weight: 500;
   color: #333344;
   text-decoration: none;
-  transition: color 0.15s ease;
 }
 
 .navbar__mobile-link:hover {
   color: #5b45d6;
 }
 
-/* --- Fixed High-Contrast Demo Button --- */
+/* Mobile Get Demo Button (Fixed high-contrast style) */
 .navbar__mobile-actions {
   margin-top: 20px;
   padding-top: 8px;
@@ -643,56 +570,56 @@
   width: 100%;
   height: 52px;
   border-radius: 14px;
-  background: #5b45d6 !important; /* Solid vibrant purple background */
-  color: #ffffff !important;      /* Sharp white text */
+  background: #5b45d6 !important;
+  color: #ffffff !important;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-decoration: none;
   box-shadow: 0 6px 20px rgba(91, 69, 214, 0.35);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .navbar__demo--mobile:active {
   transform: scale(0.98);
   background: #4a36be !important;
-  box-shadow: 0 3px 10px rgba(91, 69, 214, 0.25);
 }
 
-/* Breakpoint adjustment for smaller mobile header height */
-@media (max-width: 768px) {
-  .navbar__mobile-panel {
-    top: 72px;
-  }
-  .navbar__mobile-panel.is-open {
-    max-height: calc(100vh - 72px);
-  }
+/* Backdrop */
+.navbar__backdrop {
+  position: fixed;
+  top: 82px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 12, 43, 0.25);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 40;
 }
 
-@media (max-width: 480px) {
-  .navbar__mobile-panel {
-    top: 66px;
-  }
-  .navbar__mobile-panel.is-open {
-    max-height: calc(100vh - 66px);
-  }
+.navbar__backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* ==========================================================
    BREAKPOINTS
 ========================================================== */
 
-/* Laptop / Small Desktop */
 @media (max-width: 1200px) {
   .navbar__inner { width: 94%; gap: 20px; }
   .navbar__logo { width: 165px; flex-basis: 165px; }
   .navbar__logo img { width: 160px; max-width: 160px; }
   .navbar__links { gap: 20px; }
   .navbar__link { font-size: 15px; }
-  .navbar__demo { padding-left: 14px; padding-right: 14px; }
 }
 
-/* Tablet & Mobile Screens (< 768px) */
 @media (max-width: 768px) {
   .navbar__inner { height: 72px; }
   .navbar__links { display: none; }
@@ -708,7 +635,6 @@
   .navbar__logo img { width: 145px; }
 }
 
-/* Small Mobile (< 480px) */
 @media (max-width: 480px) {
   .navbar__inner { height: 66px; width: 92%; }
   .navbar__logo { width: 130px; flex-basis: 130px; }
@@ -719,7 +645,6 @@
   .navbar__mobile-panel.is-open { max-height: calc(100vh - 66px); }
 }
 
-/* Motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   .navbar *, .navbar { transition: none !important; }
 }
