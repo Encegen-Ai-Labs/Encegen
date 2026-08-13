@@ -10,37 +10,45 @@ import {
 import './products.css'
 
 const STAT_TILES = [
-  { value: '10x', desc: 'faster resume creation compared to manual editing' },
-  { value: '95%', desc: 'ATS compatibility across all major platforms' },
-  { value: '50+', desc: 'professional templates to choose from' },
-  { value: 'Zero', desc: 'formatting headaches or alignment issues' },
+  { value: '85%', desc: 'of resumes are rejected by ATS before a human reads them. We fix that.' },
+  { value: '3x', desc: 'more interview callbacks reported by users leveraging our AI suggestions.' },
+  { value: '50+', desc: 'industry-specific templates tested by recruiters for readability.' },
+  { value: 'Zero', desc: 'time wasted on margins, fonts, or PDF export alignment issues.' },
 ]
 
 const HOW = [
   {
     num: '01',
-    title: 'Input Details',
-    desc: 'Easily add your experience, skills, and education. Our smart form guides you to highlight the most relevant information.',
+    title: 'Import or Start Fresh',
+    desc: 'Upload an existing PDF/Word resume to let our parser extract your data instantly, or build a new one from scratch using our guided forms.',
   },
   {
     num: '02',
-    title: 'Select Template',
-    desc: 'Choose from a variety of professionally designed, ATS-friendly templates tailored for different industries.',
+    title: 'Choose a Template',
+    desc: 'Select from our library of recruiter-tested, ATS-optimized templates, or let our AI recommend the perfect design based on your industry.',
   },
   {
     num: '03',
-    title: 'Export & Apply',
-    desc: 'Download your perfectly formatted resume in PDF or Word format, ready to impress recruiters instantly.',
+    title: 'Enhance & Optimize',
+    desc: 'Fill in your details and use our AI tools to rewrite weak bullet points, fix formatting, and dramatically improve your overall ATS score.',
+  },
+  {
+    num: '04',
+    title: 'Export to PDF',
+    desc: 'Download your pixel-perfect, ATS-friendly PDF in one click and start applying to your dream jobs with confidence.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '✨', title: 'Smart AI Suggestions', desc: 'Get AI-powered phrasing and bullet points based on your job title and industry.' },
-  { icon: '🎯', title: 'ATS Optimized', desc: 'Ensures your resume passes through Applicant Tracking Systems flawlessly.' },
-  { icon: '🎨', title: 'Customizable Designs', desc: 'Easily tweak colors, fonts, and layouts without breaking the format.' },
-  { icon: '⚡', title: 'Instant Preview', desc: 'See your changes in real-time as you build your resume.' },
-  { icon: '🔒', title: 'Privacy First', desc: 'Your data is secure and never shared without your permission.' },
-  { icon: '📄', title: 'Multiple Formats', desc: 'Export to PDF, DOCX, or plain text with a single click.' },
+  { icon: '✨', title: 'Context-Aware AI Phrasing', desc: 'Stop staring at a blank page. Our AI generates highly tailored bullet points based on your specific industry, seniority, and role.' },
+  { icon: '🎯', title: 'Enterprise ATS Optimization', desc: 'We structure the underlying PDF metadata so parsers like Workday, Taleo, and Greenhouse extract your experience with 100% accuracy.' },
+  { icon: '🎨', title: 'Recruiter-Tested Designs', desc: 'Every template is strictly designed to pass the "6-second recruiter skim test" using optimal visual hierarchy and typography.' },
+  { icon: '⚡', title: 'Real-time Canvas Rendering', desc: 'No loading screens. Watch your resume re-render instantly on our dynamic canvas as you tweak fonts, margins, and content.' },
+  { icon: '🚀', title: 'Metric Magic Rewriter', desc: 'Weak bullet points get rejected. Our AI coaches you to quantify achievements using the industry-standard "Action + Metric + Result" formula.' },
+  { icon: '📄', title: 'Multi-Format Exporting', desc: 'Download in ATS-friendly PDF, editable DOCX, or plain text format. Your layout stays perfectly locked in place every time.' },
+  { icon: '✍️', title: 'Smart Repetition Guard', desc: 'Say goodbye to overused words. Our engine flags repetitive action verbs (like using "managed" 5 times) and fixes inconsistencies instantly.' },
+  { icon: '🛡️', title: 'Zero-Retention Privacy', desc: 'Your career data belongs to you. We use enterprise-grade encryption and never sell or train public models on your personal information.' },
+  { icon: '✉️', title: '1-Click Cover Letters', desc: 'Automatically generate a highly personalized cover letter that matches the exact visual design, fonts, and colors of your chosen resume template.' },
 ]
 
 const TESTIMONIALS = [
@@ -151,7 +159,7 @@ export default function ResumeBuilder() {
       <section id="how-it-works" className="section section--lavender">
         <div className="container">
           <SectionHead eyebrow="How It Works" title="Simple. Fast. Effective." />
-          <div className="cards-3">
+          <div className="cards-4">
             {HOW.map((h) => (
               <article key={h.num} className="numcard">
                 <span className="numcard__num">{h.num}</span>

@@ -1,7 +1,11 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArtTile, Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import './Home.css'
 
+// Import your local hero image here. Adjust the path/filename to match your project structure.
+import heroImage from '../assets/hero1.png'
+import hero2 from '../assets/hero2.png' // adjust path/extension as needed
 const LOGOS = ['IBM', 'Airbus', 'Uber', 'Siemens', 'Vodafone', 'Celanese', 'Coca-Cola', 'Wipro']
 
 const FACTS = [
@@ -105,17 +109,11 @@ export default function Home() {
         trusted={[]}
       >
         <div className="home-hero-visual">
-          <div className="home-hero-visual__panel">
-            <span className="home-hero-visual__stat">
-              <em>Confidence</em>
-              <strong>94.2%</strong>
-            </span>
-            <ArtTile variant="purple" className="home-hero-visual__art" />
-            <span className="home-hero-visual__stat">
-              <em>AI Recommendations</em>
-              <strong>Live</strong>
-            </span>
-          </div>
+          <img 
+            src={heroImage} 
+            alt="Process Intelligence Platform Interface" 
+            className="home-hero-img" 
+          />
         </div>
       </PageHero>
 
@@ -177,7 +175,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Platform */}
       <section className="section section--dark">
         <div className="container split">
@@ -204,17 +201,14 @@ export default function Home() {
               </Btn>
             </div>
           </div>
+          
+          {/* Updated Visual Box with Image */}
           <div className="home-platform-visual">
-            <ArtTile variant="magenta" className="home-platform-visual__art" />
-            <div className="home-platform-visual__chips">
-              <span>99.8%</span>
-              <span>1.2M</span>
-              <span>150ms</span>
-            </div>
+            <img src={hero2} alt="Platform Preview" className="home-platform-img" />
+            
           </div>
         </div>
       </section>
-
       {/* Industries */}
       <section className="section section--light">
         <div className="container">

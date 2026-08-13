@@ -4,9 +4,6 @@ import logo from '../assets/logo.png'
 import { ArrowRight, ChevronDown, SearchIcon } from './icons'
 import './Navbar.css'
 
-/* Routes whose hero/banner is light — the transparent header shows dark text there */
-
-
 type MegaColumn = {
   heading: string
   links: { label: string; to: string }[]
@@ -124,6 +121,7 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -134,21 +132,23 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false)
+    setExpandedMobileMenu(null)
   }, [pathname])
 
+  const toggleMobileAccordion = (label: string) => {
+    setExpandedMobileMenu((prev) => (prev === label ? null : label))
+  }
 
-const cls = [
-  'navbar',
-  scrolled ? 'navbar--scrolled' : 'navbar--top',
-].join(' ')
+  const cls = ['navbar', scrolled ? 'navbar--scrolled' : 'navbar--top'].join(' ')
 
   return (
     <header className={cls}>
       <div className="container navbar__inner">
-             <Link to="/" className="navbar__logo">
-  <img src={logo} alt="Encegen AI Labs" />
-</Link>
+        <Link to="/" className="navbar__logo">
+          <img src={logo} alt="Encegen AI Labs" />
+        </Link>
 
+        {/* Desktop Navigation */}
         <nav className="navbar__links" aria-label="Main navigation">
           {NAV.map((item) =>
             item.mega ? (
@@ -190,16 +190,20 @@ const cls = [
           )}
         </nav>
 
+        {/* Right Actions */}
         <div className="navbar__actions">
-          <Link to="/search" className="navbar__search" aria-label="Search">
+          <Link to="/search" className="navbar__search desktop-only" aria-label="Search">
             <SearchIcon size={20} />
           </Link>
-          <a href="#" className="navbar__demo">
+
+          <a href="#" className="navbar__demo desktop-only">
             Get a demo
           </a>
+
+          {/* Hamburger / Cross Toggle Button */}
           <button
             type="button"
-            className="navbar__burger"
+            className={`navbar__burger ${mobileOpen ? 'is-active' : ''}`}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
@@ -211,31 +215,71 @@ const cls = [
         </div>
       </div>
 
+      {/* Mobile Drawer Panel */}
       <div className={`navbar__mobile-panel ${mobileOpen ? 'is-open' : ''}`}>
         <nav className="container navbar__mobile-inner" aria-label="Mobile navigation">
+          
+          {/* Mobile Search Input Bar */}
+          <div className="navbar__mobile-search-wrap">
+            <Link to="/search" className="navbar__mobile-search-btn" onClick={() => setMobileOpen(false)}>
+              <SearchIcon size={18} />
+              <span>Search products, solutions...</span>
+            </Link>
+          </div>
+
+          {/* Nav Items */}
           {NAV.map((item) =>
             item.mega ? (
-              <div key={item.label}>
-                <span className="navbar__mobile-group-label">{item.label}</span>
-                <Link to={item.mega.featured.to} className="navbar__mobile-link">
-                  {item.mega.featured.title}
-                </Link>
-                {item.mega.columns.flatMap((col) => col.links).map((link) => (
-                  <Link key={link.label} to={link.to} className="navbar__mobile-link">
-                    {link.label}
+              <div key={item.label} className="navbar__mobile-group">
+                <button
+                  type="button"
+                  className={`navbar__mobile-group-btn ${expandedMobileMenu === item.label ? 'is-expanded' : ''}`}
+                  onClick={() => toggleMobileAccordion(item.label)}
+                >
+                  <span>{item.label}</span>
+                  <ChevronDown size={18} className="navbar__mobile-chevron" />
+                </button>
+
+                <div className={`navbar__mobile-accordion ${expandedMobileMenu === item.label ? 'is-open' : ''}`}>
+                  <Link to={item.mega.featured.to} className="navbar__mobile-link navbar__mobile-link--featured">
+                    🔥 {item.mega.featured.title}
                   </Link>
-                ))}
+
+                  {item.mega.columns.map((col) => (
+                    <div key={col.heading} className="navbar__mobile-subcol">
+                      <span className="navbar__mobile-group-label">{col.heading}</span>
+                      {col.links.map((link) => (
+                        <Link key={link.label} to={link.to} className="navbar__mobile-link">
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
-              <Link key={item.label} to={item.to!} className="navbar__mobile-link">
+              <Link key={item.label} to={item.to!} className="navbar__mobile-link navbar__mobile-link--top">
                 {item.label}
               </Link>
             ),
           )}
+
+          {/* Mobile "Get a Demo" Button */}
+          <div className="navbar__mobile-actions">
+            <a href="#" className="navbar__demo navbar__demo--mobile">
+              Get a demo
+            </a>
+          </div>
+
         </nav>
       </div>
 
-      <div className="navbar__backdrop" aria-hidden="true" />
+      {/* Background Overlay */}
+      <div
+        className={`navbar__backdrop ${mobileOpen ? 'is-open' : ''}`}
+        aria-hidden="true"
+        onClick={() => setMobileOpen(false)}
+      />
     </header>
   )
 }
