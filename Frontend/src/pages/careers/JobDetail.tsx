@@ -98,6 +98,11 @@ export default function JobDetail() {
     e.preventDefault()
     setFormError(null)
 
+    if (!job) {
+      setFormError('Job details are still loading. Please try again in a moment.')
+      return
+    }
+
     // Validation checks
     if (!fullName.trim()) {
       setFormError('Please enter your full name.')
@@ -115,40 +120,32 @@ export default function JobDetail() {
 
     setSubmitting(true)
 
-    // =========================================================================
-    // 📧 EMAILJS INTEGRATION SPOT
-    // -------------------------------------------------------------------------
-    // To send this application directly to your email via EmailJS:
-    // 1. Run: npm install @emailjs/browser
-    // 2. Import: import emailjs from '@emailjs/browser';
-    // 3. Uncomment and fill your EmailJS keys below:
-    //
-    // try {
-    //   await emailjs.send(
-    //     'YOUR_SERVICE_ID',     // e.g. 'service_encegen'
-    //     'YOUR_TEMPLATE_ID',    // e.g. 'template_careers'
-    //     {
-    //       job_title: job?.title,
-    //       applicant_name: fullName,
-    //       applicant_email: email,
-    //       applicant_phone: phone,
-    //       linkedin: linkedIn,
-    //       location: location,
-    //       resume_name: resumeFile.name,
-    //       cover_letter: coverLetter,
-    //       source: hearAbout
-    //     },
-    //     'YOUR_PUBLIC_KEY'      // e.g. 'user_xxxxx'
-    //   );
-    // } catch (err) {
-    //   console.error("EmailJS Error:", err);
-    // }
-    // =========================================================================
+    const formData = new FormData()
+    formData.append('fullName', fullName)
+    formData.append('email', email)
+    formData.append('phone', phone)
+    formData.append('linkedin', linkedIn)
+    formData.append('location', location)
+    formData.append('coverLetter', coverLetter)
+    formData.append('hearAbout', hearAbout)
+    formData.append('jobTitle', job.title)
+    formData.append('resume', resumeFile)
 
-    setTimeout(() => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/jobs/${job.id ?? ''}/apply`, {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to submit application. Please try again.')
+      }
       setSubmitting(false)
       setSubmitted(true)
-    }, 800)
+    } catch (err: any) {
+      setSubmitting(false)
+      setFormError(err.message || 'Unable to connect to server. Please try again.')
+    }
   }
 
   if (loading || !job) {

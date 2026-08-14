@@ -1,0 +1,7 @@
+node_modules/
+dist/
+Backend/node_modules/
+Backend/.env
+*.local
+tsconfig.tsbuildinfo
+.claude/

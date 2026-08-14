@@ -49,13 +49,28 @@ interface Resource {
   status: string;
 }
 
+interface Application {
+  id: number;
+  job_id: number | null;
+  job_title: string;
+  full_name: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  location: string;
+  cover_letter: string;
+  hear_about: string;
+  resume_filename: string;
+  created_at: string;
+}
+
 const DEPARTMENT_OPTIONS = [
   'Engineering',
-  'Product & Design',
-  'AI Research & Machine Learning',
-  'Digital Marketing & Growth',
-  'Sales & Business Development',
-  'Customer Success & Operations',
+  'AI & Research',
+  'Product',
+  'Sales',
+  'Operations',
+  'Design',
   'Other (Custom)'
 ];
 
@@ -81,7 +96,7 @@ const JOB_TEMPLATES = [
   {
     label: '⚡ AI Research Engineer',
     title: 'AI Research & Automation Engineer',
-    department: 'AI Research & Machine Learning',
+    department: 'AI & Research',
     location: 'Remote (Global)',
     type: 'Full-time',
     exp: 'Senior Level (5+ yrs)',
@@ -101,7 +116,7 @@ const JOB_TEMPLATES = [
   {
     label: '🚀 Growth Marketing Lead',
     title: 'Digital Marketing & Growth Lead',
-    department: 'Digital Marketing & Growth',
+    department: 'Sales',
     location: 'Remote (Global)',
     type: 'Full-time',
     exp: 'Mid Level (2-4 yrs)',
@@ -112,10 +127,11 @@ const JOB_TEMPLATES = [
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<'jobs' | 'insights' | 'resources'>('insights');
+  const [activeTab, setActiveTab] = useState<'jobs' | 'insights' | 'resources' | 'applications'>('insights');
   const [jobs, setJobs] = useState<Job[]>([]);
   const [insights, setInsights] = useState<Insight[]>([]);
   const [resources, setResources] = useState<Resource[]>([]);
+  const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
@@ -177,41 +193,56 @@ export default function AdminDashboard() {
 
   const token = localStorage.getItem('adminToken');
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminUser');
+    navigate('/');
+  };
+
   useEffect(() => {
     if (!token) {
       navigate('/');
       return;
     }
-    fetchData();
+    // Verify the stored token is still valid before trusting it for admin
+    // actions — an expired/invalid token otherwise only surfaces as a failed
+    // save later, instead of bouncing the user back to login right away.
+    fetch('http://localhost:5000/api/auth/me', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Invalid or expired session');
+        return fetchData();
+      })
+      .catch(() => handleLogout());
   }, [token]);
 
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [resJobs, resInsights, resResources] = await Promise.all([
+      const [resJobs, resInsights, resResources, resApplications] = await Promise.all([
         fetch('http://localhost:5000/api/jobs'),
         fetch('http://localhost:5000/api/insights?includeDrafts=true'),
-        fetch('http://localhost:5000/api/resources?includeDrafts=true')
+        fetch('http://localhost:5000/api/resources?includeDrafts=true'),
+        fetch('http://localhost:5000/api/admin/applications', {
+          headers: { Authorization: `Bearer ${token}` }
+        })
       ]);
 
       const jobsData = await resJobs.json();
       const insightsData = await resInsights.json();
       const resourcesData = await resResources.json();
+      const applicationsData = await resApplications.json();
 
       setJobs(Array.isArray(jobsData) ? jobsData : []);
       setInsights(Array.isArray(insightsData) ? insightsData : []);
       setResources(Array.isArray(resourcesData) ? resourcesData : []);
+      setApplications(Array.isArray(applicationsData) ? applicationsData : []);
     } catch (err) {
       console.error('Error fetching admin data:', err);
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('adminToken');
-    localStorage.removeItem('adminUser');
-    navigate('/');
   };
 
   // JOB HANDLERS
@@ -537,6 +568,13 @@ export default function AdminDashboard() {
     return matchesSearch && matchesCat;
   });
 
+  const filteredApplications = applications.filter(
+    (a) =>
+      a.full_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      a.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      a.job_title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="admin-dashboard">
       <Navbar />
@@ -573,9 +611,13 @@ export default function AdminDashboard() {
               {jobs.filter((j) => j.status === 'active').length} / {jobs.length}
             </strong>
           </div>
+          <div className="admin-stat-card">
+            <span>📥 Total Applications</span>
+            <strong style={{ color: '#f472b6' }}>{applications.length}</strong>
+          </div>
         </div>
 
-        {/* 3 Dedicated Segregated Navigation Tabs */}
+        {/* 4 Dedicated Segregated Navigation Tabs */}
         <div className="admin-tabs">
           <button
             className={`admin-tab-btn ${activeTab === 'insights' ? 'active' : ''}`}
@@ -606,6 +648,16 @@ export default function AdminDashboard() {
             }}
           >
             💼 Careers &amp; Jobs ({jobs.length})
+          </button>
+          <button
+            className={`admin-tab-btn ${activeTab === 'applications' ? 'active' : ''}`}
+            onClick={() => {
+              setActiveTab('applications');
+              setSearchQuery('');
+              setCategoryFilter('All');
+            }}
+          >
+            📥 Applications ({applications.length})
           </button>
         </div>
 
@@ -880,6 +932,58 @@ export default function AdminDashboard() {
                         <tr>
                           <td colSpan={7} style={{ textAlign: 'center', color: '#94a3b8', padding: '2rem' }}>
                             No job opportunities match your search.
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* 4. APPLICATIONS TAB */}
+            {activeTab === 'applications' && (
+              <div>
+                <div className="admin-section-top">
+                  <input
+                    type="text"
+                    className="admin-search-input"
+                    placeholder="🔍 Search applicants by name, email, or role..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+
+                <div className="admin-table-card">
+                  <table className="admin-table">
+                    <thead>
+                      <tr>
+                        <th>Applicant</th>
+                        <th>Role Applied For</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Heard Via</th>
+                        <th>Submitted</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredApplications.map((app) => (
+                        <tr key={app.id}>
+                          <td>
+                            <strong>{app.full_name}</strong>
+                            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: 2 }}>{app.email}</div>
+                          </td>
+                          <td>{app.job_title}</td>
+                          <td>{app.phone || '—'}</td>
+                          <td>{app.location || '—'}</td>
+                          <td>{app.hear_about || '—'}</td>
+                          <td>{new Date(app.created_at).toLocaleDateString()}</td>
+                        </tr>
+                      ))}
+                      {filteredApplications.length === 0 && (
+                        <tr>
+                          <td colSpan={6} style={{ textAlign: 'center', color: '#94a3b8', padding: '2rem' }}>
+                            No applications match your search.
                           </td>
                         </tr>
                       )}

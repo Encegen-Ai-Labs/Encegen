@@ -1,8 +1,28 @@
 import express from 'express';
+import multer from 'multer';
 import { query } from '../db.js';
 import { authenticateAdmin } from '../middleware/auth.js';
+import { sendApplicationEmail } from '../mailer.js';
 
 const router = express.Router();
+
+const ALLOWED_RESUME_TYPES = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]);
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (ALLOWED_RESUME_TYPES.has(file.mimetype)) return cb(null, true);
+    cb(new Error('Only PDF or DOC/DOCX resumes are accepted'));
+  },
+});
+
+// Fallback in-memory applications store (used if the DB insert fails)
+let memoryApplications = [];
 
 // Fallback in-memory jobs store
 let memoryJobs = [
@@ -155,6 +175,101 @@ router.delete('/admin/jobs/:id', authenticateAdmin, async (req, res) => {
 
     memoryJobs.splice(index, 1);
     return res.json({ message: 'Job opportunity deleted successfully', id });
+  }
+});
+
+// PUBLIC: Submit a job application (resume upload + email + DB save)
+router.post('/jobs/:id/apply', (req, res) => {
+  upload.single('resume')(req, res, async (uploadErr) => {
+    if (uploadErr) {
+      return res.status(400).json({ error: uploadErr.message || 'Resume upload failed' });
+    }
+
+    const { id } = req.params;
+    const { fullName, email, phone, linkedin, location, coverLetter, hearAbout, jobTitle } = req.body;
+
+    if (!fullName || !email) {
+      return res.status(400).json({ error: 'Full name and email are required.' });
+    }
+    if (!req.file) {
+      return res.status(400).json({ error: 'A resume file (PDF or DOC/DOCX) is required.' });
+    }
+
+    // Resolve the job title: prefer a live DB/in-memory lookup, fall back to
+    // whatever the frontend sent (covers the case where the frontend is
+    // showing a job from its own static fallback list).
+    let resolvedTitle = jobTitle || 'Unknown Role';
+    try {
+      const jobResult = await query('SELECT title FROM jobs WHERE id = $1', [id]);
+      if (jobResult.rows.length > 0) resolvedTitle = jobResult.rows[0].title;
+    } catch (err) {
+      const memJob = memoryJobs.find((j) => j.id == id);
+      if (memJob) resolvedTitle = memJob.title;
+    }
+
+    const applicant = { fullName, email, phone, linkedin, location, coverLetter, hearAbout };
+    const jobIdNum = Number(id);
+
+    let savedApplication;
+    try {
+      const result = await query(
+        `INSERT INTO applications (job_id, job_title, full_name, email, phone, linkedin, location, cover_letter, hear_about, resume_filename)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
+        [
+          Number.isFinite(jobIdNum) ? jobIdNum : null,
+          resolvedTitle,
+          fullName,
+          email,
+          phone || '',
+          linkedin || '',
+          location || '',
+          coverLetter || '',
+          hearAbout || '',
+          req.file.originalname,
+        ]
+      );
+      savedApplication = result.rows[0];
+    } catch (err) {
+      console.warn('DB insert failed, adding to memoryApplications store:', err.message);
+      savedApplication = {
+        id: memoryApplications.length ? Math.max(...memoryApplications.map((a) => a.id)) + 1 : 1,
+        job_id: Number.isFinite(jobIdNum) ? jobIdNum : null,
+        job_title: resolvedTitle,
+        full_name: fullName,
+        email,
+        phone: phone || '',
+        linkedin: linkedin || '',
+        location: location || '',
+        cover_letter: coverLetter || '',
+        hear_about: hearAbout || '',
+        resume_filename: req.file.originalname,
+        created_at: new Date().toISOString(),
+      };
+      memoryApplications.unshift(savedApplication);
+    }
+
+    const emailResult = await sendApplicationEmail({
+      job: { id, title: resolvedTitle },
+      applicant,
+      resumeFile: req.file,
+    });
+
+    return res.status(201).json({
+      message: 'Application submitted successfully',
+      application: savedApplication,
+      emailSent: emailResult.sent,
+    });
+  });
+});
+
+// ADMIN: List all applications
+router.get('/admin/applications', authenticateAdmin, async (req, res) => {
+  try {
+    const result = await query('SELECT * FROM applications ORDER BY created_at DESC');
+    return res.json(result.rows);
+  } catch (err) {
+    console.warn('DB query failed, using in-memory applications:', err.message);
+    return res.json(memoryApplications);
   }
 });
 
