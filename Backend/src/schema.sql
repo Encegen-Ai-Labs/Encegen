@@ -1,0 +1,75 @@
+-- PostgreSQL Schema for Encegen Backend
+
+CREATE TABLE IF NOT EXISTS admin_users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS jobs (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  department VARCHAR(100) NOT NULL,
+  location VARCHAR(100) NOT NULL,
+  employment_type VARCHAR(50) NOT NULL DEFAULT 'Full-time',
+  experience_level VARCHAR(50) DEFAULT 'Entry Level',
+  salary VARCHAR(100) DEFAULT '',
+  description TEXT NOT NULL,
+  requirements TEXT,
+  status VARCHAR(20) NOT NULL DEFAULT 'active',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS blogs (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  summary TEXT NOT NULL,
+  content TEXT NOT NULL,
+  cover_image VARCHAR(500),
+  category VARCHAR(100) DEFAULT 'General',
+  author VARCHAR(100) DEFAULT 'Encegen Team',
+  status VARCHAR(20) NOT NULL DEFAULT 'published',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS insights (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  category VARCHAR(100) NOT NULL DEFAULT 'Blog',
+  description TEXT NOT NULL,
+  content TEXT,
+  meta VARCHAR(150),
+  author VARCHAR(100) DEFAULT 'Encegen Team',
+  author_role VARCHAR(100) DEFAULT 'Analyst',
+  action_label VARCHAR(50) DEFAULT 'Read →',
+  media_url VARCHAR(500),
+  art_variant VARCHAR(50) DEFAULT 'cyan',
+  cover_image TEXT,
+  hue INTEGER DEFAULT 190,
+  is_featured BOOLEAN DEFAULT FALSE,
+  status VARCHAR(20) NOT NULL DEFAULT 'published',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS resources (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) UNIQUE NOT NULL,
+  category VARCHAR(100) NOT NULL DEFAULT 'Blog',
+  summary TEXT NOT NULL,
+  content TEXT NOT NULL,
+  cover_image TEXT,
+  author VARCHAR(100) DEFAULT 'Encegen Team',
+  media_url VARCHAR(500),
+  is_featured BOOLEAN DEFAULT FALSE,
+  status VARCHAR(20) NOT NULL DEFAULT 'published',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
