@@ -1,69 +1,76 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logo from '../assets/footerlogo.png'
 import { LinkedInIcon, XIcon, YoutubeIcon } from './icons'
 import './Footer.css'
 
-const COLUMNS = [
-  {
-    heading: 'Solutions',
-    links: [
-      { label: 'AI Agents & Automation', to: '/solutions/ai-agents' },
-      { label: 'AI Research Solutions', to: '/solutions/ai-research' },
-      { label: 'Custom Software Dev', to: '/solutions/custom-software' },
-      { label: 'Digital Marketing & Growth', to: '/solutions/digital-marketing' },
-      { label: 'Website & Ecommerce Dev', to: '/solutions/web-ecommerce' },
-      { label: 'Use Cases & Industries', to: '/solutions/use-cases' },
-    ],
-  },
-  {
-    heading: 'Products',
-    links: [
-      { label: 'Easy Hunt', to: '/products/easy-hunt' },
-      { label: 'HR Portal', to: '/products/hr-portal' },
-      { label: 'CBMS', to: '/platform' },
-      { label: 'HMS', to: '/platform' },
-    ],
-  },
-  {
-    heading: 'Resources',
-    links: [
-      { label: 'Insights', to: '/insights' },
-      { label: 'Case Studies', to: '/insights' },
-      { label: 'Knowledge Hub', to: '/resources' },
-      { label: 'Research Papers', to: '/resources' },
-      { label: 'Documentation', to: '/resources' },
-    ],
-  },
-  {
-    heading: 'Company',
-    links: [
-      { label: 'About Us', to: '/about' },
-      { label: 'Careers', to: '/careers' },
-      { label: 'Our Values', to: '/values' },
-      { label: 'Our Culture', to: '/culture' },
-    ],
-  },
-]
-
-const LEGAL_LINKS = ['Privacy Policy', 'Terms of Use', 'Cookie Settings']
-
 export default function Footer() {
+  const { t } = useTranslation()
+
+  const columns = useMemo(() => [
+    {
+      heading: t('navbar.solutions', 'Solutions'),
+      links: [
+        { label: t('navbar.links.aiAgents', 'AI Agents & Automation'), to: '/solutions/ai-agents' },
+        { label: t('navbar.links.aiResearch', 'AI Research Solutions'), to: '/solutions/ai-research' },
+        { label: t('navbar.links.customSoftware', 'Custom Software Dev'), to: '/solutions/custom-software' },
+        { label: t('navbar.links.digitalMarketing', 'Digital Marketing & Growth'), to: '/solutions/digital-marketing' },
+        { label: t('navbar.links.webEcommerce', 'Website & Ecommerce Dev'), to: '/solutions/web-ecommerce' },
+        { label: t('navbar.links.allTransformations', 'Use Cases & Industries'), to: '/solutions/use-cases' },
+      ],
+    },
+    {
+      heading: t('navbar.products', 'Products'),
+      links: [
+        { label: t('navbar.links.easyHunt', 'Easy Hunt'), to: '/products/easy-hunt' },
+        { label: t('navbar.links.hrPortal', 'HR Portal'), to: '/products/hr-portal' },
+        { label: t('navbar.links.cbms', 'CBMS'), to: '/platform' },
+        { label: t('navbar.links.hms', 'HMS'), to: '/platform' },
+      ],
+    },
+    {
+      heading: t('navbar.resources', 'Resources'),
+      links: [
+        { label: t('navbar.insights', 'Insights'), to: '/insights' },
+        { label: t('navbar.featuredStories', 'Case Studies'), to: '/insights' },
+        { label: t('navbar.resources', 'Knowledge Hub'), to: '/resources' },
+        { label: t('navbar.links.aiResearch', 'Research Papers'), to: '/resources' },
+        { label: t('navbar.links.explorePlatformLink', 'Documentation'), to: '/resources' },
+      ],
+    },
+    {
+      heading: t('navbar.company', 'Company'),
+      links: [
+        { label: t('navbar.links.aboutUs', 'About Us'), to: '/about' },
+        { label: t('navbar.links.careers', 'Careers'), to: '/careers' },
+        { label: t('navbar.links.ourValues', 'Our Values'), to: '/values' },
+        { label: t('navbar.links.ourCulture', 'Our Culture'), to: '/culture' },
+      ],
+    },
+  ], [t])
+
+  const legalLinks = useMemo(() => [
+    { label: t('footer.links.privacy', 'Privacy Policy'), href: '#' },
+    { label: t('footer.links.terms', 'Terms of Use'), href: '#' },
+    { label: t('footer.links.cookies', 'Cookie Settings'), href: '#' },
+  ], [t])
+
   return (
-    <footer className="footer">
+    <footer className="footer notranslate" translate="no">
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-                       <Link to="/" className="navbar__logo">
+            <Link to="/" className="navbar__logo">
               <img src={logo} alt="Encegen AI Labs" />
             </Link>
             <p>
-              AI-powered solutions for the modern enterprise. Transforming
-              businesses with intelligent automation and research.
+              {t('footer.tagline', 'AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.')}
             </p>
           </div>
 
           <div className="footer__columns">
-            {COLUMNS.map((column) => (
+            {columns.map((column) => (
               <div key={column.heading} className="footer__column">
                 <h4>{column.heading}</h4>
                 <ul>
@@ -80,7 +87,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span className="footer__copyright">
-            &copy; 2025 Encegen SE. All rights reserved.
+            {t('footer.copyright', '© 2026 Encegen AI Labs Inc. All rights reserved.')}
           </span>
           <div className="footer__socials">
             <a href="#" aria-label="LinkedIn">
@@ -94,9 +101,9 @@ export default function Footer() {
             </a>
           </div>
           <div className="footer__legal">
-            {LEGAL_LINKS.map((link) => (
-              <a key={link} href="#">
-                {link}
+            {legalLinks.map((item) => (
+              <a key={item.label} href={item.href}>
+                {item.label}
               </a>
             ))}
           </div>

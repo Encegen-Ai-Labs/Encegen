@@ -1,0 +1,166 @@
+{
+  "navbar": {
+    "solutions": "Solutions",
+    "resources": "Ressources",
+    "products": "Produits",
+    "insights": "Perspectives",
+    "company": "Entreprise",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher des produits, solutions...",
+    "tripleTapHint": "Triple-cliquez pour ouvrir le panneau d'administration",
+    "featuredStories": "Témoignages de réussite",
+    "explorePlatform": "La Plateforme Encegen",
+    "lifeAtEncegen": "La vie chez Encegen",
+    "headings": {
+      "byTransformation": "Par Transformation",
+      "byFunction": "Par Fonction",
+      "byIndustry": "Par Secteur",
+      "platform": "Plateforme",
+      "products": "Produits",
+      "whoWeAre": "Qui Sommes-Nous",
+      "howWeWork": "Notre Méthode",
+      "joinUs": "Rejoignez-Nous"
+    },
+    "links": {
+      "aiAgents": "Agents IA & Automatisation",
+      "aiResearch": "Solutions de Recherche IA",
+      "customSoftware": "Développement Logiciel Sur Mesure",
+      "allTransformations": "Toutes les transformations",
+      "digitalMarketing": "Marketing Digital & Croissance",
+      "webEcommerce": "Développement Web & E-commerce",
+      "processExcellence": "Excellence Opérationnelle",
+      "allFunctions": "Toutes les fonctions",
+      "manufacturing": "Industrie & Fabrication",
+      "financialServices": "Services Financiers",
+      "healthcare": "Santé & Médical",
+      "allIndustries": "Tous les secteurs",
+      "processMining": "Process Mining",
+      "executionManagement": "Gestion de l'Exécution",
+      "aiInsights": "Analyses Prédictives IA",
+      "explorePlatformLink": "Découvrir la plateforme",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "Portail RH",
+      "resumeBuilder": "Créateur de CV",
+      "resumeAnalyzer": "Analyseur de CV",
+      "voiceAgent": "Agent Vocal IA",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "aboutUs": "À Propos de Nous",
+      "ourStory": "Notre Histoire",
+      "ourValues": "Nos Valeurs",
+      "ourCulture": "Notre Culture",
+      "careers": "Carrières",
+      "whyEncegen": "Pourquoi Encegen",
+      "allOpenRoles": "Tous les postes ouverts"
+    }
+  },
+  "footer": {
+    "tagline": "Solutions basées sur l'IA pour l'entreprise moderne. Transformer les organisations grâce à l'automatisation intelligente et la recherche.",
+    "columns": {
+      "platform": "Plateforme & Tech",
+      "solutions": "Solutions",
+      "company": "Entreprise",
+      "resources": "Ressources & Perspectives",
+      "legal": "Légal & Sécurité"
+    },
+    "links": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "security": "Sécurité & Conformité",
+      "cookies": "Paramètres des Cookies",
+      "gdpr": "Engagement RGPD"
+    },
+    "newsletterTitle": "Gardez une Longueur d'Avance avec l'IA",
+    "newsletterSub": "Recevez nos analyses approfondies, nos architectures de référence et nos percées technologiques.",
+    "newsletterPlaceholder": "Entrez votre e-mail professionnel",
+    "newsletterButton": "S'abonner",
+    "copyright": "© 2026 Encegen AI Labs Inc. Tous droits réservés."
+  },
+  "home": {
+    "heroBadge": "Plateforme d'Intelligence des Processus",
+    "heroTitle": "Transformez chaque processus en avantage concurrentiel",
+    "heroSub": "Encegen vous offre la vision radiologique pour observer, corriger et optimiser chaque processus métier — en temps réel et à l'échelle mondiale.",
+    "startFree": "Commencer gratuitement →",
+    "watchDemo": "Voir la démonstration",
+    "trustedBy": "Reconnu par les plus grandes entreprises mondiales",
+    "aboutEyebrow": "À Propos d'Encegen AI Labs",
+    "aboutTitle": "Nous croyons que toute grande entreprise repose sur d'excellents processus.",
+    "aboutCopy": "Encegen AI Labs développe une technologie d'intelligence opérationnelle qui donne aux équipes d'entreprise une visibilité en temps réel sur le déroulement réel de leurs opérations. Fondée par des chercheurs en IA et des spécialistes de l'entreprise, notre mission est de rendre chaque processus transparent, mesurable et en amélioration continue.",
+    "facts": {
+      "founded": "Fondation",
+      "foundedSub": "Issu de la recherche en IA d'entreprise",
+      "team": "Équipe",
+      "teamSub": "Ingénieurs, chercheurs et experts métier",
+      "offices": "Bureaux mondiaux",
+      "officesSub": "En Amérique du Nord, Europe et APAC"
+    },
+    "capabilities": {
+      "eyebrow": "Fonctionnalités",
+      "title": "Tout ce dont vous avez besoin pour l'excellence opérationnelle",
+      "c1Title": "Process Mining en Temps Réel",
+      "c1Desc": "Découvrez et visualisez chaque variante de processus telle qu'elle fonctionne réellement.",
+      "c2Title": "Recommandations Guidées par l'IA",
+      "c2Desc": "Identifiez les opportunités d'amélioration à plus forte valeur ajoutée sur l'ensemble de votre organisation.",
+      "c3Title": "Moteur d'Exécution",
+      "c3Desc": "Automatisez les corrections et intégrez l'intelligence directement dans SAP, Salesforce et ServiceNow."
+    },
+    "platform": {
+      "eyebrow": "La Plateforme Encegen",
+      "title": "Une plateforme unique. Tous les processus. Un potentiel illimité.",
+      "sub": "De l'approvisionnement à l'encaissement, Encegen relie chaque élément de votre entreprise en une couche vivante d'intelligence opérationnelle.",
+      "f1": "EMS (Système de Gestion de l'Exécution)",
+      "f2": "Analyses & Process Mining",
+      "f3": "Flux d'Action & Automatisation",
+      "f4": "Données Connectées en Direct",
+      "cta": "Explorer la plateforme"
+    },
+    "industries": {
+      "eyebrow": "Secteurs d'Activité",
+      "title": "Conçu pour répondre aux défis les plus complexes de votre secteur",
+      "mfg": "Industrie & Fabrication",
+      "mfgDesc": "Optimisez les cycles de production et la résilience de la chaîne logistique.",
+      "fin": "Services Financiers",
+      "finDesc": "Rationalisez la gestion des risques et les flux de commande à encaissement.",
+      "ret": "Commerce & Retail",
+      "retDesc": "Améliorez la rotation des stocks et les parcours omnicanaux.",
+      "health": "Santé & Médical",
+      "healthDesc": "Accélérez le flux des patients et la précision de la facturation.",
+      "util": "Énergie & Services Publics",
+      "utilDesc": "Pilotez la gestion des réseaux et optimisez les processus de service client.",
+      "auto": "Automobile",
+      "autoDesc": "Accélérez la mise sur le marché des véhicules de nouvelle génération."
+    },
+    "stats": {
+      "s1": "Entreprises clientes",
+      "s2": "Valeur commerciale générée",
+      "s3": "Satisfaction client",
+      "s4": "ROI moyen en 12 mois"
+    },
+    "stories": {
+      "eyebrow": "Réussites Clients",
+      "title": "Comment les leaders mondiaux se transforment avec Encegen"
+    },
+    "resources": {
+      "eyebrow": "Connaissances & Perspectives",
+      "title": "Dernières recherches, guides et livres blancs"
+    },
+    "cta": {
+      "title": "Prêt à découvrir ce qu'Encegen peut apporter à votre entreprise ?",
+      "sub": "Rejoignez des milliers d'entreprises qui créent de la valeur mesurable à partir de chaque processus.",
+      "btn1": "Commencer aujourd'hui",
+      "btn2": "Parler à un expert"
+    }
+  },
+  "common": {
+    "language": "Langue",
+    "learnMore": "En savoir plus",
+    "readMore": "Lire la suite",
+    "getStarted": "Commencer",
+    "viewDetails": "Voir les détails",
+    "back": "Retour",
+    "applyNow": "Postuler",
+    "contactUs": "Contactez-nous",
+    "search": "Rechercher",
+    "allRightsReserved": "Tous droits réservés."
+  }
+}

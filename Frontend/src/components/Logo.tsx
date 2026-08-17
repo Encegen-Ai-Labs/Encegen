@@ -36,7 +36,7 @@ function CubeMark({ size = 40 }: { size?: number }) {
 
 export default function Logo({ variant = 'dark', size = 40 }: LogoProps) {
   return (
-    <a href="#" className={`logo logo--${variant}`}>
+    <a href="#" className={`logo logo--${variant} notranslate`} translate="no">
       <CubeMark size={size} />
       <span className="logo__text">
         <span className="logo__name">encegen</span>

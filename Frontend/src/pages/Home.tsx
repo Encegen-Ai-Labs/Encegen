@@ -1,51 +1,13 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { ArtTile, Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import './Home.css'
 
-// Import your local hero image here. Adjust the path/filename to match your project structure.
 import heroImage from '../assets/hero1.png'
-import hero2 from '../assets/hero2.png' // adjust path/extension as needed
+import hero2 from '../assets/hero2.png'
+
 const LOGOS = ['IBM', 'Airbus', 'Uber', 'Siemens', 'Vodafone', 'Celanese', 'Coca-Cola', 'Wipro']
-
-const FACTS = [
-  { value: '2019', label: 'Founded', sub: 'Built from enterprise AI research' },
-  { value: '3,500+', label: 'Team', sub: 'Engineers, scientists & operators' },
-  { value: '30+', label: 'Global offices', sub: 'Across North America, Europe & APAC' },
-]
-
-const CAPABILITIES = [
-  {
-    icon: '◎',
-    title: 'Real-Time Process Mining',
-    desc: 'Discover and visualize every process variant as it actually runs, not how you think it runs.',
-  },
-  {
-    icon: '✦',
-    title: 'AI-Powered Recommendations',
-    desc: 'Surface the highest-value improvement opportunities across your entire operation.',
-  },
-  {
-    icon: '⚡',
-    title: 'Execution Engine',
-    desc: 'Automate fixes and embed intelligence directly into SAP, Salesforce, and ServiceNow.',
-  },
-]
-
-const INDUSTRIES = [
-  { icon: '⚙', title: 'Manufacturing', desc: 'Optimize production cycles and supply chain resilience.' },
-  { icon: '🏦', title: 'Financial Services', desc: 'Streamline risk management and order-to-cash workflows.' },
-  { icon: '🛍', title: 'Retail', desc: 'Enhance inventory turnover and omnichannel experiences.' },
-  { icon: '🏥', title: 'Healthcare', desc: 'Improve patient throughput and billing accuracy.' },
-  { icon: '⚡', title: 'Utilities', desc: 'Manage grid operations and customer service processes.' },
-  { icon: '🚗', title: 'Automotive', desc: 'Accelerate time-to-market for next-gen vehicle production.' },
-]
-
-const STATS = [
-  { value: '5,000+', label: 'Enterprise customers' },
-  { value: '$2.4T', label: 'Business value delivered' },
-  { value: '98%', label: 'Customer satisfaction' },
-  { value: '300%', label: 'Avg. ROI within 12 months' },
-]
 
 const STORIES = [
   {
@@ -84,27 +46,68 @@ const STORIES = [
 ]
 
 const RESOURCES = [
-  { tag: 'Research', title: 'The 2026 Process Intelligence Report', meta: '8 min read', art: 'purple' },
-  { tag: 'Masterclass', title: 'AI at Scale: A CEO Masterclass', meta: 'Available On-Demand', art: 'cyan' },
-  { tag: 'Technical Paper', title: 'Download the EMS technical paper', meta: 'Download PDF', art: 'magenta' },
+  { tag: 'Research', title: 'The 2026 Process Intelligence Report', meta: '8 min read', art: 'purple' as const },
+  { tag: 'Masterclass', title: 'AI at Scale: A CEO Masterclass', meta: 'Available On-Demand', art: 'cyan' as const },
+  { tag: 'Technical Paper', title: 'Download the EMS technical paper', meta: 'Download PDF', art: 'magenta' as const },
 ]
 
 export default function Home() {
+  const { t } = useTranslation()
+
+  const facts = useMemo(() => [
+    { value: '2019', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Built from enterprise AI research') },
+    { value: '3,500+', label: t('home.facts.team', 'Team'), sub: t('home.facts.teamSub', 'Engineers, scientists & operators') },
+    { value: '30+', label: t('home.facts.offices', 'Global offices'), sub: t('home.facts.officesSub', 'Across North America, Europe & APAC') },
+  ], [t])
+
+  const capabilities = useMemo(() => [
+    {
+      icon: '◎',
+      title: t('home.capabilities.c1Title', 'Real-Time Process Mining'),
+      desc: t('home.capabilities.c1Desc', 'Discover and visualize every process variant as it actually runs, not how you think it runs.'),
+    },
+    {
+      icon: '✦',
+      title: t('home.capabilities.c2Title', 'AI-Powered Recommendations'),
+      desc: t('home.capabilities.c2Desc', 'Surface the highest-value improvement opportunities across your entire operation.'),
+    },
+    {
+      icon: '⚡',
+      title: t('home.capabilities.c3Title', 'Execution Engine'),
+      desc: t('home.capabilities.c3Desc', 'Automate fixes and embed intelligence directly into SAP, Salesforce, and ServiceNow.'),
+    },
+  ], [t])
+
+  const industries = useMemo(() => [
+    { icon: '⚙', title: t('home.industries.mfg', 'Manufacturing'), desc: t('home.industries.mfgDesc', 'Optimize production cycles and supply chain resilience.') },
+    { icon: '🏦', title: t('home.industries.fin', 'Financial Services'), desc: t('home.industries.finDesc', 'Streamline risk management and order-to-cash workflows.') },
+    { icon: '🛍', title: t('home.industries.ret', 'Retail'), desc: t('home.industries.retDesc', 'Enhance inventory turnover and omnichannel experiences.') },
+    { icon: '🏥', title: t('home.industries.health', 'Healthcare'), desc: t('home.industries.healthDesc', 'Improve patient throughput and billing accuracy.') },
+    { icon: '⚡', title: t('home.industries.util', 'Utilities'), desc: t('home.industries.utilDesc', 'Manage grid operations and customer service processes.') },
+    { icon: '🚗', title: t('home.industries.auto', 'Automotive'), desc: t('home.industries.autoDesc', 'Accelerate time-to-market for next-gen vehicle production.') },
+  ], [t])
+
+  const stats = useMemo(() => [
+    { value: '5,000+', label: t('home.stats.s1', 'Enterprise customers') },
+    { value: '$2.4T', label: t('home.stats.s2', 'Business value delivered') },
+    { value: '98%', label: t('home.stats.s3', 'Customer satisfaction') },
+    { value: '300%', label: t('home.stats.s4', 'Avg. ROI within 12 months') },
+  ], [t])
+
   return (
     <>
       <PageHero
-        badge="Process Intelligence Platform"
-        title="Turn Every Process Into a Competitive Advantage"
-        sub="Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale."
+        badge={t('home.heroBadge', 'Process Intelligence Platform')}
+        title={t('home.heroTitle', 'Turn Every Process Into a Competitive Advantage')}
+        sub={t('home.heroSub', 'Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale.')}
         actions={
           <>
             <Btn to="/platform" variant="white">
-              Start for free →
+              {t('home.startFree', 'Start for free →')}
             </Btn>
-            <Btn variant="outline-light">Watch demo</Btn>
           </>
         }
-        trustedLabel="5,000+ enterprise customers worldwide"
+        trustedLabel={t('home.trustedBy', "Trusted by the world's leading companies")}
         trusted={[]}
       >
         <div className="home-hero-visual">
@@ -119,7 +122,7 @@ export default function Home() {
       {/* Logo marquee */}
       <section className="home-logos">
         <div className="container">
-          <p className="home-logos__label">Trusted by the world's leading companies</p>
+          <p className="home-logos__label">{t('home.trustedBy', "Trusted by the world's leading companies")}</p>
           <div className="home-logos__row marquee">
             <div className="marquee__track">
               {[...LOGOS, ...LOGOS].map((l, i) => (
@@ -134,17 +137,14 @@ export default function Home() {
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">About Encegen AI Labs</p>
-            <h2 className="left-title">We believe every great business runs on great processes.</h2>
+            <p className="shead__eyebrow">{t('home.aboutEyebrow', 'About Encegen AI Labs')}</p>
+            <h2 className="left-title">{t('home.aboutTitle', 'We believe every great business runs on great processes.')}</h2>
             <p className="left-copy">
-              Encegen AI Labs builds process intelligence technology that gives enterprise teams
-              real-time visibility into how their operations actually run — not how they think they
-              run. Founded by a team of AI researchers and enterprise operators, we are on a mission
-              to make every business process transparent, measurable, and continuously improving.
+              {t('home.aboutCopy', 'Encegen AI Labs builds process intelligence technology that gives enterprise teams real-time visibility into how their operations actually run — not how they think they run. Founded by a team of AI researchers and enterprise operators, we are on a mission to make every business process transparent, measurable, and continuously improving.')}
             </p>
           </div>
           <div className="home-facts">
-            {FACTS.map((f) => (
+            {facts.map((f) => (
               <div key={f.label} className="home-facts__card">
                 <strong>
                   {f.value} <span>{f.label}</span>
@@ -160,11 +160,11 @@ export default function Home() {
       <section className="section section--lavender">
         <div className="container">
           <SectionHead
-            eyebrow="Capabilities"
-            title="Everything you need to achieve process excellence"
+            eyebrow={t('home.capabilities.eyebrow', 'Capabilities')}
+            title={t('home.capabilities.title', 'Everything you need to achieve process excellence')}
           />
           <div className="cards-3">
-            {CAPABILITIES.map((c) => (
+            {capabilities.map((c) => (
               <article key={c.title} className="fcard fcard--top-accent">
                 <span className="fcard__icon">{c.icon}</span>
                 <h3>{c.title}</h3>
@@ -174,67 +174,66 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* Platform */}
       <section className="section section--dark">
         <div className="container split">
           <div>
             <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
-              The Encegen Platform
+              {t('home.platform.eyebrow', 'The Encegen Platform')}
             </p>
             <h2 className="left-title" style={{ color: '#fff' }}>
-              One platform. Every process. Unlimited potential.
+              {t('home.platform.title', 'One platform. Every process. Unlimited potential.')}
             </h2>
             <p className="left-copy" style={{ color: '#a8a5cb' }}>
-              From procurement to order-to-cash, Encegen connects every part of your business into a
-              single, living process intelligence layer.
+              {t('home.platform.sub', 'From procurement to order-to-cash, Encegen connects every part of your business into a single, living process intelligence layer.')}
             </p>
             <ul className="check-list check-list--dark">
-              <li>EMS (Execution Management System)</li>
-              <li>Process Analytics &amp; Mining</li>
-              <li>Action Flows &amp; Automation</li>
-              <li>Live Connected Data</li>
+              <li>{t('home.platform.f1', 'EMS (Execution Management System)')}</li>
+              <li>{t('home.platform.f2', 'Process Analytics & Mining')}</li>
+              <li>{t('home.platform.f3', 'Action Flows & Automation')}</li>
+              <li>{t('home.platform.f4', 'Live Connected Data')}</li>
             </ul>
             <div style={{ marginTop: 34 }}>
               <Btn to="/platform" variant="white">
-                Explore platform
+                {t('home.platform.cta', 'Explore platform')}
               </Btn>
             </div>
           </div>
           
-          {/* Updated Visual Box with Image */}
           <div className="home-platform-visual">
             <img src={hero2} alt="Platform Preview" className="home-platform-img" />
-            
           </div>
         </div>
       </section>
+
       {/* Industries */}
       <section className="section section--light">
         <div className="container">
           <SectionHead
-            eyebrow="Solutions for every industry"
+            eyebrow={t('home.industries.eyebrow', 'Solutions for every industry')}
             title={
               <>
                 Your Industry. Your Processes. <span className="accent-purple">Our Platform.</span>
               </>
             }
-            sub="From finance to manufacturing, Encegen is deployed across 70+ industries to deliver measurable, real-world results."
+            sub={t('home.industries.title', 'Tailored for your sector\'s most complex challenges')}
           />
           <div className="cards-3">
-            {INDUSTRIES.map((ind) => (
+            {industries.map((ind) => (
               <article key={ind.title} className="fcard">
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
                 <Link to="/solutions/use-cases" className="home-ind-link">
-                  Explore solution →
+                  {t('common.learnMore', 'Explore solution →')}
                 </Link>
               </article>
             ))}
           </div>
           <div className="home-center-cta">
             <Btn to="/solutions/use-cases" variant="lavender">
-              See all 70+ industry solutions →
+              {t('home.industries.title', 'See all 70+ industry solutions →')}
             </Btn>
           </div>
         </div>
@@ -243,7 +242,7 @@ export default function Home() {
       {/* Stats */}
       <section className="home-stats">
         <div className="container home-stats__grid">
-          {STATS.map((s) => (
+          {stats.map((s) => (
             <div key={s.label}>
               <strong>{s.value}</strong>
               <span>{s.label}</span>
@@ -256,9 +255,8 @@ export default function Home() {
       <section className="section section--lavender">
         <div className="container">
           <SectionHead
-            eyebrow="Customer Stories"
-            title="Trusted by the brands that run the world"
-            sub="Trusted by the world's leading enterprises."
+            eyebrow={t('home.stories.eyebrow', 'Customer Stories')}
+            title={t('home.stories.title', 'Trusted by the brands that run the world')}
           />
           <div className="tgrid">
             {STORIES.map((s) => (
@@ -272,9 +270,9 @@ export default function Home() {
       <section className="section section--light">
         <div className="container">
           <div className="home-res-head">
-            <h2 className="left-title">Learn from the experts</h2>
+            <h2 className="left-title">{t('home.resources.title', 'Learn from the experts')}</h2>
             <Link to="/resources" className="home-ind-link">
-              View all resources →
+              {t('common.readMore', 'View all resources →')}
             </Link>
           </div>
           <div className="cards-3">

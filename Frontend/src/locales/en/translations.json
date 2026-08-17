@@ -1,0 +1,166 @@
+{
+  "navbar": {
+    "solutions": "Solutions",
+    "resources": "Resources",
+    "products": "Products",
+    "insights": "Insights",
+    "company": "Company",
+    "search": "Search",
+    "searchPlaceholder": "Search products, solutions...",
+    "tripleTapHint": "Triple tap to open Admin Panel",
+    "featuredStories": "Success stories",
+    "explorePlatform": "The Encegen Platform",
+    "lifeAtEncegen": "Life at Encegen",
+    "headings": {
+      "byTransformation": "By Transformation",
+      "byFunction": "By Function",
+      "byIndustry": "By Industry",
+      "platform": "Platform",
+      "products": "Products",
+      "whoWeAre": "Who We Are",
+      "howWeWork": "How We Work",
+      "joinUs": "Join Us"
+    },
+    "links": {
+      "aiAgents": "AI Agents & Automation",
+      "aiResearch": "AI Research Solutions",
+      "customSoftware": "Custom Software Dev",
+      "allTransformations": "All transformations",
+      "digitalMarketing": "Digital Marketing & Growth",
+      "webEcommerce": "Website & Ecommerce Dev",
+      "processExcellence": "Process Excellence",
+      "allFunctions": "All functions",
+      "manufacturing": "Manufacturing",
+      "financialServices": "Financial Services",
+      "healthcare": "Healthcare",
+      "allIndustries": "All industries",
+      "processMining": "Process Mining",
+      "executionManagement": "Execution Management",
+      "aiInsights": "AI Insights",
+      "explorePlatformLink": "Explore the platform",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "HR Portal",
+      "resumeBuilder": "Resume Builder",
+      "resumeAnalyzer": "Resume Analyzer",
+      "voiceAgent": "Voice Agent",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "aboutUs": "About Us",
+      "ourStory": "Our Story",
+      "ourValues": "Our Values",
+      "ourCulture": "Our Culture",
+      "careers": "Careers",
+      "whyEncegen": "Why Encegen",
+      "allOpenRoles": "All open roles"
+    }
+  },
+  "footer": {
+    "tagline": "AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.",
+    "columns": {
+      "platform": "Platform & Tech",
+      "solutions": "Solutions",
+      "company": "Company",
+      "resources": "Resources & Insights",
+      "legal": "Legal & Security"
+    },
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "security": "Security & Compliance",
+      "cookies": "Cookie Settings",
+      "gdpr": "GDPR Commitment"
+    },
+    "newsletterTitle": "Stay Ahead of the AI Frontier",
+    "newsletterSub": "Receive exclusive deep-dives, architectural blueprints, and intelligence breakthroughs.",
+    "newsletterPlaceholder": "Enter your corporate email",
+    "newsletterButton": "Subscribe",
+    "copyright": "© 2026 Encegen AI Labs Inc. All rights reserved."
+  },
+  "home": {
+    "heroBadge": "Process Intelligence Platform",
+    "heroTitle": "Turn Every Process Into a Competitive Advantage",
+    "heroSub": "Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale.",
+    "startFree": "Start for free →",
+    "watchDemo": "Watch demo",
+    "trustedBy": "Trusted by the world's leading companies",
+    "aboutEyebrow": "About Encegen AI Labs",
+    "aboutTitle": "We believe every great business runs on great processes.",
+    "aboutCopy": "Encegen AI Labs builds process intelligence technology that gives enterprise teams real-time visibility into how their operations actually run — not how they think they run. Founded by a team of AI researchers and enterprise operators, we are on a mission to make every business process transparent, measurable, and continuously improving.",
+    "facts": {
+      "founded": "Founded",
+      "foundedSub": "Built from enterprise AI research",
+      "team": "Team",
+      "teamSub": "Engineers, scientists & operators",
+      "offices": "Global offices",
+      "officesSub": "Across North America, Europe & APAC"
+    },
+    "capabilities": {
+      "eyebrow": "Capabilities",
+      "title": "Everything you need to achieve process excellence",
+      "c1Title": "Real-Time Process Mining",
+      "c1Desc": "Discover and visualize every process variant as it actually runs, not how you think it runs.",
+      "c2Title": "AI-Powered Recommendations",
+      "c2Desc": "Surface the highest-value improvement opportunities across your entire operation.",
+      "c3Title": "Execution Engine",
+      "c3Desc": "Automate fixes and embed intelligence directly into SAP, Salesforce, and ServiceNow."
+    },
+    "platform": {
+      "eyebrow": "The Encegen Platform",
+      "title": "One platform. Every process. Unlimited potential.",
+      "sub": "From procurement to order-to-cash, Encegen connects every part of your business into a single, living process intelligence layer.",
+      "f1": "EMS (Execution Management System)",
+      "f2": "Process Analytics & Mining",
+      "f3": "Action Flows & Automation",
+      "f4": "Live Connected Data",
+      "cta": "Explore platform"
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Tailored for your sector's most complex challenges",
+      "mfg": "Manufacturing",
+      "mfgDesc": "Optimize production cycles and supply chain resilience.",
+      "fin": "Financial Services",
+      "finDesc": "Streamline risk management and order-to-cash workflows.",
+      "ret": "Retail",
+      "retDesc": "Enhance inventory turnover and omnichannel experiences.",
+      "health": "Healthcare",
+      "healthDesc": "Improve patient throughput and billing accuracy.",
+      "util": "Utilities",
+      "utilDesc": "Manage grid operations and customer service processes.",
+      "auto": "Automotive",
+      "autoDesc": "Accelerate time-to-market for next-gen vehicle production."
+    },
+    "stats": {
+      "s1": "Enterprise customers",
+      "s2": "Business value delivered",
+      "s3": "Customer satisfaction",
+      "s4": "Avg. ROI within 12 months"
+    },
+    "stories": {
+      "eyebrow": "Customer Success",
+      "title": "How global leaders transform with Encegen"
+    },
+    "resources": {
+      "eyebrow": "Knowledge & Insights",
+      "title": "Latest research, guides & blueprints"
+    },
+    "cta": {
+      "title": "Ready to see what Encegen can do for your business?",
+      "sub": "Join thousands of enterprises driving measurable value from every process.",
+      "btn1": "Get started today",
+      "btn2": "Talk to an expert"
+    }
+  },
+  "common": {
+    "language": "Language",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "getStarted": "Get Started",
+    "viewDetails": "View Details",
+    "back": "Back",
+    "applyNow": "Apply Now",
+    "contactUs": "Contact Us",
+    "search": "Search",
+    "allRightsReserved": "All rights reserved."
+  }
+}

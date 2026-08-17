@@ -28,14 +28,13 @@ import Resources from './pages/Resources'
 import SearchPage from './pages/SearchPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
 
+import { initPageLanguage } from './utils/translator'
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
+    initPageLanguage()
     if (hash) {
-      // Deferred slightly: on first mount for a route, images/fonts below the
-      // fold can still be settling layout, which would make an immediate
-      // scrollIntoView land against a stale position. A short delay lets
-      // that settle first.
       const id = window.setTimeout(() => {
         document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' })
       }, 120)

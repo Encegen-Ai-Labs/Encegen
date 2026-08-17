@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, PlaySquare } from './icons'
 import './Hero.css'
 
@@ -8,28 +9,26 @@ const TRUST_BADGES = [
 ]
 
 export default function Hero() {
+  const { t } = useTranslation()
+
   return (
     <section className="hero">
       <div className="container hero__inner">
-        <span className="hero__badge">THE ENCEGEN PLATFORM</span>
+        <span className="hero__badge">{t('home.heroBadge', 'THE ENCEGEN PLATFORM')}</span>
 
         <h1 className="hero__title">
-          One layer to run{' '}
-          <span className="hero__title-accent">every business process</span>
+          {t('home.platform.title', 'One platform. Every process. Unlimited potential.')}
         </h1>
 
         <p className="hero__sub">
-          Encegen connects your data, your processes, and your systems into
-          one intelligent layer &ndash; so every team has the clarity to act.
+          {t('home.platform.sub', 'Encegen connects your data, your processes, and your systems into one intelligent layer – so every team has the clarity to act.')}
         </p>
 
         <div className="hero__ctas">
           <a href="#" className="hero__cta">
-            Explore the platform <ArrowRight size={18} />
+            {t('home.platform.cta', 'Explore platform')} <ArrowRight size={18} />
           </a>
-          <a href="#" className="hero__cta">
-            Watch a 3-min demo <PlaySquare size={20} />
-          </a>
+         
         </div>
 
         <div className="hero__badges">

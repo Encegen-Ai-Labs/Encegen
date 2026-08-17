@@ -1,0 +1,166 @@
+{
+  "navbar": {
+    "solutions": "Lösungen",
+    "resources": "Ressourcen",
+    "products": "Produkte",
+    "insights": "Einblicke",
+    "company": "Unternehmen",
+    "search": "Suchen",
+    "searchPlaceholder": "Produkte, Lösungen suchen...",
+    "tripleTapHint": "Dreimal tippen, um das Admin-Panel zu öffnen",
+    "featuredStories": "Erfolgsgeschichten",
+    "explorePlatform": "Die Encegen-Plattform",
+    "lifeAtEncegen": "Leben bei Encegen",
+    "headings": {
+      "byTransformation": "Nach Transformation",
+      "byFunction": "Nach Funktion",
+      "byIndustry": "Nach Branche",
+      "platform": "Plattform",
+      "products": "Produkte",
+      "whoWeAre": "Über Uns",
+      "howWeWork": "Unsere Arbeitsweise",
+      "joinUs": "Karriere"
+    },
+    "links": {
+      "aiAgents": "KI-Agenten & Automatisierung",
+      "aiResearch": "KI-Forschungslösungen",
+      "customSoftware": "Individuelle Softwareentwicklung",
+      "allTransformations": "Alle Transformationen",
+      "digitalMarketing": "Digitales Marketing & Wachstum",
+      "webEcommerce": "Web- & E-Commerce-Entwicklung",
+      "processExcellence": "Prozessexzellenz",
+      "allFunctions": "Alle Funktionen",
+      "manufacturing": "Fertigung & Industrie",
+      "financialServices": "Finanzdienstleistungen",
+      "healthcare": "Gesundheitswesen",
+      "allIndustries": "Alle Branchen",
+      "processMining": "Process Mining",
+      "executionManagement": "Execution Management",
+      "aiInsights": "KI-Analysen",
+      "explorePlatformLink": "Plattform entdecken",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "HR-Portal",
+      "resumeBuilder": "Lebenslauf-Generator",
+      "resumeAnalyzer": "Lebenslauf-Analyzer",
+      "voiceAgent": "Sprach-KI-Agent",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "aboutUs": "Über uns",
+      "ourStory": "Unsere Geschichte",
+      "ourValues": "Unsere Werte",
+      "ourCulture": "Unsere Kultur",
+      "careers": "Karriere",
+      "whyEncegen": "Warum Encegen",
+      "allOpenRoles": "Alle offenen Stellen"
+    }
+  },
+  "footer": {
+    "tagline": "KI-gestützte Lösungen für das moderne Unternehmen. Wir transformieren Unternehmen durch intelligente Automatisierung und Forschung.",
+    "columns": {
+      "platform": "Plattform & Technologie",
+      "solutions": "Lösungen",
+      "company": "Unternehmen",
+      "resources": "Ressourcen & Einblicke",
+      "legal": "Rechtliches & Sicherheit"
+    },
+    "links": {
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "security": "Sicherheit & Compliance",
+      "cookies": "Cookie-Einstellungen",
+      "gdpr": "DSGVO-Verpflichtung"
+    },
+    "newsletterTitle": "An der Spitze der KI-Innovation bleiben",
+    "newsletterSub": "Erhalten Sie exklusive Analysen, Architektur-Blueprints und technologische Durchbrüche.",
+    "newsletterPlaceholder": "Geschäftliche E-Mail-Adresse eingeben",
+    "newsletterButton": "Abonnieren",
+    "copyright": "© 2026 Encegen AI Labs Inc. Alle Rechte vorbehalten."
+  },
+  "home": {
+    "heroBadge": "Prozess-Intelligenz-Plattform",
+    "heroTitle": "Verwandeln Sie jeden Prozess in einen Wettbewerbsvorteil",
+    "heroSub": "Encegen bietet Ihnen den Röntgenblick, um jeden Geschäftsprozess in Echtzeit und im weltweiten Maßstab zu erkennen, zu beheben und zu optimieren.",
+    "startFree": "Kostenlos starten →",
+    "watchDemo": "Demo ansehen",
+    "trustedBy": "Von weltweit führenden Unternehmen geschätzt",
+    "aboutEyebrow": "Über Encegen AI Labs",
+    "aboutTitle": "Wir glauben, dass jedes großartige Unternehmen auf großartigen Prozessen basiert.",
+    "aboutCopy": "Encegen AI Labs entwickelt Process-Intelligence-Technologie, die Unternehmensteams Echtzeittransparenz darüber bietet, wie ihre Abläufe tatsächlich ablaufen. Gegründet von KI-Forschern und Enterprise-Operatoren, verfolgen wir die Mission, jeden Geschäftsprozess transparent, messbar und kontinuierlich verbessernd zu gestalten.",
+    "facts": {
+      "founded": "Gegründet",
+      "foundedSub": "Entstanden aus KI-Unternehmensforschung",
+      "team": "Team",
+      "teamSub": "Ingenieure, Wissenschaftler & Branchenexperten",
+      "offices": "Standorte weltweit",
+      "officesSub": "In Nordamerika, Europa & APAC"
+    },
+    "capabilities": {
+      "eyebrow": "Funktionen",
+      "title": "Alles, was Sie für Prozessexzellenz benötigen",
+      "c1Title": "Echtzeit-Process-Mining",
+      "c1Desc": "Erkennen und visualisieren Sie jede Prozessvariante so, wie sie tatsächlich abläuft.",
+      "c2Title": "KI-gestützte Empfehlungen",
+      "c2Desc": "Identifizieren Sie die wertvollsten Optimierungspotenziale in Ihrem gesamten Unternehmen.",
+      "c3Title": "Execution Engine",
+      "c3Desc": "Automatisieren Sie Korrekturen und integrieren Sie Intelligenz direkt in SAP, Salesforce und ServiceNow."
+    },
+    "platform": {
+      "eyebrow": "Die Encegen-Plattform",
+      "title": "Eine Plattform. Jeder Prozess. Grenzenloses Potenzial.",
+      "sub": "Von der Beschaffung bis zum Zahlungseingang verbindet Encegen alle Unternehmensbereiche zu einer lebendigen Process-Intelligence-Ebene.",
+      "f1": "EMS (Execution Management System)",
+      "f2": "Prozessanalyse & Mining",
+      "f3": "Aktionsflüsse & Automatisierung",
+      "f4": "Vernetzte Live-Daten",
+      "cta": "Plattform entdecken"
+    },
+    "industries": {
+      "eyebrow": "Branchen",
+      "title": "Maßgeschneidert für die komplexesten Herausforderungen Ihres Sektors",
+      "mfg": "Fertigung & Industrie",
+      "mfgDesc": "Optimieren Sie Produktionszyklen und stärken Sie die Lieferketten-Resilienz.",
+      "fin": "Finanzdienstleistungen",
+      "finDesc": "Optimieren Sie das Risikomanagement und Order-to-Cash-Workflows.",
+      "ret": "Handel & Retail",
+      "retDesc": "Steigern Sie den Lagerumschlag und verbessern Sie Omnichannel-Erlebnisse.",
+      "health": "Gesundheitswesen",
+      "healthDesc": "Verbessern Sie Patientendurchsatz und Abrechnungsgenauigkeit.",
+      "util": "Energie & Versorgung",
+      "utilDesc": "Verwalten Sie Netzbetrieb und Kundenserviceprozesse.",
+      "auto": "Automobilindustrie",
+      "autoDesc": "Beschleunigen Sie die Markteinführung von Fahrzeugen der nächsten Generation."
+    },
+    "stats": {
+      "s1": "Unternehmenskunden",
+      "s2": "Geschäftswert geliefert",
+      "s3": "Kundenzufriedenheit",
+      "s4": "Durchschnittl. ROI in 12 Monaten"
+    },
+    "stories": {
+      "eyebrow": "Kundenerfolge",
+      "title": "Wie globale Marktführer sich mit Encegen transformieren"
+    },
+    "resources": {
+      "eyebrow": "Wissen & Einblicke",
+      "title": "Neueste Forschung, Leitfäden & Blueprints"
+    },
+    "cta": {
+      "title": "Bereit zu sehen, was Encegen für Ihr Unternehmen tun kann?",
+      "sub": "Schließen Sie sich Tausenden von Unternehmen an, die aus jedem Prozess messbaren Mehrwert schöpfen.",
+      "btn1": "Heute noch starten",
+      "btn2": "Mit einem Experten sprechen"
+    }
+  },
+  "common": {
+    "language": "Sprache",
+    "learnMore": "Mehr erfahren",
+    "readMore": "Weiterlesen",
+    "getStarted": "Jetzt starten",
+    "viewDetails": "Details ansehen",
+    "back": "Zurück",
+    "applyNow": "Jetzt bewerben",
+    "contactUs": "Kontaktieren Sie uns",
+    "search": "Suchen",
+    "allRightsReserved": "Alle Rechte vorbehalten."
+  }
+}

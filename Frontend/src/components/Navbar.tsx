@@ -1,8 +1,10 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useMemo } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logo from '../assets/logo.png'
 import { ArrowRight, ChevronDown, SearchIcon } from './icons'
 import AdminLoginModal from './AdminLoginModal'
+import LanguageSelector from './LanguageSelector'
 import './Navbar.css'
 
 type MegaColumn = {
@@ -11,6 +13,7 @@ type MegaColumn = {
 }
 
 type NavItem = {
+  key: string
   label: string
   to?: string
   mega?: {
@@ -19,107 +22,9 @@ type NavItem = {
   }
 }
 
-const NAV: NavItem[] = [
-  {
-    label: 'Solutions',
-    mega: {
-      featured: { title: 'Success stories', to: '/insights' },
-      columns: [
-        {
-          heading: 'By Transformation',
-          links: [
-            { label: 'AI Agents & Automation', to: '/solutions/ai-agents' },
-            { label: 'AI Research Solutions', to: '/solutions/ai-research' },
-            { label: 'Custom Software Dev', to: '/solutions/custom-software' },
-            { label: 'All transformations', to: '/solutions/use-cases' },
-          ],
-        },
-        {
-          heading: 'By Function',
-          links: [
-            { label: 'Digital Marketing & Growth', to: '/solutions/digital-marketing' },
-            { label: 'Website & Ecommerce Dev', to: '/solutions/web-ecommerce' },
-            { label: 'Process Excellence', to: '/platform' },
-            { label: 'All functions', to: '/solutions/use-cases' },
-          ],
-        },
-        {
-          heading: 'By Industry',
-          links: [
-            { label: 'Manufacturing', to: '/solutions/use-cases#manufacturing' },
-            { label: 'Financial Services', to: '/solutions/use-cases#financial-services' },
-            { label: 'Healthcare', to: '/solutions/use-cases#healthcare' },
-            { label: 'All industries', to: '/solutions/use-cases' },
-          ],
-        },
-      ],
-    },
-  },
-  { label: 'Resources', to: '/resources' },
-  {
-    label: 'Products',
-    mega: {
-      featured: { title: 'The Encegen Platform', to: '/platform' },
-      columns: [
-        {
-          heading: 'Platform',
-          links: [
-            { label: 'Process Mining', to: '/platform' },
-            { label: 'Execution Management', to: '/platform' },
-            { label: 'AI Insights', to: '/platform' },
-            { label: 'Explore the platform', to: '/platform' },
-          ],
-        },
-        {
-          heading: 'Products',
-          links: [
-            { label: 'Easy Hunt', to: '/products/easy-hunt' },
-            { label: 'HR Portal', to: '/products/hr-portal' },
-            { label: 'Resume Builder', to: '/products/resume-builder' },
-            { label: 'Resume Analyzer', to: '/products/resume-analyzer' },
-            { label: 'Voice Agent', to: '/products/voice-agent' },
-            { label: 'CBMS', to: '/platform' },
-            { label: 'HMS', to: '/platform' },
-          ],
-        },
-      ],
-    },
-  },
-  { label: 'Insights', to: '/insights' },
-  {
-    label: 'Company',
-    mega: {
-      featured: { title: 'Life at Encegen', to: '/careers/why-encegen' },
-      columns: [
-        {
-          heading: 'Who We Are',
-          links: [
-            { label: 'About Us', to: '/about' },
-            { label: 'Our Story', to: '/our-story' },
-          ],
-        },
-        {
-          heading: 'How We Work',
-          links: [
-            { label: 'Our Values', to: '/values' },
-            { label: 'Our Culture', to: '/culture' },
-          ],
-        },
-        {
-          heading: 'Join Us',
-          links: [
-            { label: 'Careers', to: '/careers' },
-            { label: 'Why Encegen', to: '/careers/why-encegen' },
-            { label: 'All open roles', to: '/careers' },
-          ],
-        },
-      ],
-    },
-  },
-]
-
 export default function Navbar() {
   const { pathname } = useLocation()
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null)
@@ -128,6 +33,108 @@ export default function Navbar() {
   const [showAdminModal, setShowAdminModal] = useState(false)
   const clickCountRef = useRef(0)
   const clickTimerRef = useRef<any>(null)
+
+  const navItems: NavItem[] = useMemo(() => [
+    {
+      key: 'solutions',
+      label: t('navbar.solutions', 'Solutions'),
+      mega: {
+        featured: { title: t('navbar.featuredStories', 'Success stories'), to: '/insights' },
+        columns: [
+          {
+            heading: t('navbar.headings.byTransformation', 'By Transformation'),
+            links: [
+              { label: t('navbar.links.aiAgents', 'AI Agents & Automation'), to: '/solutions/ai-agents' },
+              { label: t('navbar.links.aiResearch', 'AI Research Solutions'), to: '/solutions/ai-research' },
+              { label: t('navbar.links.customSoftware', 'Custom Software Dev'), to: '/solutions/custom-software' },
+              { label: t('navbar.links.allTransformations', 'All transformations'), to: '/solutions/use-cases' },
+            ],
+          },
+          {
+            heading: t('navbar.headings.byFunction', 'By Function'),
+            links: [
+              { label: t('navbar.links.digitalMarketing', 'Digital Marketing & Growth'), to: '/solutions/digital-marketing' },
+              { label: t('navbar.links.webEcommerce', 'Website & Ecommerce Dev'), to: '/solutions/web-ecommerce' },
+              { label: t('navbar.links.processExcellence', 'Process Excellence'), to: '/platform' },
+              { label: t('navbar.links.allFunctions', 'All functions'), to: '/solutions/use-cases' },
+            ],
+          },
+          {
+            heading: t('navbar.headings.byIndustry', 'By Industry'),
+            links: [
+              { label: t('navbar.links.manufacturing', 'Manufacturing'), to: '/solutions/use-cases#manufacturing' },
+              { label: t('navbar.links.financialServices', 'Financial Services'), to: '/solutions/use-cases#financial-services' },
+              { label: t('navbar.links.healthcare', 'Healthcare'), to: '/solutions/use-cases#healthcare' },
+              { label: t('navbar.links.allIndustries', 'All industries'), to: '/solutions/use-cases' },
+            ],
+          },
+        ],
+      },
+    },
+    { key: 'resources', label: t('navbar.resources', 'Resources'), to: '/resources' },
+    {
+      key: 'products',
+      label: t('navbar.products', 'Products'),
+      mega: {
+        featured: { title: t('navbar.explorePlatform', 'The Encegen Platform'), to: '/platform' },
+        columns: [
+          {
+            heading: t('navbar.headings.platform', 'Platform'),
+            links: [
+              { label: t('navbar.links.processMining', 'Process Mining'), to: '/platform' },
+              { label: t('navbar.links.executionManagement', 'Execution Management'), to: '/platform' },
+              { label: t('navbar.links.aiInsights', 'AI Insights'), to: '/platform' },
+              { label: t('navbar.links.explorePlatformLink', 'Explore the platform'), to: '/platform' },
+            ],
+          },
+          {
+            heading: t('navbar.headings.products', 'Products'),
+            links: [
+              { label: t('navbar.links.easyHunt', 'Easy Hunt'), to: '/products/easy-hunt' },
+              { label: t('navbar.links.hrPortal', 'HR Portal'), to: '/products/hr-portal' },
+              { label: t('navbar.links.resumeBuilder', 'Resume Builder'), to: '/products/resume-builder' },
+              { label: t('navbar.links.resumeAnalyzer', 'Resume Analyzer'), to: '/products/resume-analyzer' },
+              { label: t('navbar.links.voiceAgent', 'Voice Agent'), to: '/products/voice-agent' },
+              { label: t('navbar.links.cbms', 'CBMS'), to: '/platform' },
+              { label: t('navbar.links.hms', 'HMS'), to: '/platform' },
+            ],
+          },
+        ],
+      },
+    },
+    { key: 'insights', label: t('navbar.insights', 'Insights'), to: '/insights' },
+    {
+      key: 'company',
+      label: t('navbar.company', 'Company'),
+      mega: {
+        featured: { title: t('navbar.lifeAtEncegen', 'Life at Encegen'), to: '/careers/why-encegen' },
+        columns: [
+          {
+            heading: t('navbar.headings.whoWeAre', 'Who We Are'),
+            links: [
+              { label: t('navbar.links.aboutUs', 'About Us'), to: '/about' },
+              { label: t('navbar.links.ourStory', 'Our Story'), to: '/our-story' },
+            ],
+          },
+          {
+            heading: t('navbar.headings.howWeWork', 'How We Work'),
+            links: [
+              { label: t('navbar.links.ourValues', 'Our Values'), to: '/values' },
+              { label: t('navbar.links.ourCulture', 'Our Culture'), to: '/culture' },
+            ],
+          },
+          {
+            heading: t('navbar.headings.joinUs', 'Join Us'),
+            links: [
+              { label: t('navbar.links.careers', 'Careers'), to: '/careers' },
+              { label: t('navbar.links.whyEncegen', 'Why Encegen'), to: '/careers/why-encegen' },
+              { label: t('navbar.links.allOpenRoles', 'All open roles'), to: '/careers' },
+            ],
+          },
+        ],
+      },
+    },
+  ], [t])
 
   const handleLogoClick = (e: React.MouseEvent) => {
     clickCountRef.current += 1
@@ -161,25 +168,25 @@ export default function Navbar() {
     setExpandedMobileMenu(null)
   }, [pathname])
 
-  const toggleMobileAccordion = (label: string) => {
-    setExpandedMobileMenu((prev) => (prev === label ? null : label))
+  const toggleMobileAccordion = (key: string) => {
+    setExpandedMobileMenu((prev) => (prev === key ? null : key))
   }
 
-  const cls = ['navbar', scrolled ? 'navbar--scrolled' : 'navbar--top'].join(' ')
+  const cls = ['navbar', scrolled ? 'navbar--scrolled' : 'navbar--top', 'notranslate'].join(' ')
 
   return (
-    <header className={cls}>
+    <header className={cls} translate="no">
       <AdminLoginModal isOpen={showAdminModal} onClose={() => setShowAdminModal(false)} />
       <div className="container navbar__inner">
-        <Link to="/" className="navbar__logo" onClick={handleLogoClick} title="Triple tap to open Admin Panel">
+        <Link to="/" className="navbar__logo" onClick={handleLogoClick} title={t('navbar.tripleTapHint', 'Triple tap to open Admin Panel')}>
           <img src={logo} alt="Encegen AI Labs" />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="navbar__links" aria-label="Main navigation">
-          {NAV.map((item) =>
+          {navItems.map((item) =>
             item.mega ? (
-              <div key={item.label} className="navbar__group">
+              <div key={item.key} className="navbar__group">
                 <button className="navbar__link" type="button">
                   {item.label}
                   <ChevronDown size={16} className="navbar__chevron" />
@@ -207,7 +214,7 @@ export default function Navbar() {
               </div>
             ) : (
               <NavLink
-                key={item.label}
+                key={item.key}
                 to={item.to!}
                 className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
               >
@@ -219,13 +226,14 @@ export default function Navbar() {
 
         {/* Right Actions */}
         <div className="navbar__actions">
-          <Link to="/search" className="navbar__search desktop-only" aria-label="Search">
+          <Link to="/search" className="navbar__search desktop-only" aria-label={t('navbar.search', 'Search')}>
             <SearchIcon size={20} />
           </Link>
 
-          <a href="#" className="navbar__demo desktop-only">
-            Get a demo
-          </a>
+          {/* Desktop Language Selector Dropdown (Replaces Get Demo) */}
+          <div className="desktop-only">
+            <LanguageSelector />
+          </div>
 
           {/* Hamburger / Cross Toggle Button */}
           <button
@@ -250,24 +258,24 @@ export default function Navbar() {
           <div className="navbar__mobile-search-wrap">
             <Link to="/search" className="navbar__mobile-search-btn" onClick={() => setMobileOpen(false)}>
               <SearchIcon size={18} />
-              <span>Search products, solutions...</span>
+              <span>{t('navbar.searchPlaceholder', 'Search products, solutions...')}</span>
             </Link>
           </div>
 
           {/* Nav Items */}
-          {NAV.map((item) =>
+          {navItems.map((item) =>
             item.mega ? (
-              <div key={item.label} className="navbar__mobile-group">
+              <div key={item.key} className="navbar__mobile-group">
                 <button
                   type="button"
-                  className={`navbar__mobile-group-btn ${expandedMobileMenu === item.label ? 'is-expanded' : ''}`}
-                  onClick={() => toggleMobileAccordion(item.label)}
+                  className={`navbar__mobile-group-btn ${expandedMobileMenu === item.key ? 'is-expanded' : ''}`}
+                  onClick={() => toggleMobileAccordion(item.key)}
                 >
                   <span>{item.label}</span>
                   <ChevronDown size={18} className="navbar__mobile-chevron" />
                 </button>
 
-                <div className={`navbar__mobile-accordion ${expandedMobileMenu === item.label ? 'is-open' : ''}`}>
+                <div className={`navbar__mobile-accordion ${expandedMobileMenu === item.key ? 'is-open' : ''}`}>
                   <Link to={item.mega.featured.to} className="navbar__mobile-link navbar__mobile-link--featured">
                     🔥 {item.mega.featured.title}
                   </Link>
@@ -285,17 +293,15 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Link key={item.label} to={item.to!} className="navbar__mobile-link navbar__mobile-link--top">
+              <Link key={item.key} to={item.to!} className="navbar__mobile-link navbar__mobile-link--top">
                 {item.label}
               </Link>
             ),
           )}
 
-          {/* Mobile "Get a Demo" Button */}
+          {/* Mobile Multilingual Language Selector (Replaces Get Demo) */}
           <div className="navbar__mobile-actions">
-            <a href="#" className="navbar__demo navbar__demo--mobile">
-              Get a demo
-            </a>
+            <LanguageSelector isMobile onSelect={() => setMobileOpen(false)} />
           </div>
 
         </nav>
