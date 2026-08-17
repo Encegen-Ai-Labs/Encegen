@@ -64,10 +64,10 @@ const NAV: NavItem[] = [
         {
           heading: 'Platform',
           links: [
-            { label: 'Process Mining', to: '/platform' },
-            { label: 'Execution Management', to: '/platform' },
-            { label: 'AI Insights', to: '/platform' },
-            { label: 'Explore the platform', to: '/platform' },
+            { label: 'Process Mining', to: '/platform#process-mining' },
+            { label: 'Execution Management', to: '/platform#execution-management' },
+            { label: 'AI Insights', to: '/platform#ai-insights' },
+            { label: 'Explore the platform', to: '/platform#explore-platform' },
           ],
         },
         {
