@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArtTile, Avatar, Btn, PageHero, SectionHead } from '../components/kit'
+import { API_BASE_URL } from '../config/api'
+import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
 
 interface InsightItem {
@@ -73,8 +75,8 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     slug: '2026-process-intelligence-benchmark-finance',
     category: 'Reports',
     description: 'Benchmarking finance process maturity across 500+ CFOs - AP, O2C, and treasury process insights.',
-    content: 'This comprehensive 40-page report evaluates standard invoice reconciliation variance across Fortune 500 finance departments and provides actionable automation frameworks.',
-    meta: '38 pages · Q1 2026 · Finance',
+    content: 'This comprehensive benchmark study evaluates standard invoice reconciliation variance across Fortune 500 finance departments and provides actionable automation frameworks.',
+    meta: 'Q1 2026 · Finance',
     author: 'Tom Müller',
     author_role: 'Research Director',
     action_label: 'Download →',
@@ -182,7 +184,7 @@ export default function Insights() {
   const [selectedInsight, setSelectedInsight] = useState<InsightItem | null>(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/insights')
+    fetch(`${API_BASE_URL}/insights`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
@@ -254,9 +256,21 @@ export default function Insights() {
                   📄 {featuredInsight.meta || `${featuredInsight.author} · Encegen Research`}
                 </span>
                 <div className="featured-card__actions" style={{ marginTop: '1.25rem' }}>
-                  <Btn variant="white">
-                    {featuredInsight.action_label ? featuredInsight.action_label.replace('→', '').trim() + ' →' : 'Read full insight →'}
-                  </Btn>
+                  {featuredInsight.category === 'Reports' || featuredInsight.action_label?.includes('Download') ? (
+                    <button
+                      className="kbtn kbtn--white"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        downloadReportAsWord(featuredInsight)
+                      }}
+                    >
+                      📥 Download Word Report (.doc) →
+                    </button>
+                  ) : (
+                    <Btn variant="white">
+                      {featuredInsight.action_label ? featuredInsight.action_label.replace('→', '').trim() + ' →' : 'Read full insight →'}
+                    </Btn>
+                  )}
                   <Btn variant="outline-light">Read preview</Btn>
                 </div>
               </div>
@@ -315,7 +329,7 @@ export default function Insights() {
                 <div className="acard__body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                   <span className="acard__tag">{a.category}</span>
                   <h3>{a.title}</h3>
-                  <p style={{ flex: 1 }}>{a.description}</p>
+                  <p className="acard__desc">{a.description}</p>
                   <span className="acard__meta">{a.meta || `${a.category} · 2026`}</span>
                   <div className="acard__foot" style={{ marginTop: 'auto' }}>
                     <Avatar
@@ -330,9 +344,35 @@ export default function Insights() {
                       <strong>{a.author}</strong>
                       <span>{a.author_role || 'Analyst'}</span>
                     </span>
-                    <span style={{ color: '#2563eb', fontWeight: 600, marginLeft: 'auto' }}>
-                      {a.action_label || 'Read →'}
-                    </span>
+                    {a.category === 'Reports' || a.action_label?.includes('Download') ? (
+                      <button
+                        type="button"
+                        style={{
+                          background: '#eff6ff',
+                          color: '#2563eb',
+                          border: '1px solid #bfdbfe',
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          fontWeight: 600,
+                          fontSize: '0.82rem',
+                          marginLeft: 'auto',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px'
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          downloadReportAsWord(a)
+                        }}
+                      >
+                        📥 Download .doc
+                      </button>
+                    ) : (
+                      <span style={{ color: '#2563eb', fontWeight: 600, marginLeft: 'auto' }}>
+                        {a.action_label || 'Read →'}
+                      </span>
+                    )}
                   </div>
                 </div>
               </article>
@@ -552,9 +592,32 @@ export default function Insights() {
               </div>
             )}
 
-            {/* External Media / Action Button if non-video link */}
-            {selectedInsight.media_url && !videoEmbed && (
-              <div style={{ marginTop: '1.5rem' }}>
+            {/* Report Download Button or External Media Button */}
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+              {(selectedInsight.category === 'Reports' || selectedInsight.action_label?.includes('Download')) && (
+                <button
+                  type="button"
+                  onClick={() => downloadReportAsWord(selectedInsight)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                    color: '#ffffff',
+                    padding: '0.8rem 1.6rem',
+                    borderRadius: '10px',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
+                  }}
+                >
+                  📥 Download Report (.doc / Word)
+                </button>
+              )}
+
+              {selectedInsight.media_url && !videoEmbed && (
                 <a
                   href={selectedInsight.media_url}
                   target="_blank"
@@ -563,9 +626,9 @@ export default function Insights() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    background: '#2563eb',
+                    background: '#0f172a',
                     color: '#ffffff',
-                    padding: '0.75rem 1.5rem',
+                    padding: '0.8rem 1.4rem',
                     borderRadius: '10px',
                     fontWeight: 600,
                     textDecoration: 'none',
@@ -573,8 +636,8 @@ export default function Insights() {
                 >
                   {selectedInsight.action_label || 'Open Link →'}
                 </a>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       )}

@@ -32,8 +32,8 @@ const RESULTS = [
     color: '#3b82f6',
     title: 'The 2026 State of Process Intelligence Report',
     desc: "The definitive guide to how the world's largest enterprises are leveraging AI and mining to drive resilience.",
-    meta: '24 pages · PDF Download',
-    action: 'Download PDF →',
+    meta: 'Research Report · Q1 2026',
+    action: 'Download Report →',
   },
   {
     tag: 'Product',

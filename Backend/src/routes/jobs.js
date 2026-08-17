@@ -188,9 +188,32 @@ router.post('/jobs/:id/apply', (req, res) => {
     const { id } = req.params;
     const { fullName, email, phone, linkedin, location, coverLetter, hearAbout, jobTitle } = req.body;
 
-    if (!fullName || !email) {
-      return res.status(400).json({ error: 'Full name and email are required.' });
+    const trimmedName = (fullName || '').trim().replace(/\s{2,}/g, ' ');
+    const cleanEmail = (email || '').trim().replace(/\s+/g, '');
+    const cleanPhone = (phone || '').replace(/\D/g, '');
+
+    // Name validation: min 3, max 50, no numbers, no special characters
+    if (!trimmedName || trimmedName.length < 3) {
+      return res.status(400).json({ error: 'Full name must be at least 3 characters long.' });
     }
+    if (trimmedName.length > 50) {
+      return res.status(400).json({ error: 'Full name cannot exceed 50 characters.' });
+    }
+    if (!/^[a-zA-Z\s]+$/.test(trimmedName)) {
+      return res.status(400).json({ error: 'Full name can only contain letters and spaces (no numbers or special characters).' });
+    }
+
+    // Email validation: valid format, no blank spaces
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+      return res.status(400).json({ error: 'Please provide a valid email address without spaces.' });
+    }
+
+    // Phone validation: must be 10 digits if provided
+    if (cleanPhone && cleanPhone.length !== 10) {
+      return res.status(400).json({ error: 'Phone number must be exactly 10 digits.' });
+    }
+
     if (!req.file) {
       return res.status(400).json({ error: 'A resume file (PDF or DOC/DOCX) is required.' });
     }

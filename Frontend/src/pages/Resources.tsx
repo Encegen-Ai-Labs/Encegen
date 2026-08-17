@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArtTile, Btn, PageHero } from '../components/kit'
+import { API_BASE_URL } from '../config/api'
+import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
 import './Home.css'
 
@@ -91,7 +93,7 @@ export default function Resources() {
   const [selectedResource, setSelectedResource] = useState<ResourceArticle | null>(null)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/resources')
+    fetch(`${API_BASE_URL}/resources`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
@@ -229,14 +231,39 @@ export default function Resources() {
                   <div className="acard__body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <span className="acard__tag">{a.category}</span>
                     <h3>{a.title}</h3>
-                    <p style={{ fontSize: '0.9rem', color: '#64748b', margin: '0.5rem 0 1rem 0', flex: 1 }}>
+                    <p className="acard__desc">
                       {a.summary}
                     </p>
                     <div className="acard__foot" style={{ marginTop: 'auto' }}>
                       <span className="who">
                         <strong>{a.author}</strong>
                       </span>
-                      <span style={{ color: '#2563eb', fontWeight: 600 }}>{actionText}</span>
+                      {a.category === 'Reports' ? (
+                        <button
+                          type="button"
+                          style={{
+                            background: '#eff6ff',
+                            color: '#2563eb',
+                            border: '1px solid #bfdbfe',
+                            padding: '4px 10px',
+                            borderRadius: '6px',
+                            fontWeight: 600,
+                            fontSize: '0.82rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            downloadReportAsWord(a)
+                          }}
+                        >
+                          📥 Download .doc
+                        </button>
+                      ) : (
+                        <span style={{ color: '#2563eb', fontWeight: 600 }}>{actionText}</span>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -439,9 +466,32 @@ const result = await encegen.agents.execute({
               {selectedResource.content}
             </div>
 
-            {/* Optional external link button */}
-            {selectedResource.media_url && !videoEmbed && (
-              <div style={{ marginTop: '1.5rem' }}>
+            {/* Report Download or External Link Action */}
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+              {selectedResource.category === 'Reports' && (
+                <button
+                  type="button"
+                  onClick={() => downloadReportAsWord(selectedResource)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                    color: '#ffffff',
+                    padding: '0.8rem 1.6rem',
+                    borderRadius: '10px',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
+                  }}
+                >
+                  📥 Download Report (.doc / Word)
+                </button>
+              )}
+
+              {selectedResource.media_url && !videoEmbed && (
                 <a
                   href={selectedResource.media_url}
                   target="_blank"
@@ -450,9 +500,9 @@ const result = await encegen.agents.execute({
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    background: '#2563eb',
+                    background: '#0f172a',
                     color: '#ffffff',
-                    padding: '0.75rem 1.5rem',
+                    padding: '0.8rem 1.4rem',
                     borderRadius: '10px',
                     fontWeight: 600,
                     textDecoration: 'none',
@@ -460,8 +510,8 @@ const result = await encegen.agents.execute({
                 >
                   Open Resource Link →
                 </a>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       )}

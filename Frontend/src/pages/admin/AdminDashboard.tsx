@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { API_BASE_URL } from '../../config/api';
 import './AdminDashboard.css';
 
 interface Job {
@@ -191,6 +192,21 @@ export default function AdminDashboard() {
     status: 'published'
   });
 
+  // Toast Notification State
+  const [toasts, setToasts] = useState<{ id: string; type: 'success' | 'error' | 'info'; title: string; message: string }[]>([]);
+
+  const showToast = (type: 'success' | 'error' | 'info', title: string, message: string) => {
+    const id = Date.now().toString() + Math.random().toString(36).substring(2, 6);
+    setToasts((prev) => [...prev, { id, type, title, message }]);
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, 4500);
+  };
+
+  const removeToast = (id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
   const token = localStorage.getItem('adminToken');
 
   const handleLogout = () => {
@@ -205,9 +221,7 @@ export default function AdminDashboard() {
       return;
     }
     // Verify the stored token is still valid before trusting it for admin
-    // actions — an expired/invalid token otherwise only surfaces as a failed
-    // save later, instead of bouncing the user back to login right away.
-    fetch('http://localhost:5000/api/auth/me', {
+    fetch(`${API_BASE_URL}/auth/me`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => {
@@ -220,24 +234,35 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [resJobs, resInsights, resResources, resApplications] = await Promise.all([
-        fetch('http://localhost:5000/api/jobs'),
-        fetch('http://localhost:5000/api/insights?includeDrafts=true'),
-        fetch('http://localhost:5000/api/resources?includeDrafts=true'),
-        fetch('http://localhost:5000/api/admin/applications', {
+      const [resJobs, resInsights, resResources, resApplications] = await Promise.allSettled([
+        fetch(`${API_BASE_URL}/jobs`),
+        fetch(`${API_BASE_URL}/insights?includeDrafts=true`, {
+          headers: { Authorization: `Bearer ${token}` }
+        }),
+        fetch(`${API_BASE_URL}/resources?includeDrafts=true`, {
+          headers: { Authorization: `Bearer ${token}` }
+        }),
+        fetch(`${API_BASE_URL}/admin/applications`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
 
-      const jobsData = await resJobs.json();
-      const insightsData = await resInsights.json();
-      const resourcesData = await resResources.json();
-      const applicationsData = await resApplications.json();
-
-      setJobs(Array.isArray(jobsData) ? jobsData : []);
-      setInsights(Array.isArray(insightsData) ? insightsData : []);
-      setResources(Array.isArray(resourcesData) ? resourcesData : []);
-      setApplications(Array.isArray(applicationsData) ? applicationsData : []);
+      if (resJobs.status === 'fulfilled' && resJobs.value.ok) {
+        const data = await resJobs.value.json();
+        if (Array.isArray(data)) setJobs(data);
+      }
+      if (resInsights.status === 'fulfilled' && resInsights.value.ok) {
+        const data = await resInsights.value.json();
+        if (Array.isArray(data)) setInsights(data);
+      }
+      if (resResources.status === 'fulfilled' && resResources.value.ok) {
+        const data = await resResources.value.json();
+        if (Array.isArray(data)) setResources(data);
+      }
+      if (resApplications.status === 'fulfilled' && resApplications.value.ok) {
+        const data = await resApplications.value.json();
+        if (Array.isArray(data)) setApplications(data);
+      }
     } catch (err) {
       console.error('Error fetching admin data:', err);
     } finally {
@@ -305,8 +330,8 @@ export default function AdminDashboard() {
     };
 
     const url = editingJob
-      ? `http://localhost:5000/api/admin/jobs/${editingJob.id}`
-      : 'http://localhost:5000/api/admin/jobs';
+      ? `${API_BASE_URL}/admin/jobs/${editingJob.id}`
+      : `${API_BASE_URL}/admin/jobs`;
     const method = editingJob ? 'PUT' : 'POST';
 
     try {
@@ -319,30 +344,51 @@ export default function AdminDashboard() {
         body: JSON.stringify(payload)
       });
 
+      const data = await res.json();
       if (res.ok) {
         setShowJobModal(false);
+        const savedJob = data.job;
+        if (savedJob) {
+          setJobs((prev) => {
+            const exists = prev.some((j) => j.id === savedJob.id);
+            if (exists) {
+              return prev.map((j) => (j.id === savedJob.id ? savedJob : j));
+            }
+            return [savedJob, ...prev];
+          });
+        }
+        setSearchQuery('');
+        showToast(
+          'success',
+          editingJob ? 'Job Opening Updated' : 'Job Opportunity Posted',
+          `"${jobForm.title}" is saved and visible on the Careers page.`
+        );
         fetchData();
       } else {
-        const err = await res.json();
-        alert(err.error || 'Failed to save job');
+        showToast('error', 'Failed to Save Job', data.error || 'Please check the required fields.');
       }
     } catch (err) {
-      alert('Error connecting to backend server');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
   const handleDeleteJob = async (id: number) => {
     if (!confirm('Are you sure you want to delete this job opening?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/jobs/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/admin/jobs/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
+        setJobs((prev) => prev.filter((j) => j.id !== id));
+        showToast('info', 'Job Opening Deleted', 'The job role has been removed successfully.');
         fetchData();
+      } else {
+        const err = await res.json();
+        showToast('error', 'Delete Failed', err.error || 'Failed to delete job opening.');
       }
     } catch (err) {
-      alert('Failed to delete job');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
@@ -372,10 +418,10 @@ export default function AdminDashboard() {
   const openEditInsightModal = (insight: Insight) => {
     setEditingInsight(insight);
     setInsightForm({
-      title: insight.title,
-      slug: insight.slug,
+      title: insight.title || '',
+      slug: insight.slug || '',
       category: insight.category || 'Blog',
-      description: insight.description,
+      description: insight.description || '',
       content: insight.content || '',
       meta: insight.meta || '',
       author: insight.author || 'Encegen Team',
@@ -405,8 +451,8 @@ export default function AdminDashboard() {
   const handleSaveInsight = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingInsight
-      ? `http://localhost:5000/api/admin/insights/${editingInsight.id}`
-      : 'http://localhost:5000/api/admin/insights';
+      ? `${API_BASE_URL}/admin/insights/${editingInsight.id}`
+      : `${API_BASE_URL}/admin/insights`;
     const method = editingInsight ? 'PUT' : 'POST';
 
     try {
@@ -419,30 +465,52 @@ export default function AdminDashboard() {
         body: JSON.stringify(insightForm)
       });
 
+      const data = await res.json();
       if (res.ok) {
         setShowInsightModal(false);
+        const savedInsight = data.insight;
+        if (savedInsight) {
+          setInsights((prev) => {
+            const exists = prev.some((i) => i.id === savedInsight.id);
+            if (exists) {
+              return prev.map((i) => (i.id === savedInsight.id ? savedInsight : i));
+            }
+            return [savedInsight, ...prev];
+          });
+        }
+        setCategoryFilter('All');
+        setSearchQuery('');
+        showToast(
+          'success',
+          editingInsight ? 'Insight Updated' : 'Insight Published',
+          `"${insightForm.title}" is live and visible on Insights Hub.`
+        );
         fetchData();
       } else {
-        const err = await res.json();
-        alert(err.error || 'Failed to save insight');
+        showToast('error', 'Publish Failed', data.error || 'Failed to publish insight.');
       }
     } catch (err) {
-      alert('Error connecting to backend server');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
   const handleDeleteInsight = async (id: number) => {
     if (!confirm('Are you sure you want to delete this insight?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/insights/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/admin/insights/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
+        setInsights((prev) => prev.filter((i) => i.id !== id));
+        showToast('info', 'Insight Deleted', 'The insight item has been deleted successfully.');
         fetchData();
+      } else {
+        const err = await res.json();
+        showToast('error', 'Delete Failed', err.error || 'Failed to delete insight.');
       }
     } catch (err) {
-      alert('Failed to delete insight');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
@@ -467,10 +535,10 @@ export default function AdminDashboard() {
   const openEditResourceModal = (resource: Resource) => {
     setEditingResource(resource);
     setResourceForm({
-      title: resource.title,
-      slug: resource.slug,
+      title: resource.title || '',
+      slug: resource.slug || '',
       category: resource.category || 'Blog',
-      summary: resource.summary,
+      summary: resource.summary || '',
       content: resource.content || '',
       cover_image: resource.cover_image || '',
       author: resource.author || 'Encegen Team',
@@ -495,8 +563,8 @@ export default function AdminDashboard() {
   const handleSaveResource = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = editingResource
-      ? `http://localhost:5000/api/admin/resources/${editingResource.id}`
-      : 'http://localhost:5000/api/admin/resources';
+      ? `${API_BASE_URL}/admin/resources/${editingResource.id}`
+      : `${API_BASE_URL}/admin/resources`;
     const method = editingResource ? 'PUT' : 'POST';
 
     try {
@@ -509,70 +577,96 @@ export default function AdminDashboard() {
         body: JSON.stringify(resourceForm)
       });
 
+      const data = await res.json();
       if (res.ok) {
         setShowResourceModal(false);
+        const savedResource = data.resource;
+        if (savedResource) {
+          setResources((prev) => {
+            const exists = prev.some((r) => r.id === savedResource.id);
+            if (exists) {
+              return prev.map((r) => (r.id === savedResource.id ? savedResource : r));
+            }
+            return [savedResource, ...prev];
+          });
+        }
+        setCategoryFilter('All');
+        setSearchQuery('');
+        showToast(
+          'success',
+          editingResource ? 'Resource Updated' : 'Resource Published',
+          `"${resourceForm.title}" is live and visible on Resources Hub.`
+        );
         fetchData();
       } else {
-        const err = await res.json();
-        alert(err.error || 'Failed to save resource');
+        showToast('error', 'Publish Failed', data.error || 'Failed to publish resource.');
       }
     } catch (err) {
-      alert('Error connecting to backend server');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
   const handleDeleteResource = async (id: number) => {
     if (!confirm('Are you sure you want to delete this resource item?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/admin/resources/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/admin/resources/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.ok) {
+        setResources((prev) => prev.filter((r) => r.id !== id));
+        showToast('info', 'Resource Deleted', 'The resource item has been deleted successfully.');
         fetchData();
+      } else {
+        const err = await res.json();
+        showToast('error', 'Delete Failed', err.error || 'Failed to delete resource.');
       }
     } catch (err) {
-      alert('Failed to delete resource');
+      showToast('error', 'Connection Error', 'Could not connect to the backend server.');
     }
   };
 
-  // Filtered Lists
+  // Safe Filtered Lists with Null Guards
+  const q = searchQuery.toLowerCase().trim();
+
   const filteredJobs = jobs.filter(
     (j) =>
-      j.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      j.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      j.location.toLowerCase().includes(searchQuery.toLowerCase())
+      (j.title || '').toLowerCase().includes(q) ||
+      (j.department || '').toLowerCase().includes(q) ||
+      (j.location || '').toLowerCase().includes(q)
   );
 
   const filteredInsights = insights.filter((i) => {
-    const matchesSearch =
-      i.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      i.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      i.author.toLowerCase().includes(searchQuery.toLowerCase());
+    const title = (i.title || '').toLowerCase();
+    const cat = (i.category || '').toLowerCase();
+    const author = (i.author || '').toLowerCase();
+
+    const matchesSearch = !q || title.includes(q) || cat.includes(q) || author.includes(q);
     const matchesCat =
       categoryFilter === 'All' ||
-      i.category.toLowerCase() === categoryFilter.toLowerCase() ||
-      i.category.toLowerCase().replace(/s$/, '') === categoryFilter.toLowerCase().replace(/s$/, '');
+      cat === categoryFilter.toLowerCase() ||
+      cat.replace(/s$/, '') === categoryFilter.toLowerCase().replace(/s$/, '');
     return matchesSearch && matchesCat;
   });
 
   const filteredResources = resources.filter((r) => {
-    const matchesSearch =
-      r.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      r.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      r.author.toLowerCase().includes(searchQuery.toLowerCase());
+    const title = (r.title || '').toLowerCase();
+    const cat = (r.category || '').toLowerCase();
+    const author = (r.author || '').toLowerCase();
+
+    const matchesSearch = !q || title.includes(q) || cat.includes(q) || author.includes(q);
     const matchesCat =
       categoryFilter === 'All' ||
-      r.category.toLowerCase() === categoryFilter.toLowerCase() ||
-      r.category.toLowerCase().replace(/s$/, '') === categoryFilter.toLowerCase().replace(/s$/, '');
+      cat === categoryFilter.toLowerCase() ||
+      cat.replace(/s$/, '') === categoryFilter.toLowerCase().replace(/s$/, '');
     return matchesSearch && matchesCat;
   });
 
   const filteredApplications = applications.filter(
     (a) =>
-      a.full_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      a.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      a.job_title.toLowerCase().includes(searchQuery.toLowerCase())
+      (a.full_name || '').toLowerCase().includes(q) ||
+      (a.email || '').toLowerCase().includes(q) ||
+      (a.job_title || '').toLowerCase().includes(q)
   );
 
   return (
@@ -1457,6 +1551,28 @@ export default function AdminDashboard() {
           </div>
         </div>
       )}
+
+      {/* Toast Notification Stack */}
+      <div className="admin-toast-container">
+        {toasts.map((toast) => (
+          <div key={toast.id} className={`admin-toast toast-${toast.type}`}>
+            <span className="admin-toast-icon">
+              {toast.type === 'success' ? '🎉' : toast.type === 'error' ? '⚠️' : 'ℹ️'}
+            </span>
+            <div className="admin-toast-content">
+              <div className="admin-toast-title">{toast.title}</div>
+              <div className="admin-toast-msg">{toast.message}</div>
+            </div>
+            <button
+              className="admin-toast-close"
+              onClick={() => removeToast(toast.id)}
+              aria-label="Close notification"
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+      </div>
 
       <Footer />
     </div>

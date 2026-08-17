@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchIcon } from '../../components/icons'
 import { DEPARTMENTS, DEPT_COLORS, JOBS as DEFAULT_JOBS } from '../../data/jobs'
+import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 
 export default function Careers() {
@@ -10,7 +11,7 @@ export default function Careers() {
   const [jobsList, setJobsList] = useState(DEFAULT_JOBS)
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/jobs')
+    fetch(`${API_BASE_URL}/jobs`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
