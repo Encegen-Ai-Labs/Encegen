@@ -15,6 +15,7 @@
   display: flex;
   align-items: flex-start;
   flex: 1;
+  --step-number-size: clamp(4.5rem, 4rem + 2vw, 5.75rem);
 }
 
 .process__step {
@@ -28,8 +29,8 @@
 .process__number {
   display: grid;
   place-items: center;
-  width: clamp(4.5rem, 4rem + 2vw, 5.75rem);
-  height: clamp(4.5rem, 4rem + 2vw, 5.75rem);
+  width: var(--step-number-size);
+  height: var(--step-number-size);
   border-radius: 50%;
   background: #edebfa;
   color: var(--purple-600);
@@ -74,7 +75,7 @@
   flex-shrink: 0;
   width: clamp(90px, 11vw, 150px);
   height: 10px;
-  margin-top: var(--space-xl);
+  margin-top: calc(var(--step-number-size) / 2 - 5px);
   margin-inline: var(--space-2xs);
   border-radius: 999px;
   background: linear-gradient(90deg, var(--purple-600), var(--cyan-400));
