@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, PlaySquare } from './icons'
+import { ArrowRight } from './icons'
 import './Hero.css'
 
 const TRUST_BADGES = [

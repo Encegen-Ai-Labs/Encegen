@@ -3,57 +3,72 @@ import './company.css'
 
 const PRINCIPLES = [
   {
-    title: 'Curiosity over certainty',
-    desc: "We ask the awkward questions early, while they're still cheap to answer.",
+    title: '01 — Build for the Problem, Not the Hype',
+    desc: "We don't use AI simply because AI is trending. Every project begins with a question: What problem are we actually trying to solve? Technology comes after understanding.",
   },
   {
-    title: 'Ownership without ego',
-    desc: 'You own your work end to end. The best idea wins, whoever it comes from.',
+    title: '02 — Move Fast, Learn Faster',
+    desc: 'Encegen operates with a startup mindset: Build → Test → Learn → Improve. Instead of spending months polishing an unvalidated concept, we test and iterate rapidly.',
   },
   {
-    title: 'Build in the open',
-    desc: "We share early and welcome the tough feedback. It's how the work gets better.",
+    title: '03 — Own the Outcome',
+    desc: 'We don’t believe in simply completing assigned tasks. Every team member takes ownership. The question is not "Did we complete it?" but "Did we solve the problem properly?"',
   },
   {
-    title: 'Speed with intention',
-    desc: "We move fast, but we don't cut the corners that come back to bite us.",
+    title: '04 — Client Problems Become Engineering Challenges',
+    desc: 'Clients often come with a business requirement rather than a fixed technical specification. We listen, identify bottlenecks, and engineer practical solutions.',
   },
   {
-    title: 'Human-centered AI',
-    desc: "Every feature has to make someone's actual day better. If it doesn't, we don't ship it.",
+    title: '05 — Experimentation Is Part of the Job',
+    desc: 'AI is changing rapidly. We continuously test new models, frameworks, APIs, and agent architectures to evaluate whether they make our solutions faster, cheaper, and more accurate.',
+  },
+  {
+    title: '06 — Keep Learning',
+    desc: 'There is no fixed finish line in technology. We encourage curiosity, technical exploration, sharing knowledge, and staying close to emerging technologies.',
   },
 ]
 
 const DAY = [
-  { time: '09:00', title: 'Morning Sync', desc: 'Async standup in Slack. No forced calls - just context sharing.', color: '#6553ee' },
-  { time: '10:30', title: 'Deep Work Block', desc: '3 hours uninterrupted. Calendar blocked, Slack paused. This is when magic happens.', color: '#3b82f6' },
-  { time: '12:00', title: 'Lunch & Learn', desc: 'Bi-weekly sessions: GPU optimization to pottery. Anything goes.', color: '#22c55e' },
-  { time: '14:00', title: 'Collaboration Hour', desc: 'Pair programming, design reviews, research discussions. Intentional, not performative.', color: '#f59e0b' },
-  { time: '16:00', title: 'Ship It', desc: 'Deploy to production daily. Small, safe, incremental.', color: '#22d3ee' },
-  { time: '17:30', title: 'Wind Down', desc: 'Push your branch, close the laptop. Work hard, rest harder.', color: '#ec4899' },
+  { time: '09:30 AM', title: 'Start With Priorities', desc: 'The day begins by reviewing what needs attention: what is being built, what needs to be delivered, what is blocked, and what needs testing.', color: '#6553ee' },
+  { time: '10:00 AM', title: 'Build & Solve', desc: 'Developers execute on product features, APIs, interfaces, databases, AI integrations, automation workflows, and client requirements.', color: '#3b82f6' },
+  { time: '12:00 PM', title: 'AI Exploration', desc: 'Testing new models, prompts, OCR approaches, agent workflows, and automation strategies to make systems faster, cheaper, and more accurate.', color: '#22c55e' },
+  { time: '02:00 PM', title: 'Client & Business Context', desc: 'Discussions during the day help connect technical execution with the actual business objective and client feedback.', color: '#f59e0b' },
+  { time: '03:00 PM', title: 'Test, Break, Improve', desc: 'Features are tested, AI outputs are evaluated, and workflows are challenged. Testing is where assumptions meet reality.', color: '#22d3ee' },
+  { time: '05:00 PM', title: 'Review & Refine', desc: 'Reviewing daily progress, identifying what needs improvement, and setting up the team to move forward tomorrow.', color: '#a855f7' },
+  { time: '06:00 PM', title: 'The Next Idea', desc: 'Brainstorming a new automation, a better way to solve a client problem, a product improvement, or a new AI capability.', color: '#ec4899' },
+]
+
+const ENCEGEN_WAY_STEPS = [
+  { step: '01', title: 'Understand', desc: 'Understand the problem deeply.' },
+  { step: '02', title: 'Experiment', desc: 'Explore the possibilities.' },
+  { step: '03', title: 'Build', desc: 'Turn the idea into reliable technology.' },
+  { step: '04', title: 'Test', desc: 'Challenge what we’ve built.' },
+  { step: '05', title: 'Improve', desc: 'Make it better and faster.' },
+  { step: '06', title: 'Deliver', desc: 'Create measurable business value.' },
 ]
 
 const STATS = [
-  { value: '12', label: 'Nationalities' },
-  { value: '60%', label: 'Engineers' },
-  { value: '40%', label: 'from Top AI Labs' },
+  { value: '24 May 2025', label: 'Incorporated' },
+  { value: '11–50', label: 'Team Members' },
+  { value: 'Pune, India', label: 'Headquarters' },
+  { value: '100%', label: 'Problem Ownership' },
 ]
 
 const VOICES = [
   {
-    quote: 'I left Google Brain because Encegen felt like the early days of DeepMind — small team, impossible ambition, zero politics.',
-    name: 'Dr. Priya Sharma',
-    role: 'AI Research Lead',
+    quote: 'At Encegen, roles aren’t rigid boxes. A developer investigates an AI model, a client discussion turns into a new product feature, and you actually see your work create value.',
+    name: 'Engineering Team',
+    role: 'Encegen AI Labs',
   },
   {
-    quote: "The codebase is the cleanest I've ever worked in. That tells you everything about the culture.",
-    name: 'Marcus Chen',
-    role: 'Staff Engineer',
+    quote: 'The rhythm here is fast and grounded in reality. We build real AI systems for real clients—from EasyHunt to custom business automations.',
+    name: 'AI & Systems Builder',
+    role: 'Encegen AI Labs',
   },
   {
-    quote: "I've never had a manager who actually blocked their calendar so I could have deep work time. That's Encegen.",
-    name: 'Sarah Williams',
-    role: 'Product Designer',
+    quote: 'We don’t build technology for hype. Every project is focused on making complex operations simpler, faster, and smarter for our partners.',
+    name: 'Solutions & Product Lead',
+    role: 'Encegen AI Labs',
   },
 ]
 
@@ -62,8 +77,8 @@ export default function Culture() {
     <>
       <PageHero
         badge="Our culture"
-        title="Small team. Real ownership. Work that ships."
-        sub="Encegen is a place where the person who has the idea gets to build it. We keep the team small, the layers few, and the focus on work that actually reaches people."
+        title="Curious enough to explore. Practical enough to build."
+        sub="We are a lean, evolving technology company based in Pune. We keep the team agile, the focus clear, and the culture centered on engineering real intelligence that solves real problems."
         actions={
           <>
             <Btn to="/careers" variant="white">
@@ -79,7 +94,7 @@ export default function Culture() {
       {/* Principles */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="Our Principles" title="What guides us every day" />
+          <SectionHead eyebrow="Our Principles" title="Values in Practice" sub="How we approach problems, build products, and work with clients every day." />
           <div className="cards-2">
             {PRINCIPLES.map((p, i) => (
               <div key={p.title} className="principle">
@@ -90,9 +105,8 @@ export default function Culture() {
             ))}
           </div>
           <div className="quote-box">
-            “These aren't posters on a wall. They're how we make decisions, resolve disagreements,
-            and choose what to build next.”
-            <cite>– Encegen Leadership Team</cite>
+            “At Encegen AI Labs, our values are not statements written on a wall. They are reflected in how we approach problems, build products, work with clients, and make decisions every day.”
+            <cite>– Encegen AI Labs Team · Pune, India</cite>
           </div>
         </div>
       </section>
@@ -102,8 +116,8 @@ export default function Culture() {
         <div className="container">
           <SectionHead
             eyebrow="A Day at Encegen"
-            title="A rhythm of focus and flow"
-            sub="How we optimize for meaningful work."
+            title="There is no perfectly predictable day — and that's intentional."
+            sub="A typical day moves between client discussions, product development, AI experimentation, debugging, research, testing, and new ideas."
           />
           <div className="day-timeline">
             {DAY.map((d) => (
@@ -119,14 +133,35 @@ export default function Culture() {
         </div>
       </section>
 
+      {/* The Encegen Way */}
+      <section className="section section--dark">
+        <div className="container">
+          <SectionHead
+            eyebrow="The Encegen Way"
+            title="Understand → Experiment → Build → Test → Improve → Deliver"
+            sub="At the heart of everything we do is a simple, repeatable cycle of excellence."
+            dark
+          />
+          <div className="cards-3" style={{ marginTop: 40 }}>
+            {ENCEGEN_WAY_STEPS.map((s) => (
+              <div key={s.step} className="fcard" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--purple-400)' }}>{s.step}</span>
+                <h3 style={{ color: '#fff', marginTop: 8 }}>{s.title}</h3>
+                <p style={{ color: '#a8a5cb', marginTop: 6 }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team stats */}
       <section className="section section--light">
         <div className="container">
           <SectionHead
             eyebrow="The Team"
-            title="Built by 47 extraordinary humans across 3 continents."
+            title="A focused team of builders in Pune, India."
           />
-          <div className="tstat-row">
+          <div className="tstat-row" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             {STATS.map((s) => (
               <div key={s.label} className="tstat">
                 <strong>{s.value}</strong>
@@ -140,10 +175,10 @@ export default function Culture() {
       {/* Voices */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead eyebrow="Voices" title="Don't take our word for it" />
+          <SectionHead eyebrow="Inside Encegen" title="What makes a day at Encegen different?" />
           <div className="cards-3">
             {VOICES.map((v) => (
-              <div key={v.name} className="voice">
+              <div key={v.name + v.role} className="voice">
                 <span className="voice__mark">❝</span>
                 <p>{v.quote}</p>
                 <strong>{v.name}</strong>
@@ -155,11 +190,11 @@ export default function Culture() {
       </section>
 
       <ClosingCTA
-        line1="Like the sound of this?"
-        sub="We're not for everyone, and that's the point. If small teams, real ownership and shipping work you're proud of sounds right, come see what we're hiring for."
+        line1="Curious to build with us?"
+        sub="If moving fast, taking real ownership, and building practical AI solutions that reach real users sounds right to you, we'd love to connect."
         primary={{ label: 'See open roles', to: '/careers' }}
         secondary={{ label: 'Our Story', to: '/our-story' }}
-        checks={['Remote-first', '14 open roles', 'Backed by Sequoia & Accel']}
+        checks={['Pune Headquarters & Flexible', '11–50 Team Members', 'Problem-First Culture']}
       />
     </>
   )

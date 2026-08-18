@@ -6,58 +6,94 @@ import './Home.css'
 
 import heroImage from '../assets/hero1.png'
 import hero2 from '../assets/hero2.png'
+import logoEasyHunt from '../assets/easyhunt.png'
+import logoPramay from '../assets/pramay.png'
+import logoVarasa from '../assets/varasa.png'
+import logoFxAlgo from '../assets/fxalgo.png'
 
-const LOGOS = ['IBM', 'Airbus', 'Uber', 'Siemens', 'Vodafone', 'Celanese', 'Coca-Cola', 'Wipro']
+const CLIENT_ITEMS = [
+  { name: 'EasyHunt', logo: logoEasyHunt, tag: 'Title Search Software' },
+  { name: 'Pramay Agro', logo: logoPramay, tag: 'Agri E-Commerce (Fertilizers & Pesticides)' },
+  { name: 'Varasa', logo: logoVarasa, tag: 'Heritage Conservation & Scholarship' },
+  { name: 'Fx Algo', logo: logoFxAlgo, tag: 'Algorithmic Trading Systems' },
+  { name: 'Flairnetic Advocates', logo: null, tag: 'Major Client for EasyHunt (Legal Due Diligence)' },
+]
 
 const STORIES = [
   {
-    tag: 'Siemens',
+    tag: 'Varasa',
     color: '#22c55e',
     quote:
-      'Encegen gave us end-to-end visibility we never thought possible - transforming how we run global operations.',
-    initials: 'AM',
-    name: 'Anna Müller',
-    role: 'VP Supply Chain, Siemens AG',
-    metric: '90% fewer invoice exceptions',
+      'Encegen AI Labs engineered our digital platform for archaeological explorations, ancient artifact preservation documentation, and student scholarship research grants.',
+    initials: 'VR',
+    name: 'Research & Conservation Head',
+    role: 'Varasa (Heritage Conservation & Scholarship)',
+    metric: '10,000+ artifacts documented',
     hue: 150,
   },
   {
-    tag: 'Uber',
+    tag: 'Pramay Agro',
     color: '#3b82f6',
     quote:
-      'The AI recommendations were actionable from day one. Finance closes the books 5 days faster every single month.',
-    initials: 'JP',
-    name: 'James Park',
-    role: 'Head of Finance Ops, Uber',
-    metric: '40% faster invoice processing',
+      'Encegen built our specialized e-commerce platform for fertilizers, pesticides, and agro-inputs with seamless dealer ordering and real-time inventory synchronization.',
+    initials: 'PA',
+    name: 'Operations Director',
+    role: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
+    metric: '60% time saved on ops',
     hue: 215,
   },
   {
-    tag: 'Airbus',
+    tag: 'Fx Algo',
     color: '#f59e0b',
     quote:
-      'Process intelligence is now central to our digital transformation - deployed across 14 countries.',
-    initials: 'MD',
-    name: 'Marie Dubois',
-    role: 'Chief Digital Officer, Airbus',
-    metric: '94% process compliance',
+      'In algorithmic finance, latency and precision are paramount. Encegen engineered an ultra-reliable, high-throughput execution backend that consistently excels.',
+    initials: 'FA',
+    name: 'Quantitative Strategist',
+    role: 'Fx Algo (Algorithmic Trading Platform)',
+    metric: '<5ms execution latency',
     hue: 30,
+  },
+  {
+    tag: 'Flairnetic Advocates',
+    color: '#8b5cf6',
+    quote:
+      'Using EasyHunt software engineered by Encegen, our legal team accelerated property title search and document intelligence turnaround from days to minutes across Maharashtra records.',
+    initials: 'FL',
+    name: 'Senior Legal Partner',
+    role: 'Flairnetic Advocates (Major Client for EasyHunt)',
+    metric: '90% faster title search',
+    hue: 260,
   },
 ]
 
 const RESOURCES = [
-  { tag: 'Research', title: 'The 2026 Process Intelligence Report', meta: '8 min read', art: 'purple' as const },
-  { tag: 'Masterclass', title: 'AI at Scale: A CEO Masterclass', meta: 'Available On-Demand', art: 'cyan' as const },
-  { tag: 'Technical Paper', title: 'Download the EMS technical paper', meta: 'Download PDF', art: 'magenta' as const },
+  { tag: 'Product', title: 'EasyHunt: Legal Tech Title Search Software for Advocates', meta: 'Product Overview', art: 'purple' as const },
+  { tag: 'E-Commerce', title: 'Pramay Agro: Fertilizer & Pesticide Distribution Platform', meta: 'E-Commerce Deep Dive', art: 'cyan' as const },
+  { tag: 'Fintech', title: 'Fx Algo: Ultra-Low Latency Algorithmic Trading Engines', meta: 'Technical Blueprint', art: 'magenta' as const },
 ]
 
 export default function Home() {
   const { t } = useTranslation()
 
   const facts = useMemo(() => [
-    { value: '2019', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Built from enterprise AI research') },
-    { value: '3,500+', label: t('home.facts.team', 'Team'), sub: t('home.facts.teamSub', 'Engineers, scientists & operators') },
-    { value: '30+', label: t('home.facts.offices', 'Global offices'), sub: t('home.facts.officesSub', 'Across North America, Europe & APAC') },
+    { value: '2025', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Incorporated 24 May 2025') },
+    { value: '11–50', label: t('home.facts.team', 'Team Size'), sub: t('home.facts.teamSub', 'AI engineers, developers & builders') },
+    {
+      value: '2',
+      label: t('home.facts.offices', 'Offices in Pune'),
+      offices: [
+        {
+          name: 'Wagholi Office',
+          address: 'BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207',
+          mapUrl: 'https://maps.app.goo.gl/TXjPKk6BFvho6c4R7',
+        },
+        {
+          name: 'Pashan Office',
+          address: 'Legismith Partners LLP, Pashan, Pune',
+          mapUrl: null,
+        },
+      ],
+    },
   ], [t])
 
   const capabilities = useMemo(() => [
@@ -122,11 +158,21 @@ export default function Home() {
       {/* Logo marquee */}
       <section className="home-logos">
         <div className="container">
-          <p className="home-logos__label">{t('home.trustedBy', "Trusted by the world's leading companies")}</p>
+          <p className="home-logos__label">{t('home.trustedBy', "Our Products, Clients & Trusted Partners")}</p>
           <div className="home-logos__row marquee">
             <div className="marquee__track">
-              {[...LOGOS, ...LOGOS].map((l, i) => (
-                <span key={`${l}-${i}`}>{l}</span>
+              {[...CLIENT_ITEMS, ...CLIENT_ITEMS].map((item, i) => (
+                <div key={`${item.name}-${i}`} className="client-logo-item">
+                  {item.logo ? (
+                    <img src={item.logo} alt={item.name} className="client-logo-img" />
+                  ) : (
+                    <span style={{ fontSize: '1.25rem' }}>⚖</span>
+                  )}
+                  <div>
+                    <span className="client-logo-label">{item.name}</span>
+                    <span className="client-logo-tag">{item.tag}</span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -149,7 +195,28 @@ export default function Home() {
                 <strong>
                   {f.value} <span>{f.label}</span>
                 </strong>
-                <p>{f.sub}</p>
+                {f.sub && <p>{f.sub}</p>}
+                {'offices' in f && Array.isArray((f as any).offices) && (
+                  <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {((f as any).offices as Array<{ name: string; address: string; mapUrl: string | null }>).map((off) => (
+                      <div key={off.name} style={{ fontSize: '0.82rem', lineHeight: 1.4, color: 'var(--ink-700)' }}>
+                        <span style={{ fontWeight: 700, color: 'var(--purple-700)', display: 'block' }}>📍 {off.name}</span>
+                        {off.mapUrl ? (
+                          <a
+                            href={off.mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: 'var(--ink-700)', textDecoration: 'underline' }}
+                          >
+                            {off.address} ↗
+                          </a>
+                        ) : (
+                          <span>{off.address}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>

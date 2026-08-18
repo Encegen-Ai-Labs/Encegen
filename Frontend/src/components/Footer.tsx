@@ -67,6 +67,23 @@ export default function Footer() {
             <p>
               {t('footer.tagline', 'AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.')}
             </p>
+            <div className="footer__offices" style={{ marginTop: 14, fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.5 }}>
+              <div style={{ marginBottom: 6 }}>
+                <strong style={{ color: '#e2e8f0' }}>📍 Wagholi Office: </strong>
+                <a
+                  href="https://maps.app.goo.gl/TXjPKk6BFvho6c4R7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#94a3b8', textDecoration: 'underline' }}
+                >
+                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
+                </a>
+              </div>
+              <div>
+                <strong style={{ color: '#e2e8f0' }}>📍 Pashan Office: </strong>
+                <span>Legismith Partners LLP, Pashan, Pune</span>
+              </div>
+            </div>
           </div>
 
           <div className="footer__columns">

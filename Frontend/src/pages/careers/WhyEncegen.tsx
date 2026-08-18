@@ -13,89 +13,60 @@ import './careers.css'
 import '../company/company.css'
 
 const BENEFITS = [
-  { icon: '📈', title: 'Equity for all', desc: 'Every full-time employee gets equity. We win together, period.' },
-  { icon: '🌍', title: 'Remote-first', desc: 'Work from wherever you think best. We have hubs in London, Berlin and Singapore.' },
-  { icon: '📚', title: 'Learning & growth', desc: '$3,000 annual stipend for courses, books and conferences.' },
-  { icon: '🏥', title: 'Healthcare', desc: 'Comprehensive health cover for you and your family, globally.' },
-  { icon: '🧘', title: 'No meeting days', desc: 'Wednesdays are sacred. Deep work protected by design.' },
-  { icon: '✈️', title: 'Team offsites', desc: 'Twice a year, the whole team together. Barcelona, Lisbon, Tokyo.' },
+  { icon: '🚀', title: 'High-Impact Ownership', desc: 'Work directly on mission-critical AI systems and client solutions. What you build goes into production.' },
+  { icon: '📍', title: 'Pune HQ & Hybrid', desc: 'Collaborate at our Pune headquarters with flexible hybrid workflow options.' },
+  { icon: '🧠', title: 'Rapid AI Learning', desc: 'Hands-on exposure to cutting-edge Generative AI, AI agents, document intelligence, and modern full-stack engineering.' },
+  { icon: '💡', title: 'Direct Client Engagement', desc: 'Understand real business workflows and engineer solutions that solve real challenges for clients.' },
+  { icon: '⚡', title: 'Agile Build Sprints', desc: 'Move fast with a startup mindset: Build → Test → Learn → Improve.' },
+  { icon: '🤝', title: 'Competitive Growth', desc: 'Work with a dedicated, mission-driven team with direct recognition and growth incentives.' },
 ]
 
 const PEOPLE_STATS = [
-  { value: '9 years', label: 'Average experience' },
-  { value: '40+', label: 'Companies represented' },
-  { value: '12', label: 'Countries' },
+  { value: '11–50', label: 'Team members' },
+  { value: 'Pune, IN', label: 'Single Tech HQ' },
+  { value: '2025', label: 'Founded Year' },
 ]
 
 const DEPT_CARDS = [
   {
-    title: 'AI & Research',
-    count: '4 open roles',
-    desc: "Building the models and systems that power Encegen's intelligence layer.",
-    chips: ['ML Engineer', 'Research Scientist', 'AI Lead'],
+    title: 'Engineering & AI Systems',
+    count: '2 Open roles',
+    desc: 'Full-stack development, AI agent pipelines, robust APIs, scalable databases, and cloud infrastructure.',
+    chips: ['AI Research & Automation Engineer', 'Senior Full Stack Developer (React & Node.js)'],
     color: '#6553ee',
-  },
-  {
-    title: 'Engineering',
-    count: '3 open roles',
-    desc: 'Full-stack, systems, infrastructure. We ship fast and we ship real.',
-    chips: ['Backend Engineer', 'Platform Engineer', 'Solutions Architect'],
-    color: '#22d3ee',
-  },
-  {
-    title: 'Product',
-    count: '2 open roles',
-    desc: 'Turning complex AI capabilities into experiences enterprises actually want to use.',
-    chips: ['Product Manager', 'Product Designer'],
-    color: '#22c55e',
-  },
-  {
-    title: 'Go-to-Market',
-    count: '3 open roles',
-    desc: "Sales, marketing, and solutions for a team that's scaling globally.",
-    chips: ['Account Executive', 'Growth Marketing', 'Sales Engineer'],
-    color: '#f59e0b',
   },
 ]
 
 const VOICES = [
   {
-    initials: 'PN',
-    name: 'Priya N.',
-    role: 'Principal AI Engineer',
-    quote: "I shipped a model that went live in 48 hours. At my last company, that would've taken 6 months of approvals.",
+    initials: 'EA',
+    name: 'Encegen Builder',
+    role: 'AI & Automation Engineer',
+    quote: "At Encegen, you don't wait months for permissions. We test an idea, build a prototype, test it on real data, and deploy it to production.",
     hue: 150,
   },
   {
-    initials: 'MB',
-    name: 'Marcus B.',
-    role: 'Solutions Architect',
-    quote: 'The deep work culture here is real. I have actual focus time every day. It changed how I think about work.',
+    initials: 'ST',
+    name: 'Software Team',
+    role: 'Full-Stack Developer',
+    quote: 'We work directly on products like EasyHunt and custom solutions for Varasa, Pramay Agro, and Fx Algo. The learning curve is exponential.',
     hue: 215,
   },
   {
-    initials: 'SC',
-    name: 'Sophia C.',
-    role: 'Senior PM',
-    quote: 'I own the whole product area. Not a feature, not a roadmap item – the whole area. That kind of ownership is rare.',
+    initials: 'PL',
+    name: 'Product Lead',
+    role: 'Solutions & Intelligence',
+    quote: 'We don’t believe in technology for the sake of technology. Every system we build has to solve a genuine, measurable business problem.',
     hue: 330,
   },
 ]
 
-const CITIES = [
-  { name: 'London', sub: 'UK · Hub office', top: '32%', left: '46%' },
-  { name: 'Berlin', sub: 'Germany · Hub office', top: '30%', left: '51%' },
-  { name: 'Singapore', sub: 'SG · Hub office', top: '62%', left: '76%' },
-  { name: 'New York', sub: 'US · Hub office', top: '38%', left: '27%' },
-  { name: 'San Francisco', sub: 'US · Remote hub', top: '42%', left: '15%' },
-]
-
-const AWARDS = [
-  { by: 'Glassdoor', title: 'Best Places to Work', year: '2025' },
-  { by: 'Forbes', title: 'AI 50', year: '2024' },
-  { by: 'Gartner', title: 'Cool Vendor', year: '2024' },
-  { by: 'Deloitte', title: 'Fast 500', year: '2024' },
-  { by: 'G2', title: 'Top 50 AI Products', year: '2025' },
+const CLIENT_RECOGNITION = [
+  { by: 'Flairnetic Advocates', title: 'Major Legal Client for EasyHunt Software', year: '2025' },
+  { by: 'EasyHunt', title: 'Title Search Software for Maharashtra Records', year: '2025' },
+  { by: 'Varasa', title: 'Heritage Conservation & Scholarship Grant Platform', year: '2026' },
+  { by: 'Pramay Agro', title: 'Fertilizers & Pesticides E-Commerce Portal', year: '2026' },
+  { by: 'Fx Algo', title: 'Ultra-Low Latency Algorithmic Trading Systems', year: '2026' },
 ]
 
 export default function WhyEncegen() {
@@ -107,11 +78,11 @@ export default function WhyEncegen() {
           <div>
             <span className="phero__badge">Our story begins with you</span>
             <h1>
-              We're not building an AI company. We're building a better future.
+              We don't just build software. We engineer what comes next.
             </h1>
             <p>
-              Join a team of builders, operators, and thinkers solving the hardest problems in
-              enterprise technology.
+              Join a team of builders, operators, and thinkers solving real business problems with
+              practical AI and modern engineering.
             </p>
             <div style={{ display: 'flex', gap: 16, marginTop: 32, flexWrap: 'wrap' }}>
               <Btn to="/careers" variant="white">
@@ -122,9 +93,9 @@ export default function WhyEncegen() {
               </Btn>
             </div>
             <div className="why-hero__chips">
-              <span>30+ team members</span>
-              <span>· Remote-first</span>
-              <span>· $18M Series A</span>
+              <span>11–50 team members</span>
+              <span>· Pune Headquarters</span>
+              <span>· Problem-First Culture</span>
             </div>
           </div>
           <div className="why-hero__tiles">
@@ -136,8 +107,8 @@ export default function WhyEncegen() {
       </section>
 
       <GradBand
-        quote="We exist to make AI the engine behind every great business decision - and we need exceptional people to make it happen."
-        cite="Alex Rivera, CEO"
+        quote="We exist to bridge the gap between business problems and intelligent technology — and we need exceptional builders to make it happen."
+        cite="ENCEGEN AI LABS PVT. LTD."
       />
 
       {/* The problem */}
@@ -145,33 +116,33 @@ export default function WhyEncegen() {
         <div className="container split">
           <div>
             <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
-              Chapter 02 · The Problem
+              Chapter 02 · The Philosophy
             </p>
-            <span className="fail-word">fails</span>
             <h2 className="left-title" style={{ color: '#fff' }}>
-              Most enterprise AI fails before it reaches production.
+              We build for the problem, not the hype.
             </h2>
             <p className="left-copy" style={{ color: '#a8a5cb' }}>
-              We've seen it firsthand – the $4M pilots, the 18-month deployments, the dashboards
-              that no one looks at. Encegen was built to fix this.
+              We don’t believe every problem needs AI. We believe the right problem deserves the right technology.
+              Sometimes that means a robust software platform. Sometimes it means automation.
+              Sometimes it means an AI agent working alongside humans.
             </p>
             <ul className="check-list check-list--dark">
-              <li>We move fast and we show our work</li>
-              <li>We build for outcomes, not demos</li>
-              <li>We hire for impact, not credentials</li>
+              <li>We move fast and learn faster</li>
+              <li>We build for outcomes and real utility</li>
+              <li>We take full ownership of what we deliver</li>
             </ul>
           </div>
           <div className="fail-panel">
             <div className="fail-panel__head">
-              <span>Typical AI Project</span>
+              <span>Generic Approaches</span>
               <span>With Encegen</span>
             </div>
             <div className="fail-panel__rows">
               {[
-                { bad: '12 mo', label: 'Time to deploy', good: '3 wks' },
-                { bad: '$2.4M', label: 'Total cost', good: '$180K' },
-                { bad: '3%', label: 'User adoption', good: '74%' },
-                { bad: '18 mo', label: 'Time to value', good: '< 30 days' },
+                { bad: 'Months', label: 'Idea to Prototype', good: 'Days' },
+                { bad: 'Manual', label: 'Workflow Execution', good: 'Automated' },
+                { bad: 'Generic', label: 'AI Accuracy', good: 'Domain-Tuned' },
+                { bad: 'Complex', label: 'User Experience', good: 'Intuitive' },
               ].map((r) => (
                 <div key={r.label} className="fail-panel__row">
                   <span className="bad">{r.bad}</span>
@@ -205,8 +176,8 @@ export default function WhyEncegen() {
         <div className="container">
           <SectionHead
             eyebrow="Chapter 04 · The People"
-            title="Built by people who've sat in your seat."
-            sub="Our team has worked at Siemens, McKinsey, Google, and DeepMind. They left to build something better."
+            title="A team of curious and practical problem solvers."
+            sub="Engineers, designers, and AI developers building intelligent systems from Pune, India."
           />
           <div className="split" style={{ marginTop: 56 }}>
             <div className="tstat-row" style={{ gridTemplateColumns: '1fr', marginTop: 0 }}>
@@ -222,9 +193,9 @@ export default function WhyEncegen() {
                 <div key={v.initials} className="voice" style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                   <Avatar text={v.initials} hue={v.hue} size={44} />
                   <div>
-                    <p style={{ margin: 0 }}>“{v.quote}”</p>
-                    <strong style={{ marginTop: 8 }}>
-                      {v.name} <span style={{ fontWeight: 400 }}>· {v.role}</span>
+                    <p style={{ margin: 0, color: 'var(--ink-700)', fontSize: '0.93rem', lineHeight: 1.55 }}>“{v.quote}”</p>
+                    <strong style={{ marginTop: 8, color: 'var(--ink-900)', display: 'block' }}>
+                      {v.name} <span style={{ fontWeight: 600, color: 'var(--purple-600)' }}>· {v.role}</span>
                     </strong>
                   </div>
                 </div>
@@ -259,27 +230,27 @@ export default function WhyEncegen() {
       {/* Voices with stars */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="Chapter 06 · Real Voices" title="Hear from the team." />
+          <SectionHead eyebrow="Chapter 06 · Real Voices" title="Hear from our team." />
           <div className="cards-3">
             {VOICES.map((v) => (
               <div key={v.name} className="voice">
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <Avatar text={v.initials} hue={v.hue} size={40} />
                   <div>
-                    <strong style={{ margin: 0 }}>{v.name}</strong>
-                    <span>{v.role}</span>
+                    <strong style={{ margin: 0, color: 'var(--ink-900)' }}>{v.name}</strong>
+                    <span style={{ color: 'var(--purple-600)', fontWeight: 600 }}>{v.role}</span>
                   </div>
                 </div>
-                <p>“{v.quote}”</p>
+                <p style={{ color: 'var(--ink-700)', fontSize: '0.93rem', lineHeight: 1.6 }}>“{v.quote}”</p>
                 <Stars />
               </div>
             ))}
           </div>
           <div className="rule-bar">
-            <strong>Join 50+ people already building the future of enterprise AI</strong>
-            <a href="#" style={{ color: 'var(--purple-300)', fontSize: 14, fontWeight: 600 }}>
-              → Read reviews on Glassdoor
-            </a>
+            <strong>Join 11–50 people building the future of applied AI in Pune</strong>
+            <Link to="/careers" style={{ color: 'var(--purple-300)', fontSize: 14, fontWeight: 600 }}>
+              → Explore open roles
+            </Link>
           </div>
         </div>
       </section>
@@ -308,32 +279,40 @@ export default function WhyEncegen() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 36 }}>
             <Btn to="/careers" variant="lavender">
-              See all {JOBS.length} open roles →
+              See all open roles →
             </Btn>
           </div>
         </div>
       </section>
 
-      {/* Map */}
+      {/* 2 Offices in Pune */}
       <section className="section section--dark">
-        <div className="container">
+        <div className="container" style={{ textAlign: 'center' }}>
           <SectionHead
-            title="Remote-first. Globally connected."
-            sub="Our team works from 18 countries. These are our hub cities."
+            title="2 Offices in Pune · Innovating for the World"
+            sub="Our core technology and engineering hubs operate out of Pune, Maharashtra, India."
             dark
           />
-          <div className="world-map">
-            {CITIES.map((c) => (
-              <span key={c.name} className="world-map__dot" style={{ top: c.top, left: c.left }} />
-            ))}
-          </div>
-          <div className="city-cards">
-            {CITIES.map((c) => (
-              <div key={c.name} className="city-card">
-                <strong>{c.name}</strong>
-                <span>{c.sub}</span>
-              </div>
-            ))}
+          <div style={{ maxWidth: 700, margin: '32px auto 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, textAlign: 'left' }}>
+            <div style={{ padding: 24, background: 'rgba(255,255,255,0.05)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)' }}>
+              <h4 style={{ color: '#fff', fontSize: 18, marginBottom: 8 }}>📍 Wagholi Office</h4>
+              <p style={{ color: '#a8a5cb', fontSize: 14, lineHeight: 1.6 }}>
+                <a
+                  href="https://maps.app.goo.gl/TXjPKk6BFvho6c4R7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: '#c4b5fd', textDecoration: 'underline' }}
+                >
+                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207 ↗
+                </a>
+              </p>
+            </div>
+            <div style={{ padding: 24, background: 'rgba(255,255,255,0.05)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)' }}>
+              <h4 style={{ color: '#fff', fontSize: 18, marginBottom: 8 }}>📍 Pashan Office</h4>
+              <p style={{ color: '#a8a5cb', fontSize: 14, lineHeight: 1.6 }}>
+                Legismith Partners LLP, Pashan, Pune
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -342,12 +321,12 @@ export default function WhyEncegen() {
       <section className="section section--light">
         <div className="container">
           <SectionHead
-            eyebrow="Recognition"
-            title="A great place to build."
-            sub={<>“One of the most exciting AI companies in Europe.” – Forbes, 2025</>}
+            eyebrow="Milestones & Validation"
+            title="Proven Solutions Across Domains"
+            sub="Real platforms, products, and client partnerships built since incorporation."
           />
           <div className="award-cards">
-            {AWARDS.map((a) => (
+            {CLIENT_RECOGNITION.map((a) => (
               <div key={a.by + a.title} className="award-card">
                 <strong>{a.by}</strong>
                 <span>
@@ -366,7 +345,7 @@ export default function WhyEncegen() {
         line2="And you could be in the next chapter."
         sub="We're not just hiring. We're building a team of people who give a damn about making AI work for the real world."
         primary={{ label: 'View All Open Roles', to: '/careers' }}
-        secondary={{ label: 'Send an Open Application' }}
+        secondary={{ label: 'Our Story', to: '/our-story' }}
       />
     </>
   )

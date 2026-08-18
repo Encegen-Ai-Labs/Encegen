@@ -9,6 +9,7 @@ import {
 } from '../../components/kit'
 import { SearchIcon } from '../../components/icons'
 import './products.css'
+import logoEasyHunt from '../../assets/easyhunt.png'
 
 const STAT_TILES = [
   { value: '4-6 Hours', desc: 'spent on a single title search manually' },
@@ -56,26 +57,26 @@ const STAKEHOLDERS = [
 const TESTIMONIALS = [
   {
     color: '#22c55e',
-    quote: "Easy Hunt reduced our title search time from 4 hours to 15 minutes. It's transformed how our firm operates.",
-    initials: 'RS',
-    name: 'Advocate Rekha Sharma',
-    role: 'Property Law, Mumbai',
+    quote: "EasyHunt reduced our property document intelligence and title search turnaround from days to minutes across Maharashtra datasets. It has transformed our legal due diligence.",
+    initials: 'FA',
+    name: 'Advocate & Legal Consultant',
+    role: 'Flairnetic Advocates, Pune',
     hue: 150,
   },
   {
     color: '#3b82f6',
-    quote: 'The AI matching is incredibly accurate. It catches transliteration variations that we would have missed manually.',
+    quote: 'The keyword search across Bhulekh and Mahabhumi records is instantaneous. It catches transliteration and spelling variations that manual review easily misses.',
     initials: 'PN',
-    name: 'Priya Nair',
-    role: 'Title Search Consultant, Pune',
+    name: 'Title Search Consultant',
+    role: 'Property Verification, Pune & Mumbai',
     hue: 215,
   },
   {
     color: '#f59e0b',
-    quote: 'For our mortgage verification team, Easy Hunt is now indispensable. We process 3x more applications with the same team.',
-    initials: 'RK',
-    name: 'Rajesh Kulkarni',
-    role: 'VP Risk, National Housing Bank',
+    quote: 'For property due diligence and title search verification, EasyHunt is indispensable. We process multiple reports in a fraction of the time with full confidence.',
+    initials: 'AD',
+    name: 'Senior Property Advocate',
+    role: 'Legal Practice, Maharashtra',
     hue: 30,
   },
 ]
@@ -168,23 +169,22 @@ export default function EasyHunt() {
   return (
     <>
       <PageHero
-        badge="Property search for Maharashtra, powered by AI"
+        badge="Encegen AI Labs · Proprietary LegalTech Product"
         title={
-          <>
-            Find any land record
-            <br />
-            in seconds, not hours.
-          </>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+            <img src={logoEasyHunt} alt="EasyHunt" style={{ height: 64, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 16px rgba(101, 83, 238, 0.4))' }} />
+            <span>Find any land record in seconds, not hours.</span>
+          </div>
         }
-        sub="Easy Hunt searches Maharashtra property records the moment you type. Enter an owner name, survey number, CTS number or village and pull up complete matching entries instantly — so title searches and due diligence that used to take an afternoon take a coffee break."
+        sub="EasyHunt is an AI-powered title search and document intelligence software engineered by Encegen AI Labs. Search Maharashtra land records instantly by owner name, survey number, CTS number, or village across Bhulekh and Mahabhumi records."
         actions={
           <>
-            <Btn variant="white">Book a demo</Btn>
+            <Btn variant="white">Book a demo →</Btn>
             <Btn variant="outline-light">See how it works</Btn>
           </>
         }
-        trusted={['SBI Legal', 'National Housing Bank', 'HDFC Law', 'Shardul Amarchand', 'AZB & Partners', 'JSA Law']}
-        trustedLabel="trusted by 500+ property professionals across India"
+        trusted={['Flairnetic Advocates (Major Client)', 'Title Search Consultants', 'Property Law Advocates', 'Maharashtra Legal Practices']}
+        trustedLabel="used by leading advocates & legal consultants"
       >
         <Console />
       </PageHero>

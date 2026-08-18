@@ -48,10 +48,44 @@
   margin-top: var(--space-xs);
 }
 
-.home-logos__row span {
-  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+.client-logo-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e9e8f4;
+  box-shadow: 0 4px 14px rgba(22, 20, 60, 0.05);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.client-logo-item:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(101, 83, 238, 0.18);
+  border-color: rgba(101, 83, 238, 0.35);
+}
+
+.client-logo-img {
+  height: 32px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+}
+
+.client-logo-label {
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #494761;
+  color: var(--ink-900);
+  display: block;
+}
+
+.client-logo-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--purple-600);
+  display: block;
 }
 
 /* Facts */

@@ -1,29 +1,43 @@
 import { ArtTile, Btn, PageHero, SectionHead } from '../../components/kit'
 import './company.css'
 
+import logoEasyHunt from '../../assets/easyhunt.png'
+import logoPramay from '../../assets/pramay.png'
+import logoVarasa from '../../assets/varasa.png'
+import logoFxAlgo from '../../assets/fxalgo.png'
+
 const VALUES = [
-  { icon: '🛡', title: 'Integrity', desc: "We say what's true, price what's fair, and stand behind what we build." },
-  { icon: '❤', title: 'Customer first', desc: "Every project starts with the client's problem, not our product catalogue." },
-  { icon: '💡', title: 'Quality', desc: "We'd rather ship something solid than something fast and forgettable." },
-  { icon: '👁', title: 'Responsibility', desc: 'We build AI that respects the people who use it and the ones it affects.' },
+  { icon: '🎯', title: 'Problem First', desc: "We don't use AI simply because it's trending. Every project begins with understanding the business challenge." },
+  { icon: '⚡', title: 'Move Fast, Learn Faster', desc: "We test ideas quickly, build working prototypes, and continuously refine solutions based on real feedback." },
+  { icon: '🤝', title: 'Own the Outcome', desc: "We don't just write code—we take full ownership of solving the client's problem properly and reliably." },
+  { icon: '🔬', title: 'Continuous Learning', desc: 'We stay close to emerging AI models, agent architectures, and automation tools to engineer what comes next.' },
 ]
 
-const LEADERS = [
-  { name: 'Alexander Rinke', role: 'Co-CEO', hue: 255 },
-  { name: 'Bastian Nominacher', role: 'Co-CEO', hue: 215 },
-  { name: 'Martin Klenk', role: 'CTO', hue: 190 },
-  { name: 'Shelly Bhatt', role: 'CPO', hue: 330 },
-  { name: 'Lisa Chen', role: 'CFO', hue: 150 },
-  { name: 'Raj Patel', role: 'CMO', hue: 30 },
-  { name: 'Emma Davis', role: 'CRO', hue: 280 },
-  { name: 'Tom Müller', role: 'COO', hue: 100 },
-]
-
-const PRESS = [
-  { outlet: 'Forbes', quote: 'Encegen is redefining the category of execution management.' },
-  { outlet: 'TechCrunch', quote: 'A massive leap forward for enterprise visibility and automation.' },
-  { outlet: 'Gartner', quote: 'Named a leader in the Magic Quadrant for Process Mining for the 5th year.' },
-  { outlet: 'WSJ', quote: "How Encegen is helping the world's largest firms stay lean." },
+const CLIENT_STORIES = [
+  {
+    outlet: 'Flairnetic Advocates',
+    logo: logoEasyHunt,
+    role: 'Major Legal Client for EasyHunt Software',
+    quote: 'Encegen engineered EasyHunt to streamline our property title search and document intelligence turnaround from days to minutes across Maharashtra records.',
+  },
+  {
+    outlet: 'Varasa',
+    logo: logoVarasa,
+    role: 'Heritage Conservation & Academic Scholarships',
+    quote: 'Encegen AI Labs built the digital exploration and preservation platform for our ancient artifact documentation and student research grant programs.',
+  },
+  {
+    outlet: 'Pramay Agro',
+    logo: logoPramay,
+    role: 'Fertilizers & Pesticides E-Commerce',
+    quote: 'Their team built our dedicated agricultural e-commerce platform for fertilizers and pesticides with automated order dispatch and real-time inventory synchronization.',
+  },
+  {
+    outlet: 'Fx Algo',
+    logo: logoFxAlgo,
+    role: 'Algorithmic Trading Platform',
+    quote: 'Precision and ultra-low latency are non-negotiable in algorithmic trading. Encegen engineered a high-throughput execution backend that consistently excels.',
+  },
 ]
 
 export default function About() {
@@ -33,13 +47,13 @@ export default function About() {
         badge="Who we are"
         title={
           <>
-            We build AI that
+            We don't just build software.
             <br />
-            <span className="accent-purple">businesses can actually use.</span>
+            <span className="accent-purple">We engineer what comes next.</span>
           </>
         }
-        sub="Encegen AI Labs is a Pune-based AI research and software company. We take the promise of artificial intelligence — often loud, rarely practical — and turn it into working software that solves real problems for real businesses."
-        trusted={['Founded 2011', '3,500+ Employees', '30+ Global offices']}
+        sub="Encegen AI Labs Pvt. Ltd. is a Pune-based AI technology and software engineering company. We bridge the gap between business challenges and intelligent technology—turning Generative AI, AI agents, document intelligence, and custom software into measurable business value."
+        trusted={['Incorporated 24 May 2025', '11–50 Team Members', 'Pune Headquarters']}
         trustedLabel="at a glance"
       />
 
@@ -47,18 +61,16 @@ export default function About() {
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">Our mission</p>
-            <h2 className="left-title">Making AI practical for the businesses that need it.</h2>
+            <p className="shead__eyebrow">Our Mission</p>
+            <h2 className="left-title">Turning technology into real-world business intelligence.</h2>
             <p className="left-copy">
-              Most companies hear about AI constantly and see very little of it in their day-to-day.
-              We started Encegen to close that gap — to take AI out of the demo and put it into the
-              tools people actually work with.
+              The journey of Encegen AI Labs began with observing a recurring problem across businesses:
+              technology was everywhere, but meaningful automation and artificial intelligence were still difficult to implement.
+              Companies had data, software, teams, and processes, yet many everyday decisions and repetitive tasks continued to depend heavily on manual effort.
             </p>
             <p className="left-copy">
-              We research, design and build custom AI and software: models trained on a client's own
-              domain, applications that fit how a team already works, and the digital groundwork
-              that makes both run. The goal is simple — technology that earns its place by making
-              the work better.
+              We founded Encegen AI Labs to change that. Our vision is to help businesses transition from traditional software
+              to intelligent systems capable of understanding, reasoning, communicating, and taking action.
             </p>
           </div>
           <ArtTile variant="blue" className="about-photo" />
@@ -68,7 +80,7 @@ export default function About() {
       {/* Values */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead eyebrow="Our Values" title="What we stand for" />
+          <SectionHead eyebrow="Our Values" title="Values in Practice" sub="How we build products, work with clients, and make decisions every day." />
           <div className="cards-4">
             {VALUES.map((v) => (
               <article key={v.title} className="fcard fcard--top-accent">
@@ -81,54 +93,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="section section--light">
-        <div className="container">
-          <div style={{ maxWidth: 640 }}>
-            <h2 className="left-title">Meet our leadership</h2>
-            <p className="shead__eyebrow" style={{ marginTop: 12 }}>
-              Leadership
-            </p>
-            <p className="left-copy">
-              A global team of experts committed to driving process excellence.
-            </p>
-          </div>
-          <div className="leaders">
-            {LEADERS.map((l) => (
-              <div key={l.name} className="leader">
-                <div
-                  className="leader__photo"
-                  style={{
-                    background: `linear-gradient(150deg, hsl(${l.hue} 45% 45%), hsl(${l.hue + 40} 45% 28%))`,
-                  }}
-                >
-                  {l.name
-                    .split(' ')
-                    .map((n) => n[0])
-                    .join('')}
-                </div>
-                <h3>{l.name}</h3>
-                <span>{l.role}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Careers band */}
-      <section className="section section--light" style={{ paddingTop: 0 }}>
+      <section className="section section--light">
         <div className="container">
           <div className="careers-band">
             <div>
               <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
-                Careers
+                Careers & Culture
               </p>
-              <h2>Come build with us.</h2>
-              <p>We're a growing team in Pune, hiring across engineering, sales, design and consulting. If you like turning hard problems into working software, we'd like to meet you.</p>
+              <h2>Come build the future with us.</h2>
+              <p>We're a fast-growing, agile team in Pune, hiring across AI engineering, full-stack software development, product, and solutions. If you like turning hard problems into working intelligence, we'd love to meet you.</p>
               <div className="careers-band__chips">
-                <span>Software Engineer</span>
-                <span>Product Manager</span>
-                <span>Enterprise Sales</span>
+                <span>AI Engineer</span>
+                <span>Full-Stack Developer</span>
+                <span>Product & Solutions</span>
               </div>
               <div style={{ marginTop: 28 }}>
                 <Btn to="/careers" variant="white">
@@ -137,25 +115,46 @@ export default function About() {
               </div>
             </div>
             <div className="careers-band__facts">
-              <span>4.5★ Glassdoor</span>
-              <span>#1 Best Workplace</span>
-              <span>Hybrid-first culture</span>
-              <span>35 nationalities</span>
+              <span>Incorporated 2025</span>
+              <span>11–50 Team Members</span>
+              <span>Pune Headquarters</span>
+              <span>Problem-First Culture</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Press */}
+      {/* Client Endorsements */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead eyebrow="In The Press" title="What people are saying about Encegen" />
-          <div className="cards-4">
-            {PRESS.map((p) => (
-              <article key={p.outlet} className="press">
+          <SectionHead
+            eyebrow="Client Validation"
+            title="Real businesses. Real impact."
+            sub="How our key clients and partners turn technology into measurable intelligence."
+          />
+          <div className="cards-4" style={{ marginTop: 36 }}>
+            {CLIENT_STORIES.map((p) => (
+              <article key={p.outlet} className="press" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                  <div style={{ height: 40, display: 'flex', alignItems: 'center' }}>
+                    {p.logo ? (
+                      <img src={p.logo} alt={p.outlet} style={{ maxHeight: 36, maxWidth: 110, objectFit: 'contain' }} />
+                    ) : (
+                      <span style={{ fontSize: '1.5rem' }}>⚖</span>
+                    )}
+                  </div>
+                  <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 999, background: 'rgba(34, 197, 94, 0.1)', color: '#16a34a', border: '1px solid rgba(34, 197, 94, 0.25)', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#16a34a' }} />
+                    Verified
+                  </span>
+                </div>
                 <strong>{p.outlet}</strong>
-                <p>“{p.quote}”</p>
-                <a href="#">Read article</a>
+                <span style={{ fontSize: 12, color: 'var(--purple-600)', fontWeight: 600, display: 'block', marginTop: 4 }}>{p.role}</span>
+                <p style={{ marginTop: 12, fontSize: '0.9rem', lineHeight: 1.55, flex: 1 }}>“{p.quote}”</p>
+                <div style={{ marginTop: 14, paddingTop: 10, borderTop: '1px solid #f1f0fa', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--gray-500)' }}>Client Partner</span>
+                  <span style={{ color: 'var(--purple-600)', fontSize: '0.85rem', fontWeight: 700 }}>★★★★★</span>
+                </div>
               </article>
             ))}
           </div>
@@ -165,10 +164,10 @@ export default function About() {
       {/* Gradient CTA */}
       <section className="about-cta">
         <div className="container" style={{ textAlign: 'center' }}>
-          <h2>Ready to join the process intelligence revolution?</h2>
+          <h2>Ready to engineer intelligent systems for your business?</h2>
           <div style={{ display: 'flex', gap: 18, justifyContent: 'center', marginTop: 36, flexWrap: 'wrap' }}>
-            <Btn variant="white">Get a demo →</Btn>
-            <Btn variant="outline-light">Contact us 📞</Btn>
+            <Btn to="/solutions/ai-agents" variant="white">Explore AI Solutions →</Btn>
+            <Btn to="/careers" variant="outline-light">Join Our Team</Btn>
           </div>
         </div>
       </section>

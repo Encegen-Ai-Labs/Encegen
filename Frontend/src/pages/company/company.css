@@ -381,18 +381,56 @@
   }
 }
 
-/* Voice cards */
+/* Voice cards (Default: Light Backgrounds) */
 .voice {
+  position: relative;
   background: #ffffff;
   border: 1px solid #e9e8f4;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: var(--space-md);
   box-shadow: 0 10px 24px rgba(22, 20, 60, 0.06);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  color: var(--ink-900);
 }
+
+.voice::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple-600), var(--cyan-400));
+  transform: scaleX(0.35);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.voice:hover::before {
+  transform: scaleX(1);
+}
+
+.voice:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(101, 83, 238, 0.22), 0 8px 18px rgba(34, 211, 238, 0.12);
+  border-color: rgba(101, 83, 238, 0.35);
+}
+
+.voice img {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.voice:hover img {
+  transform: scale(1.1) translateY(-2px);
+  filter: drop-shadow(0 4px 12px rgba(101, 83, 238, 0.4));
+}
+
 .voice__mark {
   font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
-  color: var(--purple-400);
+  color: var(--purple-600);
 }
+
 .voice p {
   margin-top: var(--space-xs);
   font-size: var(--fs-card-body);
@@ -400,15 +438,44 @@
   line-height: 1.65;
   color: var(--ink-700);
 }
+
 .voice strong {
   display: block;
   margin-top: var(--space-xs);
   font-size: var(--fs-card-body);
+  font-weight: 700;
   color: var(--ink-900);
 }
+
 .voice span {
   font-size: var(--fs-xs);
-  color: var(--gray-500);
+  font-weight: 600;
+  color: var(--purple-600);
+}
+
+/* Voice cards inside Dark Sections */
+.section--dark .voice {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+
+.section--dark .voice:hover {
+  box-shadow: 0 20px 40px -10px rgba(101, 83, 238, 0.35), 0 0 20px rgba(139, 92, 246, 0.2);
+  border-color: rgba(169, 156, 255, 0.45);
+}
+
+.section--dark .voice p {
+  color: #d1d5db;
+}
+
+.section--dark .voice strong {
+  color: #ffffff;
+}
+
+.section--dark .voice span {
+  color: var(--purple-300);
 }
 
 /* Leadership grid (about) */
@@ -452,26 +519,64 @@
   }
 }
 
-/* Press cards */
+/* Press & Client Validation cards */
 .press {
+  position: relative;
   background: #ffffff;
   border: 1px solid #e9e8f4;
-  border-radius: 12px;
-  padding: var(--space-xs);
-  box-shadow: 0 8px 20px rgba(22, 20, 60, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(22, 20, 60, 0.05);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
 }
+
+.press::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purple-600), var(--cyan-400));
+  transform: scaleX(0.3);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.press:hover::before {
+  transform: scaleX(1);
+}
+
+.press:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(101, 83, 238, 0.22), 0 8px 18px rgba(34, 211, 238, 0.12);
+  border-color: rgba(101, 83, 238, 0.35);
+}
+
+.press img {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.press:hover img {
+  transform: scale(1.1) translateY(-2px);
+  filter: drop-shadow(0 4px 10px rgba(101, 83, 238, 0.3));
+}
+
 .press strong {
-  font-size: var(--fs-md);
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--ink-900);
 }
+
 .press p {
-  margin-top: var(--space-xs);
-  font-size: var(--fs-card-body);
+  margin-top: 10px;
+  font-size: 0.92rem;
   font-style: italic;
-  line-height: 1.6;
-  color: var(--gray-600);
+  line-height: 1.65;
+  color: var(--ink-700);
 }
+
 .press a {
   display: inline-block;
   margin-top: var(--space-xs);
@@ -590,4 +695,97 @@
   line-height: 1.25;
   max-width: 720px;
   margin-inline: auto;
+}
+
+/* ========================================================
+   Values Core Principle Cards (Image Banners & Interactivity)
+   ======================================================== */
+.value-principle-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e9e8f4;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(22, 20, 60, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.value-principle-card:hover {
+  transform: translateY(-8px) scale(1.012);
+  box-shadow: 0 22px 45px -10px rgba(101, 83, 238, 0.2), 0 8px 20px rgba(22, 20, 60, 0.06);
+  border-color: rgba(101, 83, 238, 0.35);
+}
+
+.value-principle-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #09081a;
+  position: relative;
+}
+
+.value-principle-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.value-principle-card:hover .value-principle-card__media img {
+  transform: scale(1.05);
+}
+
+.value-principle-card__body {
+  padding: 20px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.value-principle-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.value-principle-card__num {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--purple-600);
+}
+
+.value-principle-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple-600);
+  box-shadow: 0 0 10px rgba(101, 83, 238, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.value-principle-card:hover .value-principle-card__dot {
+  transform: scale(1.4);
+}
+
+.value-principle-card__title {
+  margin-top: 10px;
+  font-size: clamp(1.2rem, 1.1rem + 0.3vw, 1.4rem);
+  font-weight: 800;
+  color: var(--ink-900);
+  line-height: 1.3;
+}
+
+.value-principle-card__desc {
+  margin-top: 8px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--gray-600);
+  flex: 1;
 }
