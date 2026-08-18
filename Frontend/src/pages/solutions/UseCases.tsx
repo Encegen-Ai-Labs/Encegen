@@ -85,12 +85,12 @@ const WITH = [
 ]
 
 const PROCESSES = [
-  'Order-to-Cash',
-  'Purchase-to-Pay',
-  'Accounts Payable',
-  'Logistics & Fulfillment',
-  'IT Service Management',
-  'HR Service Delivery',
+  { label: 'Order-to-Cash', id: 'order-to-cash' },
+  { label: 'Purchase-to-Pay' },
+  { label: 'Accounts Payable', id: 'accounts-payable' },
+  { label: 'Logistics & Fulfillment' },
+  { label: 'IT Service Management', id: 'it-service-management' },
+  { label: 'HR Service Delivery' },
 ]
 
 const USE_CASES = [
@@ -100,6 +100,7 @@ const USE_CASES = [
     title: 'Accounts Payable Automation',
     desc: "AI finds the bottlenecks, flags duplicates, and routes exceptions on its own — so AP stops being a queue.",
     metric: '65% faster',
+    id: 'accounts-payable',
   },
   {
     tags: ['Supply Chain'],
@@ -114,6 +115,7 @@ const USE_CASES = [
     title: 'Order-to-Cash Excellence',
     desc: 'AI catches revenue leaking out of the cycle, spots the at-risk orders, and triggers the fix.',
     metric: '40% DSO reduction',
+    id: 'order-to-cash',
   },
   {
     tags: ['IT Ops'],
@@ -121,6 +123,7 @@ const USE_CASES = [
     title: 'IT Service Management',
     desc: 'AI resolves the routine tickets, predicts the degradation, and tightens the whole workflow.',
     metric: '3× faster resolution',
+    id: 'it-service-management',
   },
   {
     tags: ['Manufacturing'],
@@ -272,7 +275,7 @@ export default function UseCases() {
               <a href="#">Learns a little more with every cycle</a>
             </div>
             <div style={{ marginTop: 32 }}>
-              <Btn variant="lavender">See how it works →</Btn>
+              <Btn to="/platform" variant="lavender">See how it works →</Btn>
             </div>
           </div>
           <MockPanel
@@ -355,7 +358,7 @@ export default function UseCases() {
           <ResultBar
             left="87% of AI recommendations are actioned within 24 hours"
             chips={['3.2× faster response to process disruptions', '5,000+ enterprise deployments worldwide']}
-            action={<Btn variant="white">See how it works →</Btn>}
+            action={<Btn to="/platform" variant="white">See how it works →</Btn>}
           />
         </div>
       </section>
@@ -368,8 +371,8 @@ export default function UseCases() {
             <p className="left-copy">By process:</p>
             <div className="proc-list">
               {PROCESSES.map((p) => (
-                <a key={p} href="#">
-                  {p}
+                <a key={p.label} href={p.id ? `#${p.id}` : '#'}>
+                  {p.label}
                 </a>
               ))}
             </div>

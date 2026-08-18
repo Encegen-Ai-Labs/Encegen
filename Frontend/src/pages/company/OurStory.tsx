@@ -116,16 +116,16 @@ export default function OurStory() {
         sub="Encegen AI Labs Pvt. Ltd. was founded with a simple belief: the future of business belongs to companies that can turn technology into real-world intelligence."
         actions={
           <>
-            <Btn to="/values" variant="white">
-              Our values →
-            </Btn>
-            <Btn to="/culture" variant="outline-light">
-              Our culture
+            <Btn to="#chapter-01" variant="white">Read the story →</Btn>
+            <Btn to="/values" variant="outline-light">
+              Our values
             </Btn>
           </>
         }
       />
 
+      {/* Chapter 01 */}
+      <section id="chapter-01" className="section section--light">
       {/* Chapter 01 — Origin */}
       <section className="section section--light">
         <div className="container split">

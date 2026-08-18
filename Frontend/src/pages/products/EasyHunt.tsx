@@ -179,8 +179,8 @@ export default function EasyHunt() {
         sub="EasyHunt is an AI-powered title search and document intelligence software engineered by Encegen AI Labs. Search Maharashtra land records instantly by owner name, survey number, CTS number, or village across Bhulekh and Mahabhumi records."
         actions={
           <>
-            <Btn variant="white">Book a demo →</Btn>
-            <Btn variant="outline-light">See how it works</Btn>
+            <Btn variant="white">Book a demo</Btn>
+            <Btn to="#how-it-works" variant="outline-light">See how it works</Btn>
           </>
         }
         trusted={['Flairnetic Advocates (Major Client)', 'Title Search Consultants', 'Property Law Advocates', 'Maharashtra Legal Practices']}
@@ -251,7 +251,7 @@ export default function EasyHunt() {
       </section>
 
       {/* How it works */}
-      <section className="section section--lavender">
+      <section id="how-it-works" className="section section--lavender">
         <div className="container">
           <SectionHead eyebrow="How It Works" title="Search. Discover. Decide." />
           <div className="cards-3">

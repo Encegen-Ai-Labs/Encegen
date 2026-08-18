@@ -111,7 +111,7 @@ export default function WebEcommerce() {
         actions={
           <>
             <Btn variant="white">Get a website →</Btn>
-            <Btn variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies</Btn>
           </>
         }
         trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
@@ -212,7 +212,7 @@ export default function WebEcommerce() {
                 </li>
               </ul>
               <div style={{ marginTop: 30 }}>
-                <Btn variant="lavender">See our approach →</Btn>
+                <Btn to="#how-we-deliver" variant="lavender">See our approach →</Btn>
               </div>
             </div>
             <MockPanel
@@ -260,7 +260,7 @@ export default function WebEcommerce() {
       </section>
 
       {/* Process */}
-      <section className="section section--lavender">
+      <section id="how-we-deliver" className="section section--lavender">
         <div className="container">
           <SectionHead
             eyebrow="How We Deliver"
@@ -319,7 +319,7 @@ export default function WebEcommerce() {
         line2="one conversation."
         sub="Tell us what you need to build. We'll design it, build it, and make sure it performs."
         primary={{ label: 'Get a website →' }}
-        secondary={{ label: 'See case studies' }}
+        secondary={{ label: 'See case studies', to: '/insights' }}
         checks={['30-day support', '2-week delivery', 'Fixed-price engagement']}
       />
     </>

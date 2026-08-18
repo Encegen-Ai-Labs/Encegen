@@ -345,7 +345,7 @@ export default function WhyEncegen() {
         line2="And you could be in the next chapter."
         sub="We're not just hiring. We're building a team of people who give a damn about making AI work for the real world."
         primary={{ label: 'View All Open Roles', to: '/careers' }}
-        secondary={{ label: 'Our Story', to: '/our-story' }}
+        secondary={{ label: 'Send an Open Application', to: '/careers' }}
       />
     </>
   )

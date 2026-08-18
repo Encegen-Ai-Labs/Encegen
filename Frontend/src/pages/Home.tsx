@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArtTile, Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import './Home.css'
@@ -74,6 +74,7 @@ const RESOURCES = [
 
 export default function Home() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   const facts = useMemo(() => [
     { value: '2025', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Incorporated 24 May 2025') },
@@ -344,7 +345,12 @@ export default function Home() {
           </div>
           <div className="cards-3">
             {RESOURCES.map((r) => (
-              <article key={r.title} className="home-res-card">
+              <article
+                key={r.title}
+                className="home-res-card"
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate('/resources')}
+              >
                 <ArtTile variant={r.art} className="home-res-card__art" />
                 <span className="home-res-card__tag">{r.tag}</span>
                 <h3>{r.title}</h3>

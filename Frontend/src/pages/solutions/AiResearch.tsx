@@ -159,7 +159,7 @@ export default function AiResearch() {
         actions={
           <>
             <Btn variant="white">Start a project →</Btn>
-            <Btn variant="outline-light">Explore capabilities →</Btn>
+            <Btn to="#capabilities" variant="outline-light">Explore capabilities →</Btn>
           </>
         }
         trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
@@ -241,7 +241,7 @@ export default function AiResearch() {
       </section>
 
       {/* Disciplines */}
-      <section className="section section--lavender">
+      <section id="capabilities" className="section section--lavender">
         <div className="container">
           <SectionHead
             eyebrow="All Capabilities"

@@ -81,10 +81,10 @@ export default function Navbar() {
           {
             heading: t('navbar.headings.platform', 'Platform'),
             links: [
-              { label: t('navbar.links.processMining', 'Process Mining'), to: '/platform' },
-              { label: t('navbar.links.executionManagement', 'Execution Management'), to: '/platform' },
-              { label: t('navbar.links.aiInsights', 'AI Insights'), to: '/platform' },
-              { label: t('navbar.links.explorePlatformLink', 'Explore the platform'), to: '/platform' },
+              { label: t('navbar.links.processMining', 'Process Mining'), to: '/platform#process-mining' },
+              { label: t('navbar.links.executionManagement', 'Execution Management'), to: '/platform#execution-management' },
+              { label: t('navbar.links.aiInsights', 'AI Insights'), to: '/platform#ai-insights' },
+              { label: t('navbar.links.explorePlatformLink', 'Explore the platform'), to: '/platform#explore-platform' },
             ],
           },
           {
