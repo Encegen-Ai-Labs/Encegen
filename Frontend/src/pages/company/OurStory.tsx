@@ -73,7 +73,7 @@ export default function OurStory() {
         sub="Encegen was born from a simple frustration – that most enterprise software talks about AI, but very few actually deliver it."
         actions={
           <>
-            <Btn variant="white">Read the story →</Btn>
+            <Btn to="#chapter-01" variant="white">Read the story →</Btn>
             <Btn to="/values" variant="outline-light">
               Our values
             </Btn>
@@ -82,7 +82,7 @@ export default function OurStory() {
       />
 
       {/* Chapter 01 */}
-      <section className="section section--light">
+      <section id="chapter-01" className="section section--light">
         <div className="container split">
           <div>
             <p className="shead__eyebrow">Chapter 01</p>

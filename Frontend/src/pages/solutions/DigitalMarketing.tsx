@@ -120,7 +120,7 @@ export default function DigitalMarketing() {
         actions={
           <>
             <Btn variant="white">Start growing →</Btn>
-            <Btn variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies</Btn>
           </>
         }
         trusted={['D2C Brands', 'SaaS Companies', 'E-commerce', 'Enterprises']}
@@ -311,7 +311,7 @@ export default function DigitalMarketing() {
         line2="right data."
         sub="Tell us your current cost of acquisition, your revenue goal, and your biggest bottleneck. We'll build the system to close the gap."
         primary={{ label: 'Start growing →' }}
-        secondary={{ label: 'View case studies' }}
+        secondary={{ label: 'View case studies', to: '/insights' }}
         checks={['30-day support', '2-week setup', 'Fixed-price engagement']}
       />
     </>
