@@ -180,6 +180,7 @@ function getEmbedUrl(url?: string) {
 
 export default function Insights() {
   const [tab, setTab] = useState('All')
+  const [topicQuery, setTopicQuery] = useState('')
   const [insightsList, setInsightsList] = useState<InsightItem[]>(DEFAULT_ARTICLES)
   const [selectedInsight, setSelectedInsight] = useState<InsightItem | null>(null)
 
@@ -197,20 +198,21 @@ export default function Insights() {
       .catch((err) => console.warn('Could not fetch backend insights, using default dataset:', err))
   }, [])
 
-  // Filter items matching selected tab
-  const articles =
-    tab === 'All'
-      ? insightsList
-      : insightsList.filter((a) => {
-          const cat = (a.category || '').toLowerCase()
-          const target = tab.toLowerCase()
-          return (
-            cat === target ||
-            cat.replace(/s$/, '') === target.replace(/s$/, '') ||
-            (target === 'customer stories' && (cat === 'customer story' || cat === 'customer stories')) ||
-            (target === 'reports' && (cat === 'report' || cat === 'reports'))
-          )
-        })
+  // Filter items matching selected tab and, if set, the selected topic keyword
+  const articles = insightsList.filter((a) => {
+    const cat = (a.category || '').toLowerCase()
+    const target = tab.toLowerCase()
+    const matchesTab =
+      tab === 'All' ||
+      cat === target ||
+      cat.replace(/s$/, '') === target.replace(/s$/, '') ||
+      (target === 'customer stories' && (cat === 'customer story' || cat === 'customer stories')) ||
+      (target === 'reports' && (cat === 'report' || cat === 'reports'))
+    const matchesTopic =
+      !topicQuery ||
+      `${a.title} ${a.description} ${a.category}`.toLowerCase().includes(topicQuery.toLowerCase())
+    return matchesTab && matchesTopic
+  })
 
   // Featured article: either marked featured or the first available
   const featuredInsight = insightsList.find((i) => i.is_featured) || insightsList[0] || DEFAULT_ARTICLES[3]
@@ -267,11 +269,11 @@ export default function Insights() {
                       📥 Download Word Report (.doc) →
                     </button>
                   ) : (
-                    <Btn variant="white">
+                    <Btn variant="white" onClick={() => setSelectedInsight(featuredInsight)}>
                       {featuredInsight.action_label ? featuredInsight.action_label.replace('→', '').trim() + ' →' : 'Read full insight →'}
                     </Btn>
                   )}
-                  <Btn variant="outline-light">Read preview</Btn>
+                  <Btn variant="outline-light" onClick={() => setSelectedInsight(featuredInsight)}>Read preview</Btn>
                 </div>
               </div>
               {featuredInsight.cover_image ? (
@@ -296,7 +298,14 @@ export default function Insights() {
           {/* Filter Tabs */}
           <div className="pill-tabs">
             {TABS.map((t) => (
-              <button key={t} className={t === tab ? 'active' : ''} onClick={() => setTab(t)}>
+              <button
+                key={t}
+                className={t === tab ? 'active' : ''}
+                onClick={() => {
+                  setTab(t)
+                  setTopicQuery('')
+                }}
+              >
                 {t}
               </button>
             ))}
@@ -386,7 +395,13 @@ export default function Insights() {
           )}
 
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 48 }}>
-            <Btn variant="lavender" onClick={() => setTab('All')}>
+            <Btn
+              variant="lavender"
+              onClick={() => {
+                setTab('All')
+                setTopicQuery('')
+              }}
+            >
               Browse all insights ({insightsList.length}) →
             </Btn>
           </div>
@@ -402,7 +417,10 @@ export default function Insights() {
               <span
                 key={t}
                 style={{ cursor: 'pointer' }}
-                onClick={() => setTab('All')}
+                onClick={() => {
+                  setTab('All')
+                  setTopicQuery(t.replace(/^\S+\s*/, ''))
+                }}
               >
                 {t}
               </span>

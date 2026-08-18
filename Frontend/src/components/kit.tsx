@@ -183,11 +183,12 @@ type UseCaseProps = {
   desc: string
   metric: string
   compare?: string
+  id?: string
 }
 
-export function UseCaseCard({ tags, color = '#22c55e', title, desc, metric, compare }: UseCaseProps) {
+export function UseCaseCard({ tags, color = '#22c55e', title, desc, metric, compare, id }: UseCaseProps) {
   return (
-    <article className="ucase" style={{ ['--uc-color' as string]: color }}>
+    <article id={id} className="ucase" style={{ ['--uc-color' as string]: color }}>
       <div className="ucase__tags">
         {tags.map((t) => (
           <span key={t}>{t}</span>

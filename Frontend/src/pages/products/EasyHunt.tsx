@@ -180,7 +180,7 @@ export default function EasyHunt() {
         actions={
           <>
             <Btn variant="white">Book a demo</Btn>
-            <Btn variant="outline-light">See how it works</Btn>
+            <Btn to="#how-it-works" variant="outline-light">See how it works</Btn>
           </>
         }
         trusted={['SBI Legal', 'National Housing Bank', 'HDFC Law', 'Shardul Amarchand', 'AZB & Partners', 'JSA Law']}
@@ -251,7 +251,7 @@ export default function EasyHunt() {
       </section>
 
       {/* How it works */}
-      <section className="section section--lavender">
+      <section id="how-it-works" className="section section--lavender">
         <div className="container">
           <SectionHead eyebrow="How It Works" title="Search. Discover. Decide." />
           <div className="cards-3">

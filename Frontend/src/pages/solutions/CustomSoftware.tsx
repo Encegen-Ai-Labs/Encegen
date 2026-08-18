@@ -116,7 +116,7 @@ export default function CustomSoftware() {
         actions={
           <>
             <Btn variant="white">Start a project →</Btn>
-            <Btn variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies</Btn>
           </>
         }
         trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
@@ -260,7 +260,7 @@ export default function CustomSoftware() {
         line2="your business perfectly?"
         sub="Tell us what you need. We'll scope it, design it, and ship it — on a fixed price and a timeline you can hold us to."
         primary={{ label: 'Start a project →' }}
-        secondary={{ label: 'See case studies' }}
+        secondary={{ label: 'See case studies', to: '/insights' }}
         checks={['Full IP transfer', '3-6 month delivery', 'Fixed-price engagement']}
       />
     </>

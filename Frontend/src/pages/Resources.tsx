@@ -155,7 +155,7 @@ export default function Resources() {
                 <h3>{featuredResource.title}</h3>
                 <p>{featuredResource.summary}</p>
                 <div className="featured-card__actions">
-                  <Btn variant="white">
+                  <Btn variant="white" onClick={() => setSelectedResource(featuredResource)}>
                     {featuredResource.category === 'Webinars'
                       ? 'Watch Webinar →'
                       : featuredResource.category === 'Reports'
