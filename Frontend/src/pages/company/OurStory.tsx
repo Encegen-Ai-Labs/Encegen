@@ -336,6 +336,13 @@ export default function OurStory() {
         secondary={{ label: 'Explore Open Roles', to: '/careers' }}
         checks={['Incorporated 24 May 2025', '11–50 Team Members', 'Pune Headquarters']}
       />
-    </>
+
+    </section>
+
+    
+
+  
+
+</>
   )
 }
