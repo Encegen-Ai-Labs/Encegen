@@ -1,5 +1,4 @@
 import {
-  ArtTile,
   Btn,
   ClosingCTA,
   GradBand,
@@ -10,6 +9,8 @@ import {
   StepFlow,
   TestimonialCard,
 } from '../../components/kit'
+import { CapabilityArt } from '../../components/CapabilityArt'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const PRODUCTS = [
@@ -115,11 +116,10 @@ export default function CustomSoftware() {
         sub="We design and build scalable, AI-native platforms that fit your operation — not software you have to bend your operation around. Delivered in months, not years."
         actions={
           <>
-            <Btn variant="white">Start a project →</Btn>
-            <Btn to="/insights" variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -195,7 +195,7 @@ export default function CustomSoftware() {
           <div className="cards-3">
             {PRODUCTS.map((p) => (
               <article key={p.title} className="disc-card">
-                <ArtTile variant={p.art} className="disc-card__art" />
+                <CapabilityArt id={p.art} className="disc-card__art" />
                 <div className="disc-card__body">
                   <span className="disc-card__tag">{p.tag}</span>
                   <h3 style={{ marginTop: 14 }}>{p.title}</h3>
@@ -255,11 +255,10 @@ export default function CustomSoftware() {
       </section>
 
       <ClosingCTA
-        trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Ready to build software that fits"
         line2="your business perfectly?"
         sub="Tell us what you need. We'll scope it, design it, and ship it — on a fixed price and a timeline you can hold us to."
-        primary={{ label: 'Start a project →' }}
         secondary={{ label: 'See case studies', to: '/insights' }}
         checks={['Full IP transfer', '3-6 month delivery', 'Fixed-price engagement']}
       />

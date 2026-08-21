@@ -44,7 +44,7 @@ export default function Process() {
         <p className="section-eyebrow">The Process</p>
         <h2 className="section-title">From raw data to real action in three steps.</h2>
 
-        <div className="process__steps process__steps--flow">
+        <div className="process__steps">
           {STEPS.map((step, index) => (
             <Fragment key={step.number}>
               {index > 0 && <StepArrow />}

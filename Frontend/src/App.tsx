@@ -16,7 +16,12 @@ import HrPortal from './pages/products/HrPortal'
 import ResumeBuilder from './pages/products/ResumeBuilder'
 import ResumeAnalyzer from './pages/products/ResumeAnalyzer'
 import VoiceAgent from './pages/products/VoiceAgent'
+import HMS from './pages/products/HMS'
+import CBMS from './pages/products/CBMS'
+import PrivacyPolicy from './pages/legal/PrivacyPolicy'
+import Terms from './pages/legal/Terms'
 import About from './pages/company/About'
+import CompanyProfile from './pages/company/CompanyProfile'
 import OurStory from './pages/company/OurStory'
 import Values from './pages/company/Values'
 import Culture from './pages/company/Culture'
@@ -77,7 +82,17 @@ export default function App() {
           <Route path="/products/resume-builder" element={<ResumeBuilder />} />
           <Route path="/products/resume-analyzer" element={<ResumeAnalyzer />} />
           <Route path="/products/voice-agent" element={<VoiceAgent />} />
+          <Route path="/products/hms" element={<HMS />} />
+          <Route path="/hms" element={<HMS />} />
+          <Route path="/products/cbms" element={<CBMS />} />
+          <Route path="/cbms" element={<CBMS />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/about" element={<About />} />
+          <Route path="/company/profile" element={<CompanyProfile />} />
+          <Route path="/company-profile" element={<CompanyProfile />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/values" element={<Values />} />
           <Route path="/culture" element={<Culture />} />

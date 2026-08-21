@@ -3,7 +3,6 @@ import {
   MockPanel,
   PageHero,
   SectionHead,
-  TestimonialCard,
 } from '../../components/kit'
 import './products.css'
 
@@ -64,39 +63,6 @@ const EMPLOYER_TILES = [
   { icon: '🤝', title: 'Diversity Hiring', desc: 'Remove subconscious bias with programmatic blind evaluation profiles.' },
 ]
 
-const TESTIMONIALS = [
-  {
-    tag: 'Siemens',
-    color: '#22c55e',
-    quote: 'EasyHunt reduced our engineering hiring time by 50% in the first quarter — results we never thought possible with this quality.',
-    initials: 'AM',
-    name: 'Anna Müller',
-    role: 'Head of Talent, Siemens',
-    metric: '50% faster hiring',
-    hue: 150,
-  },
-  {
-    tag: 'Uber',
-    color: '#3b82f6',
-    quote: 'The AI matches were accurate from day one. Our development team secured 5 critical architectural hires in under 2 weeks.',
-    initials: 'JP',
-    name: 'James Park',
-    role: 'Engineering Director, Uber',
-    metric: '5 key hires in 2 weeks',
-    hue: 215,
-  },
-  {
-    tag: 'Airbus',
-    color: '#f59e0b',
-    quote: "EasyHunt gave us precise visibility and vetting capability at a scale we couldn't achieve manually — and it acts on what it finds.",
-    initials: 'MD',
-    name: 'Marie Dubois',
-    role: 'VP People, Airbus',
-    metric: '95% match precision',
-    hue: 30,
-  },
-]
-
 export default function HrPortal() {
   return (
     <>
@@ -110,8 +76,8 @@ export default function HrPortal() {
           </>
         }
         sub="EasyHunt uses intelligent matching, automated screening, and real-time analytics to connect the best candidates with the best opportunities – 10x faster than traditional hiring."
-        trusted={['TCS', 'Infosys', 'Wipro', 'HCL', 'Accenture', 'Deloitte']}
-        trustedLabel="trusted by 2,000+ companies worldwide"
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trustedLabel="trusted by our enterprise clients"
       >
         <div style={{ width: '100%', maxWidth: 680, marginTop: 56 }}>
           <MockPanel
@@ -287,22 +253,6 @@ export default function HrPortal() {
                 <h3>{t.title}</h3>
                 <p>{t.desc}</p>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stories */}
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead
-            eyebrow="Success Stories"
-            title="Real companies. Real results. Real hires."
-            sub="See how top global enterprises deploy EasyHunt to streamline hiring operations."
-          />
-          <div className="tgrid">
-            {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
             ))}
           </div>
         </div>

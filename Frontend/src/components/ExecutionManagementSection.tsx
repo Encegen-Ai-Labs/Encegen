@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import './ExecutionManagementSection.css'
 
 const CAPABILITIES = [
@@ -82,14 +83,16 @@ export default function ExecutionManagementSection() {
 
         <div className="process__steps em-section__steps">
           {STEPS.map((step, index) => (
-            <div key={step.number} className="process__step-wrap">
+            <Fragment key={step.number}>
               {index > 0 && <StepArrow />}
-              <div className="process__step">
-                <span className="process__number">{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+              <div className="process__step-wrap">
+                <div className="process__step">
+                  <span className="process__number">{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
               </div>
-            </div>
+            </Fragment>
           ))}
         </div>
 

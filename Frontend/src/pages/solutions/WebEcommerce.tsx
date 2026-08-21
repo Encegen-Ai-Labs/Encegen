@@ -1,5 +1,4 @@
 import {
-  ArtTile,
   Btn,
   ClosingCTA,
   GradBand,
@@ -10,6 +9,8 @@ import {
   StepFlow,
   TestimonialCard,
 } from '../../components/kit'
+import { CapabilityArt } from '../../components/CapabilityArt'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const PRODUCTS = [
@@ -110,11 +111,10 @@ export default function WebEcommerce() {
         sub="From high-performance marketing sites to full-scale commerce platforms, we build digital experiences that drive measurable, compounding growth — not just ones that photograph well."
         actions={
           <>
-            <Btn variant="white">Get a website →</Btn>
-            <Btn to="/insights" variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -138,118 +138,53 @@ export default function WebEcommerce() {
               <p className="left-copy">
                 <strong>The old way:</strong> a visitor lands, waits for a slow page, can't find what
                 they came for, and leaves. You never learn why. Your team rebuilds the same page a
-                third time while the agency has already moved on to the next client.
+                year later, changes the colors, and the numbers don't move.
               </p>
               <p className="left-copy">
-                <strong>With Encegen:</strong> the page loads fast, every screen is built around a
-                clear action, and you can see exactly what's working — backed by real analytics and
-                A/B testing that never stops.
-              </p>
-              <div className="sol-chip-row">
-                <span className="sol-chip">6-sec load, 2% conversion</span>
-                <span className="sol-chip sol-chip--green">Sub-2s, 3× conversion</span>
-              </div>
-              <p className="left-copy" style={{ fontSize: 14 }}>
-                73% of website visitors leave after 3 seconds of load time – your site speed is
-                costing you customers
+                <strong>With Encegen:</strong> we engineer every page around one goal: conversion.
+                Speed is treated as a feature, structure is tested against real users, and every
+                deploy is instrumented so you can see where people convert and why.
               </p>
               <ul className="check-list">
-                <li>Fast load times — performance engineered in, not bolted on</li>
-                <li>Conversion-focused from the first wireframe</li>
-                <li>Analytics, A/B testing, and weekly reporting built in</li>
+                <li>Sub-second page loads — built to pass Core Web Vitals on mobile</li>
+                <li>Conversion-focused design — clear paths to action, tested with real users</li>
+                <li>CMS integration so your team can publish without waiting on an engineer</li>
+                <li>Full analytics setup on launch day — tracking, funnels, and event tagging</li>
               </ul>
             </div>
             <MockPanel
-              title="Website Performance Comparison"
+              title="Page Performance Audit"
               rows={[
                 { label: 'TYPICAL AGENCY SITE', chip: 'Before', chipColor: '#ef4444' },
-                { label: 'Page loads', chip: '6.2 sec avg', chipColor: '#ef4444' },
-                { label: 'Visitor finds CTA', chip: '3+ clicks', chipColor: '#ef4444' },
-                { label: 'Conversion attempt', chip: '1.8% site avg', chipColor: '#ef4444' },
-                { label: 'Agency responds to issue', chip: '5-7 days', chipColor: '#ef4444' },
+                { label: 'Page load time', chip: '4.8s', chipColor: '#ef4444' },
+                { label: 'Mobile Performance score', chip: '43/100', chipColor: '#ef4444' },
+                { label: 'Bounce rate', chip: '68%', chipColor: '#ef4444' },
                 { label: 'WITH ENCEGEN', chip: 'After', chipColor: '#2fe08e' },
-                { label: 'Page loads', chip: '1.6 sec', chipColor: '#2fe08e' },
-                { label: 'Visitor finds CTA', chip: 'Clear path', chipColor: '#2fe08e' },
-                { label: 'Conversion attempt', chip: '5.4% site avg', chipColor: '#2fe08e' },
-                { label: 'Issue flagged + fixed', chip: 'Same day', chipColor: '#2fe08e' },
+                { label: 'Page load time', chip: '0.9s', chipColor: '#2fe08e' },
+                { label: 'Mobile Performance score', chip: '98/100', chipColor: '#2fe08e' },
+                { label: 'Bounce rate', chip: '24%', chipColor: '#2fe08e' },
               ]}
-              footer={<span>3× higher conversion rate · Based on 50+ Encegen-built websites</span>}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Flagship */}
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead
-            eyebrow="Flagship Service"
-            title="Sites built for revenue, not for the awards shelf."
-          />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div>
-              <h3 className="left-title" style={{ fontSize: 24 }}>
-                We design every page around one obsession — getting the visitor to act.
-              </h3>
-              <p className="left-copy">
-                Plenty of sites look great in a screenshot. Ours perform in production. Every layout,
-                every millisecond of load time, every call to action is engineered to move someone
-                one step closer to buying.
-              </p>
-              <ul className="check-list">
-                <li>
-                  <strong>Conversion-optimised from wireframe one</strong> — every element earns its
-                  place
-                </li>
-                <li>
-                  <strong>Fast load times engineered from day one</strong>, not patched in later
-                </li>
-                <li>
-                  <strong>A/B testing and analytics built in</strong>, so you iterate on evidence
-                </li>
-                <li>
-                  <strong>Technical SEO in the foundation</strong>, not bolted on at the end
-                </li>
-              </ul>
-              <div style={{ marginTop: 30 }}>
-                <Btn to="#how-we-deliver" variant="lavender">See our approach →</Btn>
-              </div>
-            </div>
-            <MockPanel
-              title="Performance Scoreboard"
-              rows={[
-                { label: 'PageSpeed Score', chip: '98', chipColor: '#2fe08e' },
-                { label: 'Conversion Rate', chip: '+3.2×', chipColor: '#2fe08e' },
-                { label: 'Mobile Score', chip: '97', chipColor: '#2fe08e' },
-                { label: '08:12 · Optimised hero CTA', chip: '✓', chipColor: '#2fe08e' },
-                { label: '09:19 · Deployed A/B test', chip: '✓', chipColor: '#2fe08e' },
-                { label: '09:54 · Sent weekly report', chip: '✓', chipColor: '#2fe08e' },
-              ]}
-              footer={<span>Industry avg: 62/100 → Encegen avg: 98/100</span>}
+              footer={<span>Average 3× conversion increase across 30+ site launches</span>}
             />
           </div>
         </div>
       </section>
 
       {/* What we build */}
-      <section className="section section--light">
+      <section className="section section--lavender">
         <div className="container">
-          <SectionHead
-            eyebrow="What We Build"
-            title="Three kinds of build. One conversion-obsessed team."
-            sub="Fast marketing sites, full-scale commerce platforms, and custom web apps."
-          />
+          <SectionHead eyebrow="What We Build" title="From marketing sites to full commerce engines." />
           <div className="cards-3">
             {PRODUCTS.map((p) => (
               <article key={p.title} className="disc-card">
-                <ArtTile variant={p.art} className="disc-card__art" />
+                <CapabilityArt id={p.art} className="disc-card__art" />
                 <div className="disc-card__body">
                   <span className="disc-card__tag">{p.tag}</span>
                   <h3 style={{ marginTop: 14 }}>{p.title}</h3>
                   <p>{p.desc}</p>
                   <div className="disc-card__meta">
                     <span className="sol-chip sol-chip--green" style={{ fontSize: 11.5, padding: '5px 12px' }}>
-                      ● {p.meta}
+                      {p.meta}
                     </span>
                   </div>
                 </div>
@@ -260,18 +195,14 @@ export default function WebEcommerce() {
       </section>
 
       {/* Process */}
-      <section id="how-we-deliver" className="section section--lavender">
+      <section className="section section--light">
         <div className="container">
-          <SectionHead
-            eyebrow="How We Deliver"
-            title="From a first conversation to a live site that performs."
-            sub="A clear, no-surprises process — from the brief to a site that actually pulls its weight."
-          />
+          <SectionHead eyebrow="How We Build" title="From brief to launch, on a schedule you can trust." />
           <div style={{ marginTop: 60 }}>
             <StepFlow steps={STEPS} />
           </div>
           <ResultBar
-            left="2-week starter delivery · 6-week full build · Based on 50+ website projects delivered"
+            left="2-6 week delivery window · 98/100 average PageSpeed · 30 days post-launch support"
             chips={['FIXED-PRICE']}
           />
         </div>
@@ -280,12 +211,7 @@ export default function WebEcommerce() {
       {/* Stack */}
       <section className="section section--dark">
         <div className="container">
-          <SectionHead
-            eyebrow="Our Web & E-commerce Stack"
-            title="Tools chosen for speed, reliability, and conversion."
-            sub="We pick every tool in your stack for web performance, commerce reliability, and conversion — not because it's the name of the month."
-            dark
-          />
+          <SectionHead eyebrow="Our Tech Stack" title="Modern tools, selected for speed and scale." dark />
           <div className="stack-grid">
             {STACK.map((s) => (
               <div key={s.name} className="stack-chip">
@@ -314,11 +240,10 @@ export default function WebEcommerce() {
       </section>
 
       <ClosingCTA
-        trusted={['D2C Brands', 'Retailers', 'SaaS', 'Enterprises']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Your website story starts with"
         line2="one conversation."
         sub="Tell us what you need to build. We'll design it, build it, and make sure it performs."
-        primary={{ label: 'Get a website →' }}
         secondary={{ label: 'See case studies', to: '/insights' }}
         checks={['30-day support', '2-week delivery', 'Fixed-price engagement']}
       />

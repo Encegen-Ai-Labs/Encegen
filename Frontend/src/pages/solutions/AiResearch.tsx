@@ -1,5 +1,4 @@
 import {
-  ArtTile,
   Btn,
   ClosingCTA,
   GradBand,
@@ -11,6 +10,8 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
+import { CapabilityArt } from '../../components/CapabilityArt'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const FLAGSHIP_ITEMS = [
@@ -37,12 +38,102 @@ const FLAGSHIP_ITEMS = [
 ]
 
 const DISCIPLINES = [
-  { title: 'LLM Fine-Tuning', desc: 'Custom language models trained on your domain, your documents, and your decisions.', tag: 'Language', art: 'purple' },
-  { title: 'Computer Vision', desc: 'Visual inspection, document parsing, and image classification tuned to your workflows.', tag: 'Vision', art: 'cyan' },
-  { title: 'Predictive Intelligence', desc: 'Forecasting and anomaly detection built on your own operational time-series data.', tag: 'Forecasting', art: 'orange' },
-  { title: 'NLP & Understanding', desc: 'Extract, classify, and reason over contracts, emails, tickets, and reports.', tag: 'Text AI', art: 'blue' },
-  { title: 'Reinforcement Learning', desc: 'Agents that learn the best action in your environment through guided exploration.', tag: 'Agents', art: 'green' },
-  { title: 'Multimodal AI', desc: 'Models that read text, images, tables, and structured data together — the way people do.', tag: 'Multimodal', art: 'magenta' },
+  {
+    id: 'llm-fine-tuning',
+    title: 'LLM Fine-Tuning',
+    desc: 'Custom language models trained on your domain data, documentation, and decisions.',
+    tag: 'LANGUAGE',
+    iconLetter: 'T',
+    badgeBg: '#6d28d9',
+    tagColor: '#7c3aed',
+    tagBg: '#ede9fe',
+    art: 'purple',
+  },
+  {
+    id: 'computer-vision',
+    title: 'Computer Vision',
+    desc: 'Visual inspection, document parsing, and image classification for your workflows.',
+    tag: 'VISION',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    badgeBg: '#0891b2',
+    tagColor: '#0891b2',
+    tagBg: '#e0f2fe',
+    art: 'cyan',
+  },
+  {
+    id: 'predictive-intelligence',
+    title: 'Predictive Intelligence',
+    desc: 'Forecasting and anomaly detection trained on your specific operational time-series data.',
+    tag: 'FORECASTING',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    ),
+    badgeBg: '#d97706',
+    tagColor: '#d97706',
+    tagBg: '#fef3c7',
+    art: 'orange',
+  },
+  {
+    id: 'nlp-understanding',
+    title: 'NLP & Understanding',
+    desc: 'Extract, classify, and reason over contracts, emails, tickets, and reports.',
+    tag: 'TEXT AI',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+        <polyline points="10 9 9 9 8 9" />
+      </svg>
+    ),
+    badgeBg: '#4f46e5',
+    tagColor: '#4f46e5',
+    tagBg: '#e0e7ff',
+    art: 'blue',
+  },
+  {
+    id: 'reinforcement-learning',
+    title: 'Reinforcement Learning',
+    desc: 'Agents that learn optimal actions in your environment through guided exploration.',
+    tag: 'AGENTS',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+    badgeBg: '#059669',
+    tagColor: '#059669',
+    tagBg: '#d1fae5',
+    art: 'green',
+  },
+  {
+    id: 'multimodal-ai',
+    title: 'Multimodal AI',
+    desc: 'AI that understands text, images, tables, and structured data together – as humans do.',
+    tag: 'MULTIMODAL',
+    iconSvg: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 22" />
+        <polyline points="2 17 12 22 22 17" />
+        <polyline points="2 12 12 17 22 12" />
+      </svg>
+    ),
+    badgeBg: '#db2777',
+    tagColor: '#db2777',
+    tagBg: '#fce7f3',
+    art: 'magenta',
+  },
 ]
 
 const STEPS = [
@@ -158,11 +249,10 @@ export default function AiResearch() {
         sub="Off-the-shelf models solve generic problems. We build custom AI — trained on your data, shaped to your workflows, and grounded in how your business actually runs."
         actions={
           <>
-            <Btn variant="white">Start a project →</Btn>
             <Btn to="#capabilities" variant="outline-light">Explore capabilities →</Btn>
           </>
         }
-        trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -245,19 +335,34 @@ export default function AiResearch() {
         <div className="container">
           <SectionHead
             eyebrow="All Capabilities"
-            title="Six research disciplines. One team that ships."
-            sub="Built for the problems generic models can't reach."
+            title="Six research disciplines. One expert team."
+            sub="Six AI disciplines. One expert team. Built to solve the problems generic models cannot touch."
           />
-          <div className="cards-3">
+          <div className="cards-3" style={{ marginTop: 40 }}>
             {DISCIPLINES.map((d) => (
-              <article key={d.title} className="disc-card">
-                <ArtTile variant={d.art} className="disc-card__art" />
+              <article key={d.title} className="disc-card--styled">
+                <CapabilityArt id={d.id} />
                 <div className="disc-card__body">
+                  <div className="disc-card__header-row">
+                    <div
+                      className="cap-badge-icon"
+                      style={{ background: d.badgeBg }}
+                    >
+                      {d.iconLetter ? d.iconLetter : d.iconSvg}
+                    </div>
+                  </div>
                   <h3>{d.title}</h3>
                   <p>{d.desc}</p>
-                  <div className="disc-card__meta">
-                    <span className="disc-card__tag">{d.tag}</span>
-                  </div>
+                  <span
+                    className="disc-card__tag-pill"
+                    style={{
+                      color: d.tagColor,
+                      backgroundColor: d.tagBg,
+                      border: `1px solid ${d.tagColor}40`,
+                    }}
+                  >
+                    {d.tag}
+                  </span>
                 </div>
               </article>
             ))}
@@ -279,11 +384,6 @@ export default function AiResearch() {
           <ResultBar
             left="14 weeks avg from kickoff to production"
             chips={['20+ enterprise AI deployments completed']}
-            action={
-              <Btn variant="purple">
-                ↓ Download our AI project checklist
-              </Btn>
-            }
           />
         </div>
       </section>
@@ -313,12 +413,10 @@ export default function AiResearch() {
       </section>
 
       <ClosingCTA
-        trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Tell us the problem."
         line2="We'll build the AI."
         sub="No generic tool, no off-the-shelf model. Research-grade custom AI, built for your exact challenge and delivered on a timeline you can plan around."
-        primary={{ label: 'Start a project →' }}
-        secondary={{ label: 'Talk to a researcher' }}
         checks={['NDA-protected engagements', '14-week delivery guarantee', 'No lock-in contract']}
       />
     </>

@@ -25,8 +25,12 @@ export default function Footer() {
       links: [
         { label: t('navbar.links.easyHunt', 'Easy Hunt'), to: '/products/easy-hunt' },
         { label: t('navbar.links.hrPortal', 'HR Portal'), to: '/products/hr-portal' },
-        { label: t('navbar.links.cbms', 'CBMS'), to: '/platform' },
-        { label: t('navbar.links.hms', 'HMS'), to: '/platform' },
+        { label: t('navbar.links.resumeBuilder', 'Resume Builder'), to: '/products/resume-builder' },
+        { label: t('navbar.links.resumeAnalyzer', 'Resume Analyzer'), to: '/products/resume-analyzer' },
+        { label: t('navbar.links.voiceAgent', 'Voice Agent'), to: '/products/voice-agent' },
+        { label: 'CBMS (Call Back Management System)', to: '/products/cbms' },
+        { label: 'HMS (Hostel Management System)', to: '/products/hms' },
+        { label: t('navbar.headings.platform', 'Encegen Platform'), to: '/platform' },
       ],
     },
     {
@@ -43,17 +47,18 @@ export default function Footer() {
       heading: t('navbar.company', 'Company'),
       links: [
         { label: t('navbar.links.aboutUs', 'About Us'), to: '/about' },
-        { label: t('navbar.links.careers', 'Careers'), to: '/careers' },
+        { label: 'Company Profile', to: '/company/profile' },
+        { label: t('navbar.links.ourStory', 'Our Story'), to: '/our-story' },
         { label: t('navbar.links.ourValues', 'Our Values'), to: '/values' },
         { label: t('navbar.links.ourCulture', 'Our Culture'), to: '/culture' },
+        { label: t('navbar.links.careers', 'Careers'), to: '/careers' },
       ],
     },
   ], [t])
 
   const legalLinks = useMemo(() => [
-    { label: t('footer.links.privacy', 'Privacy Policy'), href: '#' },
-    { label: t('footer.links.terms', 'Terms of Use'), href: '#' },
-    { label: t('footer.links.cookies', 'Cookie Settings'), href: '#' },
+    { label: t('footer.links.privacy', 'Privacy Policy'), to: '/privacy-policy' },
+    { label: t('footer.links.terms', 'Terms of Use'), to: '/terms-and-conditions' },
   ], [t])
 
   return (
@@ -119,9 +124,9 @@ export default function Footer() {
           </div>
           <div className="footer__legal">
             {legalLinks.map((item) => (
-              <a key={item.label} href={item.href}>
+              <Link key={item.label} to={item.to}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

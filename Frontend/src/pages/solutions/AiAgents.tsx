@@ -1,6 +1,4 @@
 import {
-  ArtTile,
-  Btn,
   ClosingCTA,
   GradBand,
   LiveDot,
@@ -12,6 +10,8 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
+import { CapabilityArt } from '../../components/CapabilityArt'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const AGENTS = [
@@ -122,13 +122,7 @@ export default function AiAgents() {
         badge={<>● Encegen AI Labs · Agent Automation</>}
         title="Your team is doing work a machine should have finished hours ago."
         sub="Every day, exceptions pile up — approvals waiting, records re-keyed between systems, queues that only move when a person clears them. That's your best people spending their hours on work an agent can own end to end."
-        actions={
-          <>
-            <Btn variant="white">See how agents handle it →</Btn>
-            <Btn variant="outline-light">Watch the demo</Btn>
-          </>
-        }
-        trusted={['IBM', 'Siemens', 'Vodafone', 'Airbus', 'Wipro']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
       />
 
       <GradBand quote="What if the exception cleared itself before anyone opened the queue?" />
@@ -192,7 +186,7 @@ export default function AiAgents() {
           <div className="cards-3">
             {AGENTS.map((a) => (
               <article key={a.title} className="agent-card">
-                <ArtTile variant={a.art} className="agent-card__art" />
+                <CapabilityArt id={a.art} className="agent-card__art" />
                 <div className="agent-card__body">
                   <span className="agent-card__icon">{a.icon}</span>
                   <h3>{a.title}</h3>
@@ -248,12 +242,10 @@ export default function AiAgents() {
       </section>
 
       <ClosingCTA
-        trusted={['Siemens', 'Vodafone', 'Airbus', 'IBM']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Your story starts with"
         line2="one agent."
         sub="No generic tool, no off-the-shelf model. One agent, built for your exact bottleneck, live in days — then a second, then a team."
-        primary={{ label: 'Deploy an agent →' }}
-        secondary={{ label: 'Talk to an expert' }}
         checks={['SOC 2 protected', 'Live in 24 hrs', 'No lock-in contract']}
       />
     </>

@@ -4,7 +4,6 @@ import {
   GradBand,
   PageHero,
   SectionHead,
-  TestimonialCard,
 } from '../../components/kit'
 import './products.css'
 
@@ -33,41 +32,6 @@ const PLATFORM = [
   { icon: '📈', title: 'Skill Gap Analysis', desc: 'Identifies missing skills instantly for each applicant.' },
   { icon: '📑', title: 'Format Agnostic', desc: 'Parses complex layouts, columns, and varied resume structures flawlessly.' },
   { icon: '⚡', title: 'Real-time Analytics', desc: 'Track hiring metrics and candidate quality in one dashboard.' },
-]
-
-const TESTIMONIALS = [
-  {
-    color: '#f59e0b',
-    quote: "Resume Analyzer completely transformed our hiring pipeline. We find the right people much faster now.",
-    initials: 'AM',
-    name: 'Anita Menon',
-    role: 'Talent Acquisition Head',
-    hue: 30,
-  },
-  {
-    color: '#8b5cf6',
-    quote: 'The accuracy of the AI parser is incredible. It handles even the most poorly formatted resumes.',
-    initials: 'JD',
-    name: 'James Doe',
-    role: 'HR Director',
-    hue: 260,
-  },
-  {
-    color: '#10b981',
-    quote: 'We cut our time-to-hire in half thanks to the automated candidate scoring features.',
-    initials: 'SJ',
-    name: 'Samuel Johnson',
-    role: 'Recruiting Lead',
-    hue: 160,
-  },
-  {
-    color: '#3b82f6',
-    quote: 'The seamless ATS integration means we didn\'t have to change our core workflow at all.',
-    initials: 'RK',
-    name: 'Ravi Kumar',
-    role: 'VP Human Resources',
-    hue: 215,
-  },
 ]
 
 export default function ResumeAnalyzer() {
@@ -188,17 +152,6 @@ export default function ResumeAnalyzer() {
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead eyebrow="Testimonials" title="Trusted by HR Leaders" />
-          <div className="tgrid">
-            {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
             ))}
           </div>
         </div>

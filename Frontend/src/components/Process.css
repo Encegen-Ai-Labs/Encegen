@@ -10,16 +10,21 @@
   gap: 0;
   margin-top: var(--space-xl);
   --step-number-size: clamp(4.5rem, 4rem + 2vw, 5.75rem);
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
 }
 
 .process__step-wrap {
   display: flex;
-  align-items: flex-start;
-  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .process__step {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +45,7 @@
     10px 12px 24px rgba(22, 20, 60, 0.16),
     -8px -8px 18px #ffffff,
     inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
 }
 
 .process__icon {
@@ -52,64 +58,57 @@
   background: var(--lavender-100);
   color: var(--purple-600);
   box-shadow: 0 8px 18px rgba(101, 83, 238, 0.16);
+  flex-shrink: 0;
 }
 
 .process__step h3 {
-  margin-top: var(--space-xs);
-  font-size: clamp(1.06rem, 0.98rem + 0.34vw, 1.28rem);
+  margin-top: var(--space-sm);
+  font-size: clamp(1.1rem, 1rem + 0.35vw, 1.35rem);
   font-weight: 700;
   color: var(--ink-900);
+  line-height: 1.3;
+  text-align: center;
+  max-width: 280px;
 }
 
 .process__step p {
   margin-top: var(--space-xs);
-  max-width: 330px;
-  font-size: clamp(1.06rem, 0.95rem + 0.47vw, 1.38rem);
-  line-height: 1.65;
+  max-width: 300px;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  line-height: 1.6;
   color: var(--gray-600);
+  text-align: center;
 }
 
 .process__arrow {
   position: relative;
   display: block;
   flex-shrink: 0;
-  width: clamp(90px, 11vw, 150px);
+  width: clamp(40px, 6vw, 90px);
   height: 10px;
   margin-top: calc(var(--step-number-size) / 2 - 5px);
-  margin-inline: var(--space-2xs);
+  margin-inline: clamp(0.25rem, 0.5vw, 1rem);
   border-radius: 999px;
   background: linear-gradient(90deg, var(--purple-600), var(--cyan-400));
 }
 
 .process__arrow svg {
   position: absolute;
-  left: 8px;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
-}
-
-/* "The Process" section only — its wraps hold no nested arrow (arrow is a
-   flex sibling, not nested), so its columns can hug their own content
-   instead of stretching to a full 1/3 share, bringing each circle close
-   to its neighboring arrow. Scoped so the 3 sections that still nest the
-   arrow inside .process__step-wrap (Process Mining / Execution
-   Management / AI Insights) are completely unaffected. */
-.process__steps--flow .process__step-wrap {
-  flex: 0 1 260px;
-}
-
-.process__steps--flow .process__arrow {
-  margin-inline: -44px;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 860px) {
   .process__steps {
     flex-direction: column;
+    align-items: center;
     gap: var(--space-xl);
   }
 
   .process__step-wrap {
     width: 100%;
+    max-width: 360px;
   }
 
   .process__arrow {

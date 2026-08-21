@@ -22,8 +22,8 @@ const RESULTS = [
   {
     tag: 'Customer Story',
     color: '#22c55e',
-    title: 'How Siemens Reduced Invoice Processing by 60% with Encegen AI',
-    desc: 'By identifying bottlenecks in accounts payable, Siemens was able to automate 80% of repetitive manual touches.',
+    title: 'How EasyHunt Accelerated Title Search and Land Records by 90% with Encegen AI',
+    desc: 'By identifying bottlenecks in legal documentation, EasyHunt automated 99.4% of land revenue record extractions.',
     meta: '12 min · May 28 2025',
     action: 'Read story →',
   },

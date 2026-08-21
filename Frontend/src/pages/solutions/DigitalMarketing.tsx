@@ -1,5 +1,4 @@
 import {
-  ArtTile,
   Btn,
   ClosingCTA,
   GradBand,
@@ -11,6 +10,8 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
+import { CapabilityArt } from '../../components/CapabilityArt'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const CHANNELS = [
@@ -68,38 +69,38 @@ const STEPS = [
   { num: '01', title: 'Audit & Strategy', meta: 'Wk 1-2', desc: 'A full marketing audit, a look at the competition, and a growth roadmap worth following.' },
   { num: '02', title: 'Setup & Launch', meta: 'Wk 2-4', desc: 'Tracking, attribution, automation, and the first campaigns live.' },
   { num: '03', title: 'Optimise', meta: 'Wk 5-8', desc: 'A/B testing, bid tuning, and creative iteration on what the data shows.' },
-  { num: '04', title: 'Scale', meta: 'Wk 9+', desc: "Pour fuel on what's working, add channels, and let the results build on each other." },
+  { num: '04', title: 'Scale', meta: 'Wk 9+', desc: 'Put budget behind what works, expand to new channels, and keep the ROI high.' },
 ]
 
 const TESTIMONIALS = [
   {
-    tag: 'Varasa',
+    tag: 'Pramay Agro',
     color: '#22c55e',
-    quote: 'Encegen scaled our digital customer acquisition and organic visibility significantly. Our marketing ROI doubled within 60 days.',
-    initials: 'VR',
-    name: 'Leadership Team',
-    role: 'Varasa (Retail & E-commerce)',
-    metric: '2.5× ROI lift',
+    quote: 'Encegen’s targeted digital campaigns and automated re-order funnels lowered our customer acquisition costs significantly while multiplying agricultural repeat orders.',
+    initials: 'PA',
+    name: 'Operations Director',
+    role: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
+    metric: '6.4× ROAS',
     hue: 150,
   },
   {
-    tag: 'Paramya Agro',
+    tag: 'Varasa',
     color: '#3b82f6',
-    quote: 'Targeted B2B outreach and automated dealer acquisition workflows created a reliable stream of qualified regional partnerships.',
-    initials: 'PA',
-    name: 'Head of Growth',
-    role: 'Paramya Agro (Agri-Enterprise)',
-    metric: '3× partner outreach',
+    quote: 'Our scholarship grant applications and outreach expanded across hundreds of academic institutions thanks to Encegen’s precise digital distribution and SEO systems.',
+    initials: 'VR',
+    name: 'Research & Conservation Head',
+    role: 'Varasa (Heritage Conservation & Scholarship)',
+    metric: '340% lead growth',
     hue: 215,
   },
   {
-    tag: 'Flairnetic Advocates',
+    tag: 'EasyHunt',
     color: '#f59e0b',
-    quote: 'Digital presence, brand positioning, and search authority grew substantially following Encegen’s targeted strategy.',
-    initials: 'FA',
-    name: 'Consultant',
-    role: 'Flairnetic Advocates',
-    metric: '180% visibility increase',
+    quote: 'Targeted acquisition for property title search advocates and legal practitioners made EasyHunt the default title verification solution across multiple districts.',
+    initials: 'EH',
+    name: 'Product & Research Lead',
+    role: 'EasyHunt Title Search Software',
+    metric: '+40% revenue',
     hue: 30,
   },
 ]
@@ -119,12 +120,11 @@ export default function DigitalMarketing() {
         sub="From AI-driven SEO to full-funnel paid media, we build growth systems that acquire, convert, and keep customers — and show you exactly which channel did the work."
         actions={
           <>
-            <Btn variant="white">Start growing →</Btn>
-            <Btn to="/insights" variant="outline-light">See case studies</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['D2C Brands', 'SaaS Companies', 'E-commerce', 'Enterprises']}
-        trustedLabel="growing"
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trustedLabel="trusted by"
       />
 
       <GradBand
@@ -219,9 +219,6 @@ export default function DigitalMarketing() {
                   model
                 </li>
               </ul>
-              <div style={{ marginTop: 30 }}>
-                <Btn variant="lavender">See how we run paid media →</Btn>
-              </div>
             </div>
             <MockPanel
               title="Campaign Performance Dashboard"
@@ -246,7 +243,7 @@ export default function DigitalMarketing() {
           <div className="cards-3">
             {CHANNELS.map((c) => (
               <article key={c.title} className="disc-card">
-                <ArtTile variant={c.art} className="disc-card__art" />
+                <CapabilityArt id={c.art} className="disc-card__art" />
                 <div className="disc-card__body">
                   <span className="disc-card__tag">{c.tag}</span>
                   <h3 style={{ marginTop: 14 }}>{c.title}</h3>
@@ -306,11 +303,10 @@ export default function DigitalMarketing() {
       </section>
 
       <ClosingCTA
-        trusted={['D2C Brands', 'SaaS', 'E-commerce', 'Enterprises']}
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Your growth story starts with the"
         line2="right data."
         sub="Tell us your current cost of acquisition, your revenue goal, and your biggest bottleneck. We'll build the system to close the gap."
-        primary={{ label: 'Start growing →' }}
         secondary={{ label: 'View case studies', to: '/insights' }}
         checks={['30-day support', '2-week setup', 'Fixed-price engagement']}
       />

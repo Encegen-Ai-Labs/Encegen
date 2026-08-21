@@ -69,11 +69,6 @@ export default function Modules() {
               </span>
               <h3>{mod.title}</h3>
               <p>{mod.description}</p>
-              {mod.href && (
-                <a href={mod.href} className="modules__link">
-                  Learn more &rarr;
-                </a>
-              )}
             </article>
           ))}
         </div>

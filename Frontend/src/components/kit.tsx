@@ -384,8 +384,10 @@ export function LiveDot({ label, color = '#2fe08e' }: { label: string; color?: s
   )
 }
 
+import { CapabilityArt } from './CapabilityArt'
+
 /* ---------- Abstract art tile (placeholder for design imagery) ---------- */
 
 export function ArtTile({ variant = 'purple', className = '' }: { variant?: string; className?: string }) {
-  return <div className={`art art--${variant} ${className}`} aria-hidden="true" />
+  return <CapabilityArt id={variant} className={className} />
 }

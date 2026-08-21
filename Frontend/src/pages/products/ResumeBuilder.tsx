@@ -4,7 +4,6 @@ import {
   GradBand,
   PageHero,
   SectionHead,
-  TestimonialCard,
 } from '../../components/kit'
 import './products.css'
 
@@ -41,41 +40,6 @@ const PLATFORM = [
   { icon: '✍️', title: 'Smart Repetition Guard', desc: 'Say goodbye to overused words. Our engine flags repetitive action verbs (like using "managed" 5 times) and fixes inconsistencies instantly.' },
   { icon: '🛡️', title: 'Zero-Retention Privacy', desc: 'Your career data belongs to you. We use enterprise-grade encryption and never sell or train public models on your personal information.' },
   { icon: '✉️', title: '1-Click Cover Letters', desc: 'Automatically generate a highly personalized cover letter that matches the exact visual design, fonts, and colors of your chosen resume template.' },
-]
-
-const TESTIMONIALS = [
-  {
-    color: '#22c55e',
-    quote: "The Resume Builder helped me land my dream job. The ATS optimization feature is a game changer.",
-    initials: 'SK',
-    name: 'Sarah Khan',
-    role: 'Software Engineer',
-    hue: 150,
-  },
-  {
-    color: '#3b82f6',
-    quote: 'I used to spend hours fixing formatting issues. Now I can update my resume in minutes.',
-    initials: 'DP',
-    name: 'David Patel',
-    role: 'Marketing Manager',
-    hue: 215,
-  },
-  {
-    color: '#f59e0b',
-    quote: 'Absolutely the best builder out there. The design choices are pristine.',
-    initials: 'JL',
-    name: 'Jessica Lee',
-    role: 'Product Designer',
-    hue: 45,
-  },
-  {
-    color: '#8b5cf6',
-    quote: 'It caught mistakes my previous ATS parser missed. Highly recommend to any job seeker.',
-    initials: 'MW',
-    name: 'Mark Watson',
-    role: 'Financial Analyst',
-    hue: 260,
-  },
 ]
 
 export default function ResumeBuilder() {
@@ -164,17 +128,6 @@ export default function ResumeBuilder() {
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead eyebrow="Success Stories" title="Hear from our users" />
-          <div className="tgrid">
-            {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
             ))}
           </div>
         </div>

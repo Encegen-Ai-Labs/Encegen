@@ -270,9 +270,9 @@ export default function UseCases() {
               moves, finds where it breaks, and acts to fix it inside the systems you already use.
             </p>
             <div className="proc-list">
-              <a href="#">Trained on how your processes really run, not on static rules</a>
-              <a href="#">Connects insight directly to action</a>
-              <a href="#">Learns a little more with every cycle</a>
+              <span>✓ Trained on how your processes really run, not on static rules</span>
+              <span>✓ Connects insight directly to action</span>
+              <span>✓ Learns a little more with every cycle</span>
             </div>
             <div style={{ marginTop: 32 }}>
               <Btn to="/platform" variant="lavender">See how it works →</Btn>
@@ -447,13 +447,12 @@ export default function UseCases() {
       </section>
 
       <ClosingCTA
-        trusted={['Siemens', 'Uber', 'Airbus']}
-        trustedLabel="join 5,000+ companies transforming their operations"
+        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
         line1="Ready to put AI to work?"
         sub="See what Encegen AI can do for your highest-priority processes."
-        primary={{ label: 'Get an AI demo →' }}
-        secondary={{ label: 'Download the AI guide' }}
-        checks={['70+ industries', '300% avg ROI', '$2.4T business value']}
+        primary={{ label: 'Explore the platform →', to: '/platform' }}
+        secondary={{ label: 'See case studies', to: '/insights' }}
+        checks={['Enterprise-grade security', 'Fixed-price delivery', 'Measurable ROI']}
       />
     </>
   )

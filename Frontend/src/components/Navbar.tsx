@@ -95,8 +95,8 @@ export default function Navbar() {
               { label: t('navbar.links.resumeBuilder', 'Resume Builder'), to: '/products/resume-builder' },
               { label: t('navbar.links.resumeAnalyzer', 'Resume Analyzer'), to: '/products/resume-analyzer' },
               { label: t('navbar.links.voiceAgent', 'Voice Agent'), to: '/products/voice-agent' },
-              { label: t('navbar.links.cbms', 'CBMS'), to: '/platform' },
-              { label: t('navbar.links.hms', 'HMS'), to: '/platform' },
+              { label: t('navbar.links.cbms', 'CBMS'), to: '/products/cbms' },
+              { label: t('navbar.links.hms', 'HMS'), to: '/products/hms' },
             ],
           },
         ],
@@ -114,6 +114,7 @@ export default function Navbar() {
             links: [
               { label: t('navbar.links.aboutUs', 'About Us'), to: '/about' },
               { label: t('navbar.links.ourStory', 'Our Story'), to: '/our-story' },
+              { label: 'Company Profile', to: '/company/profile' },
             ],
           },
           {

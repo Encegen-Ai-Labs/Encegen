@@ -4,7 +4,6 @@ import {
   GradBand,
   PageHero,
   SectionHead,
-  TestimonialCard,
 } from '../../components/kit'
 import './products.css'
 
@@ -33,41 +32,6 @@ const PLATFORM = [
   { icon: '🔌', title: 'API Driven', desc: 'Easily integrate the voice agent into your app, phone system, or website.' },
   { icon: '📊', title: 'Conversation Analytics', desc: 'Review transcripts and analyze sentiment to improve user experience.' },
   { icon: '🛡️', title: 'Enterprise Security', desc: 'End-to-end encryption for all voice interactions and data processing.' },
-]
-
-const TESTIMONIALS = [
-  {
-    color: '#ec4899',
-    quote: "Our customer satisfaction scores skyrocketed after deploying the Voice Agent for tier 1 support.",
-    initials: 'RJ',
-    name: 'Rebecca Jones',
-    role: 'VP Customer Success',
-    hue: 330,
-  },
-  {
-    color: '#06b6d4',
-    quote: 'The latency is so low, users often forget they are talking to an AI. It is a remarkable piece of technology.',
-    initials: 'TK',
-    name: 'Thomas King',
-    role: 'CTO, CommTech',
-    hue: 190,
-  },
-  {
-    color: '#84cc16',
-    quote: 'It handles multi-lingual queries perfectly without skipping a beat.',
-    initials: 'MS',
-    name: 'Mina Silva',
-    role: 'Global Support Lead',
-    hue: 85,
-  },
-  {
-    color: '#f97316',
-    quote: 'Being able to plug this right into our existing PBX saved us months of development.',
-    initials: 'DP',
-    name: 'Daniel Park',
-    role: 'Systems Architect',
-    hue: 25,
-  },
 ]
 
 export default function VoiceAgent() {
@@ -144,17 +108,6 @@ export default function VoiceAgent() {
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead eyebrow="Feedback" title="What our clients say" />
-          <div className="tgrid">
-            {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
             ))}
           </div>
         </div>
