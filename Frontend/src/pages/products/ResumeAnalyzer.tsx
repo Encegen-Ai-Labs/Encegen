@@ -8,13 +8,6 @@ import {
 } from '../../components/kit'
 import './products.css'
 
-const STAT_TILES = [
-  { value: '5x', desc: 'faster shortlisting process' },
-  { value: '99%', desc: 'accuracy in parsing data fields' },
-  { value: '1000+', desc: 'resumes processed per minute' },
-  { value: '0', desc: 'manual data entry required' },
-]
-
 const HOW = [
   {
     num: '01',
@@ -158,22 +151,12 @@ export default function ResumeAnalyzer() {
       </PageHero>
 
       <section className="section section--light">
-        <div className="container split">
-          <div>
-            <p className="shead__eyebrow">Chapter 01</p>
-            <h2 className="left-title">Screening shouldn't be a bottleneck.</h2>
-            <p className="left-copy">
-              Stop manually reviewing hundreds of resumes. Let our AI handle the heavy lifting, giving you back time to focus on engaging with the best talent.
-            </p>
-          </div>
-          <div className="stat-tiles">
-            {STAT_TILES.map((s) => (
-              <div key={s.value} className="stat-tile">
-                <strong>{s.value}</strong>
-                <p>{s.desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="container">
+          <p className="shead__eyebrow">Chapter 01</p>
+          <h2 className="left-title">Screening shouldn't be a bottleneck.</h2>
+          <p className="left-copy">
+            Stop manually reviewing hundreds of resumes. Let our AI handle the heavy lifting, giving you back time to focus on engaging with the best talent.
+          </p>
         </div>
       </section>
 

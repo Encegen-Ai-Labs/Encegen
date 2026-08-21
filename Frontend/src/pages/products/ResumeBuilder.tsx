@@ -8,13 +8,6 @@ import {
 } from '../../components/kit'
 import './products.css'
 
-const STAT_TILES = [
-  { value: '85%', desc: 'of resumes are rejected by ATS before a human reads them. We fix that.' },
-  { value: '3x', desc: 'more interview callbacks reported by users leveraging our AI suggestions.' },
-  { value: '50+', desc: 'industry-specific templates tested by recruiters for readability.' },
-  { value: 'Zero', desc: 'time wasted on margins, fonts, or PDF export alignment issues.' },
-]
-
 const HOW = [
   {
     num: '01',
@@ -134,22 +127,12 @@ export default function ResumeBuilder() {
       </PageHero>
 
       <section className="section section--light">
-        <div className="container split">
-          <div>
-            <p className="shead__eyebrow">Chapter 01</p>
-            <h2 className="left-title">Stop wrestling with formatting.</h2>
-            <p className="left-copy">
-              Focus on your achievements, not adjusting margins. Our Resume Builder handles all the design work, ensuring your resume looks perfect on every screen and prints flawlessly.
-            </p>
-          </div>
-          <div className="stat-tiles">
-            {STAT_TILES.map((s) => (
-              <div key={s.value} className="stat-tile">
-                <strong>{s.value}</strong>
-                <p>{s.desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="container">
+          <p className="shead__eyebrow">Chapter 01</p>
+          <h2 className="left-title">Stop wrestling with formatting.</h2>
+          <p className="left-copy">
+            Focus on your achievements, not adjusting margins. Our Resume Builder handles all the design work, ensuring your resume looks perfect on every screen and prints flawlessly.
+          </p>
         </div>
       </section>
 

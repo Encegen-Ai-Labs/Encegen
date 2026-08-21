@@ -32,12 +32,6 @@ export default function Integrations() {
             </span>
           ))}
         </div>
-
-        <div className="integrations__more">
-          <a href="#" className="integrations__more-link">
-            See all 200+ integrations &rarr;
-          </a>
-        </div>
       </div>
     </section>
   )

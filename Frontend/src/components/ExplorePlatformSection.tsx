@@ -40,12 +40,6 @@ export default function ExplorePlatformSection() {
             </li>
           ))}
         </ul>
-
-        <div className="ep-section__cta">
-          <a href="#" className="ep-section__button">
-            Book a walkthrough
-          </a>
-        </div>
       </div>
     </section>
   )

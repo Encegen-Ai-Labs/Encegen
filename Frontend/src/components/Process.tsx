@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { PlugIcon, SearchIcon, ZapIcon } from './icons'
 import './Process.css'
 
@@ -43,19 +44,21 @@ export default function Process() {
         <p className="section-eyebrow">The Process</p>
         <h2 className="section-title">From raw data to real action in three steps.</h2>
 
-        <div className="process__steps">
+        <div className="process__steps process__steps--flow">
           {STEPS.map((step, index) => (
-            <div key={step.number} className="process__step-wrap">
+            <Fragment key={step.number}>
               {index > 0 && <StepArrow />}
-              <div className="process__step">
-                <span className="process__number">{step.number}</span>
-                <span className="process__icon">
-                  <step.icon size={22} />
-                </span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+              <div className="process__step-wrap">
+                <div className="process__step">
+                  <span className="process__number">{step.number}</span>
+                  <span className="process__icon">
+                    <step.icon size={22} />
+                  </span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
               </div>
-            </div>
+            </Fragment>
           ))}
         </div>
       </div>

@@ -35,6 +35,9 @@
 }
 
 .cta__button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
   padding: var(--space-sm) var(--space-md);
   border-radius: 999px;
   background: #f4f3fb;

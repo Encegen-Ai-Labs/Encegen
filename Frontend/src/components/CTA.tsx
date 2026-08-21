@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import ContactModal from './ContactModal'
 import './CTA.css'
 
 export default function CTA() {
   const { t } = useTranslation()
+  const [showContact, setShowContact] = useState(false)
 
   return (
     <section className="cta">
@@ -14,14 +17,12 @@ export default function CTA() {
           {t('home.cta.sub', 'Join thousands of enterprises driving measurable value from every process.')}
         </p>
         <div className="cta__buttons">
-          <a href="#" className="cta__button">
-            {t('home.cta.btn1', 'Get started today')}
-          </a>
-          <a href="#" className="cta__button">
+          <button type="button" className="cta__button" onClick={() => setShowContact(true)}>
             {t('home.cta.btn2', 'Talk to an expert')}
-          </a>
+          </button>
         </div>
       </div>
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
     </section>
   )
 }

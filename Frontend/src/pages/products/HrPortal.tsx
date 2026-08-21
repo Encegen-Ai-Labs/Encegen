@@ -1,7 +1,5 @@
 import {
-  Btn,
   ClosingCTA,
-  GradBand,
   MockPanel,
   PageHero,
   SectionHead,
@@ -99,46 +97,6 @@ const TESTIMONIALS = [
   },
 ]
 
-const PLANS = [
-  {
-    name: 'Starter',
-    price: 'Free',
-    desc: 'Perfect for startups & small teams getting started with AI hiring.',
-    items: ['5 active job posts', 'Basic AI matching', 'Email support', 'Standard candidate profiles'],
-    cta: 'Get Started',
-    featured: false,
-  },
-  {
-    name: 'Professional',
-    price: '$99',
-    per: '/mo',
-    desc: 'For growing teams that need unlimited posting and full pipeline automation.',
-    items: [
-      'Unlimited job posts',
-      'Advanced AI matching & ranking',
-      'Priority 24/7 support',
-      'Full pipeline analytics',
-      'Automated pre-screening interviews',
-    ],
-    cta: 'Start Hiring →',
-    featured: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Custom',
-    desc: 'Dedicated infrastructure and custom models for global hiring operations.',
-    items: [
-      'Custom model training',
-      'Unlimited team collaboration',
-      'SSO & advanced security (SOC 2)',
-      'Dedicated success manager',
-      'Direct API access & integrations',
-    ],
-    cta: 'Contact Sales',
-    featured: false,
-  },
-]
-
 export default function HrPortal() {
   return (
     <>
@@ -152,12 +110,6 @@ export default function HrPortal() {
           </>
         }
         sub="EasyHunt uses intelligent matching, automated screening, and real-time analytics to connect the best candidates with the best opportunities – 10x faster than traditional hiring."
-        actions={
-          <>
-            <Btn variant="white">Start Hiring →</Btn>
-            <Btn variant="outline-light">Find Jobs</Btn>
-          </>
-        }
         trusted={['TCS', 'Infosys', 'Wipro', 'HCL', 'Accenture', 'Deloitte']}
         trustedLabel="trusted by 2,000+ companies worldwide"
       >
@@ -213,9 +165,6 @@ export default function HrPortal() {
                   vectors to align candidate aspirations with company growth
                 </li>
               </ul>
-              <div style={{ marginTop: 30 }}>
-                <Btn variant="lavender">See Matching Architecture →</Btn>
-              </div>
             </div>
             <MockPanel
               title="AI Compatibility Match Evaluation"
@@ -309,9 +258,6 @@ export default function HrPortal() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <div style={{ marginTop: 32 }}>
-              <Btn variant="purple">Create Candidate Profile →</Btn>
-            </div>
           </div>
           <MockPanel
             title="Candidate Dashboard"
@@ -346,15 +292,6 @@ export default function HrPortal() {
         </div>
       </section>
 
-      <GradBand
-        stats={[
-          { value: '2M+', label: 'Candidates' },
-          { value: '50K+', label: 'Jobs Posted' },
-          { value: '10K+', label: 'Successful Hires' },
-          { value: '95%', label: 'Client Satisfaction' },
-        ]}
-      />
-
       {/* Stories */}
       <section className="section section--lavender">
         <div className="container">
@@ -371,42 +308,10 @@ export default function HrPortal() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="section section--light">
-        <div className="container">
-          <SectionHead
-            eyebrow="Simple Pricing"
-            title="Plans that scale with your hiring needs."
-            sub="Transparent pricing tiers designed for startups up to global enterprises."
-          />
-          <div className="pricing">
-            {PLANS.map((p) => (
-              <article key={p.name} className={`price-card ${p.featured ? 'price-card--featured' : ''}`}>
-                {p.featured && <span className="price-card__pop">Most Popular</span>}
-                <h3>{p.name}</h3>
-                <div className="price-card__price">
-                  {p.price}
-                  {p.per && <span>{p.per}</span>}
-                </div>
-                <p className="price-card__desc">{p.desc}</p>
-                <ul>
-                  {p.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-                <Btn variant={p.featured ? 'purple' : 'lavender'}>{p.cta}</Btn>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <ClosingCTA
         dark
         line1="Ready to transform your hiring?"
         sub="Join thousands of global companies securing elite industry talent using EasyHunt's cognitive pipeline. Deployed in under 30 days."
-        primary={{ label: 'Start Free Trial →' }}
-        secondary={{ label: 'Book a Demo' }}
         checks={['2,000+ companies using EasyHunt', '95% satisfaction', 'SOC 2 certified']}
       />
     </>

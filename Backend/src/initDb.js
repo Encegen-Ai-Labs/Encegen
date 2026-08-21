@@ -187,7 +187,7 @@ export async function initDb() {
             content: "Join Encegen architects as we break down concrete enterprise case studies and live benchmarks on automating legacy systems.",
             cover_image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
             author: "Encegen Solutions Team",
-            media_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            media_url: "https://youtu.be/ECB1RyE9Q40",
             is_featured: false,
             status: "published"
           },

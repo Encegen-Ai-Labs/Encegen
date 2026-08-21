@@ -9,9 +9,10 @@ type BtnProps = {
   variant?: 'white' | 'outline-light' | 'purple' | 'outline-dark' | 'lavender'
   children: ReactNode
   onClick?: () => void
+  newTab?: boolean
 }
 
-export function Btn({ to = '#', variant = 'white', children, onClick }: BtnProps) {
+export function Btn({ to = '#', variant = 'white', children, onClick, newTab }: BtnProps) {
   const cls = `kbtn kbtn--${variant}`
   if (onClick && to === '#') {
     return (
@@ -22,7 +23,12 @@ export function Btn({ to = '#', variant = 'white', children, onClick }: BtnProps
   }
   if (to.startsWith('#') || to.startsWith('http')) {
     return (
-      <a href={to} onClick={onClick} className={cls}>
+      <a
+        href={to}
+        onClick={onClick}
+        className={cls}
+        {...(newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {children}
       </a>
     )
@@ -273,8 +279,8 @@ type ClosingCTAProps = {
   line1: ReactNode
   line2?: ReactNode
   sub?: ReactNode
-  primary?: { label: string; to?: string }
-  secondary?: { label: string; to?: string }
+  primary?: { label: string; to?: string; newTab?: boolean }
+  secondary?: { label: string; to?: string; newTab?: boolean }
   checks?: string[]
   dark?: boolean
 }
@@ -305,12 +311,12 @@ export function ClosingCTA({ trusted, trustedLabel = 'trusted by 5,000+ enterpri
         {sub && <p className="closing__sub">{sub}</p>}
         <div className="closing__actions">
           {primary && (
-            <Btn to={primary.to} variant="purple">
+            <Btn to={primary.to} variant="purple" newTab={primary.newTab}>
               {primary.label}
             </Btn>
           )}
           {secondary && (
-            <Btn to={secondary.to} variant={dark ? 'outline-light' : 'outline-dark'}>
+            <Btn to={secondary.to} variant={dark ? 'outline-light' : 'outline-dark'} newTab={secondary.newTab}>
               {secondary.label}
             </Btn>
           )}

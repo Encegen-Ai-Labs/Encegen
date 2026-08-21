@@ -114,6 +114,9 @@
   background: #e9e7f6;
   box-shadow: var(--nm-lg);
 }
+.closing--dark {
+  background: var(--navy-950);
+}
 .closing--dark .closing__inner {
   background: transparent;
   box-shadow: none;

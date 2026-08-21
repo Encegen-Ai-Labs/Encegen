@@ -35,21 +35,18 @@ const MODULES = [
     title: 'Action Flows',
     description:
       'Triggers the fix directly inside the systems you already run.',
-    href: '#',
   },
   {
     icon: PenIcon,
     title: 'Studio',
     description:
       'Builds custom process apps and dashboards with a no-code editor.',
-    href: '#',
   },
   {
     icon: CodeIcon,
     title: 'Data Push API',
     description:
       'Connects any source with pre-built connectors and open APIs.',
-    href: '#',
   },
 ]
 
@@ -72,9 +69,11 @@ export default function Modules() {
               </span>
               <h3>{mod.title}</h3>
               <p>{mod.description}</p>
-              <a href={mod.href} className="modules__link">
-                Learn more &rarr;
-              </a>
+              {mod.href && (
+                <a href={mod.href} className="modules__link">
+                  Learn more &rarr;
+                </a>
+              )}
             </article>
           ))}
         </div>

@@ -8,13 +8,6 @@ import {
 } from '../../components/kit'
 import './products.css'
 
-const STAT_TILES = [
-  { value: '24/7', desc: 'always-on conversational support' },
-  { value: '< 1s', desc: 'response time for user inquiries' },
-  { value: '50+', desc: 'languages supported natively' },
-  { value: '80%', desc: 'reduction in support resolution times' },
-]
-
 const HOW = [
   {
     num: '01',
@@ -114,22 +107,12 @@ export default function VoiceAgent() {
       </PageHero>
 
       <section className="section section--light">
-        <div className="container split">
-          <div>
-            <p className="shead__eyebrow">Chapter 01</p>
-            <h2 className="left-title">Beyond robotic interactions.</h2>
-            <p className="left-copy">
-              Static phone trees and robotic voices are frustrating. Give your customers the fluid, natural conversational experience they expect with our advanced Voice Agent.
-            </p>
-          </div>
-          <div className="stat-tiles">
-            {STAT_TILES.map((s) => (
-              <div key={s.value} className="stat-tile">
-                <strong>{s.value}</strong>
-                <p>{s.desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="container">
+          <p className="shead__eyebrow">Chapter 01</p>
+          <h2 className="left-title">Beyond robotic interactions.</h2>
+          <p className="left-copy">
+            Static phone trees and robotic voices are frustrating. Give your customers the fluid, natural conversational experience they expect with our advanced Voice Agent.
+          </p>
         </div>
       </section>
 
