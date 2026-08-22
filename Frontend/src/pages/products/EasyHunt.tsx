@@ -9,7 +9,7 @@ import {
 } from '../../components/kit'
 import { SearchIcon } from '../../components/icons'
 import './products.css'
-import logoEasyHunt from '../../assets/easyhunt.png'
+import logoEasyHunt from '../../assets/easy.png'
 
 const STAT_TILES = [
   { value: '4-6 Hours', desc: 'spent on a single title search manually' },

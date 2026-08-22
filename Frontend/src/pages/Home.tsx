@@ -89,9 +89,9 @@ export default function Home() {
           mapUrl: 'https://maps.app.goo.gl/TXjPKk6BFvho6c4R7',
         },
         {
-          name: 'Pashan Office',
-          address: 'Legismith Partners LLP, Pashan, Pune',
-          mapUrl: null,
+          name: 'Legismith Partners LLP',
+          address: 'Office No. 507,Sukhwani Boulevard Commerz, Pashan-Sus Road, Above Domnios, Sus. Pune Maharashtra 411021',
+          mapUrl: 'https://www.google.com/maps/place/Legismith+Partners+LLP/@18.5528432,73.7551646,612a,75y,87.03h,90t/data=!3m7!1e1!3m5!1s7itLVbuKwXhTbJ1suLtkOQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3D7itLVbuKwXhTbJ1suLtkOQ%26yaw%3D87.03443356390962!7i16384!8i8192!4m7!3m6!1s0x3bc2bfa66853ed39:0x6339bde89311682b!8m2!3d18.5525751!4d73.7550038!10e5!16s%2Fg%2F11vz6648ss!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D',
         },
       ],
     },
@@ -293,9 +293,7 @@ export default function Home() {
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
-                <Link to="/solutions/use-cases" className="home-ind-link">
-                  {t('common.learnMore', 'Explore solution →')}
-                </Link>
+               
               </article>
             ))}
           </div>

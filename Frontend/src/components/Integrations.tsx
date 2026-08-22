@@ -1,17 +1,20 @@
 import './Integrations.css'
 
 const INTEGRATIONS = [
-  'SAP',
-  'Salesforce',
-  'ServiceNow',
-  'Oracle',
-  'Microsoft',
-  'Workday',
-  'Coupa',
-  'Snowflake',
-  'Databricks',
-  'Google Cloud',
+  'Docker',
+  'Kubernetes',
   'AWS',
+  'Google Cloud',
+  'Microsoft Azure',
+  'OpenAI',
+  'Anthropic',
+  'Hugging Face',
+  'LangChain',
+  'PostgreSQL',
+  'MongoDB',
+  'Redis',
+  'GitHub',
+  'GitLab',
   'Slack',
 ]
 

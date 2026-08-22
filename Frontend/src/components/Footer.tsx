@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logo from '../assets/footerlogo.png'
-import { LinkedInIcon, XIcon, YoutubeIcon } from './icons'
+import { LinkedInIcon, XIcon, InstagramIcon } from './icons'
 import './Footer.css'
 
 export default function Footer() {
@@ -84,10 +84,7 @@ export default function Footer() {
                   BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
                 </a>
               </div>
-              <div>
-                <strong style={{ color: '#e2e8f0' }}>📍 Pashan Office: </strong>
-                <span>Legismith Partners LLP, Pashan, Pune</span>
-              </div>
+             
             </div>
           </div>
 
@@ -112,14 +109,14 @@ export default function Footer() {
             {t('footer.copyright', '© 2026 Encegen AI Labs Inc. All rights reserved.')}
           </span>
           <div className="footer__socials">
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/encegen-ai-labs-pvt-ltd/posts/?feedView=all" aria-label="LinkedIn">
               <LinkedInIcon size={19} />
             </a>
-            <a href="#" aria-label="X (Twitter)">
+            <a href="https://x.com/EncegenAi" aria-label="X (Twitter)">
               <XIcon size={19} />
             </a>
-            <a href="#" aria-label="YouTube">
-              <YoutubeIcon size={21} />
+            <a href="https://www.instagram.com/encegen_ail_labs?igsh=MWdqMTRocXAwZmQzbA%3D%3D" aria-label="Instagram">
+              <InstagramIcon size={21} />
             </a>
           </div>
           <div className="footer__legal">

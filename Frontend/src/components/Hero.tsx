@@ -24,12 +24,7 @@ export default function Hero() {
           {t('home.platform.sub', 'Encegen connects your data, your processes, and your systems into one intelligent layer – so every team has the clarity to act.')}
         </p>
 
-        <div className="hero__ctas">
-          <a href="#" className="hero__cta">
-            {t('home.platform.cta', 'Explore platform')} <ArrowRight size={18} />
-          </a>
-         
-        </div>
+       
 
         <div className="hero__badges">
           {TRUST_BADGES.map((badge) => (

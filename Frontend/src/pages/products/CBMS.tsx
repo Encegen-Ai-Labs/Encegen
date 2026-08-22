@@ -54,7 +54,7 @@ const STAKEHOLDERS = [
 const FAQ = [
   {
     q: 'What is Encegen CBMS?',
-    a: 'Encegen CBMS (Core Business & Operations Management System) is an enterprise operational control plane designed to streamline team management, lead distribution, agent workflows, and live performance analytics across high-throughput business teams.',
+    a: 'Encegen CBMS (Call Back Management System ) is an enterprise operational control plane designed to streamline team management, lead distribution, agent workflows, and live performance analytics across high-throughput business teams.',
   },
   {
     q: 'How does CBMS handle multi-level team permissions?',
@@ -72,7 +72,7 @@ const FAQ = [
 
 export default function CBMS() {
   useEffect(() => {
-    document.title = 'CBMS — Core Business Management System | Encegen AI Labs'
+    document.title = 'CBMS — Call Back Management System | Encegen AI Labs'
   }, [])
 
   return (

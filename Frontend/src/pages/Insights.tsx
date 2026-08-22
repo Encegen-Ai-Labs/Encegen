@@ -230,9 +230,7 @@ export default function Insights() {
             <Btn variant="white" onClick={() => window.scrollTo({ top: 500, behavior: 'smooth' })}>
               Browse all insights →
             </Btn>
-            <Btn variant="outline-light" onClick={() => document.getElementById('newsletter-section')?.scrollIntoView({ behavior: 'smooth' })}>
-              Subscribe to newsletter
-            </Btn>
+          
           </>
         }
       />
@@ -394,17 +392,7 @@ export default function Insights() {
             </p>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 48 }}>
-            <Btn
-              variant="lavender"
-              onClick={() => {
-                setTab('All')
-                setTopicQuery('')
-              }}
-            >
-              Browse all insights ({insightsList.length}) →
-            </Btn>
-          </div>
+          
         </div>
       </section>
 
@@ -429,21 +417,6 @@ export default function Insights() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section id="newsletter-section" className="newsletter">
-        <div className="container">
-          <h2>Stay ahead of the curve</h2>
-          <p>
-            Join 50,000+ process leaders. Weekly insights, reports, and event invites — straight to
-            your inbox.
-          </p>
-          <form className="newsletter__form" onSubmit={(e) => { e.preventDefault(); alert('Thank you for subscribing to Encegen Insights!'); }}>
-            <input type="email" required placeholder="Enter your work email" />
-            <button type="submit">Subscribe →</button>
-          </form>
-          <p className="newsletter__note">✓ No spam ✓ Unsubscribe anytime ✓ 50,000+ subscribers</p>
-        </div>
-      </section>
 
       {/* INTERACTIVE READER & MEDIA MODAL */}
       {selectedInsight && (

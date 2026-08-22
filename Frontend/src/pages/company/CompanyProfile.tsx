@@ -57,21 +57,21 @@ const VALUES = [
 
 const LEADERSHIP = [
   {
-    name: 'Nachiket Kulkarni',
-    role: 'Founder & CEO',
-    initials: 'NK',
+    name: 'Mr. Saurabh Anil Gite',
+    role: 'Founder & Managing Director',
+    initials: 'SG',
     bg: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
   },
   {
-    name: 'Hardik Mandavkar',
-    role: 'Chief Technology Officer',
-    initials: 'HM',
+    name: 'Mr. Amar Gite',
+    role: 'Co-Founder',
+    initials: 'AG',
     bg: 'linear-gradient(135deg, #0284c7, #2563eb)',
   },
   {
-    name: 'Nitin Kowe',
-    role: 'Head of AI Research & Models',
-    initials: 'NK',
+    name: 'Mr. Laxman Dagade',
+    role: 'Operations Manager',
+    initials: 'LD',
     bg: 'linear-gradient(135deg, #059669, #0d9488)',
   },
   {
