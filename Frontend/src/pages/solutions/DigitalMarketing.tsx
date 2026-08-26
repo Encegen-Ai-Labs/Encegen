@@ -123,7 +123,7 @@ export default function DigitalMarketing() {
             <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         trustedLabel="trusted by"
       />
 
@@ -303,7 +303,7 @@ export default function DigitalMarketing() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Your growth story starts with the"
         line2="right data."
         sub="Tell us your current cost of acquisition, your revenue goal, and your biggest bottleneck. We'll build the system to close the gap."

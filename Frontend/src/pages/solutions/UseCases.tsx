@@ -447,7 +447,7 @@ export default function UseCases() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Ready to put AI to work?"
         sub="See what Encegen AI can do for your highest-priority processes."
         primary={{ label: 'Explore the platform →', to: '/platform' }}

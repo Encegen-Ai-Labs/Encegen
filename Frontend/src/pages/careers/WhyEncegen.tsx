@@ -209,9 +209,9 @@ export default function WhyEncegen() {
       <section className="section section--lavender">
         <div className="container">
           <SectionHead eyebrow="Chapter 05 · Where You Fit" title="Find where you belong." />
-          <div className="cards-2">
+          <div className="dept-cards-single-wrap">
             {DEPT_CARDS.map((d) => (
-              <div key={d.title} className="dept-card" style={{ ['--dept-color' as string]: d.color }}>
+              <div key={d.title} className="dept-card dept-card--single" style={{ ['--dept-color' as string]: d.color }}>
                 <h3>{d.title}</h3>
                 <span className="count">{d.count}</span>
                 <p>{d.desc}</p>

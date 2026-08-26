@@ -76,7 +76,7 @@ export default function HrPortal() {
           </>
         }
         sub="EasyHunt uses intelligent matching, automated screening, and real-time analytics to connect the best candidates with the best opportunities – 10x faster than traditional hiring."
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         trustedLabel="trusted by our enterprise clients"
       >
         <div style={{ width: '100%', maxWidth: 680, marginTop: 56 }}>

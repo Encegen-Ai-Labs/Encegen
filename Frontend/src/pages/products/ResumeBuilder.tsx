@@ -58,7 +58,6 @@ export default function ResumeBuilder() {
         actions={
           <>
             <Btn to="#how-it-works" variant="white">How it works</Btn>
-            <Btn to="#features" variant="outline-light">See Features</Btn>
           </>
         }
       >

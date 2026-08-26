@@ -6,6 +6,19 @@ import logoEasyHunt from '../../assets/easyhunt.png'
 import logoPramay from '../../assets/pramay.png'
 import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
+
+import photoSaurabh from '../../assets/Saurabh.png'
+import photoSwamini from '../../assets/Swamini Hirolikar.jpeg'
+import photoChaitanya from '../../assets/Chaitanya pimpre.jpg'
+import photoRutuja from '../../assets/Rutuja Jadhav.jpg'
+import photoNayana from '../../assets/Nayana Visapute.jpg'
+import photoShruti from '../../assets/shruti Jadhav.jpg'
+import photopoonam from '../../assets/Poonam.jpeg'
+import photoKartik from '../../assets/Kartik.webp'
+import photoPriya from '../../assets/priya gawhane.jpg'
+import photoAditya from '../../assets/aditya nalla.png'
+import photoamar from '../../assets/amar gite.jpg'
+
 import './CompanyProfile.css'
 
 const STATS = [
@@ -55,54 +68,85 @@ const VALUES = [
   },
 ]
 
-const LEADERSHIP = [
+const TEAM_MEMBERS = [
   {
-    name: 'Mr. Saurabh Anil Gite',
-    role: 'Founder & Managing Director',
+    name: 'Saurabh Gite',
+    role: 'Managing Director',
+    image: photoSaurabh,
     initials: 'SG',
     bg: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
   },
   {
-    name: 'Mr. Amar Gite',
+    name: 'Amar Gite',
     role: 'Co-Founder',
+    image: photoamar,
     initials: 'AG',
+    
     bg: 'linear-gradient(135deg, #0284c7, #2563eb)',
   },
+
   {
-    name: 'Mr. Laxman Dagade',
-    role: 'Operations Manager',
-    initials: 'LD',
-    bg: 'linear-gradient(135deg, #059669, #0d9488)',
-  },
-  {
-    name: 'Shweta Dhawale',
-    role: 'Director of Product & Strategy',
-    initials: 'SD',
+    name: 'Swamini Hirolikar',
+    role: 'HR Executive',
+    image: photoSwamini,
+    initials: 'SH',
     bg: 'linear-gradient(135deg, #db2777, #9333ea)',
   },
   {
-    name: 'Sakshi Patil',
-    role: 'Lead Quantitative Architect',
-    initials: 'SP',
-    bg: 'linear-gradient(135deg, #ea580c, #d97706)',
-  },
-  {
-    name: 'Sahil Patil',
-    role: 'Principal Full-Stack Engineer',
-    initials: 'SP',
+    name: 'Chaitanya Pimpre',
+    role: 'Jr. Full Stack Developer',
+    image: photoChaitanya,
+    initials: 'CP',
     bg: 'linear-gradient(135deg, #6366f1, #3b82f6)',
   },
   {
-    name: 'Minakshi Gorde',
-    role: 'Head of Enterprise Solutions',
-    initials: 'MG',
+    name: 'Priya Gawhane',
+    role: 'Jr. AI/ML Developer',
+    image: photoPriya,
+    initials: 'PG',
+    bg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+  },
+  {
+    name: 'Poonam Harinkhede',
+    role: 'Jr. AI/ML Developer',
+    initials: 'PH',
+    image: photopoonam,
+    bg: 'linear-gradient(135deg, #ea580c, #d97706)',
+  },
+  {
+    name: 'Rutuja Jadhav',
+    role: 'Jr. Software Tester',
+    image: photoRutuja,
+    initials: 'RJ',
     bg: 'linear-gradient(135deg, #0891b2, #4f46e5)',
   },
   {
-    name: 'Yash Gaikwad',
-    role: 'VP of Operations & Delivery',
-    initials: 'YG',
-    bg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+    name: 'Nayana Visapute',
+    role: 'Jr. Software Tester',
+    image: photoNayana,
+    initials: 'NV',
+    bg: 'linear-gradient(135deg, #10b981, #059669)',
+  },
+  {
+    name: 'Shruti Jadhav',
+    role: 'Jr. Full Stack Developer',
+    image: photoShruti,
+    initials: 'SJ',
+    bg: 'linear-gradient(135deg, #f59e0b, #d97706)',
+  },
+  {
+    name: 'Kartik Ghodake',
+    role: 'Jr. UI/UX Designer',
+    image: photoKartik,
+    initials: 'KG',
+    bg: 'linear-gradient(135deg, #6366f1, #a855f7)',
+  },
+  {
+    name: 'Aditya Nalla',
+    role: 'AI/ML Developer',
+    image: photoAditya,
+    initials: 'AN',
+    bg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
   },
 ]
 
@@ -132,11 +176,11 @@ const TESTIMONIALS = [
     tag: 'Heritage & Scholarship',
   },
   {
-    company: 'Pramy Agro',
+    company: 'Pramay Agro',
     logo: logoPramay,
     quote:
       'The automated workflow agent and specialized distribution portal Encegen deployed transformed our agricultural fertilizer ordering and warehouse dispatch.',
-    client: 'Pramy Agro Operations',
+    client: 'Pramay Agro Operations',
     tag: 'Agri-Tech E-Commerce',
   },
 ]
@@ -255,14 +299,18 @@ export default function CompanyProfile() {
           </div>
 
           <div className="cp-leader-grid">
-            {LEADERSHIP.map((l) => (
-              <div key={l.name} className="cp-leader-card">
-                <div className="cp-leader-avatar" style={{ background: l.bg }}>
-                  {l.initials}
-                </div>
+            {TEAM_MEMBERS.map((m) => (
+              <div key={m.name} className="cp-leader-card">
+                {m.image ? (
+                  <img src={m.image} alt={m.name} className="cp-leader-photo" />
+                ) : (
+                  <div className="cp-leader-avatar" style={{ background: m.bg }}>
+                    {m.initials}
+                  </div>
+                )}
                 <div className="cp-leader-info">
-                  <h3>{l.name}</h3>
-                  <span>{l.role}</span>
+                  <h3>{m.name}</h3>
+                  <span>{m.role}</span>
                 </div>
               </div>
             ))}

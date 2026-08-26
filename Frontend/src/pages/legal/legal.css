@@ -5,9 +5,11 @@
 }
 
 .legal-hero {
-  background: linear-gradient(180deg, #100e28 0%, #17153a 100%);
+  background:
+    radial-gradient(700px 420px at 50% 0%, rgba(124, 92, 255, 0.35), transparent 65%),
+    linear-gradient(180deg, #100e28 0%, #17153a 100%);
   color: #ffffff;
-  padding: clamp(3.5rem, 3rem + 2vw, 5.5rem) 0 clamp(2.5rem, 2rem + 1.5vw, 4rem);
+  padding: clamp(6.75rem, 6.2rem + 2.2vw, 9.25rem) 0 clamp(2.5rem, 2rem + 1.5vw, 4rem);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -30,24 +32,25 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
+  padding: var(--space-2xs, 0.4rem) var(--space-sm, 1rem);
   border-radius: 999px;
   background: rgba(124, 92, 255, 0.16);
-  border: 1px solid rgba(124, 92, 255, 0.32);
+  border: 1px solid rgba(124, 92, 255, 0.35);
   color: #c4b5fd;
-  font-size: 0.825rem;
+  font-size: var(--fs-sm, 0.85rem);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-xs, 1rem);
 }
 
 .legal-hero__title {
-  font-size: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  font-size: clamp(2.25rem, 1.85rem + 2vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: #ffffff;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 

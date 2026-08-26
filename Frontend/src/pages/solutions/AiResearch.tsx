@@ -252,7 +252,7 @@ export default function AiResearch() {
             <Btn to="#capabilities" variant="outline-light">Explore capabilities →</Btn>
           </>
         }
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -413,7 +413,7 @@ export default function AiResearch() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Tell us the problem."
         line2="We'll build the AI."
         sub="No generic tool, no off-the-shelf model. Research-grade custom AI, built for your exact challenge and delivered on a timeline you can plan around."

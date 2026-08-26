@@ -119,7 +119,7 @@ export default function CustomSoftware() {
             <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -255,7 +255,7 @@ export default function CustomSoftware() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Ready to build software that fits"
         line2="your business perfectly?"
         sub="Tell us what you need. We'll scope it, design it, and ship it — on a fixed price and a timeline you can hold us to."

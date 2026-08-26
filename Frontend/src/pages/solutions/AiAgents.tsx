@@ -122,7 +122,7 @@ export default function AiAgents() {
         badge={<>● Encegen AI Labs · Agent Automation</>}
         title="Your team is doing work a machine should have finished hours ago."
         sub="Every day, exceptions pile up — approvals waiting, records re-keyed between systems, queues that only move when a person clears them. That's your best people spending their hours on work an agent can own end to end."
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 
       <GradBand quote="What if the exception cleared itself before anyone opened the queue?" />
@@ -242,7 +242,7 @@ export default function AiAgents() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Your story starts with"
         line2="one agent."
         sub="No generic tool, no off-the-shelf model. One agent, built for your exact bottleneck, live in days — then a second, then a team."

@@ -23,11 +23,14 @@ type NavItem = {
 }
 
 export default function Navbar() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null)
+  const [activeDesktopMenu, setActiveDesktopMenu] = useState<string | null>(null)
+  const leaveTimeoutRef = useRef<any>(null)
+  const headerRef = useRef<HTMLElement>(null)
   
   // Secret 3-Tap Admin Login Trigger state
   const [showAdminModal, setShowAdminModal] = useState(false)
@@ -157,6 +160,43 @@ export default function Navbar() {
     }, 1000)
   }
 
+  const closeAllMenus = () => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current)
+    }
+    setActiveDesktopMenu(null)
+    setMobileOpen(false)
+    setExpandedMobileMenu(null)
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
+  }
+
+  const handleDesktopMouseEnter = (key: string) => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current)
+    }
+    setActiveDesktopMenu(key)
+  }
+
+  const handleDesktopMouseLeave = () => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current)
+    }
+    leaveTimeoutRef.current = setTimeout(() => {
+      setActiveDesktopMenu(null)
+    }, 180)
+  }
+
+  const handleToggleDesktopMenu = (key: string, e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current)
+    }
+    setActiveDesktopMenu((prev) => (prev === key ? null : key))
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
@@ -165,9 +205,27 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    setMobileOpen(false)
-    setExpandedMobileMenu(null)
-  }, [pathname])
+    closeAllMenus()
+  }, [pathname, hash])
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        closeAllMenus()
+      }
+    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeAllMenus()
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   const toggleMobileAccordion = (key: string) => {
     setExpandedMobileMenu((prev) => (prev === key ? null : key))
@@ -176,10 +234,10 @@ export default function Navbar() {
   const cls = ['navbar', scrolled ? 'navbar--scrolled' : 'navbar--top', 'notranslate'].join(' ')
 
   return (
-    <header className={cls} translate="no">
+    <header ref={headerRef} className={cls} translate="no">
       <AdminLoginModal isOpen={showAdminModal} onClose={() => setShowAdminModal(false)} />
       <div className="container navbar__inner">
-        <Link to="/" className="navbar__logo" onClick={handleLogoClick} title={t('navbar.tripleTapHint', 'Triple tap to open Admin Panel')}>
+        <Link to="/" className="navbar__logo" onClick={(e) => { closeAllMenus(); handleLogoClick(e); }} title={t('navbar.tripleTapHint', 'Triple tap to open Admin Panel')}>
           <img src={logo} alt="Encegen AI Labs" />
         </Link>
 
@@ -187,14 +245,29 @@ export default function Navbar() {
         <nav className="navbar__links" aria-label="Main navigation">
           {navItems.map((item) =>
             item.mega ? (
-              <div key={item.key} className="navbar__group">
-                <button className="navbar__link" type="button">
+              <div
+                key={item.key}
+                className={`navbar__group ${activeDesktopMenu === item.key ? 'is-open' : ''}`}
+                onMouseEnter={() => handleDesktopMouseEnter(item.key)}
+                onMouseLeave={handleDesktopMouseLeave}
+              >
+                <button
+                  className={`navbar__link ${activeDesktopMenu === item.key ? 'navbar__link--active' : ''}`}
+                  type="button"
+                  onClick={(e) => handleToggleDesktopMenu(item.key, e)}
+                  aria-expanded={activeDesktopMenu === item.key}
+                  aria-haspopup="true"
+                >
                   {item.label}
                   <ChevronDown size={16} className="navbar__chevron" />
                 </button>
                 <div className="navbar__mega">
                   <div className="container navbar__mega-inner">
-                    <Link to={item.mega.featured.to} className="navbar__mega-card">
+                    <Link
+                      to={item.mega.featured.to}
+                      className="navbar__mega-card"
+                      onClick={closeAllMenus}
+                    >
                       <span>{item.mega.featured.title}</span>
                       <span className="navbar__mega-arrow">
                         <ArrowRight size={16} />
@@ -204,7 +277,12 @@ export default function Navbar() {
                       <div key={col.heading} className="navbar__mega-col">
                         <h4>{col.heading}</h4>
                         {col.links.map((link) => (
-                          <Link key={link.label} to={link.to} className="navbar__mega-link">
+                          <Link
+                            key={link.label}
+                            to={link.to}
+                            className="navbar__mega-link"
+                            onClick={closeAllMenus}
+                          >
                             {link.label}
                           </Link>
                         ))}
@@ -217,6 +295,7 @@ export default function Navbar() {
               <NavLink
                 key={item.key}
                 to={item.to!}
+                onClick={closeAllMenus}
                 className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
               >
                 {item.label}
@@ -257,7 +336,7 @@ export default function Navbar() {
           
           {/* Mobile Search Input Bar */}
           <div className="navbar__mobile-search-wrap">
-            <Link to="/search" className="navbar__mobile-search-btn" onClick={() => setMobileOpen(false)}>
+            <Link to="/search" className="navbar__mobile-search-btn" onClick={closeAllMenus}>
               <SearchIcon size={18} />
               <span>{t('navbar.searchPlaceholder', 'Search products, solutions...')}</span>
             </Link>
@@ -277,7 +356,7 @@ export default function Navbar() {
                 </button>
 
                 <div className={`navbar__mobile-accordion ${expandedMobileMenu === item.key ? 'is-open' : ''}`}>
-                  <Link to={item.mega.featured.to} className="navbar__mobile-link navbar__mobile-link--featured">
+                  <Link to={item.mega.featured.to} className="navbar__mobile-link navbar__mobile-link--featured" onClick={closeAllMenus}>
                     🔥 {item.mega.featured.title}
                   </Link>
 
@@ -285,7 +364,7 @@ export default function Navbar() {
                     <div key={col.heading} className="navbar__mobile-subcol">
                       <span className="navbar__mobile-group-label">{col.heading}</span>
                       {col.links.map((link) => (
-                        <Link key={link.label} to={link.to} className="navbar__mobile-link">
+                        <Link key={link.label} to={link.to} className="navbar__mobile-link" onClick={closeAllMenus}>
                           {link.label}
                         </Link>
                       ))}
@@ -294,7 +373,7 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Link key={item.key} to={item.to!} className="navbar__mobile-link navbar__mobile-link--top">
+              <Link key={item.key} to={item.to!} className="navbar__mobile-link navbar__mobile-link--top" onClick={closeAllMenus}>
                 {item.label}
               </Link>
             ),
@@ -302,7 +381,7 @@ export default function Navbar() {
 
           {/* Mobile Multilingual Language Selector (Replaces Get Demo) */}
           <div className="navbar__mobile-actions">
-            <LanguageSelector isMobile onSelect={() => setMobileOpen(false)} />
+            <LanguageSelector isMobile onSelect={closeAllMenus} />
           </div>
 
         </nav>

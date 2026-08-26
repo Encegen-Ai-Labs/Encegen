@@ -114,7 +114,7 @@ export default function WebEcommerce() {
             <Btn to="/insights" variant="outline-light">See case studies →</Btn>
           </>
         }
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 
       <GradBand
@@ -240,7 +240,7 @@ export default function WebEcommerce() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramy Agro', 'FxAlgo']}
+        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         line1="Your website story starts with"
         line2="one conversation."
         sub="Tell us what you need to build. We'll design it, build it, and make sure it performs."

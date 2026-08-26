@@ -211,3 +211,6 @@
 .why-hero {
   padding-top: clamp(6.75rem, 6.2rem + 2.2vw, 9.375rem);
 }
+.legal-hero {
+  padding-top: clamp(6.75rem, 6.2rem + 2.2vw, 9.25rem);
+}
