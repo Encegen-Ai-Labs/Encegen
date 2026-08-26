@@ -1,5 +1,4 @@
 import {
-  Btn,
   ClosingCTA,
   GradBand,
   MockPanel,
@@ -109,11 +108,6 @@ export default function WebEcommerce() {
           </>
         }
         sub="From high-performance marketing sites to full-scale commerce platforms, we build digital experiences that drive measurable, compounding growth — not just ones that photograph well."
-        actions={
-          <>
-            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
-          </>
-        }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 

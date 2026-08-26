@@ -50,13 +50,8 @@ export default function Security() {
         </div>
 
         <div className="security__badges">
-          {BADGES.map((badge, index) => (
-            <span
-              key={badge}
-              className={`security__badge ${
-                index === BADGES.length - 1 ? 'security__badge--muted' : ''
-              }`}
-            >
+          {BADGES.map((badge) => (
+            <span key={badge} className="security__badge">
               {badge}
             </span>
           ))}

@@ -1,5 +1,4 @@
 import {
-  Btn,
   ClosingCTA,
   GradBand,
   MockPanel,
@@ -114,11 +113,6 @@ export default function CustomSoftware() {
           </>
         }
         sub="We design and build scalable, AI-native platforms that fit your operation — not software you have to bend your operation around. Delivered in months, not years."
-        actions={
-          <>
-            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
-          </>
-        }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 

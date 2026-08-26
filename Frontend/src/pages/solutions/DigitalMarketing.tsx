@@ -1,5 +1,4 @@
 import {
-  Btn,
   ClosingCTA,
   GradBand,
   MockPanel,
@@ -118,11 +117,6 @@ export default function DigitalMarketing() {
           </>
         }
         sub="From AI-driven SEO to full-funnel paid media, we build growth systems that acquire, convert, and keep customers — and show you exactly which channel did the work."
-        actions={
-          <>
-            <Btn to="/insights" variant="outline-light">See case studies →</Btn>
-          </>
-        }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
         trustedLabel="trusted by"
       />

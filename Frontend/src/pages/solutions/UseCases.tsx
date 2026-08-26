@@ -274,9 +274,6 @@ export default function UseCases() {
               <span>✓ Connects insight directly to action</span>
               <span>✓ Learns a little more with every cycle</span>
             </div>
-            <div style={{ marginTop: 32 }}>
-              <Btn to="/platform" variant="lavender">See how it works →</Btn>
-            </div>
           </div>
           <MockPanel
             title="Traditional AI vs Encegen"
