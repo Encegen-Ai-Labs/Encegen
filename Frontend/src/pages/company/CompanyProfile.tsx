@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { Btn } from '../../components/kit'
 import ContactModal from '../../components/ContactModal'
@@ -71,7 +71,19 @@ const VALUES = [
   },
 ]
 
-const TEAM_MEMBERS = [
+interface TeamMember {
+  name: string
+  role: string
+  image?: string
+  initials: string
+  bg: string
+  /** object-position value; also used as transform-origin for `zoom`. Defaults to "center 30%". */
+  focus?: string
+  /** scale multiplier applied to the photo, for subjects that sit small/low in frame. Defaults to 1. */
+  zoom?: number
+}
+
+const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Saurabh Gite',
     role: 'Managing Director',
@@ -101,6 +113,8 @@ const TEAM_MEMBERS = [
     image: photoChaitanya,
     initials: 'CP',
     bg: 'linear-gradient(135deg, #6366f1, #3b82f6)',
+    focus: 'center 30%',
+    zoom: 1,
   },
   {
     name: 'Priya Gawhane',
@@ -108,6 +122,8 @@ const TEAM_MEMBERS = [
     image: photoPriya,
     initials: 'PG',
     bg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+    focus: '53% 15%',
+    zoom: 1,
   },
   {
     name: 'Poonam Harikhede',
@@ -115,6 +131,8 @@ const TEAM_MEMBERS = [
     initials: 'PH',
     image: photopoonam,
     bg: 'linear-gradient(135deg, #ea580c, #d97706)',
+    focus: 'center 26%',
+    zoom: 1,
   },
   {
     name: 'Rutuja Jadhav',
@@ -122,6 +140,8 @@ const TEAM_MEMBERS = [
     image: photoRutuja,
     initials: 'RJ',
     bg: 'linear-gradient(135deg, #0891b2, #4f46e5)',
+    focus: 'center 20%',
+    zoom: 1.5,
   },
   {
     name: 'Nayana Visapute',
@@ -129,6 +149,8 @@ const TEAM_MEMBERS = [
     image: photoNayana,
     initials: 'NV',
     bg: 'linear-gradient(135deg, #10b981, #059669)',
+    focus: '50% 25%',
+    zoom: 1,
   },
   {
     name: 'Shruti Jadhav',
@@ -157,6 +179,8 @@ const TEAM_MEMBERS = [
     image: photoVishit,
     initials: 'VJ',
     bg: 'linear-gradient(135deg, #16a34a, #0891b2)',
+    focus: '50% 50%',
+    zoom: 2.2,
   },
   {
     name: 'Ishan Kalhe',
@@ -164,6 +188,8 @@ const TEAM_MEMBERS = [
     image: photoIshan,
     initials: 'IK',
     bg: 'linear-gradient(135deg, #7c3aed, #4f46e5)',
+    focus: 'center 30%',
+    zoom: 1,
   },
   {
     name: 'Nachiket Khade',
@@ -171,6 +197,8 @@ const TEAM_MEMBERS = [
     image: photoNachiket,
     initials: 'NK',
     bg: 'linear-gradient(135deg, #d946ef, #9333ea)',
+    focus: 'center 28%',
+    zoom: 1.12,
   },
 ]
 
@@ -326,7 +354,18 @@ export default function CompanyProfile() {
             {TEAM_MEMBERS.map((m) => (
               <div key={m.name} className="cp-leader-card">
                 {m.image ? (
-                  <img src={m.image} alt={m.name} className="cp-leader-photo" />
+                  <div className="cp-leader-photo-wrap">
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      className="cp-leader-photo"
+                      style={{
+                        objectPosition: m.focus ?? 'center 30%',
+                        transformOrigin: m.focus ?? 'center 30%',
+                        ['--zoom' as string]: m.zoom ?? 1,
+                      } as CSSProperties}
+                    />
+                  </div>
                 ) : (
                   <div className="cp-leader-avatar" style={{ background: m.bg }}>
                     {m.initials}
