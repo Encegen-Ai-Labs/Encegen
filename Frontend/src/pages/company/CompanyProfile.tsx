@@ -9,15 +9,18 @@ import logoFxAlgo from '../../assets/fxalgo.png'
 
 import photoSaurabh from '../../assets/Saurabh.png'
 import photoSwamini from '../../assets/Swamini Hirolikar.jpeg'
-import photoChaitanya from '../../assets/Chaitanya pimpre.jpg'
-import photoRutuja from '../../assets/rutuja jadhav.jpg'
+import photoChaitanya from '../../assets/team/chaitanya-pimpre.png'
+import photoRutuja from '../../assets/team/rutuja-jadhav.jpeg'
 import photoNayana from '../../assets/Nayana Visapute.jpg'
 import photoShruti from '../../assets/shruti Jadhav.jpg'
-import photopoonam from '../../assets/poonam.jpeg'
+import photopoonam from '../../assets/team/poonam-harikhede.png'
 import photoKartik from '../../assets/Kartik.webp'
 import photoPriya from '../../assets/priya gawhane.jpg'
 import photoAditya from '../../assets/aditya nalla.png'
 import photoamar from '../../assets/amar gite.jpg'
+import photoVishit from '../../assets/team/vishit-jiwane.jpeg'
+import photoIshan from '../../assets/team/ishan-kalhe.png'
+import photoNachiket from '../../assets/team/nachiket-khade.png'
 
 import './CompanyProfile.css'
 
@@ -107,7 +110,7 @@ const TEAM_MEMBERS = [
     bg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
   },
   {
-    name: 'Poonam Harinkhede',
+    name: 'Poonam Harikhede',
     role: 'Jr. AI/ML Developer',
     initials: 'PH',
     image: photopoonam,
@@ -147,6 +150,27 @@ const TEAM_MEMBERS = [
     image: photoAditya,
     initials: 'AN',
     bg: 'linear-gradient(135deg, #06b6d4, #3b82f6)',
+  },
+  {
+    name: 'Vishit Jiwane',
+    role: 'Jr. AI/ML Developer',
+    image: photoVishit,
+    initials: 'VJ',
+    bg: 'linear-gradient(135deg, #16a34a, #0891b2)',
+  },
+  {
+    name: 'Ishan Kalhe',
+    role: 'AI/ML Trainee',
+    image: photoIshan,
+    initials: 'IK',
+    bg: 'linear-gradient(135deg, #7c3aed, #4f46e5)',
+  },
+  {
+    name: 'Nachiket Khade',
+    role: 'AI/ML Trainee',
+    image: photoNachiket,
+    initials: 'NK',
+    bg: 'linear-gradient(135deg, #d946ef, #9333ea)',
   },
 ]
 

@@ -15,7 +15,7 @@ import './solutions.css'
 const PRODUCTS = [
   {
     tag: 'Talent Management',
-    title: 'TalentBridge',
+    title: 'EnciHire',
     desc: 'An AI-powered internship and placement platform that matches candidates, corporates, and placement teams — and tracks every step in one place.',
     meta: '3-6 months delivery',
     note: 'Enterprise',
