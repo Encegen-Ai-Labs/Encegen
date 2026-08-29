@@ -304,12 +304,14 @@
 
 .cp-leader-photo {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   display: block;
   background: #f1f5f9;
   transition: transform 0.3s ease;
+  transform-origin: center top;
 }
 
 .cp-leader-card:hover .cp-leader-photo {
@@ -318,7 +320,8 @@
 
 .cp-leader-avatar {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
