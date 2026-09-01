@@ -110,7 +110,7 @@ const TEAM_MEMBERS = [
     bg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
   },
   {
-    name: 'Poonam Harikhede',
+    name: 'Poonam Harinkhede',
     role: 'Jr. AI/ML Developer',
     initials: 'PH',
     image: photopoonam,

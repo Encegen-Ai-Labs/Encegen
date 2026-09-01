@@ -36,8 +36,8 @@
   width: clamp(3rem, 2.7rem + 1vw, 3.875rem);
   height: clamp(3rem, 2.7rem + 1vw, 3.875rem);
   border-radius: 14px;
-  background: var(--lavender-100);
-  color: var(--purple-600);
+  background: var(--purple-600);
+  color: #fff;
 }
 
 .modules__card h3 {

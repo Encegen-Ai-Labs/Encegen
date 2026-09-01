@@ -478,7 +478,7 @@
 
 .tcard__person {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: var(--space-2xs);
   margin-top: var(--space-sm);
