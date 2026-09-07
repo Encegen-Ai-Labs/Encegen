@@ -19,7 +19,7 @@ const AGENTS = [
   { icon: '🔁', title: 'Invoice Matching', desc: 'Runs three-way matches across any ERP, automatically, every time.', tag: 'AP', art: 'blue' },
   { icon: '🧑‍💼', title: 'Onboarding Agent', desc: 'Gets a new hire fully set up across HR, IT, and facilities on day one.', tag: 'HR', art: 'green' },
   { icon: '🎧', title: 'Support Ticket Agent', desc: 'Reads, sorts, routes, and resolves incoming tickets without a hand-off.', tag: 'Support', art: 'cyan' },
-  { icon: '🛡', title: 'Compliance Monitor', desc: 'Watches every transaction and flags a breach before it becomes one.', tag: 'Compliance', art: 'orange' },
+  { icon: '🛡️', title: 'Compliance Monitor', desc: 'Watches every transaction and flags a breach before it becomes one.', tag: 'Compliance', art: 'orange' },
   { icon: '📈', title: 'Demand Planning', desc: 'Reads the signals and adjusts your inventory forecast daily, not quarterly.', tag: 'Planning', art: 'magenta' },
 ]
 

@@ -11,7 +11,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     case 'purple':
       return (
         <div className={`cap-art cap-art--purple ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#a855f7" stopOpacity="0.85" />
@@ -67,7 +67,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     case 'cyan':
       return (
         <div className={`cap-art cap-art--cyan ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
@@ -118,7 +118,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     case 'orange':
       return (
         <div className={`cap-art cap-art--orange ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.75" />
@@ -180,7 +180,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     case 'blue':
       return (
         <div className={`cap-art cap-art--blue ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#6366f1" stopOpacity="0.8" />
@@ -232,7 +232,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     case 'green':
       return (
         <div className={`cap-art cap-art--green ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="greenGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#10b981" stopOpacity="0.75" />
@@ -286,7 +286,7 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
     default:
       return (
         <div className={`cap-art cap-art--magenta ${className}`}>
-          <svg className="cap-art__svg" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="cap-art__svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="pinkGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#ec4899" stopOpacity="0.8" />

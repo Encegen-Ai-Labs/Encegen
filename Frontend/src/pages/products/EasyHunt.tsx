@@ -41,7 +41,7 @@ const PLATFORM = [
   { icon: '🏛', title: 'Government-sourced data', desc: 'Built from official Maharashtra datasets like Bhulekh and Mahabhumi, covering key areas including Pune, Mumbai and Nagpur.' },
   { icon: '✨', title: 'Smart name matching', desc: 'Handles spelling variations and transliterations, so a name spelled two ways still surfaces the right record.' },
   { icon: '⚡', title: 'Full records, not snippets', desc: 'See the complete entry — ownership, survey details, dates and remarks — in one place, without switching files.' },
-  { icon: '⚖', title: 'Export to PDF or Excel', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
+  { icon: '⚖', title: 'Export to Word', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
   { icon: '🔐', title: 'Search history', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
 ]
 

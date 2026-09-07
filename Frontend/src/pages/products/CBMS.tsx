@@ -37,11 +37,11 @@ const HOW = [
 
 const CAPABILITIES = [
   { icon: '🎯', title: 'Intelligent Workload Distribution', desc: 'Dynamic load-balancing algorithms that distribute tasks and customer leads to active team members.' },
-  { icon: '👥', title: 'Multi-Tier Hierarchy Control', desc: 'Granular permissions and view scopes for Super Admins, Operations Managers, Team Leaders, and Agents.' },
+  { icon: '🏢', title: 'Multi-Tier Hierarchy Control', desc: 'Granular permissions and view scopes for Super Admins, Operations Managers, Team Leaders, and Agents.' },
   { icon: '⏰', title: 'Automated Callback & Follow-up Engine', desc: 'Proactive reminder notifications ensure no client callback or deadline is overlooked.' },
   { icon: '📊', title: 'Real-Time KPI Dashboards', desc: 'Live operational metrics tracking conversion velocity, contact rates, ticket resolution, and agent utilization.' },
   { icon: '⚡', title: 'Audit Trail & Compliance', desc: 'Immutable activity logs recording all status changes, communications, edits, and administrative overrides.' },
-  { icon: '🔌', title: 'Seamless Enterprise Integrations', desc: 'Pre-built connectors for telephony systems, CRMs, ERPs, webhooks, and database pipelines.' },
+  { icon: '🔗', title: 'Seamless Enterprise Integrations', desc: 'Pre-built connectors for telephony systems, CRMs, ERPs, webhooks, and database pipelines.' },
 ]
 
 const STAKEHOLDERS = [
