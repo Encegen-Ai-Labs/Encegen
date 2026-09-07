@@ -259,13 +259,19 @@ export function TestimonialCard({ tag, color = '#22c55e', quote, initials, name,
         <Stars />
       </div>
       <p className="tcard__quote">“{quote}”</p>
-      <div className="tcard__person">
-        <Avatar text={initials} hue={hue} size={42} />
-        <span className="tcard__who">
-          <strong>{name}</strong>
-          <span>{role}</span>
-        </span>
-        {metric && <span className="tcard__metric">{metric}</span>}
+      <div className="tcard__foot">
+        <div className="tcard__person">
+          <Avatar text={initials} hue={hue} size={42} />
+          <span className="tcard__who">
+            <strong>{name}</strong>
+            <span>{role}</span>
+          </span>
+        </div>
+        {metric && (
+          <div className="tcard__meta-bar">
+            <span className="tcard__metric">{metric}</span>
+          </div>
+        )}
       </div>
     </article>
   )
