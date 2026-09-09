@@ -1,0 +1,201 @@
+/* ==========================================================
+   LANGUAGE SELECTOR DROPDOWN
+========================================================== */
+
+.lang-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-selector__button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #f1efff;
+  border: 1px solid rgba(91, 69, 214, 0.15);
+  color: #111111;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(91, 69, 214, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.lang-selector__button:hover {
+  background: #e5e1ff;
+  border-color: rgba(91, 69, 214, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(91, 69, 214, 0.18);
+}
+
+.lang-selector.is-active .lang-selector__button {
+  background: #5b45d6;
+  color: #ffffff;
+  border-color: #5b45d6;
+  box-shadow: 0 6px 20px rgba(91, 69, 214, 0.35);
+}
+
+.lang-selector__globe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.lang-selector__current-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-selector__flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.lang-selector__text {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.lang-selector__chevron {
+  color: inherit;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lang-selector__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================
+   DROPDOWN MENU
+========================================================== */
+
+.lang-selector__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 230px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 20, 50, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 16px 36px rgba(20, 20, 50, 0.16), 0 4px 12px rgba(91, 69, 214, 0.08);
+  padding: 8px 0;
+  z-index: 1100;
+  animation: langDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes langDropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.lang-selector__header {
+  padding: 6px 16px 8px;
+  border-bottom: 1px solid #f0f0f5;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #777788;
+}
+
+.lang-selector__list {
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lang-selector__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: #1a1a2e;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-selector__item:hover {
+  background: #f4f2ff;
+  color: #5b45d6;
+}
+
+.lang-selector__item.is-selected {
+  background: #eeeaff;
+  color: #5b45d6;
+  font-weight: 600;
+}
+
+.lang-selector__item-flag {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.lang-selector__item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lang-selector__item-fullname {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lang-selector__item.is-selected .lang-selector__item-fullname {
+  font-weight: 600;
+}
+
+.lang-selector__item-check {
+  color: #5b45d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================
+   MOBILE VARIANT
+========================================================== */
+
+.lang-selector--mobile {
+  width: 100%;
+}
+
+.lang-selector--mobile .lang-selector__button {
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px 18px;
+  height: 48px;
+  font-size: 15px;
+}
+
+.lang-selector--mobile .lang-selector__dropdown {
+  position: static;
+  width: 100%;
+  margin-top: 8px;
+  box-shadow: 0 8px 24px rgba(20, 20, 50, 0.08);
+  border: 1px solid #e5e3f5;
+}
