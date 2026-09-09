@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import {
   Btn,
   ClosingCTA,
@@ -12,6 +13,39 @@ import logoEasyHunt from '../../assets/easyhunt.png'
 import logoPramay from '../../assets/pramay.png'
 import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
+
+function MilestoneFill() {
+  const lineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!lineRef.current) return
+      const parent = lineRef.current.parentElement
+      if (!parent) return
+
+      const rect = parent.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+
+      // Start filling when the top of the milestones is 70% down the screen
+      const start = rect.top - viewportHeight * 0.7
+      // Because it's horizontal, we want it to fill quickly as they scroll down past it
+      const totalDist = viewportHeight * 0.5
+
+      let progress = 0
+      if (start < 0) {
+        progress = Math.min(1, Math.max(0, -start / totalDist))
+      }
+
+      lineRef.current.style.width = `${progress * 100}%`
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return <div className="milestones__fill" ref={lineRef} />
+}
 
 const MILESTONES = [
   {
@@ -190,6 +224,7 @@ export default function OurStory() {
             </p>
           </div>
           <div className="milestones">
+            <MilestoneFill />
             {MILESTONES.map((m) => (
               <div key={m.year + m.title} className="milestone">
                 <span className="milestone__year">{m.year}</span>

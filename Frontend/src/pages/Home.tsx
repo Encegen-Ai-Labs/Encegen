@@ -182,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="section section--light">
+      <section className="section section--light" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
         <div className="container split">
           <div>
             <p className="shead__eyebrow">{t('home.aboutEyebrow', 'About Encegen AI Labs')}</p>
@@ -236,7 +236,7 @@ export default function Home() {
           />
           <div className="cards-3">
             {capabilities.map((c) => (
-              <article key={c.title} className="fcard fcard--top-accent">
+              <article key={c.title} className="fcard fcard--top-accent hover-lift">
                 <span className="fcard__icon">{c.icon}</span>
                 <h3>{c.title}</h3>
                 <p>{c.desc}</p>

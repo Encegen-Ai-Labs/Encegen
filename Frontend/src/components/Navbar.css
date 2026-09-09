@@ -258,6 +258,47 @@
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.25s ease, transform 0.3s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar__mega-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar__mega-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background-image: 
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.12' fill-rule='evenodd'%3E%3Crect x='0' y='0' width='4' height='8'/%3E%3Crect x='0' y='16' width='4' height='4'/%3E%3Crect x='0' y='24' width='4' height='12'/%3E%3Crect x='20' y='8' width='4' height='12'/%3E%3Crect x='20' y='24' width='4' height='4'/%3E%3Crect x='20' y='32' width='4' height='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 20px 20px, 20px 20px, 40px 40px;
+  background-position: 0 0, 0 0, 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.navbar__mega-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), transparent);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.7);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateY(-10px);
 }
 
 .navbar__group.is-open .navbar__mega-card {
@@ -269,6 +310,27 @@
 .navbar__mega-card:hover {
   box-shadow: 0 12px 28px rgba(20, 20, 50, 0.22);
   transform: translateY(-2px);
+}
+
+.navbar__mega-card:hover::before {
+  opacity: 1;
+  animation: megaCardGridScroll 0.5s linear infinite;
+}
+
+.navbar__mega-card:hover::after {
+  animation: fastScanHorizontal 1.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes megaCardGridScroll {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(40px) translateX(-20px); }
+}
+
+@keyframes fastScanHorizontal {
+  0% { transform: translateY(-10px); opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(160px); opacity: 0; }
 }
 
 .navbar__mega-card > span:first-child {
@@ -285,6 +347,12 @@
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #ffffff;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.navbar__mega-card:hover .navbar__mega-arrow {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
 }
 
 .navbar__mega-col {

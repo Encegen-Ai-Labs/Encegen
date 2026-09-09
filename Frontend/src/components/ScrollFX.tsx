@@ -128,8 +128,8 @@ export default function ScrollFX() {
 
     const cleanups: (() => void)[] = []
 
-    // Defer one frame so the new route's DOM is painted
-    const raf = requestAnimationFrame(() => {
+    // Defer to ensure the new route's DOM is painted and accessible
+    const timerId = setTimeout(() => {
       /* --- reveal on scroll --- */
       const revealEls: HTMLElement[] = []
       
@@ -140,7 +140,7 @@ export default function ScrollFX() {
           if (el.dataset.fx) return
           el.dataset.fx = '1'
           el.classList.add('reveal')
-          el.style.setProperty('--reveal-delay', `${Math.min(staggerIndex(el) % 12, 6) * 70}ms`)
+          el.style.setProperty('--reveal-delay', `${Math.min(staggerIndex(el) % 12, 6) * 150}ms`)
           revealEls.push(el)
         })
       }
@@ -166,7 +166,7 @@ export default function ScrollFX() {
         el.classList.add('interactive-img')
         
         // Add a slight delay if it's inside a container that's also revealing
-        el.style.setProperty('--reveal-delay', `${(Math.min(staggerIndex(el) % 12, 6) * 70) + 150}ms`)
+        el.style.setProperty('--reveal-delay', `${(Math.min(staggerIndex(el) % 12, 6) * 150) + 150}ms`)
         revealEls.push(el)
       })
 
@@ -210,10 +210,10 @@ export default function ScrollFX() {
       )
       counterEls.forEach((el) => counterObserver.observe(el))
       cleanups.push(() => counterObserver.disconnect())
-    })
+    }, 150) // Small delay ensures DOM is painted and scroll is reset
 
     return () => {
-      cancelAnimationFrame(raf)
+      clearTimeout(timerId)
       cleanups.forEach((fn) => fn())
     }
   }, [pathname])

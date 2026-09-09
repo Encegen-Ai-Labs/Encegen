@@ -1,5 +1,41 @@
+import { useEffect, useRef } from 'react'
 import { Btn, ClosingCTA, GradBand, PageHero, SectionHead } from '../../components/kit'
 import './company.css'
+
+function TimelineFill() {
+  const lineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!lineRef.current) return
+      const parent = lineRef.current.parentElement
+      if (!parent) return
+
+      // Measure how far the parent container has been scrolled into view
+      const rect = parent.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+
+      // Start filling when the top of the timeline is 50% down the screen
+      const start = rect.top - viewportHeight * 0.5
+      // Finish filling when the bottom of the timeline reaches 50% of the screen
+      const totalDist = rect.height
+
+      let progress = 0
+      if (start < 0) {
+        progress = Math.min(1, Math.max(0, -start / totalDist))
+      }
+
+      lineRef.current.style.height = `${progress * 100}%`
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    // Initial call
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return <div className="day-timeline__fill" ref={lineRef} />
+}
 
 import imgCuriosity from '../../assets/values/curiosity.jpg'
 import imgVelocity from '../../assets/values/velocity.jpg'
@@ -157,6 +193,7 @@ export default function Values() {
         <div className="container">
           <SectionHead eyebrow="Values in Practice" title="A Day at Encegen" sub="How we balance focus, exploration, and practical execution." />
           <div className="day-timeline">
+            <TimelineFill />
             {PRACTICES.map((p) => (
               <div key={p.title} className="day-row">
                 <span className="day-row__time">{p.time}</span>

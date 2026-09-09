@@ -87,6 +87,17 @@
   right: 8%;
   border-top: 1.5px dashed rgba(139, 124, 255, 0.4);
 }
+.milestones__fill {
+  position: absolute;
+  top: 15px;
+  left: 8%;
+  width: 0%;
+  max-width: 84%; /* 100% - 2*8% */
+  height: 2px;
+  background: var(--purple-600);
+  z-index: 0;
+  border-radius: 4px;
+}
 .milestone {
   text-align: center;
   position: relative;
@@ -119,7 +130,8 @@
   .milestones {
     grid-template-columns: repeat(2, 1fr);
   }
-  .milestones::before {
+  .milestones::before,
+  .milestones__fill {
     display: none;
   }
 }
@@ -309,6 +321,16 @@
   bottom: 12px;
   border-left: 2px solid #e4e1f6;
 }
+.day-timeline__fill {
+  position: absolute;
+  left: 37px;
+  top: 12px;
+  width: 2px;
+  height: 0%;
+  background: var(--purple-600);
+  z-index: 1;
+  border-radius: 4px;
+}
 .day-row {
   display: flex;
   align-items: flex-start;
@@ -326,7 +348,7 @@
   font-weight: 700;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .day-row__card {
   flex: 1;

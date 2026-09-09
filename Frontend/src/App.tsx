@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -37,7 +37,7 @@ import { initPageLanguage } from './utils/translator'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
-  useEffect(() => {
+  useLayoutEffect(() => {
     initPageLanguage()
     if (hash) {
       const id = window.setTimeout(() => {
@@ -50,14 +50,74 @@ function ScrollToTop() {
   return null
 }
 
+
+function GlobalEffects() {
+  const { pathname } = useLocation()
+  
+  useEffect(() => {
+    // Prevent magnetic effect on mobile devices
+    if (window.matchMedia('(max-width: 768px)').matches) return
+
+    let rafId: number
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        // 2. Spotlight Cards
+        const cards = document.querySelectorAll<HTMLElement>('.fcard, .feature-card, .team-card, .dcard, .principle, .day-row__card')
+        for(const card of cards) {
+          const rect = card.getBoundingClientRect()
+          const x = e.clientX - rect.left
+          const y = e.clientY - rect.top
+          card.style.setProperty('--mouse-x', `${x}px`)
+          card.style.setProperty('--mouse-y', `${y}px`)
+          if (!card.classList.contains('card-spotlight')) {
+            card.classList.add('card-spotlight')
+          }
+        }
+        
+        // 5. Magnetic Buttons
+        const btns = document.querySelectorAll<HTMLElement>('.btn--primary, .btn--magnetic')
+        for(const btn of btns) {
+          const rect = btn.getBoundingClientRect()
+          const cx = rect.left + rect.width / 2
+          const cy = rect.top + rect.height / 2
+          const distance = Math.hypot(e.clientX - cx, e.clientY - cy)
+          
+          if (distance < 120) { // Trigger distance
+            const dx = (e.clientX - cx) * 0.25 // magnetic strength
+            const dy = (e.clientY - cy) * 0.25
+            btn.style.transform = `translate(${dx}px, ${dy}px)`
+          } else {
+            btn.style.transform = `translate(0px, 0px)`
+          }
+        }
+      })
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      cancelAnimationFrame(rafId)
+    }
+  }, [pathname])
+  
+  return null
+}
+
 function Layout() {
+  const location = useLocation()
   return (
     <>
       <ScrollToTop />
       <ScrollFX />
+      <GlobalEffects />
       <Navbar />
       <main>
-        <Outlet />
+        <div key={location.pathname} className="page-transition-enter">
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </>

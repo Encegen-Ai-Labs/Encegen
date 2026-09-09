@@ -103,6 +103,26 @@ ul {
   text-align: center;
 }
 
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-xl);
+  align-items: flex-start; /* Important for sticky to work */
+}
+
+@media (max-width: 960px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-platform-visual,
+.mock-panel {
+  position: sticky;
+  top: 120px;
+  will-change: transform;
+}
+
 .section-title {
   margin-top: var(--space-xs);
   font-size: clamp(2rem, 1.7rem + 1.5vw, 3.25rem);

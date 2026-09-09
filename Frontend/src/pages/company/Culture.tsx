@@ -1,5 +1,37 @@
+import { useEffect, useRef } from 'react'
 import { Btn, ClosingCTA, PageHero, SectionHead } from '../../components/kit'
 import './company.css'
+
+function TimelineFill() {
+  const lineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!lineRef.current) return
+      const parent = lineRef.current.parentElement
+      if (!parent) return
+
+      const rect = parent.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+
+      const start = rect.top - viewportHeight * 0.5
+      const totalDist = rect.height
+
+      let progress = 0
+      if (start < 0) {
+        progress = Math.min(1, Math.max(0, -start / totalDist))
+      }
+
+      lineRef.current.style.height = `${progress * 100}%`
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+  
+  return <div className="day-timeline__fill" ref={lineRef} />
+}
 
 const PRINCIPLES = [
   {
@@ -120,6 +152,7 @@ export default function Culture() {
             sub="A typical day moves between client discussions, product development, AI experimentation, debugging, research, testing, and new ideas."
           />
           <div className="day-timeline">
+            <TimelineFill />
             {DAY.map((d) => (
               <div key={d.time} className="day-row">
                 <span className="day-row__time">{d.time}</span>

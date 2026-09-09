@@ -46,6 +46,15 @@
     -8px -8px 18px #ffffff,
     inset 0 0 0 1px rgba(255, 255, 255, 0.7);
   flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.process__step:hover .process__number {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow:
+    14px 18px 28px rgba(101, 83, 238, 0.22),
+    -6px -6px 14px #ffffff,
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
 }
 
 .process__icon {
@@ -59,6 +68,14 @@
   color: var(--purple-600);
   box-shadow: 0 8px 18px rgba(101, 83, 238, 0.16);
   flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.process__step:hover .process__icon {
+  transform: scale(1.12) rotate(4deg);
+  background: var(--purple-600);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(101, 83, 238, 0.35);
 }
 
 .process__step h3 {
@@ -89,14 +106,30 @@
   margin-top: calc(var(--step-number-size) / 2 - 5px);
   margin-inline: clamp(0.25rem, 0.5vw, 1rem);
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--purple-600), var(--cyan-400));
+  background: linear-gradient(90deg, var(--purple-600) 0%, var(--cyan-400) 50%, var(--purple-600) 100%);
+  background-size: 200% 100%;
+  animation: processFlowGradient 3s linear infinite;
+  overflow: hidden;
+}
+
+@keyframes processFlowGradient {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
 }
 
 .process__arrow svg {
   position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  animation: arrowGlide 2.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+}
+
+@keyframes arrowGlide {
+  0% { left: 10%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 80%; opacity: 0; }
 }
 
 @media (max-width: 860px) {
