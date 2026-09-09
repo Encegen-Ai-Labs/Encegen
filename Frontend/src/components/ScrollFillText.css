@@ -1,0 +1,15 @@
+﻿.scroll-fill-text {
+  /* simple container */
+}
+
+.sft-word {
+  --local-p: calc((var(--scroll-p, 0) * var(--total-words)) - var(--word-idx));
+  --clamped-p: max(0, min(1, var(--local-p)));
+  
+  opacity: calc(0.2 + (0.8 * var(--clamped-p)));
+  will-change: opacity;
+}
+
+.section--dark .sft-word {
+  opacity: calc(0.25 + (0.75 * var(--clamped-p)));
+}

@@ -9,8 +9,8 @@ import { useLocation } from 'react-router-dom'
  */
 
 const REVEAL_SELECTORS = [
-  '.shead',
-  '.section .split > *',
+  '.shead > *',
+  '.section .split > div > *',
   '.cards-2 > *',
   '.cards-3 > *',
   '.cards-4 > *',
@@ -30,13 +30,13 @@ const REVEAL_SELECTORS = [
   '.award-cards > *',
   '.city-cards > *',
   '.logo-wall > *',
-  '.resultbar',
-  '.rule-bar',
-  '.quote-box',
-  '.closing__inner',
+  '.resultbar > *',
+  '.rule-bar > *',
+  '.quote-box > *',
+  '.closing__inner > *',
   '.featured-card',
   '.console',
-  '.careers-band',
+  '.careers-band > *',
   '.world-map',
   '.home-facts__card',
   '.home-stats__grid > div',
@@ -44,22 +44,23 @@ const REVEAL_SELECTORS = [
   '.stats__item',
   '.modules__card',
   '.security__card',
-  '.security__badges',
+  '.security__badges > *',
   '.process__step-wrap',
   '.hiw__panel',
   '.integrations__pill',
   '.integrations__more',
   '.compare-col > *',
-  '.proc-list',
+  '.proc-list > li',
   '.pill-tabs',
   '.topic-pills',
   '.newsletter h2',
   '.newsletter__form',
-  '.jd-offer',
+  '.jd-offer > *',
   '.apply-card',
   '.sresult',
-  '.gband__quote',
+  '.gband__quote > *',
   '.voice',
+  '.home-logos__label',
 ]
 
 const COUNTER_SELECTORS = [
@@ -131,8 +132,11 @@ export default function ScrollFX() {
     const raf = requestAnimationFrame(() => {
       /* --- reveal on scroll --- */
       const revealEls: HTMLElement[] = []
+      
+      // 1. Text & Container Reveals
       for (const sel of REVEAL_SELECTORS) {
         document.querySelectorAll<HTMLElement>(sel).forEach((el) => {
+          if (el.tagName.toLowerCase() === 'img') return
           if (el.dataset.fx) return
           el.dataset.fx = '1'
           el.classList.add('reveal')
@@ -140,6 +144,31 @@ export default function ScrollFX() {
           revealEls.push(el)
         })
       }
+
+      // 2. Image-Specific Reveals (Celonis-style scale + blur fade)
+      document.querySelectorAll<HTMLElement>('img').forEach((el) => {
+        if (el.dataset.fx) return
+        // Ignore small utility icons, logos, and avatars
+        if (
+          el.closest('.home-logos') ||
+          el.closest('.client-logo-item') ||
+          el.classList.contains('client-logo-img') ||
+          el.closest('.navbar') ||
+          el.closest('.footer') ||
+          el.classList.contains('avatar') ||
+          el.classList.contains('icon')
+        ) {
+          return
+        }
+
+        el.dataset.fx = '1'
+        el.classList.add('reveal-img')
+        el.classList.add('interactive-img')
+        
+        // Add a slight delay if it's inside a container that's also revealing
+        el.style.setProperty('--reveal-delay', `${(Math.min(staggerIndex(el) % 12, 6) * 70) + 150}ms`)
+        revealEls.push(el)
+      })
 
       const revealObserver = new IntersectionObserver(
         (entries) => {
@@ -150,7 +179,7 @@ export default function ScrollFX() {
             revealObserver.unobserve(el)
             // return element to its normal stylesheet state once the intro is done
             window.setTimeout(() => {
-              el.classList.remove('reveal', 'reveal--visible')
+              el.classList.remove('reveal', 'reveal-img', 'reveal--visible')
               el.style.removeProperty('--reveal-delay')
             }, 1400)
           }

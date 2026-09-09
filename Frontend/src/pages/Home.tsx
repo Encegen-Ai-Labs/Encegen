@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArtTile, Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
+import ScrollFillText from '../components/ScrollFillText'
 import './Home.css'
 
 import heroImage from '../assets/hero1.png'
@@ -151,7 +152,7 @@ export default function Home() {
           <img 
             src={heroImage} 
             alt="Process Intelligence Platform Interface" 
-            className="home-hero-img" 
+            className="home-hero-img"
           />
         </div>
       </PageHero>
@@ -185,9 +186,11 @@ export default function Home() {
         <div className="container split">
           <div>
             <p className="shead__eyebrow">{t('home.aboutEyebrow', 'About Encegen AI Labs')}</p>
-            <h2 className="left-title">{t('home.aboutTitle', 'We believe every great business runs on great processes.')}</h2>
-            <p className="left-copy">
-              {t('home.aboutCopy', 'Encegen AI Labs builds process intelligence technology that gives enterprise teams real-time visibility into how their operations actually run — not how they think they run. Founded by a team of AI researchers and enterprise operators, we are on a mission to make every business process transparent, measurable, and continuously improving.')}
+            <h2 className="left-title">
+              <ScrollFillText text={t('home.aboutTitle', 'We believe every great business runs on great processes.')} />
+            </h2>
+            <p className="left-copy" style={{ fontSize: '1.3rem', lineHeight: '1.6', fontWeight: 500 }}>
+              <ScrollFillText text={t('home.aboutCopy', 'More than 1,400 companies around the world use Encegen to analyze, design, and operate AI-driven processes. Now your agents, humans, and systems can work together to deliver real business outcomes.')} />
             </p>
           </div>
           <div className="home-facts">
