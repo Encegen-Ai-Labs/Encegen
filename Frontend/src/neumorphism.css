@@ -1,0 +1,306 @@
+/* ==========================================================================
+   Neumorphism skin — loaded AFTER all component CSS (imported last in main.tsx)
+   Soft-UI: raised elements get a dark bottom-right + white top-left shadow,
+   inputs get inset shadows, buttons press in on :active.
+   ========================================================================== */
+
+:root {
+  --nm-dark-sh: rgba(166, 164, 199, 0.6);
+  --nm-dark-sh-soft: rgba(166, 164, 199, 0.42);
+  --nm-light-sh: rgba(255, 255, 255, 0.95);
+  --nm-lg: 12px 12px 26px var(--nm-dark-sh), -10px -10px 22px var(--nm-light-sh);
+  --nm-md: 7px 7px 16px var(--nm-dark-sh), -6px -6px 14px var(--nm-light-sh);
+  --nm-sm: 4px 4px 10px var(--nm-dark-sh-soft), -4px -4px 9px var(--nm-light-sh);
+  --nm-xs: 3px 3px 7px var(--nm-dark-sh-soft), -3px -3px 6px var(--nm-light-sh);
+  --nm-inset: inset 4px 4px 9px rgba(166, 164, 199, 0.5), inset -4px -4px 9px #ffffff;
+  --nm-inset-sm: inset 2.5px 2.5px 6px rgba(166, 164, 199, 0.45), inset -2.5px -2.5px 6px #ffffff;
+  --nm-purple: 7px 7px 16px rgba(101, 83, 238, 0.38), -5px -5px 12px var(--nm-light-sh);
+  --nm-surface: #f1f0fa;
+}
+
+/* Slightly tinted light surfaces so the white highlight reads */
+.section--lavender,
+.hiw,
+.security,
+.process,
+.closing {
+  background: #f0eff9;
+}
+
+/* ---------- Buttons ---------- */
+.kbtn--lavender,
+.kbtn--outline-dark {
+  background: var(--nm-surface);
+  border: none;
+  color: var(--purple-600);
+  box-shadow: var(--nm-md);
+}
+.kbtn--outline-dark {
+  color: var(--ink-900);
+}
+.kbtn--lavender:hover,
+.kbtn--outline-dark:hover {
+  box-shadow: var(--nm-lg);
+}
+.kbtn--lavender:active,
+.kbtn--outline-dark:active {
+  transform: translateY(0);
+  box-shadow: var(--nm-inset);
+}
+.kbtn--purple {
+  box-shadow: var(--nm-purple);
+}
+.kbtn--purple:active {
+  transform: translateY(0);
+  box-shadow: inset 4px 4px 9px rgba(60, 44, 170, 0.55), inset -3px -3px 7px rgba(160, 146, 255, 0.6);
+}
+
+/* Navbar controls sit on white — softer pair */
+.navbar__search,
+.navbar__demo {
+  background: var(--nm-surface);
+  box-shadow: 5px 5px 12px rgba(178, 176, 208, 0.55), -5px -5px 10px #ffffff;
+}
+.navbar__search:hover,
+.navbar__demo:hover {
+  background: #ecebf8;
+}
+.navbar__search:active,
+.navbar__demo:active {
+  box-shadow: var(--nm-inset-sm);
+}
+
+/* ---------- Cards (raised) ---------- */
+.fcard,
+.tcard,
+.acard,
+.sresult,
+.voice,
+.press,
+.team-card,
+.benefit,
+.numcard,
+.price-card:not(.price-card--featured),
+.stat-tile,
+.tstat,
+.job-row,
+.principle,
+.day-row__card,
+.award-card,
+.compare-item,
+.agent-card,
+.disc-card,
+.dept-card,
+.home-facts__card,
+.home-res-card,
+.flag-item,
+.faq details,
+.modules__card,
+.security__card,
+.leader__photo {
+  box-shadow: var(--nm-md);
+}
+.acard:hover,
+.agent-card:hover,
+.disc-card:hover,
+.home-res-card:hover,
+.modules__card:hover,
+.job-row:hover {
+  box-shadow: var(--nm-lg);
+}
+
+/* Big closing panel — softly raised slab */
+.closing__inner {
+  background: #e9e7f6;
+  box-shadow: var(--nm-lg);
+}
+.closing--dark {
+  background: var(--navy-950);
+}
+.closing--dark .closing__inner {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ---------- Chips & pills ---------- */
+.sol-chip,
+.closing__trusted-pill,
+.security__badge,
+.topic-pills span,
+.logo-wall span,
+.careers-hero__badge,
+.stepflow__chips span,
+.search-hero__suggestions span,
+.hero__trust {
+  box-shadow: var(--nm-xs);
+  border: none;
+}
+.security__badge--muted {
+  box-shadow: none;
+  border: 1px solid #e2e1ef;
+}
+.topic-pills span:hover {
+  box-shadow: var(--nm-sm);
+}
+
+/* Filter / tab pills */
+.job-filters button,
+.pill-tabs button {
+  background: var(--nm-surface);
+  border: none;
+  box-shadow: var(--nm-sm);
+}
+.job-filters button:hover,
+.pill-tabs button:hover {
+  box-shadow: var(--nm-md);
+}
+.job-filters button:active,
+.pill-tabs button:active {
+  box-shadow: var(--nm-inset-sm);
+}
+.job-filters button.active,
+.pill-tabs button.active {
+  background: var(--purple-600);
+  color: #ffffff;
+  box-shadow: var(--nm-purple);
+}
+
+/* Pagination */
+.pagination button {
+  background: var(--nm-surface);
+  border: none;
+  box-shadow: var(--nm-sm);
+}
+.pagination button:active {
+  box-shadow: var(--nm-inset-sm);
+}
+.pagination button.active {
+  background: var(--purple-600);
+  box-shadow: var(--nm-purple);
+}
+
+/* Misc raised buttons */
+.sfilter__clear,
+.job-row__apply,
+.apply-submit,
+.integrations__more-link {
+  box-shadow: var(--nm-md);
+}
+.sfilter__clear:active,
+.job-row__apply:active,
+.apply-submit:active {
+  box-shadow: var(--nm-inset-sm);
+}
+.job-row__apply,
+.apply-submit {
+  box-shadow: var(--nm-purple);
+}
+
+/* ---------- Search bars: raised shell, inset field ---------- */
+.careers-hero__search,
+.search-hero__bar {
+  border: none;
+  background: var(--nm-surface);
+  box-shadow: var(--nm-md);
+}
+.careers-hero__search input,
+.search-hero__bar input {
+  background: transparent;
+}
+.search-hero__bar button {
+  box-shadow: var(--nm-purple);
+}
+.newsletter__form input {
+  box-shadow: inset 3px 3px 8px rgba(70, 50, 160, 0.35), inset -3px -3px 8px rgba(255, 255, 255, 0.55);
+}
+.newsletter__form button {
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.4), 6px 6px 14px rgba(50, 34, 130, 0.45);
+}
+
+/* ---------- Form fields (inset) ---------- */
+.apply-field input,
+.apply-field textarea,
+.apply-field select {
+  background: var(--nm-surface);
+  border: none;
+  box-shadow: var(--nm-inset-sm);
+}
+.apply-field input:focus,
+.apply-field textarea:focus,
+.apply-field select:focus {
+  box-shadow: var(--nm-inset-sm), 0 0 0 2px rgba(101, 83, 238, 0.35);
+}
+.apply-drop {
+  background: var(--nm-surface);
+  box-shadow: var(--nm-inset-sm);
+}
+
+/* Sidebar filter checkboxes card */
+.sfilter {
+  background: var(--nm-surface);
+  border-radius: 16px;
+  padding: 26px 24px;
+  box-shadow: var(--nm-md);
+}
+
+/* ---------- Step circles & timeline dots ---------- */
+.stepflow__num {
+  box-shadow: var(--nm-purple);
+}
+.day-row__time {
+  box-shadow: var(--nm-purple);
+}
+.process__number {
+  box-shadow:
+    10px 10px 22px var(--nm-dark-sh),
+    -8px -8px 18px #ffffff,
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+.process__icon {
+  box-shadow: var(--nm-sm);
+}
+
+/* ---------- Platform page tie-ins ---------- */
+.cta__panel {
+  box-shadow: var(--nm-lg);
+}
+.cta__button {
+  box-shadow: var(--nm-md);
+  border: none;
+}
+.cta__button:active {
+  box-shadow: var(--nm-inset);
+}
+.modules__icon,
+.security__icon,
+.fcard__icon,
+.benefit__icon {
+  box-shadow: var(--nm-inset-sm);
+}
+
+/* Quote box & code block accents */
+.quote-box {
+  border: none;
+  background: var(--nm-surface);
+  box-shadow: var(--nm-inset-sm);
+}
+
+/* Careers band facts + city cards stay dark — give a subtle dark neumorphism */
+.careers-band__facts span,
+.city-card,
+.stack-chip,
+.dcard,
+.ucase,
+.hiw__chip,
+.hiw__action {
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.45), -4px -4px 10px rgba(84, 80, 160, 0.16);
+}
+
+/* Featured dark cards keep their heavy elevation */
+.featured-card,
+.mock,
+.console,
+.truth,
+.fail-panel {
+  box-shadow: 14px 14px 34px rgba(10, 9, 40, 0.5), -8px -8px 20px rgba(90, 84, 180, 0.14);
+}
