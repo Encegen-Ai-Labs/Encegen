@@ -71,8 +71,8 @@ export default function VoiceAgent() {
 
       <section className="section section--light">
         <div className="container">
-          <p className="shead__eyebrow">Chapter 01</p>
-          <h2 className="left-title">Beyond robotic interactions.</h2>
+          <span className="product-pill">Chapter 01</span>
+          <h2 className="left-title" style={{ marginTop: '0.75rem' }}>Beyond robotic interactions.</h2>
           <p className="left-copy">
             Static phone trees and robotic voices are frustrating. Give your customers the fluid, natural conversational experience they expect with our advanced Voice Agent.
           </p>

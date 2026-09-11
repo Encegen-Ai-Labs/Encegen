@@ -43,24 +43,7 @@ const STEPS = [
   { num: '04', title: 'Launch & Grow', meta: 'Wk 7+', desc: 'Go live with analytics and SEO in place, plus 30 days of support.' },
 ]
 
-const STACK = [
-  { name: 'Next.js', role: 'Frontend' },
-  { name: 'React', role: 'Frontend' },
-  { name: 'TypeScript', role: 'Frontend' },
-  { name: 'TailwindCSS', role: 'Styling' },
-  { name: 'Shopify Plus', role: 'E-commerce' },
-  { name: 'WooCommerce', role: 'E-commerce' },
-  { name: 'Medusa.js', role: 'E-commerce' },
-  { name: 'Stripe', role: 'Payments' },
-  { name: 'Vercel', role: 'Cloud' },
-  { name: 'Cloudflare', role: 'CDN' },
-  { name: 'AWS', role: 'Cloud' },
-  { name: 'Lighthouse CI', role: 'Performance' },
-  { name: 'Sanity CMS', role: 'Content' },
-  { name: 'Contentful', role: 'Content' },
-  { name: 'Figma', role: 'Design' },
-  { name: 'Google Analytics', role: 'Analytics' },
-]
+import { ECOMMERCE_TECH_STACK as STACK } from '../../data/techStack'
 
 const TESTIMONIALS = [
   {
@@ -209,8 +192,11 @@ export default function WebEcommerce() {
           <div className="stack-grid">
             {STACK.map((s) => (
               <div key={s.name} className="stack-chip">
-                <strong>{s.name}</strong>
-                <span>{s.role}</span>
+                <span className="stack-chip__dot" aria-hidden="true" />
+                <div className="stack-chip__content">
+                  <strong>{s.name}</strong>
+                  <span>{s.role}</span>
+                </div>
               </div>
             ))}
           </div>

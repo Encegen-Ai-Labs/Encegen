@@ -1,9 +1,38 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ArtTile, Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
+import { Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
+import { ArrowRight } from '../components/icons'
 import ScrollFillText from '../components/ScrollFillText'
 import './Home.css'
+
+/* Scroll-triggered reveal: adds 'is-visible' to each child with stagger */
+function useScrollReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const revealed = useRef(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !revealed.current) {
+          revealed.current = true
+          const children = el.querySelectorAll('.anim-item')
+          children.forEach((child, i) => {
+            setTimeout(() => child.classList.add('is-visible'), i * 120)
+          })
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return ref
+}
 
 import heroImage from '../assets/hero1.png'
 import hero2 from '../assets/hero2.png'
@@ -67,15 +96,67 @@ const STORIES = [
   },
 ]
 
-const RESOURCES = [
-  { tag: 'Product', title: 'EasyHunt: Legal Tech Title Search Software for Advocates', meta: 'Product Overview', art: 'purple' as const },
-  { tag: 'E-Commerce', title: 'Pramay Agro: Fertilizer & Pesticide Distribution Platform', meta: 'E-Commerce Deep Dive', art: 'cyan' as const },
-  { tag: 'Fintech', title: 'Fx Algo: Ultra-Low Latency Algorithmic Trading Engines', meta: 'Technical Blueprint', art: 'magenta' as const },
+const HOME_RESOURCES = [
+  {
+    type: 'research' as const,
+    tag: 'Research',
+    title: 'The 2026 Process Intelligence Report',
+    meta: '8 min read',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    type: 'webinar' as const,
+    tag: 'Webinar',
+    title: 'AI at Scale: A CEO Masterclass',
+    meta: 'Available On-Demand',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    type: 'paper' as const,
+    tag: 'Technical Paper',
+    title: 'EMS Technical Paper',
+    desc: 'Download the EMS technical paper',
+    cta: 'Download PDF',
+  },
 ]
 
 export default function Home() {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const capRef = useScrollReveal<HTMLDivElement>()
+  const indRef = useScrollReveal<HTMLDivElement>()
+  const statsRef = useScrollReveal<HTMLDivElement>()
+  const resRef = useScrollReveal<HTMLDivElement>()
+  const [storyPage, setStoryPage] = useState(0)
+  const totalPages = 2
+  const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const [progressKey, setProgressKey] = useState(0)
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (isPaused) return
+    autoPlayRef.current = setInterval(() => {
+      setStoryPage((prev) => (prev + 1) % totalPages)
+      setProgressKey((k) => k + 1)
+    }, 5000)
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current)
+    }
+  }, [isPaused])
+
+  const handlePageChange = (page: number) => {
+    setStoryPage(page)
+    setProgressKey((k) => k + 1)
+    // Reset auto-play timer
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current)
+    if (!isPaused) {
+      autoPlayRef.current = setInterval(() => {
+        setStoryPage((prev) => (prev + 1) % totalPages)
+        setProgressKey((k) => k + 1)
+      }, 5000)
+    }
+  }
 
   const facts = useMemo(() => [
     { value: '2025', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Incorporated 24 May 2025') },
@@ -234,9 +315,9 @@ export default function Home() {
             eyebrow={t('home.capabilities.eyebrow', 'Capabilities')}
             title={t('home.capabilities.title', 'Everything you need to achieve process excellence')}
           />
-          <div className="cards-3">
+          <div className="cards-3" ref={capRef}>
             {capabilities.map((c) => (
-              <article key={c.title} className="fcard fcard--top-accent hover-lift">
+              <article key={c.title} className="fcard fcard--top-accent hover-lift anim-item">
                 <span className="fcard__icon">{c.icon}</span>
                 <h3>{c.title}</h3>
                 <p>{c.desc}</p>
@@ -290,9 +371,9 @@ export default function Home() {
             }
             sub={t('home.industries.title', 'Tailored for your sector\'s most complex challenges')}
           />
-          <div className="cards-3">
+          <div className="cards-3" ref={indRef}>
             {industries.map((ind) => (
-              <article key={ind.title} className="fcard">
+              <article key={ind.title} className="fcard anim-item hover-lift">
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
@@ -310,9 +391,9 @@ export default function Home() {
 
       {/* Stats */}
       <section className="home-stats">
-        <div className="container home-stats__grid">
+        <div className="container home-stats__grid" ref={statsRef}>
           {stats.map((s) => (
-            <div key={s.label}>
+            <div key={s.label} className="anim-item">
               <strong>{s.value}</strong>
               <span>{s.label}</span>
             </div>
@@ -321,41 +402,152 @@ export default function Home() {
       </section>
 
       {/* Customer stories */}
-      <section className="section section--lavender">
+      <section
+        className="home-stories-section"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         <div className="container">
-          <SectionHead
-            eyebrow={t('home.stories.eyebrow', 'Customer Stories')}
-            title={t('home.stories.title', 'Trusted by the brands that run the world')}
-          />
-          <div className="tgrid">
-            {STORIES.map((s) => (
-              <TestimonialCard key={s.name} {...s} />
+          {/* Centered header */}
+          <div className="home-stories__header">
+            <span className="home-stories__eyebrow">
+              {t('home.stories.eyebrow', 'Customer Stories')}
+            </span>
+            <h2 className="home-stories__title">
+              {t('home.stories.title', 'Trusted by the brands that run the world')}
+            </h2>
+            <span className="home-stories__accent-line" />
+          </div>
+
+          {/* Subtitle row with arrows */}
+          <div className="home-stories__head">
+            <div>
+              <span className="home-stories__subtitle-eyebrow">
+                {t('home.stories.eyebrow', 'Customer Stories')}
+              </span>
+              <h3 className="home-stories__subtitle">
+                {t('home.stories.subtitle', "Trusted by the world's leading enterprises.")}
+              </h3>
+            </div>
+            <div className="home-stories__controls" aria-label="Customer stories navigation">
+              <button
+                type="button"
+                className="home-stories__arrow"
+                onClick={() => handlePageChange(0)}
+                disabled={storyPage === 0}
+                aria-label="Previous customer stories"
+              >
+                <ArrowRight size={17} className="home-stories__arrow--previous" />
+              </button>
+              <button
+                type="button"
+                className="home-stories__arrow home-stories__arrow--next"
+                onClick={() => handlePageChange(1)}
+                disabled={storyPage === 1}
+                aria-label="Next customer stories"
+              >
+                <ArrowRight size={17} />
+              </button>
+            </div>
+          </div>
+
+          {/* Cards carousel */}
+          <div className="home-stories__viewport">
+            <div
+              className="home-stories__track"
+              style={{ ['--story-page' as string]: storyPage }}
+            >
+              {STORIES.map((s) => (
+                <div className="home-stories__slide" key={s.name}>
+                  <TestimonialCard {...s} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="home-stories__dots" aria-label="Customer stories pages">
+            {[0, 1].map((page) => (
+              <button
+                key={page}
+                type="button"
+                className={storyPage === page ? 'is-active' : ''}
+                onClick={() => handlePageChange(page)}
+                aria-label={`Show customer stories page ${page + 1}`}
+                aria-current={storyPage === page ? 'true' : undefined}
+              />
             ))}
+          </div>
+
+          {/* Auto-play progress bar */}
+          <div className="home-stories__progress">
+            <div className="home-stories__progress-bar">
+              <div
+                key={progressKey}
+                className="home-stories__progress-fill"
+                style={isPaused ? { animationPlayState: 'paused' } : {}}
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Resources */}
-      <section className="section section--light">
+      <section className="section section--light home-resources-section">
         <div className="container">
           <div className="home-res-head">
-            <h2 className="left-title">{t('home.resources.title', 'Learn from the experts')}</h2>
+            <div>
+              <p className="shead__eyebrow" style={{ color: 'var(--purple-600)' }}>
+                {t('home.resources.eyebrow', 'Resources')}
+              </p>
+              <h2 className="left-title">{t('home.resources.title', 'Learn from the experts')}</h2>
+            </div>
             <Link to="/resources" className="home-ind-link">
-              {t('common.readMore', 'View all resources →')}
+              {t('common.readMore', 'View all resources')}
             </Link>
           </div>
-          <div className="cards-3">
-            {RESOURCES.map((r) => (
+          <div className="home-res-grid" ref={resRef}>
+            {HOME_RESOURCES.map((r) => (
               <article
                 key={r.title}
-                className="home-res-card"
+                className={`home-res-card2 home-res-card2--${r.type} anim-item hover-lift`}
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate('/resources')}
               >
-                <ArtTile variant={r.art} className="home-res-card__art" />
-                <span className="home-res-card__tag">{r.tag}</span>
-                <h3>{r.title}</h3>
-                <span className="home-res-card__meta">{r.meta}</span>
+                {/* Research & Webinar cards: image top */}
+                {r.type !== 'paper' && r.image && (
+                  <div className="home-res-card2__img-wrap">
+                    <img src={r.image} alt={r.title} className="home-res-card2__img" />
+                    {r.type === 'research' && (
+                      <span className="home-res-card2__badge">{r.tag}</span>
+                    )}
+                    {r.type === 'webinar' && (
+                      <span className="home-res-card2__play">▶</span>
+                    )}
+                  </div>
+                )}
+
+                {/* Paper card: purple gradient background */}
+                {r.type === 'paper' && (
+                  <div className="home-res-card2__paper-bg">
+                    <h3 className="home-res-card2__paper-title">{r.title}</h3>
+                  </div>
+                )}
+
+                {/* Bottom content */}
+                <div className="home-res-card2__body">
+                  {r.type !== 'paper' ? (
+                    <>
+                      <h3 className="home-res-card2__title">{r.title}</h3>
+                      <span className="home-res-card2__meta">{r.meta}</span>
+                    </>
+                  ) : (
+                    <div className="home-res-card2__paper-foot">
+                      <p className="home-res-card2__paper-desc">{'desc' in r ? r.desc : ''}</p>
+                      <span className="home-res-card2__paper-cta">{'cta' in r ? r.cta : 'Download'}</span>
+                    </div>
+                  )}
+                </div>
               </article>
             ))}
           </div>

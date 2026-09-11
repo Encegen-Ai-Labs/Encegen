@@ -824,3 +824,478 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ============ Chapter: The People (Exact Match to Figma Screenshot) ============ */
+.people-section-exact {
+  background: #060814;
+  padding: clamp(5rem, 4rem + 2.5vw, 6.5rem) 0;
+  color: #ffffff;
+}
+
+.people-head-exact {
+  text-align: left;
+  max-width: 860px;
+  margin-bottom: 40px;
+}
+
+.people-eyebrow-exact {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7048e8;
+  margin-bottom: 14px;
+}
+
+.people-title-exact {
+  font-size: clamp(2.2rem, 1.8rem + 1.8vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.people-sub-exact {
+  font-size: 1.05rem;
+  color: #8f8ab8;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0;
+}
+
+.people-layout-exact {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 36px;
+}
+
+/* Left Stats Card (Dark panel with rounded subtle purple border) */
+.people-stats-card-exact {
+  background: #090c1e;
+  border: 1.5px solid rgba(112, 72, 232, 0.4);
+  border-radius: 18px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.people-stat-row-exact {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.people-stat-label-exact {
+  font-size: 0.86rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.people-stat-val-exact {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Right Voices List */
+.people-voices-list-exact {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.people-voice-row-exact {
+  background: #0b0f24;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.people-voice-row-exact:hover {
+  transform: translateX(4px);
+  background: #0e132e;
+  border-color: rgba(112, 72, 232, 0.3);
+}
+
+.people-voice-left-exact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 170px;
+  flex-shrink: 0;
+}
+
+.people-voice-avatar-exact {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #050713;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.people-voice-meta-exact h4 {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.people-voice-meta-exact span {
+  display: block;
+  font-size: 0.78rem;
+  color: #818cf8;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.people-voice-quote-exact {
+  flex: 1;
+  text-align: right;
+}
+
+.people-voice-quote-exact em {
+  font-style: italic;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+@media (max-width: 900px) {
+  .people-layout-exact {
+    grid-template-columns: 1fr;
+  }
+  .people-voice-row-exact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .people-voice-quote-exact {
+    text-align: left;
+  }
+}
+
+/* ============ Roles Search & Filter Section (Exact match to screenshot) ============ */
+.roles-search-section {
+  background: #ffffff;
+  padding: clamp(4.5rem, 3.5rem + 2vw, 6rem) 0;
+}
+
+.roles-search-container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.roles-search-head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.roles-search-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 12px;
+}
+
+.roles-search-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.roles-search-title {
+  font-size: clamp(2rem, 1.7rem + 1.6vw, 3rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.roles-search-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #059669;
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Search Bar (Rounded pill shape with subtle border) */
+.roles-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  margin-bottom: 22px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.roles-search-bar:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.roles-search-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.roles-search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #0f172a;
+  font-family: inherit;
+}
+
+.roles-search-bar input::placeholder {
+  color: #94a3b8;
+}
+
+/* Department Filter Pills */
+.roles-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.roles-filter-pill {
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.roles-filter-pill:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.roles-filter-pill.active {
+  background: #5046e5;
+  border-color: #5046e5;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(80, 70, 229, 0.3);
+}
+
+/* Job Rows List */
+.roles-jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.role-card-exact {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.role-card-exact:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+}
+
+.role-card-main {
+  flex: 1;
+}
+
+.role-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.role-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.role-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.role-tag--engineering {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.role-tag--airesearch,
+.role-tag--ai {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.role-tag--product {
+  background: #ccfbf1;
+  color: #0d9488;
+}
+
+.role-tag--sales {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.role-tag--operations {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.role-tag--design {
+  background: #fce7f3;
+  color: #db2777;
+}
+
+.role-dot {
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.role-type,
+.role-posted {
+  color: #64748b;
+}
+
+.role-card-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.role-loc {
+  font-size: 0.86rem;
+  color: #475569;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.role-pin {
+  font-size: 0.95rem;
+}
+
+.role-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 24px;
+  border-radius: 999px;
+  background: #5046e5;
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(80, 70, 229, 0.25);
+  text-decoration: none;
+}
+
+.role-apply-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(80, 70, 229, 0.35);
+}
+
+.roles-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+}
+
+.roles-empty-state p {
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+}
+
+.roles-reset-btn {
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: #5046e5;
+  color: #fff;
+  border: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .role-card-exact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .role-card-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

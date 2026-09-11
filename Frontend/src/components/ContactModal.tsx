@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './ContactModal.css'
 
 interface ContactModalProps {
@@ -8,9 +10,18 @@ interface ContactModalProps {
 const PHONES = ['+91 7798715090', '+91 7030555123', '+91 9226113909', '+91 7030555126']
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  useEffect(() => {
+    if (!isOpen) return
+    const origOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = origOverflow
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
-  return (
+  return createPortal(
     <div className="contact-modal-overlay" onClick={onClose}>
       <div className="contact-modal-card" onClick={(e) => e.stopPropagation()}>
         <button className="contact-modal-close" onClick={onClose} aria-label="Close modal">
@@ -40,6 +51,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

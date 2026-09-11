@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import {
   Btn,
   ClosingCTA,
@@ -9,114 +8,96 @@ import {
 } from '../../components/kit'
 import './company.css'
 
-import logoEasyHunt from '../../assets/easyhunt.png'
-import logoPramay from '../../assets/pramay.png'
-import logoVarasa from '../../assets/varasa.png'
-import logoFxAlgo from '../../assets/fxalgo.png'
-
-function MilestoneFill() {
-  const lineRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!lineRef.current) return
-      const parent = lineRef.current.parentElement
-      if (!parent) return
-
-      const rect = parent.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-
-      // Start filling when the top of the milestones is 70% down the screen
-      const start = rect.top - viewportHeight * 0.7
-      // Because it's horizontal, we want it to fill quickly as they scroll down past it
-      const totalDist = viewportHeight * 0.5
-
-      let progress = 0
-      if (start < 0) {
-        progress = Math.min(1, Math.max(0, -start / totalDist))
-      }
-
-      lineRef.current.style.width = `${progress * 100}%`
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  return <div className="milestones__fill" ref={lineRef} />
-}
-
-const MILESTONES = [
+const STORY_PILLARS = [
   {
-    year: '24 May 2025',
-    title: 'Encegen AI Labs Pvt. Ltd. Is Incorporated',
-    desc: 'The journey officially begins. Incorporated with a clear vision: to build technology that combines Artificial Intelligence, automation, and software engineering to solve real-world business problems.',
+    pill: '2024',
+    title: 'We Founded Encegen',
+    desc: 'Born with a clear vision: technology must solve real problems, not just demo capability.',
   },
   {
-    year: '2025',
-    title: 'First Major Client — Flairnetic Advocates',
-    desc: "Our first major step into the market. Delivered complete legal workflow IT solutions tailored around real advocacy operations, establishing our core principle: technology must solve real problems, not just demo capability.",
+    pill: '12',
+    title: 'First 10+ Deployments',
+    desc: 'Delivered legal workflow IT and OCR solutions for advocacy and title search operations.',
   },
   {
-    year: '05 Dec 2025',
-    title: 'EasyHunt — Our First Product',
-    desc: 'From service provider to product builder. Conceived and engineered as specialized software for property Title Search and due diligence across Maharashtra land records, combining AI, OCR document intelligence, and automated indexing.',
+    pill: '14 Weeks',
+    title: 'First Live AI Agents',
+    desc: 'From service provider to product builder with EasyHunt, document agents, and low-latency algorithms.',
   },
   {
-    year: '2026',
-    title: 'Expanding Into AI & Intelligent Automation',
-    desc: 'Software was no longer enough. Expanded focus toward Generative AI, AI agents, conversational AI, voice agents, OCR document intelligence, and AI-powered business applications.',
-  },
-  {
-    year: '2026',
-    title: 'Building Intelligent Business Systems',
-    desc: 'Engineering tailored digital platforms and intelligent systems across diverse sectors: from Varasa’s heritage conservation documentation & scholarships to Pramay Agro’s fertilizer/pesticides e-commerce and Fx Algo’s algorithmic trading.',
-  },
-  {
-    year: 'Today',
-    title: 'Engineering What Comes Next',
-    desc: 'Evolved into a fast-growing AI and software engineering venture. We build technology that thinks, assists, automates, and creates measurable impact.',
+    pill: 'Zero',
+    title: 'Zero Vaporware',
+    desc: 'We build technology that thinks, assists, automates, and creates measurable enterprise impact.',
   },
 ]
 
-const PHILOSOPHY = [
+const TEAM_MEMBERS = [
+  {
+    initials: 'SG',
+    name: 'Saurabh Gite',
+    role: 'MANAGING DIRECTOR',
+    quote: 'Talk to us about the real business problems, not marketing buzzwords.',
+    color: '#7c3aed',
+  },
+  {
+    initials: 'AG',
+    name: 'Amar Gite',
+    role: 'CO-FOUNDER',
+    quote: 'Building practical applied AI systems that solve genuine business challenges.',
+    color: '#2563eb',
+  },
+  {
+    initials: 'NK',
+    name: 'Nachiket Khade',
+    role: 'AI/ML ENGINEER',
+    quote: 'Architecting enterprise AI that meets actual reliability, speed, and security bars.',
+    color: '#059669',
+  },
+  {
+    initials: 'SJ',
+    name: 'Shruti Jadhav',
+    role: 'FULL STACK DEVELOPER',
+    quote: 'Ensuring every solution is intuitive, production-ready, and delivers clear ROI.',
+    color: '#d97706',
+  },
+]
+
+const VALUES = [
   {
     num: '01',
-    title: 'Intelligence',
-    desc: 'Understanding information deeply and empowering better, faster decisions across enterprise workflows.',
-    bg: '#4c2e91',
+    title: 'Honesty over hype',
+    desc: "We don't sell vaporware. No BS demo magic.",
+    bg: '#3b1c6e',
   },
   {
     num: '02',
-    title: 'Engineering',
-    desc: 'Transforming ideas and prototypes into robust, secure, and production-ready scalable technology.',
-    bg: '#14295e',
+    title: 'Speed with integrity',
+    desc: '14-week delivery guarantee without cutting corners.',
+    bg: '#1e3a8a',
   },
   {
     num: '03',
-    title: 'Generation',
-    desc: 'Using modern Generative AI to create, automate, and accelerate what businesses can accomplish.',
-    bg: '#14532d',
-  },
-]
-
-const REAL_WORLD_SOLUTIONS = [
-  {
-    title: 'EasyHunt (Title Search Software)',
-    desc: 'Specialized software designed for property title search, keyword discovery, and OCR document intelligence across Maharashtra land records for advocates like Flairnetic Advocates.',
+    title: 'Client obsession',
+    desc: 'Your real-world business outcome is our only success metric.',
+    bg: '#065f46',
   },
   {
-    title: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
-    desc: 'End-to-end e-commerce platform and inventory distribution portal for fertilizers, pesticides, and agricultural inputs with automated ordering and tracking.',
+    num: '04',
+    title: 'Radical clarity',
+    desc: 'No black boxes. You own every model, pipeline, and output.',
+    bg: '#78350f',
   },
   {
-    title: 'Fx Algo (Algorithmic Trading Systems)',
-    desc: 'High-speed, low-latency execution engines, algorithmic strategy pipelines, and real-time quantitative intelligence for modern fintech markets.',
+    num: '05',
+    title: 'Built to last',
+    desc: 'Production-grade, secure, scalable, and enterprise-compliant.',
+    bg: '#1f2937',
   },
   {
-    title: 'Varasa (Heritage Conservation & Scholarships)',
-    desc: 'Digital preservation, excavation documentation, ancient material cataloging, and academic research scholarship grant management for students.',
+    num: '06',
+    title: 'Human-first',
+    desc: 'AI that assists and empowers human teams rather than replaces them.',
+    bg: '#701a75',
   },
 ]
 
@@ -127,46 +108,55 @@ const STATS = [
   { value: '100%', label: 'Practical Applied AI' },
 ]
 
-const CLIENT_ITEMS = [
-  { name: 'EasyHunt', logo: logoEasyHunt, tag: 'Title Search Software', desc: 'Software for Land Records & Title Search' },
-  { name: 'Pramay Agro', logo: logoPramay, tag: 'Agri E-Commerce', desc: 'Fertilizers & Pesticides Marketplace' },
-  { name: 'Varasa', logo: logoVarasa, tag: 'Heritage & Academic', desc: 'Ancient Artifacts & Student Scholarships' },
-  { name: 'Fx Algo', logo: logoFxAlgo, tag: 'Algorithmic Trading', desc: 'Low-Latency Quantitative Trading Systems' },
-  { name: 'Flairnetic Advocates', logo: null, tag: 'Major Legal Client', desc: 'Primary Legal Client for EasyHunt Software' },
+const CLIENT_TAGS = [
+  'EasyHunt',
+  'Pramay Agro',
+  'Varasa',
+  'Fx Algo',
+  'Flairnetic',
+  'Title Search AI',
+  'Agri E-Commerce',
+  'OCR Engine',
+  'Quant Pipeline',
+  'Land Records AI',
 ]
 
 export default function OurStory() {
   return (
     <>
+      {/* Section 1: Hero */}
       <PageHero
         badge="Our Origin & Journey"
         title={
           <>
-            We don't just build software.
+            We didn't build an AI company.
             <br />
-            <span className="accent-purple">We engineer what comes next.</span>
+            <span className="accent-purple">We built a better future.</span>
           </>
         }
-        sub="Encegen AI Labs Pvt. Ltd. was founded with a simple belief: the future of business belongs to companies that can turn technology into real-world intelligence."
+        sub="Encegen was born from a simple frustration — that every enterprise software talks about AI, but very few actually deliver it."
         actions={
           <>
-            <Btn to="#chapter-01" variant="white">Read the story →</Btn>
+            <Btn to="#chapter-01" variant="white">
+              Read the story ↓
+            </Btn>
             <Btn to="/values" variant="outline-light">
-              Our values
+              Our Values
             </Btn>
           </>
         }
       />
 
-      {/* Chapter 01 */}
+      {/* Section 2: Chapter 01 — Origin & The Truth Card */}
       <section id="chapter-01" className="section section--light">
-      {/* Chapter 01 — Origin */}
-      <section className="section section--light">
         <div className="container split">
           <div>
+            <span className="chapter-badge">Chapter 01</span>
             <p className="shead__eyebrow">The Origin of Encegen AI Labs</p>
             <h2 className="left-title">
-              Bridging the gap between business problems and intelligent technology.
+              Most enterprise software promises transformation,
+              <br />
+              Most delivers dashboards.
             </h2>
             <p className="left-copy">
               The journey began by observing a recurring problem across businesses—technology was everywhere,
@@ -209,76 +199,65 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Chapter 02 — Milestone timeline */}
+      {/* Section 3: Boardroom Quote & Founding Pillars (Cyan Box) */}
       <section className="section section--dark">
         <div className="container">
-          <div className="shead shead--dark">
-            <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
-              Our Journey
-            </p>
+          <div className="shead shead--dark" style={{ textAlign: 'center' }}>
             <h2 className="shead__title" style={{ maxWidth: 860, marginInline: 'auto' }}>
-              "The future isn't just about using AI. It's about engineering businesses around intelligence."
+              "We sat in a boardroom watching a $4M AI pilot fail in real time.
+              <br />
+              That was the day we decided to build differently."
             </h2>
             <p className="shead__sub" style={{ color: 'var(--purple-300)', fontWeight: 600 }}>
-              – ENCEGEN AI LABS PVT. LTD. · PUNE, INDIA
+              — OUR FOUNDING STORY & PHILOSOPHY, 2024
             </p>
           </div>
-          <div className="milestones">
-            <MilestoneFill />
-            {MILESTONES.map((m) => (
-              <div key={m.year + m.title} className="milestone">
-                <span className="milestone__year">{m.year}</span>
-                <h4>{m.title}</h4>
-                <p>{m.desc}</p>
+          <div className="story-pillars">
+            {STORY_PILLARS.map((p) => (
+              <div key={p.pill + p.title} className="story-pillar">
+                <span className="story-pillar__pill">{p.pill}</span>
+                <h4>{p.title}</h4>
+                <p>{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Chapter 03 — Why Encegen Philosophy */}
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead
-            eyebrow="Why 'Encegen'?"
-            title="Intelligence. Engineering. Generation."
-            sub="The name Encegen represents our philosophy. We believe great AI solutions are created at the intersection of these three ideas."
-          />
-          <div className="cards-3">
-            {PHILOSOPHY.map((p) => (
-              <div key={p.num} className="fcard fcard--top-accent" style={{ background: '#fff' }}>
-                <span className="shead__eyebrow" style={{ fontSize: 13, color: 'var(--purple-600)' }}>
-                  {p.num}
-                </span>
-                <h3 style={{ marginTop: 10, fontSize: 20, fontWeight: 700 }}>{p.title}</h3>
-                <p style={{ marginTop: 8, color: 'var(--ink-600)', lineHeight: 1.6 }}>{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 04 — Building for the Real World */}
+      {/* Section 4: Chapter 02 — How We Build (1440 Fill x 640 Hug) */}
       <section className="section section--light">
         <div className="container split">
           <div>
+            <span className="chapter-badge">Chapter 02</span>
             <p className="shead__eyebrow">Building for the Real World</p>
             <h2 className="left-title">
               We don't believe every problem needs AI.
               <br />
               We believe the right problem deserves the right technology.
             </h2>
-            <p className="left-copy">
-              From intelligent recruitment and resume analysis to AI-powered voice agents, property intelligence,
-              business automation, custom software, and digital platforms, our focus remains the same:
-            </p>
-            <p className="left-copy" style={{ fontWeight: 600, color: 'var(--ink-900)' }}>
-              Find a difficult or repetitive business problem. Understand it deeply. Then engineer technology that makes it simpler, faster, and smarter.
-            </p>
-            <p className="left-copy">
-              Sometimes that means a powerful software platform. Sometimes it means automation.
-              Sometimes it means an AI agent that works alongside a human team. And sometimes it means combining all of them into one intelligent ecosystem.
-            </p>
+            <div className="story-bullets">
+              <div className="story-bullet">
+                <span className="story-bullet__dot" />
+                <div className="story-bullet__content">
+                  <h4>Not just hours. Deliver outcomes.</h4>
+                  <p>Software is useless if it doesn't solve what real teams need. We engineer for bottom-line business results.</p>
+                </div>
+              </div>
+              <div className="story-bullet">
+                <span className="story-bullet__dot" />
+                <div className="story-bullet__content">
+                  <h4>Deployed in weeks, not years.</h4>
+                  <p>Agile, research-grade engineering from kickoff to production deployment in 14 weeks average.</p>
+                </div>
+              </div>
+              <div className="story-bullet">
+                <span className="story-bullet__dot" />
+                <div className="story-bullet__content">
+                  <h4>Your data never leaves your walls.</h4>
+                  <p>Enterprise security, on-premise or private VPC deployments with strict NDA protection and zero lock-in.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <MockPanel
             title="Encegen Intelligence Stack"
@@ -301,27 +280,63 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Chapter 05 — The Vision Ahead */}
+      {/* Section 5: Chapter 03 — Built by people who've sat in your seat */}
+      <section className="section section--lavender">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: 36 }}>
+            <span className="chapter-badge">Chapter 03</span>
+            <SectionHead
+              eyebrow="Leadership & Experience"
+              title="Built by people who've sat in your seat."
+              sub="Our team comes from enterprise, startup, and research backgrounds. We engineer technology that solves what business leaders actually deal with every day."
+            />
+          </div>
+          <div className="team-cards-4">
+            {TEAM_MEMBERS.map((m) => (
+              <div key={m.name} className="team-card">
+                <span className="team-card__avatar" style={{ background: m.color }}>
+                  {m.initials}
+                </span>
+                <h3>{m.name}</h3>
+                <span className="role">{m.role}</span>
+                <p>"{m.quote}"</p>
+              </div>
+            ))}
+          </div>
+          <div className="rule-bar">
+            <strong>We have one rule at Encegen: if you wouldn't bet your own career on it, we don't ship it.</strong>
+            <div className="rule-bar__avatars">
+              {TEAM_MEMBERS.map((m) => (
+                <span key={m.initials} className="avatar" style={{ background: m.color }}>
+                  {m.initials}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: What we stand for (Colored Value Tiles) */}
       <section className="section section--dark">
         <div className="container">
           <SectionHead
-            eyebrow="The Vision Ahead"
-            title="Their software understands their business."
-            sub="We envision a future where businesses don't simply use software. It can process information, communicate with customers, assist employees, identify opportunities, automate workflows, and continuously help organizations operate more efficiently."
+            eyebrow="OUR VALUES"
+            title="What we stand for."
             dark
           />
-          <div className="cards-2" style={{ marginTop: 36 }}>
-            {REAL_WORLD_SOLUTIONS.map((s) => (
-              <div key={s.title} className="fcard" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <h3 style={{ color: '#fff' }}>{s.title}</h3>
-                <p style={{ color: '#a8a5cb', marginTop: 10, lineHeight: 1.6 }}>{s.desc}</p>
+          <div className="value-tiles">
+            {VALUES.map((v) => (
+              <div key={v.num} className="value-tile" style={{ background: v.bg }}>
+                <em>{v.num}</em>
+                <strong>{v.title}</strong>
+                <p>"{v.desc}"</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats & Trusted Clients */}
+      {/* Section 7: Stats and Logo Wall */}
       <section className="section section--light">
         <div className="container">
           <div className="tstat-row" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
@@ -332,52 +347,25 @@ export default function OurStory() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 52 }}>
-            <SectionHead
-              eyebrow="Products & Key Clients"
-              title="Built for Real-World Industry Impact"
-              sub="From proprietary products to transformative enterprise platforms across agriculture, legal tech, finance, and heritage conservation."
-            />
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20, marginTop: 32 }}>
-              {CLIENT_ITEMS.map((item) => (
-                <div key={item.name} className="fcard" style={{ padding: 24, textAlign: 'center', background: '#fff' }}>
-                  <div style={{ height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-                    {item.logo ? (
-                      <img src={item.logo} alt={item.name} style={{ maxHeight: 42, maxWidth: 130, objectFit: 'contain' }} />
-                    ) : (
-                      <span style={{ fontSize: '2rem' }}>⚖</span>
-                    )}
-                  </div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--ink-900)' }}>{item.name}</h4>
-                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--purple-600)', display: 'block', marginTop: 4 }}>
-                    {item.tag}
-                  </span>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--gray-600)', marginTop: 8, lineHeight: 1.45 }}>
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="logo-wall">
+            {CLIENT_TAGS.map((t) => (
+              <span key={t}>{t}</span>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Section 8: Closing CTA (No bottom border, meets footer seamlessly) */}
       <ClosingCTA
         trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
-        line1="We don't just build software."
-        line2="We engineer what comes next."
-        sub="Whether you're looking for custom AI agents, automated workflows, intelligent software, or product innovation — let's build together."
-        primary={{ label: 'Explore Our Solutions', to: '/solutions/ai-agents' }}
-        secondary={{ label: 'Explore Open Roles', to: '/careers' }}
+        trustedLabel="trusted by our enterprise partners & clients"
+        line1="This story isn't over."
+        line2="It's just getting started."
+        sub="Whether you're a client, a partner, or someone who wants to build the future of enterprise AI — there's a place for you in this story."
+        primary={{ label: 'Join the team', to: '/careers' }}
+        secondary={{ label: 'Partner with us', to: '/contact' }}
         checks={['Incorporated 24 May 2025', '11–50 Team Members', 'Pune Headquarters']}
       />
-
-    </section>
-
-    
-
-  
-
-</>
+    </>
   )
 }

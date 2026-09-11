@@ -7,19 +7,19 @@ import logoPramay from '../../assets/pramay.png'
 import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
 
-import photoSaurabh from '../../assets/Saurabh.png'
-import photoSwamini from '../../assets/Swamini Hirolikar.jpeg'
+import photoSaurabh from '../../assets/Saurabh Gite.png'
+import photoSwamini from '../../assets/Swamini Hirolikar.png'
 import photoChaitanya from '../../assets/team/chaitanya-pimpre.png'
 import photoRutuja from '../../assets/team/rutuja-jadhav.jpeg'
-import photoNayana from '../../assets/Nayana Visapute.jpg'
-import photoShruti from '../../assets/shruti Jadhav.jpg'
+import photoNayana from '../../assets/Nayana Visapute.png'
+import photoShruti from '../../assets/shruti Jadhav.png'
 import photopoonam from '../../assets/team/poonam-harikhede.png'
-import photoKartik from '../../assets/Kartik.webp'
-import photoPriya from '../../assets/priya gawhane.jpg'
+import photoKartik from '../../assets/Kartik.png'
+import photoPriya from '../../assets/priya.png'
 import photoAditya from '../../assets/aditya nalla.png'
-import photoamar from '../../assets/amar gite.jpg'
-import photoVishit from '../../assets/team/vishit-jiwane.jpeg'
-import photoIshan from '../../assets/team/ishan-kalhe.png'
+import photoamar from '../../assets/Amar gite.png'
+import photoVishit from '../../assets/Vishit.png'
+import photoIshan from '../../assets/ishan.png'
 import photoNachiket from '../../assets/team/nachiket-khade.png'
 
 import './CompanyProfile.css'
@@ -316,9 +316,9 @@ export default function CompanyProfile() {
       {/* Leadership Section */}
       <section className="cp-section cp-section--light">
         <div className="container">
-          <div className="cp-head">
-            <span className="cp-eyebrow">OUR TEAM</span>
+          <div className="cp-head cp-head--left cp-head--leadership">
             <h2 className="cp-title">Meet our leadership</h2>
+            <span className="cp-eyebrow">LEADERSHIP</span>
             <p className="cp-sub">A dedicated team combining deep AI research with enterprise-grade engineering execution.</p>
           </div>
 

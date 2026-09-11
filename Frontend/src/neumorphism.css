@@ -109,10 +109,10 @@
   box-shadow: var(--nm-lg);
 }
 
-/* Big closing panel — softly raised slab */
+/* Big closing panel — clean modern panel */
 .closing__inner {
-  background: #e9e7f6;
-  box-shadow: var(--nm-lg);
+  background: transparent;
+  box-shadow: none;
 }
 .closing--dark {
   background: var(--navy-950);

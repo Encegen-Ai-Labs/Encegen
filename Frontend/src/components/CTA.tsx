@@ -17,9 +17,25 @@ export default function CTA() {
           {t('home.cta.sub', 'Join thousands of enterprises driving measurable value from every process.')}
         </p>
         <div className="cta__buttons">
-          <button type="button" className="cta__button" onClick={() => setShowContact(true)}>
+          <button
+            type="button"
+            className="cta__button cta__button--primary"
+            onClick={() => setShowContact(true)}
+          >
             {t('home.cta.btn2', 'Talk to an expert')}
           </button>
+        </div>
+        <div className="cta__checks">
+          <span className="cta__check-item">
+            <span className="cta__check-icon">🔒</span>
+            <span>NDA-protected engagements</span>
+          </span>
+          <span className="cta__check-item">
+            <span>14-week delivery guarantee</span>
+          </span>
+          <span className="cta__check-item">
+            <span>No lock-in contracts</span>
+          </span>
         </div>
       </div>
       <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />

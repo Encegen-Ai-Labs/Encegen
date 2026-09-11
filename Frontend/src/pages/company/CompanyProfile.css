@@ -106,6 +106,37 @@
   margin: 0 auto 56px;
 }
 
+.cp-head--left {
+  text-align: left;
+  max-width: 100%;
+  margin: 0 0 44px;
+}
+
+.cp-head--leadership .cp-title {
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+  font-weight: 800;
+  color: #0b0f2a;
+  letter-spacing: -0.03em;
+  margin: 0 0 10px;
+}
+
+.cp-head--leadership .cp-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #6366f1;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.cp-head--leadership .cp-sub {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 680px;
+}
+
 .cp-eyebrow {
   display: inline-block;
   font-size: 0.78rem;

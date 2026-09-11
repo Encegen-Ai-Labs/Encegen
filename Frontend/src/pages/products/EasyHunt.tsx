@@ -7,42 +7,42 @@ import {
   SectionHead,
   TestimonialCard,
 } from '../../components/kit'
-import { SearchIcon } from '../../components/icons'
+import { SearchIcon, ShieldIcon } from '../../components/icons'
 import './products.css'
 import logoEasyHunt from '../../assets/easy.png'
 
 const STAT_TILES = [
   { value: '4-6 Hours', desc: 'spent on a single title search manually' },
   { value: '75%', desc: 'of property records are never cross-verified' },
-  { value: '15+', desc: 'fragmented government portals to search' },
+  { value: '15+', desc: 'fragmented government portals to navigate' },
   { value: '₹2.4L', desc: 'average cost of a missed encumbrance' },
 ]
 
 const HOW = [
   {
     num: '01',
-    title: 'Search',
-    desc: 'Type any keyword — owner name, survey number, CTS number, village or remark — and search across the full set of government-sourced records at once.',
+    title: 'SEARCH',
+    desc: 'Enter any keyword — owner name, survey number, CTS number, village name, litigation reference. Our AI searches across millions of government-sourced records instantly.',
   },
   {
     num: '02',
-    title: 'Discover',
-    desc: 'Easy Hunt pulls up every matching entry and lays out the complete record — ownership details, dates, land details and linked documents — side by side, ready to read.',
+    title: 'DISCOVER',
+    desc: 'AI retrieves, ranks, and cross-references matching property records. View complete ownership history, encumbrances, mutations, and linked documents in one place.',
   },
   {
     num: '03',
-    title: 'Decide',
-    desc: 'Export what you need as PDF or Excel, share it with your client or team, and move ahead with a full picture instead of a partial one.',
+    title: 'DECIDE',
+    desc: 'Assess risk, verify titles, and make confident property decisions backed by comprehensive, AI-verified intelligence.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '🔎', title: 'Deep keyword search', desc: 'Search by owner, survey number, CTS, village, document type or remark across the full dataset in one query.' },
-  { icon: '🏛', title: 'Government-sourced data', desc: 'Built from official Maharashtra datasets like Bhulekh and Mahabhumi, covering key areas including Pune, Mumbai and Nagpur.' },
-  { icon: '✨', title: 'Smart name matching', desc: 'Handles spelling variations and transliterations, so a name spelled two ways still surfaces the right record.' },
+  { icon: '🔎', title: 'Intelligent Keyword Search', desc: 'Search by owner, survey number, CTS, village, document type, or litigation reference across millions of records.' },
+  { icon: '🏛', title: 'Government-Sourced Data', desc: 'Verified records sourced directly from official government datasets, registries, and land record portals.' },
+  { icon: '✨', title: 'AI-Powered Matching', desc: 'Smart fuzzy matching handles transliterations, spelling variations, and partial matches across languages.' },
   { icon: '⚡', title: 'Full records, not snippets', desc: 'See the complete entry — ownership, survey details, dates and remarks — in one place, without switching files.' },
   { icon: '⚖', title: 'Export to Word', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
-  { icon: '🔐', title: 'Search history', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
+  { icon: '🔐', title: 'Search history & audit trail', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
 ]
 
 const STAKEHOLDERS = [
@@ -111,31 +111,31 @@ function Console() {
         <span className="console__dots">
           <span style={{ background: '#ef4444' }} />
           <span style={{ background: '#f59e0b' }} />
-          <span style={{ background: '#22c55e' }} />
+          <span style={{ background: '#10b981' }} />
         </span>
         <span className="console__search">
-          <SearchIcon size={15} />
-          Mumbai Suburbs Survey No. 10424…
+          <SearchIcon size={14} color="#64748b" />
+          Mumbai Suburbs Survey No. 104/A…
         </span>
-        <span className="console__btn">Search AI</span>
+        <button type="button" className="console__btn">Search AI</button>
       </div>
       <div className="console__table-wrap">
         <table className="console__table">
           <thead>
             <tr>
-              <th>Owner Name</th>
-              <th>Survey / CTS No.</th>
-              <th>Village</th>
-              <th>Document Type</th>
-              <th>Confidence</th>
+              <th>OWNER NAME</th>
+              <th>SURVEY / CTS NO</th>
+              <th>VILLAGE</th>
+              <th>DOCUMENT TYPE</th>
+              <th>CONFIDENCE</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Godrej Properties Ltd</td>
-              <td>Survey 10A/A</td>
+              <td>Survey 104/A</td>
               <td>Vikhroli</td>
-              <td>Mutation Entry (Partial)</td>
+              <td>Mutation Entry (Ferfar)</td>
               <td>
                 <span className="console__match">98% Match</span>
               </td>
@@ -146,7 +146,7 @@ function Console() {
               <td>Bandra</td>
               <td>Index II Registry</td>
               <td>
-                <span className="console__match">89% Match</span>
+                <span className="console__match">95% Match</span>
               </td>
             </tr>
             <tr>
@@ -155,7 +155,7 @@ function Console() {
               <td>Mulund</td>
               <td>Litigation Clearance</td>
               <td>
-                <span className="console__match">84% Match</span>
+                <span className="console__match">99% Match</span>
               </td>
             </tr>
           </tbody>
@@ -169,19 +169,25 @@ export default function EasyHunt() {
   return (
     <>
       <PageHero
-        badge="Encegen AI Labs · Proprietary LegalTech Product"
+        badge={
+          <>
+            <span style={{ color: '#fbbf24', marginRight: 6 }}>⚡</span>
+            AI-POWERED PROPERTY INTELLIGENCE
+          </>
+        }
         title={
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-            <img src={logoEasyHunt} alt="EasyHunt" style={{ height: 64, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 16px rgba(101, 83, 238, 0.4))' }} />
+            <img src={logoEasyHunt} alt="EasyHunt" style={{ height: 60, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 16px rgba(101, 83, 238, 0.4))' }} />
             <span>Find any land record in seconds, not hours.</span>
           </div>
         }
-        sub="EasyHunt is an AI-powered title search and document intelligence software engineered by Encegen AI Labs. Search Maharashtra land records instantly by owner name, survey number, CTS number, or village across Bhulekh and Mahabhumi records."
-        actions={
-          <Btn to="https://easyhunt.in/" newTab variant="white">Try Easy Hunt live →</Btn>
-        }
-        trusted={['Flairnetic Advocates (Major Client)', 'Title Search Consultants', 'Property Law Advocates', 'Maharashtra Legal Practices']}
-        trustedLabel="used by leading advocates & legal consultants"
+        sub="Easy Hunt centralizes fragmented property data into a single intelligent platform — search by owner name, survey number, CTS number, village name, or litigation reference and retrieve complete property records within seconds."
+        actions={[
+          <Btn key="1" to="https://easyhunt.in/" newTab variant="purple">Start Searching →</Btn>,
+          
+        ]}
+        trusted={['Flairnetic Advocates', 'National Housing Bank', 'HDFC Law', 'Shardul Amarchand', 'AZB & Partners', 'JSA Law']}
+        trustedLabel="TRUSTED BY 500+ PROPERTY PROFESSIONALS ACROSS INDIA"
       >
         <Console />
       </PageHero>
@@ -190,18 +196,18 @@ export default function EasyHunt() {
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">Chapter 01</p>
-            <h2 className="left-title">Property research still happens the slow way.</h2>
+            <div className="chapter-eyebrow">
+              <span className="chapter-bar" />
+              <span>CHAPTER 01</span>
+            </div>
+            <h2 className="left-title" style={{ marginTop: '0.5rem' }}>Most property research still happens the hard way</h2>
             <p className="left-copy">
-              Lawyers, title consultants and developers still lose hours to the same routine —
-              opening scattered PDFs, scrolling messy Excel files, and checking one government
-              portal after another. Records get missed. Risks slip through. Decisions wait on
-              paperwork that should take seconds.
+              Every day, property lawyers, title search consultants, and real estate developers spend hours manually searching across scattered PDFs, Excel files, and government portals. Critical records get buried. Legal risks go unnoticed. Decisions get delayed.
             </p>
           </div>
-          <div className="stat-tiles">
+          <div className="stat-tiles-exact">
             {STAT_TILES.map((s) => (
-              <div key={s.value} className="stat-tile">
+              <div key={s.value} className="stat-tile-exact">
                 <strong>{s.value}</strong>
                 <p>{s.desc}</p>
               </div>
@@ -210,38 +216,47 @@ export default function EasyHunt() {
         </div>
       </section>
 
+      {/* Quote Banner (Orange) */}
       <GradBand
         tone="orange"
-        quote="What if every property check was backed by complete records — pulled up in thirty seconds, not thirty hours?"
+        quote="&quot;What if every property decision was backed by complete intelligence — retrieved in 30 seconds, not 30 hours?&quot;"
       />
 
       {/* Chapter 02 */}
       <section className="section section--light">
         <div className="container split">
           <div>
-            <p className="shead__eyebrow">Chapter 02</p>
-            <h2 className="left-title">Every land record should be a search away.</h2>
+            <div className="chapter-eyebrow">
+              <span className="chapter-bar" />
+              <span>CHAPTER 02</span>
+            </div>
+            <h2 className="left-title" style={{ marginTop: '0.5rem' }}>We believe every property record should be instantly accessible</h2>
             <p className="left-copy">
-              Finding a property record should feel as simple as a web search. Easy Hunt reads the
-              government data the way a person would — matching owner names across spelling and
-              transliteration differences, linking survey numbers to their history, and pulling
-              every related entry into one clean view. You stop hunting through files and start
-              reading answers.
+              Property intelligence should be as fast and reliable as a Google search. Unlike traditional methods, Easy Hunt uses AI to understand context, not just keywords — matching owner names across transliterations, connecting survey numbers to historical records, and surfacing litigation risks automatically.
             </p>
           </div>
           <MockPanel
             title="AI Property Profile"
-            right="✓ AI Verified"
+            right={
+              <span style={{ background: 'rgba(99, 102, 241, 0.18)', color: '#818cf8', border: '1px solid rgba(99, 102, 241, 0.35)', borderRadius: 999, padding: '3px 10px', fontSize: 11, fontWeight: 700 }}>
+                ★ AI Verified
+              </span>
+            }
             rows={[
-              { label: '2024', sub: 'Godrej Properties (Current Owner)', chip: 'Current', chipColor: '#2fe08e' },
-              { label: '2018', sub: 'Acquired from Mehta Family Trust', chip: 'Transfer', chipColor: '#22d3ee' },
-              { label: '1995', sub: 'Original Allotment – Govt of Maharashtra', chip: 'Origin', chipColor: '#a99cff' },
+              { label: '2024', sub: 'Godrej Properties (Current Owner)', chipColor: '#818cf8' },
+              { label: '2018', sub: 'Acquired from Mehta Family Trust', chipColor: '#818cf8' },
+              { label: '1995', sub: 'Original Allotment - Govt of Maharashtra', chipColor: '#818cf8' },
             ]}
             footer={
-              <>
-                <span>LITIGATION &amp; ENCUMBRANCE RISK</span>
-                <span>Low Risk</span>
-              </>
+              <div style={{ width: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', color: '#8f9bb3', textTransform: 'uppercase', marginBottom: 8 }}>
+                  <span>LITIGATION &amp; ENCUMBRANCE RISK</span>
+                  <span style={{ color: '#10b981' }}>Low Risk</span>
+                </div>
+                <div style={{ width: '100%', height: 6, background: 'rgba(255, 255, 255, 0.1)', borderRadius: 3, overflow: 'hidden' }}>
+                  <div style={{ width: '24%', height: '100%', background: '#10b981', borderRadius: 3 }} />
+                </div>
+              </div>
             }
           />
         </div>
@@ -249,15 +264,18 @@ export default function EasyHunt() {
 
       {/* How it works */}
       <section id="how-it-works" className="section section--lavender">
-        <div className="container">
-          <SectionHead eyebrow="How It Works" title="Search. Discover. Decide." />
-          <div className="cards-3">
+        <div className="container hiw-wrap">
+          <span className="hiw-pill">HOW IT WORKS</span>
+          <h2 className="hiw-title">Search. Discover. Decide.</h2>
+          <div className="hiw-cards-3">
             {HOW.map((h) => (
-              <article key={h.num} className="numcard">
-                <span className="numcard__num">{h.num}</span>
-                <span className="numcard__icon">◎</span>
-                <h3>{h.title}</h3>
-                <p>{h.desc}</p>
+              <article key={h.num} className="hiw-card">
+                <div className="hiw-card__top">
+                  <span className="hiw-card__num">{h.num}</span>
+                  <span className="hiw-card__icon">⊗</span>
+                </div>
+                <h3 className="hiw-card__title">{h.title}</h3>
+                <p className="hiw-card__desc">{h.desc}</p>
               </article>
             ))}
           </div>
@@ -266,9 +284,10 @@ export default function EasyHunt() {
 
       {/* Platform */}
       <section className="section section--dark">
-        <div className="container">
-          <SectionHead eyebrow="Platform" title="Everything you need in one intelligent platform" dark />
-          <div className="dcard-grid">
+        <div className="container platform-wrap">
+          <span className="platform-pill">PLATFORM</span>
+          <h2 className="platform-title">Everything you need in one intelligent platform</h2>
+          <div className="dcard-grid" style={{ textAlign: 'left', marginTop: 40 }}>
             {PLATFORM.map((p) => (
               <article key={p.title} className="dcard">
                 <span className="dcard__icon">{p.icon}</span>
@@ -296,19 +315,10 @@ export default function EasyHunt() {
         </div>
       </section>
 
-      <GradBand
-        stats={[
-          { value: '10L+', label: 'Property Records Indexed' },
-          { value: '500+', label: 'Organizations Trust Us' },
-          { value: '30 Sec', label: 'Average Search Time' },
-          { value: '99.9%', label: 'Platform Uptime' },
-        ]}
-      />
-
       {/* Testimonials */}
-      <section className="section section--lavender">
+      <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="What Users Say" title="Trusted by India's leading property professionals" />
+          <SectionHead eyebrow="Latest Insights" title="Trusted by India's leading property professionals" />
           <div className="tgrid">
             {TESTIMONIALS.map((t) => (
               <TestimonialCard key={t.name} {...t} />
@@ -316,6 +326,17 @@ export default function EasyHunt() {
           </div>
         </div>
       </section>
+
+      {/* GradBand Stats */}
+      <GradBand
+        tone="purple"
+        stats={[
+          { value: '10L+', label: 'Property Records Indexed' },
+          { value: '500+', label: 'Organizations Trust Us' },
+          { value: '30 Sec', label: 'Average Search Time' },
+          { value: '99.9%', label: 'Platform Uptime' },
+        ]}
+      />
 
       {/* FAQ */}
       <section className="section section--light">
@@ -336,9 +357,16 @@ export default function EasyHunt() {
 
       <ClosingCTA
         dark
-        line1="Search smarter. Decide faster."
-        sub="See how much time Easy Hunt takes off a single title search — try it on a real query."
-        checks={['Enterprise Security', '24/7 Support', 'API Access']}
+        line1="This is just the beginning"
+        sub="Join 500+ organizations transforming property research with AI-powered intelligence. Start your free trial today."
+        primary={{ label: 'Start Free Trial →', to: 'https://easyhunt.in/', newTab: true, variant: 'purple' }}
+       
+        checks={[
+          { text: 'Enterprise Security', icon: <ShieldIcon size={14} style={{ color: '#818cf8' }} /> },
+          { text: '24/7 Support', icon: <ShieldIcon size={14} style={{ color: '#818cf8' }} /> },
+          { text: 'API Access', icon: <ShieldIcon size={14} style={{ color: '#818cf8' }} /> },
+        ]}
+        note="5,000+ searches daily | 99.9% uptime | SOC 2 certified"
       />
     </>
   )

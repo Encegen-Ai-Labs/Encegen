@@ -115,15 +115,15 @@ export default function ResumeAnalyzer() {
 
       <section className="section section--light">
         <div className="container">
-          <p className="shead__eyebrow">Chapter 01</p>
-          <h2 className="left-title">Screening shouldn't be a bottleneck.</h2>
+          <span className="product-pill">Chapter 01</span>
+          <h2 className="left-title" style={{ marginTop: '0.75rem' }}>Screening shouldn't be a bottleneck.</h2>
           <p className="left-copy">
             Stop manually reviewing hundreds of resumes. Let our AI handle the heavy lifting, giving you back time to focus on engaging with the best talent.
           </p>
         </div>
       </section>
 
-      <GradBand tone="orange" quote="Hire better, hire faster with AI-driven insights." />
+      <GradBand tone="purple" quote="Hire better, hire faster with AI-driven insights." />
 
       <section id="how-it-works" className="section section--lavender">
         <div className="container">

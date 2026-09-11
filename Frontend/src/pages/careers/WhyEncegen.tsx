@@ -1,3 +1,4 @@
+import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArtTile,
@@ -8,7 +9,9 @@ import {
   SectionHead,
   Stars,
 } from '../../components/kit'
-import { DEPT_COLORS, JOBS } from '../../data/jobs'
+import { SearchIcon } from '../../components/icons'
+import { DEPT_COLORS, JOBS as DEFAULT_JOBS } from '../../data/jobs'
+import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 import '../company/company.css'
 
@@ -70,6 +73,49 @@ const CLIENT_RECOGNITION = [
 ]
 
 export default function WhyEncegen() {
+  const [dept, setDept] = useState('All Departments')
+  const [query, setQuery] = useState('')
+  const [jobsList, setJobsList] = useState(DEFAULT_JOBS)
+
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/jobs`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const formatted = data.map((j) => ({
+            slug: j.id.toString(),
+            title: j.title,
+            department: j.department || 'Engineering',
+            type: j.employment_type || 'Full-time',
+            location: j.location || 'Remote',
+            posted: j.status === 'active' ? 'Actively hiring' : (j.created_at ? 'Recently posted' : 'Active'),
+            description: j.description
+          }))
+          setJobsList(formatted)
+        }
+      })
+      .catch((err) => console.warn('Could not fetch backend jobs, using fallback list:', err))
+  }, [])
+
+  const departments = useMemo(() => {
+    const set = new Set<string>()
+    jobsList.forEach((j) => {
+      if (j.department) set.add(j.department)
+    })
+    return ['All Departments', ...Array.from(set)]
+  }, [jobsList])
+
+  const filteredJobs = useMemo(() => {
+    return jobsList.filter((j) => {
+      const matchDept = dept === 'All Departments' || j.department.toLowerCase() === dept.toLowerCase()
+      const matchQuery = query.trim() === '' || 
+        j.title.toLowerCase().includes(query.toLowerCase()) || 
+        j.department.toLowerCase().includes(query.toLowerCase()) ||
+        j.location.toLowerCase().includes(query.toLowerCase())
+      return matchDept && matchQuery
+    })
+  }, [dept, query, jobsList])
+
   return (
     <>
       {/* Hero */}
@@ -172,31 +218,42 @@ export default function WhyEncegen() {
       </section>
 
       {/* People */}
-      <section className="section section--light">
+      <section className="section section--dark people-section-exact">
         <div className="container">
-          <SectionHead
-            eyebrow="Chapter 04 · The People"
-            title="A team of curious and practical problem solvers."
-            sub="Engineers, designers, and AI developers building intelligent systems from Pune, India."
-          />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div className="tstat-row" style={{ gridTemplateColumns: '1fr', marginTop: 0 }}>
+          <div className="people-head-exact">
+            <span className="people-eyebrow-exact">CHAPTER 03 · THE PEOPLE</span>
+            <h2 className="people-title-exact">Built by people who’ve sat in your seat.</h2>
+            <p className="people-sub-exact">
+              A team of curious and practical problem solvers. Engineers, designers, and AI developers building intelligent systems from Pune, India.
+            </p>
+          </div>
+
+          <div className="people-layout-exact">
+            {/* Left Stats Box */}
+            <div className="people-stats-card-exact">
               {PEOPLE_STATS.map((s) => (
-                <div key={s.label} className="tstat" style={{ textAlign: 'left', display: 'flex', alignItems: 'baseline', gap: 14 }}>
-                  <strong>{s.value}</strong>
-                  <span style={{ marginTop: 0 }}>{s.label}</span>
+                <div key={s.label} className="people-stat-row-exact">
+                  <span className="people-stat-label-exact">{s.label}</span>
+                  <strong className="people-stat-val-exact">{s.value}</strong>
                 </div>
               ))}
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+            {/* Right Voice Rows */}
+            <div className="people-voices-list-exact">
               {VOICES.map((v) => (
-                <div key={v.initials} className="voice" style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-                  <Avatar text={v.initials} hue={v.hue} size={44} />
-                  <div>
-                    <p style={{ margin: 0, color: 'var(--ink-700)', fontSize: '0.93rem', lineHeight: 1.55 }}>“{v.quote}”</p>
-                    <strong style={{ marginTop: 8, color: 'var(--ink-900)', display: 'block' }}>
-                      {v.name} <span style={{ fontWeight: 600, color: 'var(--purple-600)' }}>· {v.role}</span>
-                    </strong>
+                <div key={v.initials} className="people-voice-row-exact">
+                  <div className="people-voice-left-exact">
+                    <div className="people-voice-avatar-exact">
+                      {v.initials}
+                    </div>
+                    <div className="people-voice-meta-exact">
+                      <h4>{v.name}</h4>
+                      <span>{v.role}</span>
+                    </div>
+                  </div>
+                  <div className="people-voice-quote-exact">
+                    <em>“{v.quote}”</em>
                   </div>
                 </div>
               ))}
@@ -255,32 +312,82 @@ export default function WhyEncegen() {
         </div>
       </section>
 
-      {/* Roles */}
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead eyebrow="Chapter 07 · Your Role" title="Where will you make your mark?" />
-          <div style={{ marginTop: 40 }}>
-            {JOBS.slice(0, 7).map((job) => (
-              <div key={job.slug} className="job-row" style={{ ['--group-color' as string]: DEPT_COLORS[job.department] }}>
-                <div className="job-row__info">
-                  <h3>{job.title}</h3>
-                  <div className="job-row__chips">
-                    <span>{job.department}</span>
-                    <span>{job.type}</span>
-                    <span>{job.posted}</span>
-                  </div>
-                </div>
-                <span className="job-row__loc">📍 {job.location}</span>
-                <Link to={`/careers/${job.slug}`} className="job-row__apply">
-                  Apply →
-                </Link>
-              </div>
+      {/* Roles & Search Filter (Exact match to screenshot) */}
+      <section className="section section--light roles-search-section">
+        <div className="container roles-search-container">
+          <div className="roles-search-head">
+            <span className="roles-search-eyebrow">CHAPTER 06 · YOUR ROLE</span>
+            <div className="roles-search-title-row">
+              <h2 className="roles-search-title">Where will you make your mark?</h2>
+              <span className="roles-search-badge">Actively hiring</span>
+            </div>
+          </div>
+
+          {/* Search Bar */}
+          <div className="roles-search-bar">
+            <SearchIcon size={18} className="roles-search-icon" />
+            <input
+              type="text"
+              placeholder="Search roles..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+
+          {/* Department Filter Pills */}
+          <div className="roles-filter-pills">
+            {departments.map((d) => (
+              <button
+                key={d}
+                type="button"
+                className={`roles-filter-pill ${d.toLowerCase() === dept.toLowerCase() ? 'active' : ''}`}
+                onClick={() => setDept(d)}
+              >
+                {d}
+              </button>
             ))}
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 36 }}>
-            <Btn to="/careers" variant="lavender">
-              See all open roles →
-            </Btn>
+
+          {/* Job Rows List */}
+          <div className="roles-jobs-list">
+            {filteredJobs.length > 0 ? (
+              filteredJobs.map((job) => (
+                <div key={job.slug} className="role-card-exact">
+                  <div className="role-card-main">
+                    <h3 className="role-card-title">{job.title}</h3>
+                    <div className="role-card-meta">
+                      <span className={`role-tag role-tag--${job.department.toLowerCase().replace(/[^a-z0-9]/g, '')}`}>
+                        {job.department}
+                      </span>
+                      <span className="role-dot">·</span>
+                      <span className="role-type">{job.type}</span>
+                      <span className="role-dot">·</span>
+                      <span className="role-posted">{job.posted}</span>
+                    </div>
+                  </div>
+
+                  <div className="role-card-right">
+                    <span className="role-loc">
+                      <span className="role-pin">📍</span> {job.location}
+                    </span>
+                    <Link to={`/careers/${job.slug}`} className="role-apply-btn">
+                      Apply →
+                    </Link>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="roles-empty-state">
+                <p>No roles found matching "{query}" in {dept}.</p>
+                <button
+                  type="button"
+                  onClick={() => { setDept('All Departments'); setQuery('') }}
+                  className="roles-reset-btn"
+                >
+                  Clear filters
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -340,12 +447,14 @@ export default function WhyEncegen() {
       </section>
 
       <ClosingCTA
-        dark
+        trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
+        trustedLabel="trusted by 5,000+ enterprises"
         line1="This is where the story gets interesting."
         line2="And you could be in the next chapter."
         sub="We're not just hiring. We're building a team of people who give a damn about making AI work for the real world."
-        primary={{ label: 'View All Open Roles', to: '/careers' }}
-        secondary={{ label: 'Send an Open Application', to: '/careers' }}
+        primary={{ label: 'View All Open Roles', to: '/careers', variant: 'lavender' }}
+        
+        checks={['< 48hr response', 'Every CV read by humans', 'Transparent hiring process']}
       />
     </>
   )
