@@ -48,24 +48,7 @@ const STEPS = [
   { num: '06', title: 'Launch', meta: 'Wk 13+', desc: 'Deployment, monitoring, and 30 days of support while it beds in.' },
 ]
 
-const STACK = [
-  { name: 'React', role: 'Frontend' },
-  { name: 'Next.js', role: 'Frontend' },
-  { name: 'TypeScript', role: 'Frontend' },
-  { name: 'Node.js', role: 'Backend' },
-  { name: 'Python', role: 'Backend' },
-  { name: 'FastAPI', role: 'Framework' },
-  { name: 'PostgreSQL', role: 'Database' },
-  { name: 'MongoDB', role: 'Database' },
-  { name: 'Redis', role: 'Database' },
-  { name: 'AWS', role: 'Cloud' },
-  { name: 'Azure', role: 'Cloud' },
-  { name: 'Docker', role: 'DevOps' },
-  { name: 'Kubernetes', role: 'DevOps' },
-  { name: 'GraphQL', role: 'API' },
-  { name: 'Kafka', role: 'Streaming' },
-  { name: 'Terraform', role: 'Infra' },
-]
+import { CUSTOM_SOFTWARE_TECH_STACK as STACK } from '../../data/techStack'
 
 const TESTIMONIALS = [
   {
@@ -222,14 +205,20 @@ export default function CustomSoftware() {
       </section>
 
       {/* Stack */}
-      <section className="section section--dark">
+      <section className="section section--light">
         <div className="container">
-          <SectionHead eyebrow="Our Stack" title="Modern tools, chosen because they hold up in production." dark />
+          <SectionHead
+            eyebrow="Our Stack"
+            title="Modern technologies. Battle-tested in production."
+          />
           <div className="stack-grid">
             {STACK.map((s) => (
               <div key={s.name} className="stack-chip">
-                <strong>{s.name}</strong>
-                <span>{s.role}</span>
+                <span className="stack-chip__dot" aria-hidden="true" />
+                <div className="stack-chip__content">
+                  <strong>{s.name}</strong>
+                  <span>{s.role}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -249,12 +238,17 @@ export default function CustomSoftware() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
+        eyebrow="LET'S BUILD"
         line1="Ready to build software that fits"
         line2="your business perfectly?"
-        sub="Tell us what you need. We'll scope it, design it, and ship it — on a fixed price and a timeline you can hold us to."
+        sub="Tell us what you need to build. We'll scope it, design it, and deliver it — in 3-6 months."
+        primary={{ label: 'Talk to an expert', to: '/contact' }}
         secondary={{ label: 'See case studies', to: '/insights' }}
-        checks={['Full IP transfer', '3-6 month delivery', 'Fixed-price engagement']}
+        checks={[
+          { text: 'Full IP transfer', icon: '🛡️' },
+          { text: '3-6 month delivery', icon: '⏱️' },
+          { text: 'Fixed-price engagement', icon: '📋' },
+        ]}
       />
     </>
   )

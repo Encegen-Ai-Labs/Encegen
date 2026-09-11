@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import ContactModal from './ContactModal'
 import './kit.css'
 
 /* ---------- Buttons ---------- */
@@ -61,17 +62,19 @@ export function PageHero({ badge, title, sub, actions, trusted, trustedLabel = '
         <h1 className="phero__title">{title}</h1>
         {sub && <p className="phero__sub">{sub}</p>}
         {actions && <div className="phero__actions">{actions}</div>}
+        {children}
         {trusted && (
           <div className="phero__trusted">
-            <span className="phero__trusted-label">— {trustedLabel}</span>
-            {trusted.map((t) => (
-              <span key={t} className="phero__trusted-pill">
-                {t}
-              </span>
-            ))}
+            <span className="phero__trusted-label">{trustedLabel}</span>
+            <div className="phero__trusted-logos">
+              {trusted.map((t) => (
+                <span key={t} className="phero__trusted-item">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         )}
-        {children}
       </div>
     </section>
   )
@@ -280,29 +283,59 @@ export function TestimonialCard({ tag, color = '#22c55e', quote, initials, name,
 /* ---------- Closing CTA ---------- */
 
 type ClosingCTAProps = {
+  eyebrow?: ReactNode
   trusted?: string[]
   trustedLabel?: string
   line1: ReactNode
   line2?: ReactNode
   sub?: ReactNode
-  primary?: { label: string; to?: string; newTab?: boolean }
-  secondary?: { label: string; to?: string; newTab?: boolean }
-  checks?: string[]
+  primary?: { label: string; to?: string; newTab?: boolean; variant?: 'purple' | 'white' | 'lavender'; onClick?: () => void }
+  secondary?: { label: string; to?: string; newTab?: boolean; variant?: 'outline-dark' | 'outline-light' | 'white'; onClick?: () => void }
+  checks?: Array<string | { text: string; icon?: ReactNode }>
+  note?: ReactNode
   dark?: boolean
 }
 
-export function ClosingCTA({ trusted, trustedLabel = 'trusted by 5,000+ enterprises', line1, line2, sub, primary, secondary, checks, dark }: ClosingCTAProps) {
+export function ClosingCTA({
+  eyebrow,
+  trusted,
+  trustedLabel = 'trusted by our enterprise partners & clients',
+  line1,
+  line2,
+  sub,
+  primary,
+  secondary,
+  checks,
+  note,
+  dark,
+}: ClosingCTAProps) {
+  const [showContact, setShowContact] = useState(false)
+  let activePrimary = primary
+  let activeSecondary = secondary
+
+  if (activePrimary && /start\s+(a\s+)?project/i.test(activePrimary.label)) {
+    activePrimary = undefined
+    if (!activeSecondary) {
+      activeSecondary = { label: 'Talk to an expert', to: '/contact' }
+    }
+  } else if (!activePrimary && !activeSecondary) {
+    activePrimary = { label: 'Talk to an expert', to: '/contact' }
+  }
+
   return (
     <section className={`closing ${dark ? 'closing--dark' : ''}`}>
-      <div className="container closing__inner">
-        {trusted && (
+      <div className="closing__inner">
+        {eyebrow && <span className="closing__eyebrow">{eyebrow}</span>}
+        {trusted && trusted.length > 0 && (
           <div className="closing__trusted">
-            <span>— {trustedLabel}</span>
-            {trusted.map((t) => (
-              <span key={t} className="closing__trusted-pill">
-                {t}
-              </span>
-            ))}
+            <span className="closing__trusted-label">— {trustedLabel}</span>
+            <div className="closing__trusted-pills">
+              {trusted.map((t) => (
+                <span key={t} className="closing__trusted-pill">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         )}
         <h2 className="closing__title">
@@ -315,26 +348,61 @@ export function ClosingCTA({ trusted, trustedLabel = 'trusted by 5,000+ enterpri
           )}
         </h2>
         {sub && <p className="closing__sub">{sub}</p>}
-        <div className="closing__actions">
-          {primary && (
-            <Btn to={primary.to} variant="purple" newTab={primary.newTab}>
-              {primary.label}
-            </Btn>
-          )}
-          {secondary && (
-            <Btn to={secondary.to} variant={dark ? 'outline-light' : 'outline-dark'} newTab={secondary.newTab}>
-              {secondary.label}
-            </Btn>
-          )}
-        </div>
-        {checks && (
-          <div className="closing__checks">
-            {checks.map((c) => (
-              <span key={c}>✓ {c}</span>
-            ))}
+        {(activePrimary || activeSecondary) && (
+          <div className="closing__actions">
+            {activePrimary && (
+              <Btn
+                to={activePrimary.to === '/contact' ? '#' : activePrimary.to}
+                onClick={
+                  activePrimary.onClick
+                    ? activePrimary.onClick
+                    : activePrimary.to === '/contact'
+                      ? () => setShowContact(true)
+                      : undefined
+                }
+                variant={activePrimary.variant ?? (dark ? 'purple' : 'lavender')}
+                newTab={activePrimary.newTab}
+              >
+                {activePrimary.label}
+              </Btn>
+            )}
+            {activeSecondary && (
+              <Btn
+                to={activeSecondary.to === '/contact' ? '#' : activeSecondary.to}
+                onClick={
+                  activeSecondary.onClick
+                    ? activeSecondary.onClick
+                    : activeSecondary.to === '/contact'
+                      ? () => setShowContact(true)
+                      : undefined
+                }
+                variant={activeSecondary.variant ?? (dark ? 'outline-light' : 'outline-dark')}
+                newTab={activeSecondary.newTab}
+              >
+                {activeSecondary.label}
+              </Btn>
+            )}
           </div>
         )}
+        {checks && checks.length > 0 && (
+          <div className="closing__checks">
+            {checks.map((c, i) => {
+              const text = typeof c === 'string' ? c : c.text
+              const icon = typeof c === 'object' && c.icon
+                ? c.icon
+                : (i === 0 && !text.includes('🔒') ? '🔒' : undefined)
+              return (
+                <span key={i} className="closing__check-item">
+                  {icon && <span className="closing__check-icon">{icon}</span>}
+                  <span>{text}</span>
+                </span>
+              )
+            })}
+          </div>
+        )}
+        {note && <div className="closing__note">{note}</div>}
       </div>
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
     </section>
   )
 }

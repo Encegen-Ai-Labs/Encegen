@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchIcon } from '../../components/icons'
+import { ClosingCTA } from '../../components/kit'
 import { DEPARTMENTS, DEPT_COLORS, JOBS as DEFAULT_JOBS } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
@@ -127,6 +128,18 @@ export default function Careers() {
           ))}
         </div>
       </section>
+
+      {/* Closing CTA (Exact match to screenshot) */}
+      <ClosingCTA
+        trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
+        trustedLabel="trusted by 5,000+ enterprises"
+        line1="This is where the story gets interesting."
+        line2="And you could be in the next chapter."
+        sub="We're not just hiring. We're building a team of people who give a damn about making AI work for the real world."
+        primary={{ label: 'View All Open Roles', to: '#', onClick: () => window.scrollTo({ top: 0, behavior: 'smooth' }), variant: 'lavender' }}
+       
+        checks={['< 48hr response', 'Every CV read by humans', 'Transparent hiring process']}
+      />
     </>
   )
 }

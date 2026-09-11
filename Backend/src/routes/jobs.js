@@ -54,8 +54,8 @@ let memoryJobs = [
   }
 ];
 
-// PUBLIC: Get all job openings
-router.get('/jobs', async (req, res) => {
+// ADMIN: Get all job openings
+router.get('/jobs', authenticateAdmin, async (req, res) => {
   try {
     const result = await query('SELECT * FROM jobs ORDER BY created_at DESC');
     return res.json(result.rows);
@@ -65,8 +65,8 @@ router.get('/jobs', async (req, res) => {
   }
 });
 
-// PUBLIC: Get single job by ID
-router.get('/jobs/:id', async (req, res) => {
+// ADMIN: Get single job by ID
+router.get('/jobs/:id', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
   try {
     const result = await query('SELECT * FROM jobs WHERE id = $1', [id]);

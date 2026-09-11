@@ -7,7 +7,6 @@ import {
   SectionHead,
   StepFlow,
   TestimonialCard,
-  UseCaseCard,
 } from '../../components/kit'
 import { CapabilityArt } from '../../components/CapabilityArt'
 import '../../components/CapabilityArt.css'
@@ -42,27 +41,28 @@ const CHANNELS = [
 
 const USE_CASES = [
   {
-    tags: ['D2C', 'Brand Scale-Up'],
+    tag: 'D2C BRAND SCALE-UP',
     color: '#22c55e',
     title: 'D2C Brand Scale-Up',
-    desc: 'AI-run paid media and email automation that take a growing D2C brand from early traction to serious monthly revenue.',
+    desc: 'AI-powered paid media and email automation that took a D2C fashion brand from $200k to $1.2M MRR in 9 months.',
     metric: '6.4× ROAS',
   },
   {
-    tags: ['SaaS', 'Lead Generation'],
-    color: '#3b82f6',
+    tag: 'SAAS LEAD GENERATION',
+    color: '#8b78ff',
     title: 'SaaS Lead Generation',
-    desc: 'A content and paid-search system that grows qualified organic leads while pulling the cost of acquisition down.',
+    desc: 'Content and paid search strategy that grew organic qualified leads by 340% while reducing CAC by 65%.',
     metric: '340% lead growth',
   },
   {
-    tags: ['E-commerce', 'Revenue'],
+    tag: 'E-COMMERCE REVENUE',
     color: '#f59e0b',
     title: 'E-commerce Revenue',
-    desc: 'Email automation and conversion work that add real monthly revenue without a rupee more in ad spend.',
+    desc: 'Email automation and conversion optimisation that added 40% to monthly revenue with zero additional ad spend.',
     metric: '+40% revenue',
   },
 ]
+
 
 const STEPS = [
   { num: '01', title: 'Audit & Strategy', meta: 'Wk 1-2', desc: 'A full marketing audit, a look at the competition, and a growth roadmap worth following.' },
@@ -256,12 +256,26 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Use cases */}
-      <section className="section section--dark">
+      <section className="section section--light dm-use-cases-section">
         <div className="container">
-          <SectionHead eyebrow="Use Cases" title="Growth systems built for real businesses." dark />
-          <div className="cards-3">
+          <SectionHead
+            eyebrow="USE CASES"
+            title="Growth systems built for real businesses."
+          />
+          <div className="cards-3 dm-cases-grid">
             {USE_CASES.map((u) => (
-              <UseCaseCard key={u.title} {...u} />
+              <article
+                key={u.title}
+                className="dm-case-card hover-lift"
+                style={{ ['--case-color' as string]: u.color }}
+              >
+                <div className="dm-case-card__top-bar" />
+                <div className="dm-case-card__tag">{u.tag}</div>
+                <p className="dm-case-card__desc">{u.desc}</p>
+                <div className="dm-case-card__foot">
+                  <span className="dm-case-card__metric">{u.metric}</span>
+                </div>
+              </article>
             ))}
           </div>
         </div>

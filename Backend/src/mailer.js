@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, ADMIN_EMAIL } = process.env;
+const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, HR_EMAIL, ADMIN_EMAIL } = process.env;
 
 let transporter = null;
 
@@ -22,7 +22,7 @@ if (SMTP_HOST && SMTP_USER && SMTP_PASS) {
 }
 
 /**
- * Emails a new job application to the company inbox (ADMIN_EMAIL).
+ * Emails a new job application to the HR inbox.
  * @param {{ job: {id?: number|string, title: string}, applicant: object, resumeFile?: { originalname: string, buffer: Buffer, mimetype: string } }} params
  */
 export async function sendApplicationEmail({ job, applicant, resumeFile }) {
@@ -30,7 +30,7 @@ export async function sendApplicationEmail({ job, applicant, resumeFile }) {
     return { sent: false, reason: 'SMTP not configured' };
   }
 
-  const recipient = ADMIN_EMAIL || 'admin@encegen.com';
+  const recipient = HR_EMAIL || ADMIN_EMAIL || SMTP_USER;
   const from = SMTP_FROM || SMTP_USER;
 
   const lines = [

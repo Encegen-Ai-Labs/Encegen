@@ -474,18 +474,35 @@
   transition: transform 0.3s var(--ease-out);
 }
 
-/* Dark-surface cards */
-.ucase, .dcard, .mock-panel {
+.ucase, .dcard, .mock-panel, .stack-chip {
   transition:
     transform var(--duration-base) var(--ease-spring),
     box-shadow var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+    border-color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
 }
 .ucase:hover, .dcard:hover, .mock-panel:hover {
   transform: translateY(var(--lift-md)) scale(1.012);
   box-shadow: var(--glow-purple-dark);
   border-color: rgba(169, 156, 255, 0.45);
 }
+.stack-chip:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  background: #12183c !important;
+  border-color: rgba(139, 120, 255, 0.75) !important;
+  box-shadow:
+    0 14px 30px -6px rgba(10, 9, 34, 0.4),
+    0 6px 20px rgba(101, 83, 238, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+.stack-chip:hover strong {
+  color: #ffffff !important;
+}
+.stack-chip:hover span {
+  color: #a5b4fc !important;
+}
+
+
 
 /* --- 2. Button Family: Shimmer beam sweep + tactile lift --- */
 .kbtn, .hero__cta, .cta__button, .job-row__apply, .apply-submit,

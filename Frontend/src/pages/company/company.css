@@ -1,5 +1,134 @@
 /* Shared styles for company pages */
 
+/* Chapter badges */
+.chapter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #f1effd;
+  border: 1px solid #ddd6fe;
+  color: var(--purple-600);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  width: fit-content;
+}
+
+.chapter-badge--dark {
+  background: rgba(124, 99, 255, 0.15);
+  border-color: rgba(124, 99, 255, 0.35);
+  color: #c4b5fd;
+}
+
+/* Story pillars (cyan box section) */
+.story-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.story-pillar {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.story-pillar:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 99, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.story-pillar__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(124, 99, 255, 0.15);
+  border: 1px solid rgba(124, 99, 255, 0.3);
+  color: #c4b5fd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.story-pillar h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.story-pillar p {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+@media (max-width: 960px) {
+  .story-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .story-pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Story outcome bullets (Chapter 02) */
+.story-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.story-bullet {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.story-bullet__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--purple-600);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.story-bullet__content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.story-bullet__content p {
+  margin-top: 4px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--gray-600);
+}
+
 /* Truth panel (promise vs reality) */
 .truth {
   background: var(--panel-navy);
@@ -137,33 +266,66 @@
 }
 
 /* Team cards */
+.team-cards-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+@media (max-width: 960px) {
+  .team-cards-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .team-cards-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .team-card {
   background: #ffffff;
   border: 1px solid #e9e8f4;
   border-top: 4px solid var(--purple-600);
   border-radius: 14px;
-  padding: var(--space-sm);
+  padding: 24px 20px;
   box-shadow: 0 10px 24px rgba(22, 20, 60, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.team-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 14px;
 }
 .team-card h3 {
-  margin-top: var(--space-xs);
-  font-size: var(--fs-sub);
+  margin-top: 0;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--ink-900);
 }
 .team-card .role {
   display: block;
-  margin-top: var(--space-3xs);
-  font-size: var(--fs-xs);
+  margin-top: 4px;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--purple-600);
 }
 .team-card p {
-  margin-top: var(--space-xs);
-  font-size: var(--fs-card-body);
-  line-height: 1.6;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  line-height: 1.55;
   color: var(--gray-600);
 }
 
@@ -172,58 +334,82 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: var(--space-xs);
-  margin-top: var(--space-md);
-  padding: var(--space-xs) var(--space-sm);
+  margin-top: var(--space-xl);
+  padding: 16px 24px;
   border-radius: 16px;
-  background: var(--navy-800);
+  background: var(--navy-900);
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .rule-bar strong {
-  font-size: var(--fs-sub);
-  font-weight: 700;
+  font-size: 0.98rem;
+  font-weight: 600;
   flex: 1;
-  min-width: 200px;
+  min-width: 240px;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 .rule-bar__avatars {
   display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .rule-bar__avatars .avatar {
-  margin-left: -8px;
-  border: 2px solid var(--navy-800);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid var(--navy-900);
 }
 
 /* Value tiles (colored) */
 .value-tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xs);
+  gap: var(--space-md);
   margin-top: var(--space-xl);
 }
 .value-tile {
   border-radius: 14px;
-  padding: var(--space-sm);
+  padding: 24px;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.value-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+.value-tile em {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
 }
 .value-tile strong {
   display: block;
-  font-size: var(--fs-sub);
+  font-size: 1.12rem;
   font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
 }
 .value-tile p {
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-card-body);
-  font-style: italic;
+  margin-top: 8px;
+  font-size: 0.88rem;
+  font-style: normal;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.85);
-}
-.value-tile em {
-  display: block;
-  font-size: var(--fs-2xs);
-  font-style: normal;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: var(--space-2xs);
 }
 @media (max-width: 960px) {
   .value-tiles {

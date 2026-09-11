@@ -91,8 +91,8 @@ export default function ResumeBuilder() {
 
       <section className="section section--light">
         <div className="container">
-          <p className="shead__eyebrow">Chapter 01</p>
-          <h2 className="left-title">Stop wrestling with formatting.</h2>
+          <span className="product-pill">Chapter 01</span>
+          <h2 className="left-title" style={{ marginTop: '0.75rem' }}>Stop wrestling with formatting.</h2>
           <p className="left-copy">
             Focus on your achievements, not adjusting margins. Our Resume Builder handles all the design work, ensuring your resume looks perfect on every screen and prints flawlessly.
           </p>

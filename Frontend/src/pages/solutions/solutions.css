@@ -277,34 +277,106 @@
 }
 
 /* Tech stack grid */
+/* Tech stack grid */
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-xs);
+  gap: 16px;
   margin-top: var(--space-xl);
 }
 
 .stack-chip {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 12px;
-  background: var(--panel-navy);
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #0c102a;
   border: 1px solid rgba(122, 99, 255, 0.22);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(10, 9, 34, 0.25);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stack-chip__dot {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  background: #191c42;
+  border: 1px solid rgba(139, 120, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.stack-chip__dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8b78ff;
+  opacity: 0.8;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.stack-chip:hover .stack-chip__dot {
+  transform: scale(1.1);
+  background: #252a5e;
+  border-color: #a78bfa;
+}
+
+.stack-chip:hover .stack-chip__dot::after {
+  background: #c4b5fd;
+  transform: scale(1.2);
+}
+
+.stack-chip__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
 }
 
 .stack-chip strong {
   color: #ffffff;
-  font-size: var(--fs-base);
+  font-size: 0.98rem;
   font-weight: 700;
+  line-height: 1.25;
+  transition: color 0.2s ease;
 }
 
 .stack-chip span {
-  margin-left: auto;
-  font-size: var(--fs-xs);
+  font-size: 0.74rem;
   color: #8f8cb0;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
 }
+
+.stack-chip:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: #12183c;
+  border-color: rgba(139, 120, 255, 0.75);
+  box-shadow:
+    0 14px 30px -6px rgba(10, 9, 34, 0.4),
+    0 6px 20px rgba(101, 83, 238, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.stack-chip:hover span {
+  color: #a5b4fc;
+}
+
 
 @media (max-width: 1024px) {
   .stack-grid {

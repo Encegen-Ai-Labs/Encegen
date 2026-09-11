@@ -413,11 +413,13 @@ export default function AiResearch() {
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
-        line1="Tell us the problem."
+        trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
+        trustedLabel="trusted by our enterprise partners & clients"
+        line1="Tell us your problem."
         line2="We'll build the AI."
-        sub="No generic tool, no off-the-shelf model. Research-grade custom AI, built for your exact challenge and delivered on a timeline you can plan around."
-        checks={['NDA-protected engagements', '14-week delivery guarantee', 'No lock-in contract']}
+        sub="No generic tools. No off-the-shelf models. Just research-grade custom AI built precisely for your business challenge - delivered in 14 weeks."
+        secondary={{ label: 'Talk to an expert', to: '/contact' }}
+        checks={['NDA-protected engagements', '14-week delivery guarantee', 'No lock-in contracts']}
       />
     </>
   )
