@@ -10,7 +10,7 @@ import {
   Stars,
 } from '../../components/kit'
 import { SearchIcon } from '../../components/icons'
-import { DEPT_COLORS, JOBS as DEFAULT_JOBS } from '../../data/jobs'
+import { JOBS as DEFAULT_JOBS } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 import '../company/company.css'
