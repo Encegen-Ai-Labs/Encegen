@@ -9,29 +9,30 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
+import { RefreshIcon, SearchIcon, SparklesIcon, ZapIcon } from '../../components/icons'
 import './solutions.css'
 
 const CAPABILITIES = [
   {
-    icon: '🔍',
+    icon: <SearchIcon size={22} />,
     title: 'Process Discovery',
     desc: 'Maps how work actually flows from raw system data — no manual modelling.',
     tag: 'Automated',
   },
   {
-    icon: '💡',
+    icon: <SparklesIcon size={22} />,
     title: 'Root Cause Analysis',
     desc: 'Traces a problem back through the steps that caused it, in seconds not weeks.',
     tag: 'Intelligent',
   },
   {
-    icon: '⚡',
+    icon: <ZapIcon size={22} />,
     title: 'Recommended Actions',
     desc: 'Turns each gap into a ranked, ready-to-run recommendation, ordered by impact.',
     tag: 'Proactive',
   },
   {
-    icon: '🔄',
+    icon: <RefreshIcon size={22} />,
     title: 'Continuous Optimization',
     desc: 'Watches the work around the clock and adjusts as the business changes.',
     tag: 'Adaptive',
@@ -362,19 +363,19 @@ export default function UseCases() {
 
       {/* Processes */}
       <section className="section section--lavender">
-        <div className="container split">
-          <div>
-            <h2 className="left-title">Optimize the processes that matter most.</h2>
-            <p className="left-copy">By process:</p>
-            <div className="proc-list">
-              {PROCESSES.map((p) => (
-                <a key={p.label} href={p.id ? `#${p.id}` : '#'}>
-                  {p.label}
-                </a>
-              ))}
-            </div>
+        <div className="container">
+          <SectionHead
+            eyebrow="By Process"
+            title="Optimize the processes that matter most."
+          />
+          <div className="proc-grid">
+            {PROCESSES.map((p) => (
+              <a key={p.label} href={p.id ? `#${p.id}` : '#'} className="proc-card">
+                <span>{p.label}</span>
+                <span className="proc-card__arrow">→</span>
+              </a>
+            ))}
           </div>
-          <div />
         </div>
       </section>
 
@@ -399,7 +400,7 @@ export default function UseCases() {
             sub="The same intelligence layer, shaped to the pressures of your sector — the workflows, the regulation, the margins that don't leave much room for error."
           />
           {INDUSTRIES.map((industry) => (
-            <div key={industry.id} id={industry.id} style={{ scrollMarginTop: 100, marginTop: 56 }}>
+            <div key={industry.id} id={industry.id} className="industry-block">
               <span className="disc-card__tag">{industry.tag}</span>
               <h3 className="left-title" style={{ marginTop: 14 }}>{industry.title}</h3>
               <p className="left-copy" style={{ marginTop: 12 }}>{industry.intro}</p>
@@ -411,7 +412,7 @@ export default function UseCases() {
                   </article>
                 ))}
               </div>
-              <p className="left-copy" style={{ marginTop: 20, fontSize: 14 }}>
+              <p className="industry-block__foot">
                 <strong>Where it starts:</strong> {industry.startsWith}
               </p>
             </div>

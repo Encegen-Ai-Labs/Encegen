@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
+import { GlobeIcon, LockIcon, ZapIcon } from './icons'
 import './Hero.css'
 
 const TRUST_BADGES = [
-  { emoji: '🔒', label: 'SOC 2 Certified' },
-  { emoji: '🌍', label: 'Global Scale' },
-  { emoji: '⚡', label: 'Real-Time' },
+  { icon: LockIcon, label: 'SOC 2 Certified' },
+  { icon: GlobeIcon, label: 'Global Scale' },
+  { icon: ZapIcon, label: 'Real-Time' },
 ]
 
 export default function Hero() {
@@ -23,12 +24,10 @@ export default function Hero() {
           {t('home.platform.sub', 'Encegen connects your data, your processes, and your systems into one intelligent layer – so every team has the clarity to act.')}
         </p>
 
-       
-
         <div className="hero__badges">
           {TRUST_BADGES.map((badge) => (
             <span key={badge.label} className="hero__trust">
-              <span aria-hidden="true">{badge.emoji}</span>
+              <badge.icon size={16} />
               {badge.label}
             </span>
           ))}

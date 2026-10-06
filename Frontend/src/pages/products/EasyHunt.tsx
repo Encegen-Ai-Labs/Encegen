@@ -7,7 +7,17 @@ import {
   SectionHead,
   TestimonialCard,
 } from '../../components/kit'
-import { SearchIcon, ShieldIcon } from '../../components/icons'
+import {
+  BuildingIcon,
+  CompassIcon,
+  FileTextIcon,
+  LayersIcon,
+  LockIcon,
+  SearchIcon,
+  ShieldIcon,
+  SparklesIcon,
+  ZapIcon,
+} from '../../components/icons'
 import './products.css'
 import logoEasyHunt from '../../assets/easy.png'
 
@@ -37,21 +47,21 @@ const HOW = [
 ]
 
 const PLATFORM = [
-  { icon: '🔎', title: 'Intelligent Keyword Search', desc: 'Search by owner, survey number, CTS, village, document type, or litigation reference across millions of records.' },
-  { icon: '🏛', title: 'Government-Sourced Data', desc: 'Verified records sourced directly from official government datasets, registries, and land record portals.' },
-  { icon: '✨', title: 'AI-Powered Matching', desc: 'Smart fuzzy matching handles transliterations, spelling variations, and partial matches across languages.' },
-  { icon: '⚡', title: 'Full records, not snippets', desc: 'See the complete entry — ownership, survey details, dates and remarks — in one place, without switching files.' },
-  { icon: '⚖', title: 'Export to Word', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
-  { icon: '🔐', title: 'Search history & audit trail', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
+  { icon: <SearchIcon size={22} />, title: 'Intelligent Keyword Search', desc: 'Search by owner, survey number, CTS, village, document type, or litigation reference across millions of records.' },
+  { icon: <BuildingIcon size={22} />, title: 'Government-Sourced Data', desc: 'Verified records sourced directly from official government datasets, registries, and land record portals.' },
+  { icon: <SparklesIcon size={22} />, title: 'AI-Powered Matching', desc: 'Smart fuzzy matching handles transliterations, spelling variations, and partial matches across languages.' },
+  { icon: <ZapIcon size={22} />, title: 'Full records, not snippets', desc: 'See the complete entry — ownership, survey details, dates and remarks — in one place, without switching files.' },
+  { icon: <FileTextIcon size={22} />, title: 'Export to Word', desc: 'Turn any search into a clean, shareable report for your client file or internal review in one click.' },
+  { icon: <LockIcon size={22} />, title: 'Search history & audit trail', desc: 'Every search is saved, so you can pick up exactly where you left off instead of starting over.' },
 ]
 
 const STAKEHOLDERS = [
-  { icon: '⚖', title: 'Lawyers & advocates', desc: 'Move through title searches and verification far faster during due diligence.' },
-  { icon: '📋', title: 'Title search consultants', desc: 'Complete reports in a fraction of the time with full records in one view.' },
-  { icon: '🏗', title: 'Real estate & developers', desc: 'Check ownership history and land details before committing to a deal.' },
-  { icon: '🏦', title: 'Banks & NBFCs', desc: 'Speed up property checks for mortgage and loan verification.' },
-  { icon: '🏛', title: 'Investors & consultants', desc: 'Spot what needs a closer look before money changes hands.' },
-  { icon: '🗺', title: 'Verification agencies', desc: 'Handle high volumes of property checks without adding hours.' },
+  { icon: <ShieldIcon size={22} />, title: 'Lawyers & advocates', desc: 'Move through title searches and verification far faster during due diligence.' },
+  { icon: <FileTextIcon size={22} />, title: 'Title search consultants', desc: 'Complete reports in a fraction of the time with full records in one view.' },
+  { icon: <LayersIcon size={22} />, title: 'Real estate & developers', desc: 'Check ownership history and land details before committing to a deal.' },
+  { icon: <BuildingIcon size={22} />, title: 'Banks & NBFCs', desc: 'Speed up property checks for mortgage and loan verification.' },
+  { icon: <SparklesIcon size={22} />, title: 'Investors & consultants', desc: 'Spot what needs a closer look before money changes hands.' },
+  { icon: <CompassIcon size={22} />, title: 'Verification agencies', desc: 'Handle high volumes of property checks without adding hours.' },
 ]
 
 const TESTIMONIALS = [

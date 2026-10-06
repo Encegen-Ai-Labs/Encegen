@@ -24,6 +24,7 @@
   --gray-500: #8a89a0;
 
   --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
   --blue-400: #4f7cff;
   --green-400: #2fe08e;
 
@@ -48,6 +49,15 @@
   --fs-base: clamp(0.9375rem, 0.88rem + 0.25vw, 1.0625rem);
   --fs-md: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
   --fs-lg: clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem);
+
+  --fs-eyebrow: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --fs-h2: clamp(2rem, 1.65rem + 1.6vw, 2.875rem);
+  --fs-h3-card: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --fs-sub: clamp(0.975rem, 0.92rem + 0.22vw, 1.08rem);
+  --fs-body: clamp(0.9rem, 0.86rem + 0.18vw, 0.975rem);
+  --fs-card-body: clamp(0.875rem, 0.84rem + 0.14vw, 0.925rem);
+  --lh-heading: 1.16;
+  --lh-body: 1.62;
 
   /* Named container-width caps, reused instead of inventing a new max-width per file. */
   --container-w: 1200px;
@@ -95,8 +105,8 @@ ul {
 }
 
 .section-eyebrow {
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--purple-600);
@@ -105,9 +115,9 @@ ul {
 
 .split {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
-  align-items: flex-start; /* Important for sticky to work */
+  align-items: center;
 }
 
 @media (max-width: 960px) {

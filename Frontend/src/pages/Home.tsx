@@ -2,8 +2,19 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
-import { ArrowRight } from '../components/icons'
-import ScrollFillText from '../components/ScrollFillText'
+import {
+  ArrowRight,
+  BuildingIcon,
+  CarIcon,
+  FactoryIcon,
+  HeartPulseIcon,
+  MapPinIcon,
+  ShieldIcon,
+  ShoppingBagIcon,
+  SparklesIcon,
+  TargetIcon,
+  ZapIcon,
+} from '../components/icons'
 import './Home.css'
 
 /* Scroll-triggered reveal: adds 'is-visible' to each child with stagger */
@@ -181,29 +192,29 @@ export default function Home() {
 
   const capabilities = useMemo(() => [
     {
-      icon: '◎',
+      icon: <TargetIcon size={22} />,
       title: t('home.capabilities.c1Title', 'Real-Time Process Mining'),
       desc: t('home.capabilities.c1Desc', 'Discover and visualize every process variant as it actually runs, not how you think it runs.'),
     },
     {
-      icon: '✦',
+      icon: <SparklesIcon size={22} />,
       title: t('home.capabilities.c2Title', 'AI-Powered Recommendations'),
       desc: t('home.capabilities.c2Desc', 'Surface the highest-value improvement opportunities across your entire operation.'),
     },
     {
-      icon: '⚡',
+      icon: <ZapIcon size={22} />,
       title: t('home.capabilities.c3Title', 'Execution Engine'),
       desc: t('home.capabilities.c3Desc', 'Automate fixes and embed intelligence directly into SAP, Salesforce, and ServiceNow.'),
     },
   ], [t])
 
   const industries = useMemo(() => [
-    { icon: '⚙', title: t('home.industries.mfg', 'Manufacturing'), desc: t('home.industries.mfgDesc', 'Optimize production cycles and supply chain resilience.') },
-    { icon: '🏦', title: t('home.industries.fin', 'Financial Services'), desc: t('home.industries.finDesc', 'Streamline risk management and order-to-cash workflows.') },
-    { icon: '🛍', title: t('home.industries.ret', 'Retail'), desc: t('home.industries.retDesc', 'Enhance inventory turnover and omnichannel experiences.') },
-    { icon: '🏥', title: t('home.industries.health', 'Healthcare'), desc: t('home.industries.healthDesc', 'Improve patient throughput and billing accuracy.') },
-    { icon: '⚡', title: t('home.industries.util', 'Utilities'), desc: t('home.industries.utilDesc', 'Manage grid operations and customer service processes.') },
-    { icon: '🚗', title: t('home.industries.auto', 'Automotive'), desc: t('home.industries.autoDesc', 'Accelerate time-to-market for next-gen vehicle production.') },
+    { icon: <FactoryIcon size={22} />, title: t('home.industries.mfg', 'Manufacturing'), desc: t('home.industries.mfgDesc', 'Optimize production cycles and supply chain resilience.') },
+    { icon: <BuildingIcon size={22} />, title: t('home.industries.fin', 'Financial Services'), desc: t('home.industries.finDesc', 'Streamline risk management and order-to-cash workflows.') },
+    { icon: <ShoppingBagIcon size={22} />, title: t('home.industries.ret', 'Retail'), desc: t('home.industries.retDesc', 'Enhance inventory turnover and omnichannel experiences.') },
+    { icon: <HeartPulseIcon size={22} />, title: t('home.industries.health', 'Healthcare'), desc: t('home.industries.healthDesc', 'Improve patient throughput and billing accuracy.') },
+    { icon: <ZapIcon size={22} />, title: t('home.industries.util', 'Utilities'), desc: t('home.industries.utilDesc', 'Manage grid operations and customer service processes.') },
+    { icon: <CarIcon size={22} />, title: t('home.industries.auto', 'Automotive'), desc: t('home.industries.autoDesc', 'Accelerate time-to-market for next-gen vehicle production.') },
   ], [t])
 
   const stats = useMemo(() => [
@@ -249,7 +260,9 @@ export default function Home() {
                   {item.logo ? (
                     <img src={item.logo} alt={item.name} className="client-logo-img" />
                   ) : (
-                    <span style={{ fontSize: '1.25rem' }}>⚖</span>
+                    <span className="client-logo-icon">
+                      <ShieldIcon size={20} />
+                    </span>
                   )}
                   <div>
                     <span className="client-logo-label">{item.name}</span>
@@ -263,15 +276,15 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="section section--light" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+      <section className="section section--light home-about-section">
         <div className="container split">
-          <div>
+          <div className="home-about__left">
             <p className="shead__eyebrow">{t('home.aboutEyebrow', 'About Encegen AI Labs')}</p>
             <h2 className="left-title">
-              <ScrollFillText text={t('home.aboutTitle', 'We believe every great business runs on great processes.')} />
+              {t('home.aboutTitle', 'We believe every great business runs on great processes.')}
             </h2>
-            <p className="left-copy" style={{ fontSize: '1.3rem', lineHeight: '1.6', fontWeight: 500 }}>
-              <ScrollFillText text={t('home.aboutCopy', 'More than 1,400 companies around the world use Encegen to analyze, design, and operate AI-driven processes. Now your agents, humans, and systems can work together to deliver real business outcomes.')} />
+            <p className="left-copy">
+              {t('home.aboutCopy', 'More than 1,400 companies around the world use Encegen to analyze, design, and operate AI-driven processes. Now your agents, humans, and systems can work together to deliver real business outcomes.')}
             </p>
           </div>
           <div className="home-facts">
@@ -282,16 +295,18 @@ export default function Home() {
                 </strong>
                 {f.sub && <p>{f.sub}</p>}
                 {'offices' in f && Array.isArray((f as any).offices) && (
-                  <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <div className="home-facts__offices">
                     {((f as any).offices as Array<{ name: string; address: string; mapUrl: string | null }>).map((off) => (
-                      <div key={off.name} style={{ fontSize: '0.82rem', lineHeight: 1.4, color: 'var(--ink-700)' }}>
-                        <span style={{ fontWeight: 700, color: 'var(--purple-700)', display: 'block' }}>📍 {off.name}</span>
+                      <div key={off.name} className="home-facts__office">
+                        <span className="home-facts__office-name">
+                          <MapPinIcon size={13} /> {off.name}
+                        </span>
                         {off.mapUrl ? (
                           <a
                             href={off.mapUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            style={{ color: 'var(--ink-700)', textDecoration: 'underline' }}
+                            className="home-facts__office-link"
                           >
                             {off.address} ↗
                           </a>
@@ -377,7 +392,6 @@ export default function Home() {
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
-               
               </article>
             ))}
           </div>
@@ -408,26 +422,14 @@ export default function Home() {
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="container">
-          {/* Centered header */}
-          <div className="home-stories__header">
-            <span className="home-stories__eyebrow">
-              {t('home.stories.eyebrow', 'Customer Stories')}
-            </span>
-            <h2 className="home-stories__title">
-              {t('home.stories.title', 'Trusted by the brands that run the world')}
-            </h2>
-            <span className="home-stories__accent-line" />
-          </div>
-
-          {/* Subtitle row with arrows */}
           <div className="home-stories__head">
             <div>
               <span className="home-stories__subtitle-eyebrow">
                 {t('home.stories.eyebrow', 'Customer Stories')}
               </span>
-              <h3 className="home-stories__subtitle">
-                {t('home.stories.subtitle', "Trusted by the world's leading enterprises.")}
-              </h3>
+              <h2 className="home-stories__title">
+                {t('home.stories.title', 'Trusted by the brands that run the world')}
+              </h2>
             </div>
             <div className="home-stories__controls" aria-label="Customer stories navigation">
               <button

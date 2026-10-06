@@ -1260,33 +1260,54 @@
 .fcard {
   background: #ffffff;
   border: 1px solid #e9e8f4;
-  border-radius: 14px;
-  padding: var(--space-md) var(--space-sm);
-  box-shadow: 0 10px 24px rgba(22, 20, 60, 0.05);
+  border-radius: 16px;
+  padding: 28px 26px;
+  box-shadow: 0 8px 24px rgba(22, 20, 60, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.fcard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(101, 83, 238, 0.32);
+  box-shadow: 0 18px 36px -8px rgba(22, 20, 60, 0.1), 0 0 0 1px rgba(101, 83, 238, 0.08);
 }
 
 .fcard__icon {
-  display: grid;
-  place-items: center;
-  width: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
-  height: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
-  border-radius: 13px;
-  background: var(--lavender-100);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f3f1fe;
+  border: 1px solid rgba(101, 83, 238, 0.16);
   color: var(--purple-600);
-  font-size: var(--fs-lg);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease, color 0.25s ease;
+}
+
+.fcard:hover .fcard__icon {
+  transform: scale(1.08);
+  background: var(--purple-600);
+  color: #ffffff;
+  border-color: var(--purple-600);
 }
 
 .fcard h3 {
-  margin-top: var(--space-xs);
-  font-size: var(--fs-h3-card);
+  margin-top: 18px;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--ink-900);
+  letter-spacing: -0.01em;
 }
 
 .fcard p {
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-card-body);
-  line-height: 1.6;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  line-height: 1.62;
   color: var(--gray-600);
 }
 

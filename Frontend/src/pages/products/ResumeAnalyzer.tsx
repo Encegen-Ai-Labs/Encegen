@@ -5,33 +5,46 @@ import {
   PageHero,
   SectionHead,
 } from '../../components/kit'
+import {
+  BarChartIcon,
+  CpuIcon,
+  FileTextIcon,
+  RefreshIcon,
+  SparklesIcon,
+  TargetIcon,
+  TrendingUpIcon,
+  ZapIcon,
+} from '../../components/icons'
 import './products.css'
 
 const HOW = [
   {
     num: '01',
+    icon: <FileTextIcon />,
     title: 'Upload Bulk Resumes',
     desc: 'Drag and drop hundreds of resumes in various formats (PDF, DOCX). The system processes them instantly.',
   },
   {
     num: '02',
+    icon: <SparklesIcon />,
     title: 'AI Parsing & Scoring',
     desc: 'Our AI extracts key details and scores each candidate against your specific job requirements.',
   },
   {
     num: '03',
+    icon: <TargetIcon />,
     title: 'Review Top Matches',
     desc: 'Get a ranked list of the most suitable candidates, ready for interview scheduling.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '🧠', title: 'Deep Context AI', desc: 'Understands context, not just keywords, to evaluate true candidate potential.' },
-  { icon: '📊', title: 'Objective Scoring', desc: 'Removes bias by evaluating candidates strictly against job criteria.' },
-  { icon: '🔄', title: 'Seamless Integration', desc: 'Connects easily with your existing HR workflows and ATS platforms.' },
-  { icon: '📈', title: 'Skill Gap Analysis', desc: 'Identifies missing skills instantly for each applicant.' },
-  { icon: '📑', title: 'Format Agnostic', desc: 'Parses complex layouts, columns, and varied resume structures flawlessly.' },
-  { icon: '⚡', title: 'Real-time Analytics', desc: 'Track hiring metrics and candidate quality in one dashboard.' },
+  { icon: <CpuIcon />, title: 'Deep Context AI', desc: 'Understands context, not just keywords, to evaluate true candidate potential.' },
+  { icon: <BarChartIcon />, title: 'Objective Scoring', desc: 'Removes bias by evaluating candidates strictly against job criteria.' },
+  { icon: <RefreshIcon />, title: 'Seamless Integration', desc: 'Connects easily with your existing HR workflows and ATS platforms.' },
+  { icon: <TrendingUpIcon />, title: 'Skill Gap Analysis', desc: 'Identifies missing skills instantly for each applicant.' },
+  { icon: <FileTextIcon />, title: 'Format Agnostic', desc: 'Parses complex layouts, columns, and varied resume structures flawlessly.' },
+  { icon: <ZapIcon />, title: 'Real-time Analytics', desc: 'Track hiring metrics and candidate quality in one dashboard.' },
 ]
 
 export default function ResumeAnalyzer() {
@@ -132,7 +145,7 @@ export default function ResumeAnalyzer() {
             {HOW.map((h) => (
               <article key={h.num} className="numcard">
                 <span className="numcard__num">{h.num}</span>
-                <span className="numcard__icon">◎</span>
+                <span className="numcard__icon">{h.icon}</span>
                 <h3>{h.title}</h3>
                 <p>{h.desc}</p>
               </article>

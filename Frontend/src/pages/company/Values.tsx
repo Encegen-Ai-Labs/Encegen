@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Btn, ClosingCTA, GradBand, PageHero, SectionHead } from '../../components/kit'
+import { ShieldIcon } from '../../components/icons'
 import './company.css'
 
 function TimelineFill() {
@@ -236,7 +237,7 @@ export default function Values() {
                   {v.logo ? (
                     <img src={v.logo} alt={v.role} style={{ maxHeight: 34, maxWidth: 110, objectFit: 'contain' }} />
                   ) : (
-                    <span style={{ fontSize: '1.4rem' }}>⚖</span>
+                    <ShieldIcon size={22} style={{ color: 'var(--purple-300)' }} />
                   )}
                 </div>
                 <p style={{ flex: 1, lineHeight: 1.55 }}>“{v.quote}”</p>

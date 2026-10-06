@@ -1,4 +1,5 @@
 import { ArtTile, Btn, PageHero, SectionHead } from '../../components/kit'
+import { CompassIcon, ShieldIcon, TargetIcon, UsersIcon, ZapIcon } from '../../components/icons'
 import './company.css'
 
 import logoEasyHunt from '../../assets/easyhunt.png'
@@ -7,10 +8,10 @@ import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
 
 const VALUES = [
-  { icon: '🎯', title: 'Problem First', desc: "We don't use AI simply because it's trending. Every project begins with understanding the business challenge." },
-  { icon: '⚡', title: 'Move Fast, Learn Faster', desc: "We test ideas quickly, build working prototypes, and continuously refine solutions based on real feedback." },
-  { icon: '🤝', title: 'Own the Outcome', desc: "We don't just write code—we take full ownership of solving the client's problem properly and reliably." },
-  { icon: '🔬', title: 'Continuous Learning', desc: 'We stay close to emerging AI models, agent architectures, and automation tools to engineer what comes next.' },
+  { icon: <TargetIcon size={22} />, title: 'Problem First', desc: "We don't use AI simply because it's trending. Every project begins with understanding the business challenge." },
+  { icon: <ZapIcon size={22} />, title: 'Move Fast, Learn Faster', desc: "We test ideas quickly, build working prototypes, and continuously refine solutions based on real feedback." },
+  { icon: <UsersIcon size={22} />, title: 'Own the Outcome', desc: "We don't just write code—we take full ownership of solving the client's problem properly and reliably." },
+  { icon: <CompassIcon size={22} />, title: 'Continuous Learning', desc: 'We stay close to emerging AI models, agent architectures, and automation tools to engineer what comes next.' },
 ]
 
 const CLIENT_STORIES = [
@@ -140,7 +141,7 @@ export default function About() {
                     {p.logo ? (
                       <img src={p.logo} alt={p.outlet} style={{ maxHeight: 36, maxWidth: 110, objectFit: 'contain' }} />
                     ) : (
-                      <span style={{ fontSize: '1.5rem' }}>⚖</span>
+                      <ShieldIcon size={24} style={{ color: 'var(--purple-600)' }} />
                     )}
                   </div>
                   <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '3px 8px', borderRadius: 999, background: 'rgba(34, 197, 94, 0.1)', color: '#16a34a', border: '1px solid rgba(34, 197, 94, 0.25)', display: 'inline-flex', alignItems: 'center', gap: 4 }}>

@@ -11,16 +11,24 @@ import {
   UseCaseCard,
 } from '../../components/kit'
 import { CapabilityArt } from '../../components/CapabilityArt'
+import {
+  FileTextIcon,
+  MessageSquareIcon,
+  RefreshIcon,
+  ShieldIcon,
+  TrendingUpIcon,
+  UsersIcon,
+} from '../../components/icons'
 import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const AGENTS = [
-  { icon: '🧾', title: 'AP Exception Agent', desc: 'Clears accounts-payable exceptions before they ever reach a human queue.', tag: 'Finance', art: 'purple' },
-  { icon: '🔁', title: 'Invoice Matching', desc: 'Runs three-way matches across any ERP, automatically, every time.', tag: 'AP', art: 'blue' },
-  { icon: '🧑‍💼', title: 'Onboarding Agent', desc: 'Gets a new hire fully set up across HR, IT, and facilities on day one.', tag: 'HR', art: 'green' },
-  { icon: '🎧', title: 'Support Ticket Agent', desc: 'Reads, sorts, routes, and resolves incoming tickets without a hand-off.', tag: 'Support', art: 'cyan' },
-  { icon: '🛡️', title: 'Compliance Monitor', desc: 'Watches every transaction and flags a breach before it becomes one.', tag: 'Compliance', art: 'orange' },
-  { icon: '📈', title: 'Demand Planning', desc: 'Reads the signals and adjusts your inventory forecast daily, not quarterly.', tag: 'Planning', art: 'magenta' },
+  { icon: <FileTextIcon size={20} />, title: 'AP Exception Agent', desc: 'Clears accounts-payable exceptions before they ever reach a human queue.', tag: 'Finance', art: 'purple' },
+  { icon: <RefreshIcon size={20} />, title: 'Invoice Matching', desc: 'Runs three-way matches across any ERP, automatically, every time.', tag: 'AP', art: 'blue' },
+  { icon: <UsersIcon size={20} />, title: 'Onboarding Agent', desc: 'Gets a new hire fully set up across HR, IT, and facilities on day one.', tag: 'HR', art: 'green' },
+  { icon: <MessageSquareIcon size={20} />, title: 'Support Ticket Agent', desc: 'Reads, sorts, routes, and resolves incoming tickets without a hand-off.', tag: 'Support', art: 'cyan' },
+  { icon: <ShieldIcon size={20} />, title: 'Compliance Monitor', desc: 'Watches every transaction and flags a breach before it becomes one.', tag: 'Compliance', art: 'orange' },
+  { icon: <TrendingUpIcon size={20} />, title: 'Demand Planning', desc: 'Reads the signals and adjusts your inventory forecast daily, not quarterly.', tag: 'Planning', art: 'magenta' },
 ]
 
 const USE_CASES = [

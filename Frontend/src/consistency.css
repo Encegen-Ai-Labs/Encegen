@@ -5,13 +5,13 @@
 
 /* ---------- Typography tokens ---------- */
 :root {
-  --fs-eyebrow: clamp(0.75rem, 0.71rem + 0.2vw, 0.84375rem);
-  --fs-h2: clamp(1.875rem, 1.55rem + 1.6vw, 2.875rem);
+  --fs-eyebrow: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --fs-h2: clamp(2rem, 1.65rem + 1.6vw, 2.875rem);
   --fs-h3-card: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
-  --fs-sub: clamp(1rem, 0.94rem + 0.24vw, 1.125rem);
-  --fs-body: clamp(0.875rem, 0.83rem + 0.18vw, 0.9375rem);
-  --fs-card-body: clamp(0.85rem, 0.81rem + 0.15vw, 0.90625rem);
-  --lh-heading: 1.18;
+  --fs-sub: clamp(0.975rem, 0.92rem + 0.22vw, 1.08rem);
+  --fs-body: clamp(0.9rem, 0.86rem + 0.18vw, 0.975rem);
+  --fs-card-body: clamp(0.875rem, 0.84rem + 0.14vw, 0.925rem);
+  --lh-heading: 1.16;
   --lh-body: 1.62;
 }
 
@@ -19,7 +19,7 @@
 .section-eyebrow,
 .shead__eyebrow {
   font-size: var(--fs-eyebrow);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -28,15 +28,13 @@
 .section-title,
 .shead__title,
 .integrations__title,
-.closing__title,
 .cta__title,
 .newsletter h2,
-.about-cta h2,
-.careers-hero h1,
-.search-hero h1 {
+.about-cta h2 {
   font-size: var(--fs-h2);
   font-weight: 800;
   line-height: var(--lh-heading);
+  letter-spacing: -0.02em;
 }
 
 /* Section subtitles */
@@ -56,9 +54,10 @@
 
 /* Split-section left titles */
 .left-title {
-  font-size: clamp(1.625rem, 1.4rem + 1.1vw, 2.25rem);
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.375rem);
   font-weight: 800;
-  line-height: 1.22;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 .left-copy {
   font-size: var(--fs-body);
@@ -129,19 +128,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-3xs);
+  gap: 8px;
   border-radius: 999px;
-  font-size: var(--fs-md);
+  font-size: 0.925rem;
   font-weight: 600;
   line-height: 1;
   border: none;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
+.kbtn,
 .hero__cta,
 .cta__button,
 .integrations__more-link {
-  padding: var(--space-sm) var(--space-md);
+  padding: 13px 26px;
 }
 .hero__cta:hover,
 .cta__button:hover,
@@ -158,16 +158,16 @@
 .newsletter__form button,
 .sfilter__clear {
   border-radius: 999px;
-  padding: var(--space-xs) var(--space-sm);
-  font-size: var(--fs-base);
+  padding: 11px 22px;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1;
 }
 .apply-submit {
   border-radius: 999px;
-  padding: var(--space-sm);
+  padding: 13px 24px;
   width: 100%;
-  font-size: var(--fs-base);
+  font-size: 0.925rem;
 }
 
 /* Header button keeps its size but joins the pill family */

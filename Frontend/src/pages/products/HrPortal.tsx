@@ -4,13 +4,24 @@ import {
   PageHero,
   SectionHead,
 } from '../../components/kit'
+import {
+  BarChartIcon,
+  BookOpenIcon,
+  BriefcaseIcon,
+  CodeIcon,
+  CpuIcon,
+  FileTextIcon,
+  LayersIcon,
+  TargetIcon,
+  UsersIcon,
+} from '../../components/icons'
 import './products.css'
 
 const CAPABILITIES = [
-  { icon: '📄', title: 'Smart Resume Parsing', desc: 'AI extracts skills, experience, and qualifications from any resume format in seconds.' },
-  { icon: '🎯', title: 'Intelligent Job Matching', desc: 'Our algorithm matches candidates to roles based on 50+ compatibility factors.' },
-  { icon: '⚙', title: 'Automated Screening', desc: 'AI-powered pre-screening ranks candidates by fit, saving hours of manual review.' },
-  { icon: '📊', title: 'Real-Time Analytics', desc: 'Track pipeline health, time-to-hire and conversion rates with live dashboards.' },
+  { icon: <FileTextIcon size={22} />, title: 'Smart Resume Parsing', desc: 'AI extracts skills, experience, and qualifications from any resume format in seconds.' },
+  { icon: <TargetIcon size={22} />, title: 'Intelligent Job Matching', desc: 'Our algorithm matches candidates to roles based on 50+ compatibility factors.' },
+  { icon: <CpuIcon size={22} />, title: 'Automated Screening', desc: 'AI-powered pre-screening ranks candidates by fit, saving hours of manual review.' },
+  { icon: <BarChartIcon size={22} />, title: 'Real-Time Analytics', desc: 'Track pipeline health, time-to-hire and conversion rates with live dashboards.' },
 ]
 
 const CHALLENGES = [
@@ -55,12 +66,12 @@ const SEEKER_POINTS = [
 ]
 
 const EMPLOYER_TILES = [
-  { icon: '💻', title: 'Tech Hiring', desc: 'Scale backend, frontend, ML Ops and research teams with targeted skill vetting.' },
-  { icon: '👔', title: 'Executive Search', desc: 'Find senior executives mapped to operational leadership metrics.' },
-  { icon: '🎓', title: 'Campus Recruitment', desc: 'Filter and hire graduates from 300+ global universities.' },
-  { icon: '📝', title: 'Contract Staffing', desc: 'Spin up vetted contract specialists in hours, fully compliant.' },
-  { icon: '📦', title: 'Bulk Hiring', desc: 'Deploy parallelized throughput assessment for volume hiring drives.' },
-  { icon: '🤝', title: 'Diversity Hiring', desc: 'Remove subconscious bias with programmatic blind evaluation profiles.' },
+  { icon: <CodeIcon size={22} />, title: 'Tech Hiring', desc: 'Scale backend, frontend, ML Ops and research teams with targeted skill vetting.' },
+  { icon: <BriefcaseIcon size={22} />, title: 'Executive Search', desc: 'Find senior executives mapped to operational leadership metrics.' },
+  { icon: <BookOpenIcon size={22} />, title: 'Campus Recruitment', desc: 'Filter and hire graduates from 300+ global universities.' },
+  { icon: <FileTextIcon size={22} />, title: 'Contract Staffing', desc: 'Spin up vetted contract specialists in hours, fully compliant.' },
+  { icon: <LayersIcon size={22} />, title: 'Bulk Hiring', desc: 'Deploy parallelized throughput assessment for volume hiring drives.' },
+  { icon: <UsersIcon size={22} />, title: 'Diversity Hiring', desc: 'Remove subconscious bias with programmatic blind evaluation profiles.' },
 ]
 
 export default function HrPortal() {

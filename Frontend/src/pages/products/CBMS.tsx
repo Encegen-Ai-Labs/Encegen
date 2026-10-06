@@ -8,6 +8,18 @@ import {
   SectionHead,
   StepFlow,
 } from '../../components/kit'
+import {
+  BarChartIcon,
+  BriefcaseIcon,
+  BuildingIcon,
+  ClockIcon,
+  MessageSquareIcon,
+  PlugIcon,
+  ShieldIcon,
+  TargetIcon,
+  TrendingUpIcon,
+  UsersIcon,
+} from '../../components/icons'
 import './products.css'
 
 const STAT_TILES = [
@@ -36,19 +48,19 @@ const HOW = [
 ]
 
 const CAPABILITIES = [
-  { icon: '🎯', title: 'Intelligent Workload Distribution', desc: 'Dynamic load-balancing algorithms that distribute tasks and customer leads to active team members.' },
-  { icon: '🏢', title: 'Multi-Tier Hierarchy Control', desc: 'Granular permissions and view scopes for Super Admins, Operations Managers, Team Leaders, and Agents.' },
-  { icon: '⏰', title: 'Automated Callback & Follow-up Engine', desc: 'Proactive reminder notifications ensure no client callback or deadline is overlooked.' },
-  { icon: '📊', title: 'Real-Time KPI Dashboards', desc: 'Live operational metrics tracking conversion velocity, contact rates, ticket resolution, and agent utilization.' },
-  { icon: '⚡', title: 'Audit Trail & Compliance', desc: 'Immutable activity logs recording all status changes, communications, edits, and administrative overrides.' },
-  { icon: '🔗', title: 'Seamless Enterprise Integrations', desc: 'Pre-built connectors for telephony systems, CRMs, ERPs, webhooks, and database pipelines.' },
+  { icon: <TargetIcon size={22} />, title: 'Intelligent Workload Distribution', desc: 'Dynamic load-balancing algorithms that distribute tasks and customer leads to active team members.' },
+  { icon: <BuildingIcon size={22} />, title: 'Multi-Tier Hierarchy Control', desc: 'Granular permissions and view scopes for Super Admins, Operations Managers, Team Leaders, and Agents.' },
+  { icon: <ClockIcon size={22} />, title: 'Automated Callback & Follow-up Engine', desc: 'Proactive reminder notifications ensure no client callback or deadline is overlooked.' },
+  { icon: <BarChartIcon size={22} />, title: 'Real-Time KPI Dashboards', desc: 'Live operational metrics tracking conversion velocity, contact rates, ticket resolution, and agent utilization.' },
+  { icon: <ShieldIcon size={22} />, title: 'Audit Trail & Compliance', desc: 'Immutable activity logs recording all status changes, communications, edits, and administrative overrides.' },
+  { icon: <PlugIcon size={22} />, title: 'Seamless Enterprise Integrations', desc: 'Pre-built connectors for telephony systems, CRMs, ERPs, webhooks, and database pipelines.' },
 ]
 
 const STAKEHOLDERS = [
-  { icon: '💼', title: 'Operations Leaders', desc: 'Monitor end-to-end departmental efficiency and remove workflow bottlenecks in real-time.' },
-  { icon: '👔', title: 'Team Leaders & Supervisors', desc: 'Review team queues, reassign priority tasks, and coach agents on performance trends.' },
-  { icon: '🎧', title: 'Operations & Sales Agents', desc: 'Execute daily pipelines with streamlined cards, clear reminders, and zero distractions.' },
-  { icon: '📈', title: 'Executive Management', desc: 'Access high-level summaries, revenue attribution, and growth forecasts across all teams.' },
+  { icon: <BriefcaseIcon size={22} />, title: 'Operations Leaders', desc: 'Monitor end-to-end departmental efficiency and remove workflow bottlenecks in real-time.' },
+  { icon: <UsersIcon size={22} />, title: 'Team Leaders & Supervisors', desc: 'Review team queues, reassign priority tasks, and coach agents on performance trends.' },
+  { icon: <MessageSquareIcon size={22} />, title: 'Operations & Sales Agents', desc: 'Execute daily pipelines with streamlined cards, clear reminders, and zero distractions.' },
+  { icon: <TrendingUpIcon size={22} />, title: 'Executive Management', desc: 'Access high-level summaries, revenue attribution, and growth forecasts across all teams.' },
 ]
 
 const FAQ = [
@@ -140,7 +152,7 @@ export default function CBMS() {
             eyebrow="Built For"
             title="Empowering every level of your organization"
           />
-          <div className="cards-3">
+          <div className="cards-4">
             {STAKEHOLDERS.map((s) => (
               <article key={s.title} className="fcard">
                 <span className="fcard__icon">{s.icon}</span>

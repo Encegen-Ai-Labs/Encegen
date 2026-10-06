@@ -8,6 +8,17 @@ import {
   SectionHead,
   StepFlow,
 } from '../../components/kit'
+import {
+  BarChartIcon,
+  BookOpenIcon,
+  BuildingIcon,
+  CheckIcon,
+  FileTextIcon,
+  LayersIcon,
+  LockIcon,
+  ShieldIcon,
+  UsersIcon,
+} from '../../components/icons'
 import './products.css'
 
 const STAT_TILES = [
@@ -36,19 +47,19 @@ const HOW = [
 ]
 
 const CAPABILITIES = [
-  { icon: '🏢', title: 'Smart Room Allocation', desc: 'AI-assisted allocation engine that optimizes bed occupancy and room assignment without double-booking.' },
-  { icon: '📱', title: 'Digital Gate Pass', desc: 'Automated digital student out-pass workflow with real-time parent notifications and warden approvals.' },
-  { icon: '💳', title: 'Automated Fee Management', desc: 'Track installments, generate automated invoices, send payment reminders, and reconcile bank deposits.' },
-  { icon: '📊', title: 'Real-Time Occupancy Analytics', desc: 'Interactive dashboards displaying live occupancy, vacancy forecasts, floor-wise distribution, and churn.' },
-  { icon: '🛠️', title: 'Maintenance & Grievance Desk', desc: 'Ticket management system for electrical, plumbing, and housekeeping issues with SLA tracking.' },
-  { icon: '🔒', title: 'Security & Access Control', desc: 'Role-based access permissions for wardens, administration, security personnel, and students.' },
+  { icon: <BuildingIcon size={22} />, title: 'Smart Room Allocation', desc: 'AI-assisted allocation engine that optimizes bed occupancy and room assignment without double-booking.' },
+  { icon: <CheckIcon size={22} />, title: 'Digital Gate Pass', desc: 'Automated digital student out-pass workflow with real-time parent notifications and warden approvals.' },
+  { icon: <FileTextIcon size={22} />, title: 'Automated Fee Management', desc: 'Track installments, generate automated invoices, send payment reminders, and reconcile bank deposits.' },
+  { icon: <BarChartIcon size={22} />, title: 'Real-Time Occupancy Analytics', desc: 'Interactive dashboards displaying live occupancy, vacancy forecasts, floor-wise distribution, and churn.' },
+  { icon: <LayersIcon size={22} />, title: 'Maintenance & Grievance Desk', desc: 'Ticket management system for electrical, plumbing, and housekeeping issues with SLA tracking.' },
+  { icon: <LockIcon size={22} />, title: 'Security & Access Control', desc: 'Role-based access permissions for wardens, administration, security personnel, and students.' },
 ]
 
 const STAKEHOLDERS = [
-  { icon: '🎓', title: 'Universities & Colleges', desc: 'Manage multiple campus hostels and thousands of students with zero paperwork.' },
-  { icon: '🏢', title: 'Private Student Hostels', desc: 'Maximize occupancy rates, streamline billing, and deliver premium student experiences.' },
-  { icon: '🛡️', title: 'Wardens & Administrators', desc: 'Handle daily operations, roll calls, leaves, and discipline tracking effortlessly.' },
-  { icon: '👥', title: 'Parents & Guardians', desc: 'Receive instant notifications regarding leave approvals, safety updates, and fee confirmations.' },
+  { icon: <BookOpenIcon size={22} />, title: 'Universities & Colleges', desc: 'Manage multiple campus hostels and thousands of students with zero paperwork.' },
+  { icon: <BuildingIcon size={22} />, title: 'Private Student Hostels', desc: 'Maximize occupancy rates, streamline billing, and deliver premium student experiences.' },
+  { icon: <ShieldIcon size={22} />, title: 'Wardens & Administrators', desc: 'Handle daily operations, roll calls, leaves, and discipline tracking effortlessly.' },
+  { icon: <UsersIcon size={22} />, title: 'Parents & Guardians', desc: 'Receive instant notifications regarding leave approvals, safety updates, and fee confirmations.' },
 ]
 
 const FAQ = [
@@ -140,7 +151,7 @@ export default function HMS() {
             eyebrow="Built For"
             title="Designed for modern campus ecosystems"
           />
-          <div className="cards-3">
+          <div className="cards-4">
             {STAKEHOLDERS.map((s) => (
               <article key={s.title} className="fcard">
                 <span className="fcard__icon">{s.icon}</span>

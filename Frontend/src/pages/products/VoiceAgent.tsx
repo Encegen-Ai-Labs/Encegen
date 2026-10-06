@@ -5,33 +5,45 @@ import {
   PageHero,
   SectionHead,
 } from '../../components/kit'
+import {
+  BarChartIcon,
+  CpuIcon,
+  GlobeIcon,
+  MessageSquareIcon,
+  PlugIcon,
+  ShieldIcon,
+  SparklesIcon,
+} from '../../components/icons'
 import './products.css'
 
 const HOW = [
   {
     num: '01',
+    icon: <MessageSquareIcon />,
     title: 'Listen',
     desc: 'The Voice Agent captures spoken language with high-fidelity speech recognition, understanding context and intent instantly.',
   },
   {
     num: '02',
+    icon: <CpuIcon />,
     title: 'Process',
     desc: 'Advanced NLP processes the query, retrieving knowledge from your business data to formulate an accurate response.',
   },
   {
     num: '03',
+    icon: <SparklesIcon />,
     title: 'Speak',
     desc: 'A natural, human-like voice delivers the response in real-time, creating a seamless conversational experience.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '🎙️', title: 'Natural Speech', desc: 'Ultra-realistic voices that sound human, with emotional nuance and correct pacing.' },
-  { icon: '🌍', title: 'Multilingual', desc: 'Instantly understand and converse in dozens of global languages.' },
-  { icon: '🧠', title: 'Context Aware', desc: 'Maintains conversation history to handle complex, multi-turn interactions gracefully.' },
-  { icon: '🔌', title: 'API Driven', desc: 'Easily integrate the voice agent into your app, phone system, or website.' },
-  { icon: '📊', title: 'Conversation Analytics', desc: 'Review transcripts and analyze sentiment to improve user experience.' },
-  { icon: '🛡️', title: 'Enterprise Security', desc: 'End-to-end encryption for all voice interactions and data processing.' },
+  { icon: <MessageSquareIcon />, title: 'Natural Speech', desc: 'Ultra-realistic voices that sound human, with emotional nuance and correct pacing.' },
+  { icon: <GlobeIcon />, title: 'Multilingual', desc: 'Instantly understand and converse in dozens of global languages.' },
+  { icon: <CpuIcon />, title: 'Context Aware', desc: 'Maintains conversation history to handle complex, multi-turn interactions gracefully.' },
+  { icon: <PlugIcon />, title: 'API Driven', desc: 'Easily integrate the voice agent into your app, phone system, or website.' },
+  { icon: <BarChartIcon />, title: 'Conversation Analytics', desc: 'Review transcripts and analyze sentiment to improve user experience.' },
+  { icon: <ShieldIcon />, title: 'Enterprise Security', desc: 'End-to-end encryption for all voice interactions and data processing.' },
 ]
 
 export default function VoiceAgent() {
@@ -88,7 +100,7 @@ export default function VoiceAgent() {
             {HOW.map((h) => (
               <article key={h.num} className="numcard">
                 <span className="numcard__num">{h.num}</span>
-                <span className="numcard__icon">◎</span>
+                <span className="numcard__icon">{h.icon}</span>
                 <h3>{h.title}</h3>
                 <p>{h.desc}</p>
               </article>

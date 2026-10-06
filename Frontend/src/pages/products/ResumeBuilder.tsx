@@ -5,41 +5,57 @@ import {
   PageHero,
   SectionHead,
 } from '../../components/kit'
+import {
+  CheckIcon,
+  FileTextIcon,
+  LayersIcon,
+  MessageSquareIcon,
+  PenIcon,
+  ShieldIcon,
+  SparklesIcon,
+  TargetIcon,
+  TrendingUpIcon,
+  ZapIcon,
+} from '../../components/icons'
 import './products.css'
 
 const HOW = [
   {
     num: '01',
+    icon: <FileTextIcon />,
     title: 'Import or Start Fresh',
     desc: 'Upload an existing PDF/Word resume to let our parser extract your data instantly, or build a new one from scratch using our guided forms.',
   },
   {
     num: '02',
+    icon: <LayersIcon />,
     title: 'Choose a Template',
     desc: 'Select from our library of recruiter-tested, ATS-optimized templates, or let our AI recommend the perfect design based on your industry.',
   },
   {
     num: '03',
+    icon: <SparklesIcon />,
     title: 'Enhance & Optimize',
     desc: 'Fill in your details and use our AI tools to rewrite weak bullet points, fix formatting, and dramatically improve your overall ATS score.',
   },
   {
     num: '04',
+    icon: <CheckIcon />,
     title: 'Export to PDF',
     desc: 'Download your pixel-perfect, ATS-friendly PDF in one click and start applying to your dream jobs with confidence.',
   },
 ]
 
 const PLATFORM = [
-  { icon: '✨', title: 'Context-Aware AI Phrasing', desc: 'Stop staring at a blank page. Our AI generates highly tailored bullet points based on your specific industry, seniority, and role.' },
-  { icon: '🎯', title: 'Enterprise ATS Optimization', desc: 'We structure the underlying PDF metadata so parsers like Workday, Taleo, and Greenhouse extract your experience with 100% accuracy.' },
-  { icon: '🎨', title: 'Recruiter-Tested Designs', desc: 'Every template is strictly designed to pass the "6-second recruiter skim test" using optimal visual hierarchy and typography.' },
-  { icon: '⚡', title: 'Real-time Canvas Rendering', desc: 'No loading screens. Watch your resume re-render instantly on our dynamic canvas as you tweak fonts, margins, and content.' },
-  { icon: '🚀', title: 'Metric Magic Rewriter', desc: 'Weak bullet points get rejected. Our AI coaches you to quantify achievements using the industry-standard "Action + Metric + Result" formula.' },
-  { icon: '📄', title: 'Multi-Format Exporting', desc: 'Download in ATS-friendly PDF, editable DOCX, or plain text format. Your layout stays perfectly locked in place every time.' },
-  { icon: '✍️', title: 'Smart Repetition Guard', desc: 'Say goodbye to overused words. Our engine flags repetitive action verbs (like using "managed" 5 times) and fixes inconsistencies instantly.' },
-  { icon: '🛡️', title: 'Zero-Retention Privacy', desc: 'Your career data belongs to you. We use enterprise-grade encryption and never sell or train public models on your personal information.' },
-  { icon: '✉️', title: '1-Click Cover Letters', desc: 'Automatically generate a highly personalized cover letter that matches the exact visual design, fonts, and colors of your chosen resume template.' },
+  { icon: <SparklesIcon />, title: 'Context-Aware AI Phrasing', desc: 'Stop staring at a blank page. Our AI generates highly tailored bullet points based on your specific industry, seniority, and role.' },
+  { icon: <TargetIcon />, title: 'Enterprise ATS Optimization', desc: 'We structure the underlying PDF metadata so parsers like Workday, Taleo, and Greenhouse extract your experience with 100% accuracy.' },
+  { icon: <PenIcon />, title: 'Recruiter-Tested Designs', desc: 'Every template is strictly designed to pass the "6-second recruiter skim test" using optimal visual hierarchy and typography.' },
+  { icon: <ZapIcon />, title: 'Real-time Canvas Rendering', desc: 'No loading screens. Watch your resume re-render instantly on our dynamic canvas as you tweak fonts, margins, and content.' },
+  { icon: <TrendingUpIcon />, title: 'Metric Magic Rewriter', desc: 'Weak bullet points get rejected. Our AI coaches you to quantify achievements using the industry-standard "Action + Metric + Result" formula.' },
+  { icon: <FileTextIcon />, title: 'Multi-Format Exporting', desc: 'Download in ATS-friendly PDF, editable DOCX, or plain text format. Your layout stays perfectly locked in place every time.' },
+  { icon: <CheckIcon />, title: 'Smart Repetition Guard', desc: 'Say goodbye to overused words. Our engine flags repetitive action verbs (like using "managed" 5 times) and fixes inconsistencies instantly.' },
+  { icon: <ShieldIcon />, title: 'Zero-Retention Privacy', desc: 'Your career data belongs to you. We use enterprise-grade encryption and never sell or train public models on your personal information.' },
+  { icon: <MessageSquareIcon />, title: '1-Click Cover Letters', desc: 'Automatically generate a highly personalized cover letter that matches the exact visual design, fonts, and colors of your chosen resume template.' },
 ]
 
 export default function ResumeBuilder() {
@@ -108,7 +124,7 @@ export default function ResumeBuilder() {
             {HOW.map((h) => (
               <article key={h.num} className="numcard">
                 <span className="numcard__num">{h.num}</span>
-                <span className="numcard__icon">◎</span>
+                <span className="numcard__icon">{h.icon}</span>
                 <h3>{h.title}</h3>
                 <p>{h.desc}</p>
               </article>
