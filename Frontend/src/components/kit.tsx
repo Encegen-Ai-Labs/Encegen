@@ -52,11 +52,12 @@ type PageHeroProps = {
   trusted?: string[]
   trustedLabel?: string
   children?: ReactNode
+  className?: string
 }
 
-export function PageHero({ badge, title, sub, actions, trusted, trustedLabel = 'trusted by', children }: PageHeroProps) {
+export function PageHero({ badge, title, sub, actions, trusted, trustedLabel = 'trusted by', children, className }: PageHeroProps) {
   return (
-    <section className="phero">
+    <section className={`phero ${className ?? ''}`.trim()}>
       <div className="container phero__inner">
         {badge && <span className="phero__badge">{badge}</span>}
         <h1 className="phero__title">{title}</h1>

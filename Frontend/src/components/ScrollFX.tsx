@@ -60,6 +60,10 @@ const REVEAL_SELECTORS = [
   '.sresult',
   '.gband__quote > *',
   '.voice',
+  '.culture-voice-card',
+  '.team-showcase__intro > *',
+  '.team-showcase__stats > *',
+  '.culture-join-cta__inner > *',
   '.home-logos__label',
 ]
 
@@ -69,6 +73,7 @@ const COUNTER_SELECTORS = [
   '.home-stats__grid strong',
   '.tstat strong',
   '.stat-tile strong',
+  '.team-showcase__stat strong',
   // NOTE: .home-facts__card strong is deliberately NOT included — unlike the
   // other counters, its label is a nested <span> child (not a sibling), and
   // animateCount()'s textContent overwrite would permanently destroy that

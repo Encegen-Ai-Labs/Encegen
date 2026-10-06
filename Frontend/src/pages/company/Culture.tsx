@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { Btn, ClosingCTA, PageHero, SectionHead } from '../../components/kit'
+import { Link } from 'react-router-dom'
+import { Btn, PageHero, SectionHead } from '../../components/kit'
 import './company.css'
 
 function TimelineFill() {
@@ -70,20 +71,10 @@ const DAY = [
   { time: '06:00 PM', title: 'The Next Idea', desc: 'Brainstorming a new automation, a better way to solve a client problem, a product improvement, or a new AI capability.', color: '#ec4899' },
 ]
 
-const ENCEGEN_WAY_STEPS = [
-  { step: '01', title: 'Understand', desc: 'Understand the problem deeply.' },
-  { step: '02', title: 'Experiment', desc: 'Explore the possibilities.' },
-  { step: '03', title: 'Build', desc: 'Turn the idea into reliable technology.' },
-  { step: '04', title: 'Test', desc: 'Challenge what we’ve built.' },
-  { step: '05', title: 'Improve', desc: 'Make it better and faster.' },
-  { step: '06', title: 'Deliver', desc: 'Create measurable business value.' },
-]
-
-const STATS = [
-  { value: '24 May 2025', label: 'Incorporated' },
-  { value: '11–50', label: 'Team Members' },
-  { value: 'Pune, India', label: 'Headquarters' },
-  { value: '100%', label: 'Problem Ownership' },
+const TEAM_SHOWCASE = [
+  { value: '12', label: 'Nationalities' },
+  { value: '60%', label: 'Engineers' },
+  { value: '40%', label: 'from Top AI Labs' },
 ]
 
 const VOICES = [
@@ -108,16 +99,17 @@ export default function Culture() {
   return (
     <>
       <PageHero
-        badge="Our culture"
-        title="Curious enough to explore. Practical enough to build."
-        sub="We are a lean, evolving technology company based in Pune. We keep the team agile, the focus clear, and the culture centered on engineering real intelligence that solves real problems."
+        className="culture-hero"
+        badge="OUR CULTURE"
+        title="We don’t just build AI. We raise it."
+        sub="At Encegen, intelligence isn’t manufactured — it’s cultivated. Every model, every agent, every system is built with intention, care, and relentless curiosity."
         actions={
           <>
             <Btn to="/careers" variant="white">
               View Open Roles →
             </Btn>
             <Btn to="/values" variant="outline-light">
-              Our Values
+              Our Culture
             </Btn>
           </>
         }
@@ -137,8 +129,10 @@ export default function Culture() {
             ))}
           </div>
           <div className="quote-box">
-            “At Encegen AI Labs, our values are not statements written on a wall. They are reflected in how we approach problems, build products, work with clients, and make decisions every day.”
-            <cite>– Encegen AI Labs Team · Pune, India</cite>
+            <div className="quote-box__inner">
+              “At Encegen AI Labs, our values are not statements written on a wall. They are reflected in how we approach problems, build products, work with clients, and make decisions every day.”
+              <cite>– Encegen AI Labs Team · Pune, India</cite>
+            </div>
           </div>
         </div>
       </section>
@@ -166,69 +160,94 @@ export default function Culture() {
         </div>
       </section>
 
-      {/* The Encegen Way */}
-      <section className="section section--dark">
-        <div className="container">
-          <SectionHead
-            eyebrow="The Encegen Way"
-            title="Understand → Experiment → Build → Test → Improve → Deliver"
-            sub="At the heart of everything we do is a simple, repeatable cycle of excellence."
-            dark
-          />
-          <div className="cards-3" style={{ marginTop: 40 }}>
-            {ENCEGEN_WAY_STEPS.map((s) => (
-              <div key={s.step} className="fcard" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--purple-400)' }}>{s.step}</span>
-                <h3 style={{ color: '#fff', marginTop: 8 }}>{s.title}</h3>
-                <p style={{ color: '#a8a5cb', marginTop: 6 }}>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  
+
 
       {/* Team stats */}
-      <section className="section section--light">
+      <section className="section section--light culture-team-section">
         <div className="container">
-          <SectionHead
-            eyebrow="The Team"
-            title="A focused team of builders in Pune, India."
-          />
-          <div className="tstat-row" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            {STATS.map((s) => (
-              <div key={s.label} className="tstat">
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
-              </div>
-            ))}
+          <div className="team-showcase">
+            <div className="team-showcase__intro">
+              <span className="team-showcase__eyebrow">THE TEAM</span>
+              <h2>Built by 47 extraordinary humans across 3 continents.</h2>
+            </div>
+
+            <div className="team-showcase__stats">
+              {TEAM_SHOWCASE.map((s, idx) => (
+                <div
+                  key={s.label}
+                  className="team-showcase__stat"
+                  style={{ ['--stat-idx' as string]: idx }}
+                >
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Voices */}
-      <section className="section section--lavender">
+      <section className="section section--lavender culture-voices-section">
         <div className="container">
           <SectionHead eyebrow="Inside Encegen" title="What makes a day at Encegen different?" />
-          <div className="cards-3">
-            {VOICES.map((v) => (
-              <div key={v.name + v.role} className="voice">
-                <span className="voice__mark">❝</span>
-                <p>{v.quote}</p>
-                <strong>{v.name}</strong>
-                <span>{v.role}</span>
+          <div className="cards-3 culture-voices-grid">
+            {VOICES.map((v, idx) => (
+              <div
+                key={v.name + v.role}
+                className="culture-voice-card"
+                style={{ ['--voice-idx' as string]: idx }}
+              >
+                <div className="culture-voice-card__icon" aria-hidden="true">
+                  <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3.5H4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M3.25 7.5V14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path className="voice-line voice-line--1" d="M8.5 3.5H16.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <path className="voice-line voice-line--2" d="M8.5 9H19.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <path className="voice-line voice-line--3" d="M8.5 14.5H19.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <p className="culture-voice-card__quote">“{v.quote}”</p>
+                <div className="culture-voice-card__footer">
+                  <strong>{v.name}</strong>
+                  <span>{v.role}</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <ClosingCTA
-        line1="Curious to build with us?"
-        sub="If moving fast, taking real ownership, and building practical AI solutions that reach real users sounds right to you, we'd love to connect."
-        primary={{ label: 'See open roles', to: '/careers' }}
-        secondary={{ label: 'Our Story', to: '/our-story' }}
-        checks={['Pune Headquarters & Flexible', '11–50 Team Members', 'Problem-First Culture']}
-      />
+      {/* Join Us CTA */}
+      <section className="culture-join-cta">
+        <div className="container culture-join-cta__inner">
+          <span className="culture-join-cta__eyebrow">JOIN US</span>
+          <h2 className="culture-join-cta__title">Curious to build with us?</h2>
+          <p className="culture-join-cta__sub">
+            If moving fast, taking real ownership, and building practical AI solutions that reach real users sounds right to you, we'd love to connect.
+          </p>
+
+          <div className="culture-join-cta__actions">
+            <Link to="/careers" className="culture-join-cta__btn culture-join-cta__btn--primary">
+              <span>See open roles</span>
+              <span className="culture-join-cta__arrow" aria-hidden="true">→</span>
+            </Link>
+            <Link to="/our-story" className="culture-join-cta__btn culture-join-cta__btn--secondary">
+              Our Story
+            </Link>
+          </div>
+
+          <div className="culture-join-cta__meta">
+            <span className="culture-join-cta__globe" aria-hidden="true">🌍</span>
+            <span>Pune Headquarters &amp; Flexible</span>
+            <span className="culture-join-cta__dot" aria-hidden="true">·</span>
+            <span>11–50 Team Members</span>
+            <span className="culture-join-cta__dot" aria-hidden="true">·</span>
+            <span>Problem-First Culture</span>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

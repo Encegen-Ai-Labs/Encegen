@@ -472,22 +472,87 @@
 }
 
 .quote-box {
+  position: relative;
+  display: block;
   margin-top: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: 12px;
-  border: 1px solid #ddd9f5;
-  background: #f6f4fe;
+  padding: 1.5px;
+  border-radius: 28px;
+  background: linear-gradient(120deg, #6a88ff 0%, #85d5ff 25%, #5d57ef 55%, #7ec5ff 100%);
+  background-size: 220% 220%;
+  box-shadow: 0 12px 28px rgba(79, 98, 190, 0.12);
+  animation: quoteBorderFlow 7s ease-in-out infinite alternate;
+}
+.quote-box__inner {
+  border-radius: 26px;
+  background: rgba(244, 241, 250, 0.98);
+  padding: clamp(1.6rem, 2vw, 2.1rem) clamp(1.5rem, 3vw, 4.5rem);
   text-align: center;
-  font-size: var(--fs-base);
+  font-size: clamp(1.05rem, 0.75rem + 1vw, 1.5rem);
+  line-height: 1.55;
   font-style: italic;
-  color: var(--ink-700);
+  color: rgba(31, 30, 46, 0.86);
 }
 .quote-box cite {
   display: block;
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-sm);
+  margin-top: 1rem;
+  font-size: clamp(0.9rem, 0.8rem + 0.35vw, 1.12rem);
   font-style: normal;
-  color: var(--gray-500);
+  color: rgba(39, 42, 62, 0.64);
+}
+
+@keyframes quoteBorderFlow {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 8px 28px rgba(74, 92, 214, 0.1);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 12px 32px rgba(83, 110, 255, 0.18);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 8px 28px rgba(74, 92, 214, 0.12);
+  }
+}
+
+.culture-hero {
+  background:
+    radial-gradient(700px 430px at 50% 25%, rgba(125, 104, 255, 0.22), transparent 60%),
+    radial-gradient(950px 560px at 50% 15%, rgba(20, 27, 55, 0.9), transparent 75%),
+    #050b18;
+  padding-top: 72px;
+  padding-bottom: 108px;
+}
+.culture-hero .phero__badge {
+  background: rgba(120, 98, 255, 0.2);
+  border-color: rgba(151, 133, 255, 0.55);
+  color: #d8d0ff;
+  box-shadow: 0 0 20px rgba(128, 115, 255, 0.22);
+  letter-spacing: 0.14em;
+}
+.culture-hero .phero__title {
+  max-width: 1200px;
+  font-size: clamp(3rem, 2.3rem + 2.2vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+.culture-hero .phero__sub {
+  max-width: 980px;
+  font-size: clamp(1.12rem, 0.9rem + 0.85vw, 1.8rem);
+  line-height: 1.5;
+  color: rgba(218, 223, 245, 0.88);
+}
+.culture-hero .phero__actions {
+  margin-top: 2rem;
+}
+.culture-hero .kbtn--white {
+  min-width: 230px;
+  justify-content: center;
+}
+.culture-hero .kbtn--outline-light {
+  min-width: 190px;
+  justify-content: center;
+  border-color: rgba(255, 255, 255, 0.52);
 }
 
 /* Day timeline */
@@ -558,35 +623,415 @@
 }
 
 /* Team stat cards */
-.tstat-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xs);
-  margin-top: var(--space-md);
-}
-.tstat {
-  padding: var(--space-sm);
-  border-radius: 14px;
+.culture-team-section {
   background: #ffffff;
-  border: 1px solid #e9e8f4;
-  box-shadow: 0 10px 22px rgba(22, 20, 60, 0.06);
-  text-align: center;
 }
-.tstat strong {
-  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.125rem);
+
+.team-showcase {
+  display: grid;
+  grid-template-columns: 1.15fr 1.55fr;
+  align-items: center;
+  gap: clamp(2rem, 4.5vw, 3.75rem);
+  margin-top: 0.25rem;
+}
+
+.team-showcase__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.team-showcase__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #635bff;
+}
+
+.team-showcase__intro h2 {
+  margin: 0;
+  max-width: 470px;
+  font-size: clamp(1.95rem, 1.45rem + 1.45vw, 2.75rem);
   font-weight: 800;
-  color: var(--purple-600);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #0b1120;
 }
-.tstat span {
+
+.team-showcase__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(135px, 1fr));
+  gap: 1.25rem;
+}
+
+.team-showcase__stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 152px;
+  padding: 1.75rem 1.6rem;
+  border-radius: 16px;
+  border: 1px solid #eceef5;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.075), 0 3px 8px rgba(15, 23, 42, 0.035);
+  text-align: left;
+  transition:
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+  overflow: hidden;
+  isolation: isolate;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--stat-idx, 0) * 120ms) both;
+}
+
+.team-showcase__stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(99, 91, 255, 0.07), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.team-showcase__stat:hover {
+  transform: translateY(-7px);
+  border-color: rgba(99, 91, 255, 0.28);
+  box-shadow: 0 20px 38px rgba(15, 23, 42, 0.11), 0 6px 16px rgba(99, 91, 255, 0.1);
+}
+
+.team-showcase__stat:hover::before {
+  opacity: 1;
+}
+
+.team-showcase__stat strong {
   display: block;
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-md);
-  color: var(--gray-600);
+  font-size: clamp(2.1rem, 1.75rem + 0.9vw, 2.65rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #635bff;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@media (max-width: 720px) {
-  .tstat-row {
+
+.team-showcase__stat:hover strong {
+  transform: translateY(-2px) scale(1.03);
+  transform-origin: left center;
+}
+
+.team-showcase__stat span {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #0b1120;
+  transition: color 0.28s ease;
+}
+
+@media (max-width: 900px) {
+  .team-showcase {
     grid-template-columns: 1fr;
   }
+
+  .team-showcase__intro,
+  .team-showcase__intro h2 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .team-showcase__stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .team-showcase__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Culture Voices section & cards (exact design match) */
+.culture-voices-section {
+  background: #f8f9fc;
+}
+
+.culture-voices-section .shead__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #635bff;
+}
+
+.culture-voices-section .shead__title {
+  margin-top: 0.55rem;
+  font-size: clamp(1.85rem, 1.45rem + 1.2vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0b1120;
+}
+
+.culture-voices-grid {
+  margin-top: 2.75rem;
+  gap: 1.5rem;
+}
+
+.culture-voice-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #eceef5;
+  border-radius: 16px;
+  padding: 2rem 1.75rem 1.65rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07), 0 3px 8px rgba(15, 23, 42, 0.035);
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+  animation: cultureCardFloatIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--voice-idx, 0) * 140ms) both;
+}
+
+.culture-voice-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 91, 255, 0.26);
+  box-shadow: 0 22px 42px rgba(15, 23, 42, 0.11), 0 6px 16px rgba(99, 91, 255, 0.09);
+}
+
+.culture-voice-card__icon {
+  display: inline-flex;
+  align-items: center;
+  color: #635bff;
+  margin-bottom: 1.15rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.culture-voice-card:hover .culture-voice-card__icon {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.culture-voice-card__icon .voice-line {
+  transition: transform 0.32s ease;
+  transform-origin: left center;
+}
+
+.culture-voice-card:hover .culture-voice-card__icon .voice-line--1 {
+  transform: scaleX(1.12);
+}
+
+.culture-voice-card:hover .culture-voice-card__icon .voice-line--2 {
+  transform: scaleX(0.92);
+}
+
+.culture-voice-card:hover .culture-voice-card__icon .voice-line--3 {
+  transform: scaleX(1.04);
+}
+
+.culture-voice-card__quote {
+  margin: 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.68;
+  color: #1e293b;
+  flex: 1;
+}
+
+.culture-voice-card__footer {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid #eef0f6;
+}
+
+.culture-voice-card__footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #635bff, #818cf8);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.culture-voice-card:hover .culture-voice-card__footer::before {
+  transform: scaleX(1);
+}
+
+.culture-voice-card__footer strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0b1120;
+  line-height: 1.35;
+}
+
+.culture-voice-card__footer span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+@keyframes cultureCardFloatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Culture Join Us CTA section (exact design match) */
+.culture-join-cta {
+  background: #ffffff;
+  padding: clamp(4.5rem, 6vw, 6.25rem) 1.5rem;
+}
+
+.culture-join-cta__inner {
+  max-width: 680px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.culture-join-cta__eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #635bff;
+  margin-bottom: 1rem;
+  animation: cultureCardFloatIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.culture-join-cta__title {
+  margin: 0;
+  font-size: clamp(2.1rem, 1.65rem + 1.6vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0b1120;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
+}
+
+.culture-join-cta__sub {
+  margin: 1.15rem auto 0;
+  max-width: 510px;
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.62;
+  color: #64748b;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 160ms both;
+}
+
+.culture-join-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 240ms both;
+}
+
+.culture-join-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 52px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.culture-join-cta__btn--primary {
+  min-width: 196px;
+  padding: 0.85rem 2rem;
+  background: #635bff;
+  color: #ffffff;
+  border: 1px solid #635bff;
+  box-shadow: 0 8px 22px rgba(99, 91, 255, 0.28);
+}
+
+.culture-join-cta__btn--primary:hover {
+  transform: translateY(-3px);
+  background: #564df2;
+  border-color: #564df2;
+  box-shadow: 0 14px 28px rgba(99, 91, 255, 0.38);
+}
+
+.culture-join-cta__arrow {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.culture-join-cta__btn--primary:hover .culture-join-cta__arrow {
+  transform: translateX(4px);
+}
+
+.culture-join-cta__btn--secondary {
+  min-width: 136px;
+  padding: 0.85rem 1.75rem;
+  background: #ffffff;
+  color: #0b1120;
+  font-weight: 700;
+  border: 1.25px solid #475569;
+}
+
+.culture-join-cta__btn--secondary:hover {
+  transform: translateY(-3px);
+  border-color: #0b1120;
+  background: #f8fafc;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.culture-join-cta__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 2.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #64748b;
+  animation: cultureCardFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 320ms both;
+}
+
+.culture-join-cta__globe {
+  font-size: 0.86rem;
+  line-height: 1;
+}
+
+.culture-join-cta__dot {
+  color: #94a3b8;
 }
 
 /* Voice cards (Default: Light Backgrounds) */
