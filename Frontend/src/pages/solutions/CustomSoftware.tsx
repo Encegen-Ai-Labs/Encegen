@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import {
+  Btn,
   ClosingCTA,
   GradBand,
-  MockPanel,
   PageHero,
   ResultBar,
   SectionHead,
   StepFlow,
   TestimonialCard,
 } from '../../components/kit'
+import ContactModal from '../../components/ContactModal'
 import { CapabilityArt } from '../../components/CapabilityArt'
 import '../../components/CapabilityArt.css'
 import './solutions.css'
@@ -83,10 +85,27 @@ const TESTIMONIALS = [
   },
 ]
 
+const BEFORE_STEPS = [
+  { num: '1', label: 'Export from ERP', chip: '45 min', tone: 'amber' },
+  { num: '2', label: 'Format in Excel', chip: '2 hrs', tone: 'red' },
+  { num: '3', label: 'Email approvals', chip: '4 days', tone: 'red' },
+  { num: '4', label: 'Re-enter data', chip: '1 hr', tone: 'amber' },
+]
+
+const AFTER_STEPS = [
+  { num: '1', label: 'Click Submit', chip: '< 1 sec' },
+  { num: '2', label: 'Auto-routed', chip: '2-4 min' },
+  { num: '3', label: 'Approved and synced', chip: '8-10 min' },
+  { num: '4', label: 'Done', chip: '0 manual steps' },
+]
+
 export default function CustomSoftware() {
+  const [showContact, setShowContact] = useState(false)
+
   return (
     <>
       <PageHero
+        className="ai-research-hero custom-software-hero"
         badge={<>● Encegen AI Labs · Custom Software · AI-Native · Enterprise Scale</>}
         title={
           <>
@@ -96,10 +115,20 @@ export default function CustomSoftware() {
           </>
         }
         sub="We design and build scalable, AI-native platforms that fit your operation — not software you have to bend your operation around. Delivered in months, not years."
+        actions={
+          <>
+            <Btn onClick={() => setShowContact(true)} variant="white">Start a project →</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies</Btn>
+          </>
+        }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
+        trustedLabel="trusted by"
       />
 
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
+
       <GradBand
+        className="ai-research-gband"
         stats={[
           { value: '20+', label: 'Products Shipped' },
           { value: '3-6 months', label: 'Avg to Launch' },
@@ -109,58 +138,112 @@ export default function CustomSoftware() {
       />
 
       {/* Problem */}
-      <section className="section section--light">
+      <section className="section section--light custom-sw-problem">
         <div className="container">
           <SectionHead
             eyebrow="Chapter 1 · The Problem"
-            title="Every week, your team works around software that was never built for them."
+            title={
+              <>
+                Every week, your team works around
+                <br />
+                software that was never built for them.
+              </>
+            }
           />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div>
-              <p className="left-copy">
+          <div className="custom-sw-problem__split">
+            <div className="custom-sw-problem__left">
+              <span className="custom-sw-problem__eyebrow">Chapter 1 · The Problem</span>
+              <p className="custom-sw-problem__p">
                 <strong>The old way:</strong> open a system that predates half the team, export a
                 CSV, paste it into a spreadsheet, format it by hand, email three people, and wait
                 days for sign-off. Every single week.
               </p>
-              <p className="left-copy">
+              <p className="custom-sw-problem__p">
                 <strong>With custom software from Encegen:</strong> that whole chain becomes one
                 button. Data moves on its own, approvals happen in the flow, and your team spends its
                 time on the work that actually needs a human.
               </p>
-              <div className="sol-chip-row">
-                <span className="sol-chip">4-day process</span>
-                <span className="sol-chip sol-chip--green">Done in seconds</span>
+              <div className="custom-sw-problem__pills">
+                <span className="custom-sw-pill custom-sw-pill--muted">4-day process</span>
+                <span className="custom-sw-pill__arrow" aria-hidden="true">→</span>
+                <span className="custom-sw-pill custom-sw-pill--purple">Done in seconds</span>
               </div>
-              <p className="left-copy" style={{ fontSize: 14 }}>
+              <p className="custom-sw-problem__caption">
                 72% of enterprise workflows can be fully automated with purpose-built software
               </p>
-              <ul className="check-list">
-                <li>Full IP ownership — the code is yours, no lock-in, ever</li>
-                <li>Fixed-price delivery — the number we quote is the number you pay</li>
-                <li>Built for adoption — tools your team actually wants to open</li>
+              <ul className="custom-sw-problem__checks">
+                <li>
+                  <span className="custom-sw-check-icon" aria-hidden="true">✓</span>
+                  <span>Full IP ownership — the code is yours, no lock-in, ever</span>
+                </li>
+                <li>
+                  <span className="custom-sw-check-icon" aria-hidden="true">✓</span>
+                  <span>Fixed-price delivery — the number we quote is the number you pay</span>
+                </li>
+                <li>
+                  <span className="custom-sw-check-icon" aria-hidden="true">✓</span>
+                  <span>Built for adoption — tools your team actually wants to open</span>
+                </li>
               </ul>
             </div>
-            <MockPanel
-              title="Workflow Comparison"
-              rows={[
-                { label: 'BEFORE Automation', chip: 'Manual', chipColor: '#ef4444' },
-                { label: '1 · Export from ERP', chip: '45 min', chipColor: '#ef4444' },
-                { label: '2 · Format in Excel', chip: '2 hrs', chipColor: '#ef4444' },
-                { label: '3 · Email approvals', chip: '4 days', chipColor: '#ef4444' },
-                { label: '4 · Re-enter data', chip: '1 hr', chipColor: '#ef4444' },
-                { label: 'WITH ENCEGEN', chip: 'Automated', chipColor: '#2fe08e' },
-                { label: '1 · Click Submit', chip: '< 1 sec', chipColor: '#2fe08e' },
-                { label: '2 · Auto-routed', chip: '2-4 min', chipColor: '#2fe08e' },
-                { label: '3 · Approved and synced', chip: '8-10 min', chipColor: '#2fe08e' },
-                { label: '4 · Done', chip: '0 manual steps', chipColor: '#2fe08e' },
-              ]}
-              footer={
-                <>
-                  <span>Total waste before: 4 days 3 hours</span>
-                  <span>Operational time: 12 minutes automated</span>
-                </>
-              }
-            />
+
+            <div className="custom-sw-workflow-card">
+              <span className="custom-sw-wf__title">WORKFLOW COMPARISON</span>
+
+              {/* BEFORE block */}
+              <div className="custom-sw-wf__block">
+                <span className="custom-sw-wf__badge custom-sw-wf__badge--before">
+                  BEFORE Automation
+                </span>
+                <div className="custom-sw-wf__steps">
+                  {BEFORE_STEPS.map((s) => (
+                    <div key={s.num} className="custom-sw-wf__row">
+                      <span className="custom-sw-wf__num custom-sw-wf__num--before">
+                        {s.num}
+                      </span>
+                      <span className="custom-sw-wf__label custom-sw-wf__label--before">
+                        {s.label}
+                      </span>
+                      <span className={`custom-sw-wf__chip custom-sw-wf__chip--${s.tone}`}>
+                        {s.chip}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="custom-sw-wf__summary custom-sw-wf__summary--before">
+                  <span>Total waste before:</span>
+                  <strong>4 days 3 hours</strong>
+                </div>
+              </div>
+
+              <div className="custom-sw-wf__divider" />
+
+              {/* WITH ENCEGEN block */}
+              <div className="custom-sw-wf__block">
+                <span className="custom-sw-wf__badge custom-sw-wf__badge--after">
+                  WITH ENCEGEN
+                </span>
+                <div className="custom-sw-wf__steps">
+                  {AFTER_STEPS.map((s) => (
+                    <div key={s.num} className="custom-sw-wf__row">
+                      <span className="custom-sw-wf__num custom-sw-wf__num--after">
+                        {s.num}
+                      </span>
+                      <span className="custom-sw-wf__label custom-sw-wf__label--after">
+                        {s.label}
+                      </span>
+                      <span className="custom-sw-wf__chip custom-sw-wf__chip--green">
+                        {s.chip}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="custom-sw-wf__summary custom-sw-wf__summary--after">
+                  <span>Operational time:</span>
+                  <strong>12 minutes automated</strong>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -205,11 +288,12 @@ export default function CustomSoftware() {
       </section>
 
       {/* Stack */}
-      <section className="section section--light">
+      <section className="section section--light tech-stack-section">
         <div className="container">
           <SectionHead
-            eyebrow="Our Stack"
+            eyebrow="OUR TECH STACK"
             title="Modern technologies. Battle-tested in production."
+            sub="We choose every tool in our stack specifically for enterprise performance, cloud reliability, and long-term scalability — not just what is popular."
           />
           <div className="stack-grid">
             {STACK.map((s) => (
@@ -222,22 +306,27 @@ export default function CustomSoftware() {
               </div>
             ))}
           </div>
+          <p className="stack-note">
+            Architecture chosen based on your business model — cloud-native microservices for enterprise
+            scale, modular platforms for rapid iteration, and event-driven pipelines for real-time operations.
+          </p>
         </div>
       </section>
 
       {/* Proof */}
-      <section className="section section--lavender">
+      <section className="section section--lavender ai-research-proof">
         <div className="container">
           <SectionHead eyebrow="Customer Stories" title="Products our clients love." />
           <div className="tgrid">
             {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.tag} {...t} />
+              <TestimonialCard key={t.tag} {...t} outlineStars />
             ))}
           </div>
         </div>
       </section>
 
       <ClosingCTA
+        className="custom-software-closing"
         eyebrow="LET'S BUILD"
         line1="Ready to build software that fits"
         line2="your business perfectly?"

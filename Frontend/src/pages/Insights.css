@@ -1,0 +1,6 @@
+.insights-hero .phero__badge {
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  background: rgba(79, 70, 229, 0.2);
+  box-shadow: 0 0 16px rgba(79, 70, 229, 0.16);
+  color: #8b83ff;
+}

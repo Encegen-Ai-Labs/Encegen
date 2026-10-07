@@ -72,19 +72,17 @@ export default function Footer() {
             <p>
               {t('footer.tagline', 'AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.')}
             </p>
-            <div className="footer__offices" style={{ marginTop: 14, fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.5 }}>
-              <div style={{ marginBottom: 6 }}>
-                <strong style={{ color: '#e2e8f0' }}>📍 Wagholi Office: </strong>
+            <div className="footer__offices">
+              <div>
+                <strong>📍 Wagholi Office: </strong>
                 <a
                   href="https://maps.app.goo.gl/TXjPKk6BFvho6c4R7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#94a3b8', textDecoration: 'underline' }}
                 >
                   BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
                 </a>
               </div>
-             
             </div>
           </div>
 
@@ -110,13 +108,13 @@ export default function Footer() {
           </span>
           <div className="footer__socials">
             <a href="https://www.linkedin.com/company/encegen-ai-labs-pvt-ltd/posts/?feedView=all" aria-label="LinkedIn">
-              <LinkedInIcon size={19} />
+              <LinkedInIcon size={16} />
             </a>
             <a href="https://x.com/EncegenAi" aria-label="X (Twitter)">
-              <XIcon size={19} />
+              <XIcon size={16} />
             </a>
             <a href="https://www.instagram.com/encegen_ail_labs?igsh=MWdqMTRocXAwZmQzbA%3D%3D" aria-label="Instagram">
-              <InstagramIcon size={21} />
+              <InstagramIcon size={17} />
             </a>
           </div>
           <div className="footer__legal">

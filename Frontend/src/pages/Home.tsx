@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import {
-  ArrowRight,
   BuildingIcon,
   CarIcon,
   FactoryIcon,
@@ -63,47 +62,51 @@ const CLIENT_ITEMS = [
 const STORIES = [
   {
     tag: 'Varasa',
-    color: '#22c55e',
+    color: '#6553ee',
     quote:
       'Encegen AI Labs engineered our digital platform for archaeological explorations, ancient artifact preservation documentation, and student scholarship research grants.',
     initials: 'VR',
     name: 'Research & Conservation Head',
     role: 'Varasa (Heritage Conservation & Scholarship)',
     metric: '10,000+ artifacts documented',
-    hue: 150,
+    metricIcon: '⚡',
+    hue: 255,
   },
   {
     tag: 'Pramay Agro',
-    color: '#3b82f6',
+    color: '#059669',
     quote:
       'Encegen built our specialized e-commerce platform for fertilizers, pesticides, and agro-inputs with seamless dealer ordering and real-time inventory synchronization.',
     initials: 'PA',
     name: 'Operations Director',
     role: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
     metric: '60% time saved on ops',
-    hue: 215,
+    metricIcon: '🚀',
+    hue: 155,
   },
   {
     tag: 'Fx Algo',
-    color: '#f59e0b',
+    color: '#2563eb',
     quote:
       'In algorithmic finance, latency and precision are paramount. Encegen engineered an ultra-reliable, high-throughput execution backend that consistently excels.',
     initials: 'FA',
     name: 'Quantitative Strategist',
     role: 'Fx Algo (Algorithmic Trading Platform)',
     metric: '<5ms execution latency',
-    hue: 30,
+    metricIcon: '✓',
+    hue: 215,
   },
   {
     tag: 'Flairnetic Advocates',
-    color: '#8b5cf6',
+    color: '#d97706',
     quote:
       'Using EasyHunt software engineered by Encegen, our legal team accelerated property title search and document intelligence turnaround from days to minutes across Maharashtra records.',
     initials: 'FL',
     name: 'Senior Legal Partner',
     role: 'Flairnetic Advocates (Major Client for EasyHunt)',
     metric: '90% faster title search',
-    hue: 260,
+    metricIcon: '⏱',
+    hue: 35,
   },
 ]
 
@@ -182,7 +185,7 @@ export default function Home() {
           mapUrl: 'https://maps.app.goo.gl/TXjPKk6BFvho6c4R7',
         },
         {
-          name: 'Legismith Partners LLP',
+          name: 'Sus Road Office',
           address: 'Office No. 507,Sukhwani Boulevard Commerz, Pashan-Sus Road, Above Domnios, Sus. Pune Maharashtra 411021',
           mapUrl: 'https://www.google.com/maps/place/Legismith+Partners+LLP/@18.5528432,73.7551646,612a,75y,87.03h,90t/data=!3m7!1e1!3m5!1s7itLVbuKwXhTbJ1suLtkOQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3D7itLVbuKwXhTbJ1suLtkOQ%26yaw%3D87.03443356390962!7i16384!8i8192!4m7!3m6!1s0x3bc2bfa66853ed39:0x6339bde89311682b!8m2!3d18.5525751!4d73.7550038!10e5!16s%2Fg%2F11vz6648ss!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D',
         },
@@ -209,12 +212,12 @@ export default function Home() {
   ], [t])
 
   const industries = useMemo(() => [
-    { icon: <FactoryIcon size={22} />, title: t('home.industries.mfg', 'Manufacturing'), desc: t('home.industries.mfgDesc', 'Optimize production cycles and supply chain resilience.') },
-    { icon: <BuildingIcon size={22} />, title: t('home.industries.fin', 'Financial Services'), desc: t('home.industries.finDesc', 'Streamline risk management and order-to-cash workflows.') },
-    { icon: <ShoppingBagIcon size={22} />, title: t('home.industries.ret', 'Retail'), desc: t('home.industries.retDesc', 'Enhance inventory turnover and omnichannel experiences.') },
-    { icon: <HeartPulseIcon size={22} />, title: t('home.industries.health', 'Healthcare'), desc: t('home.industries.healthDesc', 'Improve patient throughput and billing accuracy.') },
-    { icon: <ZapIcon size={22} />, title: t('home.industries.util', 'Utilities'), desc: t('home.industries.utilDesc', 'Manage grid operations and customer service processes.') },
-    { icon: <CarIcon size={22} />, title: t('home.industries.auto', 'Automotive'), desc: t('home.industries.autoDesc', 'Accelerate time-to-market for next-gen vehicle production.') },
+    { icon: <FactoryIcon size={22} />, title: t('home.industries.mfg', 'Manufacturing'), desc: t('home.industries.mfgDesc', 'Optimize production cycles and supply chain resilience.'), to: '/solutions/manufacturing' },
+    { icon: <BuildingIcon size={22} />, title: t('home.industries.fin', 'Financial Services'), desc: t('home.industries.finDesc', 'Streamline risk management and order-to-cash workflows.'), to: '/solutions/financial-services' },
+    { icon: <ShoppingBagIcon size={22} />, title: t('home.industries.ret', 'Retail'), desc: t('home.industries.retDesc', 'Enhance inventory turnover and omnichannel experiences.'), to: '/solutions/web-ecommerce' },
+    { icon: <HeartPulseIcon size={22} />, title: t('home.industries.health', 'Healthcare'), desc: t('home.industries.healthDesc', 'Improve patient throughput and billing accuracy.'), to: '/solutions/healthcare' },
+    { icon: <ZapIcon size={22} />, title: t('home.industries.util', 'Utilities'), desc: t('home.industries.utilDesc', 'Manage grid operations and customer service processes.'), to: '/solutions/use-cases' },
+    { icon: <CarIcon size={22} />, title: t('home.industries.auto', 'Automotive'), desc: t('home.industries.autoDesc', 'Accelerate time-to-market for next-gen vehicle production.'), to: '/solutions/manufacturing' },
   ], [t])
 
   const stats = useMemo(() => [
@@ -227,6 +230,7 @@ export default function Home() {
   return (
     <>
       <PageHero
+        className="home-reference-hero"
         badge={t('home.heroBadge', 'Process Intelligence Platform')}
         title={t('home.heroTitle', 'Turn Every Process Into a Competitive Advantage')}
         sub={t('home.heroSub', 'Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale.')}
@@ -237,9 +241,10 @@ export default function Home() {
             </Btn>
           </>
         }
-        trustedLabel={t('home.trustedBy', "Trusted by the world's leading companies")}
-        trusted={[]}
       >
+        <p className="home-hero-proof">
+          5,000+ ENTERPRISE CUSTOMERS WORLDWIDE
+        </p>
         <div className="home-hero-visual">
           <img 
             src={heroImage} 
@@ -343,7 +348,7 @@ export default function Home() {
       </section>
 
       {/* Platform */}
-      <section className="section section--dark">
+      <section className="section section--dark home-platform-section">
         <div className="container split">
           <div>
             <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
@@ -388,7 +393,20 @@ export default function Home() {
           />
           <div className="cards-3" ref={indRef}>
             {industries.map((ind) => (
-              <article key={ind.title} className="fcard anim-item hover-lift">
+              <article
+                key={ind.title}
+                className="fcard anim-item hover-lift"
+                onClick={() => navigate(ind.to)}
+                role="link"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    navigate(ind.to)
+                  }
+                }}
+                style={{ cursor: 'pointer' }}
+              >
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
@@ -428,7 +446,7 @@ export default function Home() {
                 {t('home.stories.eyebrow', 'Customer Stories')}
               </span>
               <h2 className="home-stories__title">
-                {t('home.stories.title', 'Trusted by the brands that run the world')}
+                {t('home.stories.title', "Trusted by the world's leading enterprises.")}
               </h2>
             </div>
             <div className="home-stories__controls" aria-label="Customer stories navigation">
@@ -439,7 +457,9 @@ export default function Home() {
                 disabled={storyPage === 0}
                 aria-label="Previous customer stories"
               >
-                <ArrowRight size={17} className="home-stories__arrow--previous" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
               </button>
               <button
                 type="button"
@@ -448,7 +468,9 @@ export default function Home() {
                 disabled={storyPage === 1}
                 aria-label="Next customer stories"
               >
-                <ArrowRight size={17} />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
               </button>
             </div>
           </div>
@@ -461,7 +483,7 @@ export default function Home() {
             >
               {STORIES.map((s) => (
                 <div className="home-stories__slide" key={s.name}>
-                  <TestimonialCard {...s} />
+                  <TestimonialCard {...s} outlineStars />
                 </div>
               ))}
             </div>

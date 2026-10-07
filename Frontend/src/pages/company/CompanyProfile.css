@@ -166,11 +166,23 @@
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
+}
+
+.cp-split__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .cp-split__left .cp-title {
   text-align: left;
+}
+
+.cp-split__right {
+  display: flex;
+  flex-direction: column;
 }
 
 .cp-text {
@@ -181,12 +193,22 @@
 }
 
 .cp-graphic-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: #0f172a;
   border-radius: 16px;
   border: 1px solid rgba(101, 83, 238, 0.3);
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
   overflow: hidden;
   color: #ffffff;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease, border-color 0.32s ease;
+}
+
+.cp-graphic-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 120, 255, 0.48);
+  box-shadow: 0 28px 56px rgba(15, 23, 42, 0.28);
 }
 
 .cp-graphic-card__header {
@@ -216,6 +238,10 @@
 
 .cp-graphic-card__body {
   padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cp-graphic-grid {
@@ -223,6 +249,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 20px;
+  flex: 1;
 }
 
 .cp-graphic-stat {
@@ -573,24 +600,29 @@
 
 .cp-cta-btn--primary {
   background: #ffffff;
-  color: #4a34db;
-  border: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: #6553ee;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.36);
 }
 
 .cp-cta-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 0 36px rgba(255, 255, 255, 0.48), 0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
 .cp-cta-btn--secondary {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.14), inset 0 0 18px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .cp-cta-btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 32px rgba(255, 255, 255, 0.24), inset 0 0 20px rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
 }
 
 /* Responsive */

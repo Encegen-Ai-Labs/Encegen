@@ -65,7 +65,7 @@ function ConfidenceDonut() {
 
   return (
     <div className="hiw-donut">
-      <svg viewBox="0 0 110 110" width="128" height="128" aria-hidden="true">
+      <svg viewBox="0 0 110 110" width="92" height="92" aria-hidden="true">
         <defs>
           <linearGradient id="donutGrad" x1="0" y1="0" x2="110" y2="110" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="#4f7cff" />
@@ -95,13 +95,13 @@ function ConfidenceDonut() {
 
 export default function HowItWorks() {
   return (
-    <section className="hiw">
+    <section className="hiw" id="how-it-works">
       <div className="container">
         <p className="section-eyebrow">How It Works</p>
-        <h2 className="section-title">Three layers. One connected platform.</h2>
+        <h2 className="section-title">Three layers. One unified platform.</h2>
         <p className="section-sub">
-          Connect your data, understand your processes, and act on what you
-          find &ndash; from one architecture that scales.
+          Connect data, analyze processes, and trigger actions &ndash; all from a
+          single, scalable architecture.
         </p>
 
         <div className="hiw__panel">
@@ -140,7 +140,7 @@ export default function HowItWorks() {
                 <ul className="hiw__features">
                   <li>
                     <strong>AI Process Mining</strong>
-                    <span>Sees how work really flows, in real time</span>
+                    <span>Real-time variant detection</span>
                   </li>
                   <li>
                     <strong>Root Cause Analysis</strong>
@@ -181,7 +181,7 @@ export default function HowItWorks() {
             <div className="hiw__actions">
               {ACTIONS.map((action) => (
                 <div key={action.title} className="hiw__action">
-                  <action.icon size={22} className="hiw__action-icon" />
+                  <action.icon size={18} className="hiw__action-icon" />
                   <div>
                     <strong>{action.title}</strong>
                     <span>{action.sub}</span>

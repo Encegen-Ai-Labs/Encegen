@@ -16,12 +16,84 @@ import './careers.css'
 import '../company/company.css'
 
 const BENEFITS = [
-  { icon: '🚀', title: 'High-Impact Ownership', desc: 'Work directly on mission-critical AI systems and client solutions. What you build goes into production.' },
-  { icon: '📍', title: 'Pune HQ & Hybrid', desc: 'Collaborate at our Pune headquarters with flexible hybrid workflow options.' },
-  { icon: '🧠', title: 'Rapid AI Learning', desc: 'Hands-on exposure to cutting-edge Generative AI, AI agents, document intelligence, and modern full-stack engineering.' },
-  { icon: '💡', title: 'Direct Client Engagement', desc: 'Understand real business workflows and engineer solutions that solve real challenges for clients.' },
-  { icon: '⚡', title: 'Agile Build Sprints', desc: 'Move fast with a startup mindset: Build → Test → Learn → Improve.' },
-  { icon: '🤝', title: 'Competitive Growth', desc: 'Work with a dedicated, mission-driven team with direct recognition and growth incentives.' },
+  {
+    color: '#6336f5',
+    halo: 'rgba(124, 92, 255, 0.15)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="9" r="5" />
+        <path d="M9.5 13.5L8 21l4-2.5L16 21l-1.5-7.5" />
+      </svg>
+    ),
+    title: 'High-Impact Ownership',
+    desc: 'Work directly on mission-critical AI systems and client solutions. What you build goes into production.',
+  },
+  {
+    color: '#2573f0',
+    halo: 'rgba(59, 130, 246, 0.15)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3.6 9h16.8" />
+        <path d="M3.6 15h16.8" />
+        <path d="M12 3a14.5 14.5 0 0 0 0 18" />
+        <path d="M12 3a14.5 14.5 0 0 1 0 18" />
+      </svg>
+    ),
+    title: 'Pune HQ & Hybrid',
+    desc: 'Collaborate at our Pune headquarters with flexible hybrid workflow options.',
+  },
+  {
+    color: '#09b698',
+    halo: 'rgba(20, 184, 166, 0.16)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M2 4.5h6.5a3.5 3.5 0 0 1 3.5 3.5v12a2.5 2.5 0 0 0-2.5-2.5H2z" />
+        <path d="M22 4.5h-6.5A3.5 3.5 0 0 0 12 8v12a2.5 2.5 0 0 1 2.5-2.5H22z" />
+      </svg>
+    ),
+    title: 'Rapid AI Learning',
+    desc: 'Hands-on exposure to cutting-edge Generative AI, AI agents, document intelligence, and modern full-stack engineering.',
+  },
+  {
+    color: '#0ca668',
+    halo: 'rgba(16, 185, 129, 0.16)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572" />
+      </svg>
+    ),
+    title: 'Direct Client Engagement',
+    desc: 'Understand real business workflows and engineer solutions that solve real challenges for clients.',
+  },
+  {
+    color: '#f56e0f',
+    halo: 'rgba(249, 115, 22, 0.16)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3.5" y="4.5" width="17" height="16" rx="2.5" />
+        <path d="M16 2.5v4" />
+        <path d="M8 2.5v4" />
+        <path d="M3.5 9.5h17" />
+      </svg>
+    ),
+    title: 'Agile Build Sprints',
+    desc: 'Move fast with a startup mindset: Build → Test → Learn → Improve.',
+  },
+  {
+    color: '#e83e8c',
+    halo: 'rgba(236, 72, 153, 0.16)',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20" />
+        <circle cx="10" cy="8.5" r="3.2" />
+        <path d="M20 20v-1.5a3.5 3.5 0 0 0-2.5-3.35" />
+        <path d="M15 5.35a3.2 3.2 0 0 1 0 6.3" />
+      </svg>
+    ),
+    title: 'Competitive Growth',
+    desc: 'Work with a dedicated, mission-driven team with direct recognition and growth incentives.',
+  },
 ]
 
 const PEOPLE_STATS = [
@@ -121,7 +193,7 @@ export default function WhyEncegen() {
       {/* Hero */}
       <section className="why-hero">
         <div className="container why-hero__grid">
-          <div>
+          <div className="why-hero__copy">
             <span className="phero__badge">Our story begins with you</span>
             <h1>
               We don't just build software. We engineer what comes next.
@@ -130,7 +202,7 @@ export default function WhyEncegen() {
               Join a team of builders, operators, and thinkers solving real business problems with
               practical AI and modern engineering.
             </p>
-            <div style={{ display: 'flex', gap: 16, marginTop: 32, flexWrap: 'wrap' }}>
+            <div className="why-hero__actions">
               <Btn to="/careers" variant="white">
                 Explore Open Roles →
               </Btn>
@@ -145,14 +217,16 @@ export default function WhyEncegen() {
             </div>
           </div>
           <div className="why-hero__tiles">
-            <ArtTile variant="purple" />
-            <ArtTile variant="magenta" />
-            <ArtTile variant="blue" />
+            <ArtTile variant="purple" className="why-hero__tile why-hero__tile--one" />
+            <ArtTile variant="magenta" className="why-hero__tile why-hero__tile--two" />
+            <ArtTile variant="blue" className="why-hero__tile why-hero__tile--three" />
+            <ArtTile variant="cyan" className="why-hero__tile why-hero__tile--four" />
           </div>
         </div>
       </section>
 
       <GradBand
+        className="why-encegen-quote"
         quote="We exist to bridge the gap between business problems and intelligent technology — and we need exceptional builders to make it happen."
         cite="ENCEGEN AI LABS PVT. LTD."
       />
@@ -202,13 +276,23 @@ export default function WhyEncegen() {
       </section>
 
       {/* Benefits */}
-      <section className="section section--lavender">
+      <section className="section section--lavender why-benefits-section">
         <div className="container">
           <SectionHead eyebrow="Chapter 03 · Why Here" title="Everything you need to do your best work." />
-          <div className="cards-3">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="benefit">
-                <span className="benefit__icon">{b.icon}</span>
+          <div className="cards-3 why-benefits-grid">
+            {BENEFITS.map((b, idx) => (
+              <div
+                key={b.title}
+                className="benefit"
+                style={{
+                  ['--benefit-color' as string]: b.color,
+                  ['--benefit-halo' as string]: b.halo,
+                  ['--benefit-idx' as string]: idx,
+                }}
+              >
+                <div className="benefit__icon-wrap">
+                  <span className="benefit__icon">{b.icon}</span>
+                </div>
                 <strong>{b.title}</strong>
                 <p>{b.desc}</p>
               </div>
@@ -285,27 +369,27 @@ export default function WhyEncegen() {
       </section>
 
       {/* Voices with stars */}
-      <section className="section section--light">
+      <section className="section section--light why-voices">
         <div className="container">
           <SectionHead eyebrow="Chapter 06 · Real Voices" title="Hear from our team." />
-          <div className="cards-3">
+          <div className="cards-3 why-voices__grid">
             {VOICES.map((v) => (
-              <div key={v.name} className="voice">
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <Avatar text={v.initials} hue={v.hue} size={40} />
-                  <div>
-                    <strong style={{ margin: 0, color: 'var(--ink-900)' }}>{v.name}</strong>
-                    <span style={{ color: 'var(--purple-600)', fontWeight: 600 }}>{v.role}</span>
+              <article key={v.name} className="voice why-voice-card">
+                <div className="why-voice-card__person">
+                  <Avatar text={v.initials} hue={v.hue} size={42} />
+                  <div className="why-voice-card__identity">
+                    <strong>{v.name}</strong>
+                    <span>{v.role}</span>
                   </div>
                 </div>
-                <p style={{ color: 'var(--ink-700)', fontSize: '0.93rem', lineHeight: 1.6 }}>“{v.quote}”</p>
-                <Stars />
-              </div>
+                <p>“{v.quote}”</p>
+                <Stars outline />
+              </article>
             ))}
           </div>
-          <div className="rule-bar">
+          <div className="rule-bar why-voices__callout">
             <strong>Join 11–50 people building the future of applied AI in Pune</strong>
-            <Link to="/careers" style={{ color: 'var(--purple-300)', fontSize: 14, fontWeight: 600 }}>
+            <Link to="/careers" className="why-voices__link">
               → Explore open roles
             </Link>
           </div>
@@ -393,33 +477,39 @@ export default function WhyEncegen() {
       </section>
 
       {/* 2 Offices in Pune */}
-      <section className="section section--dark">
-        <div className="container" style={{ textAlign: 'center' }}>
+      <section className="section section--dark why-offices">
+        <div className="container why-offices__container">
           <SectionHead
             title="2 Offices in Pune · Innovating for the World"
             sub="Our core technology and engineering hubs operate out of Pune, Maharashtra, India."
             dark
           />
-          <div style={{ maxWidth: 700, margin: '32px auto 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, textAlign: 'left' }}>
-            <div style={{ padding: 24, background: 'rgba(255,255,255,0.05)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)' }}>
-              <h4 style={{ color: '#fff', fontSize: 18, marginBottom: 8 }}>📍 Wagholi Office</h4>
-              <p style={{ color: '#a8a5cb', fontSize: 14, lineHeight: 1.6 }}>
+          <div className="why-offices__map">
+            <iframe
+              title="Map centered on Encegen's Wagholi office"
+              src="https://maps.google.com/maps?q=BA+HUB,+Office+no+03,+Sambhaji+Nagar,+Wagholi,+Pune+412207&ll=18.5806299,73.9833099&z=14&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <div className="why-offices__locations">
+            <article className="why-offices__location">
+              <span className="why-offices__pin" aria-hidden="true">●</span>
+              <div>
+                <h3>Wagholi Office</h3>
+                <p>
+                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
+                </p>
                 <a
-                  href="https://maps.app.goo.gl/TXjPKk6BFvho6c4R7"
+                  href="https://www.google.com/maps/dir/?api=1&destination=BA+HUB,+Office+no+03,+Sambhaji+Nagar,+Wagholi,+Pune+412207"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#c4b5fd', textDecoration: 'underline' }}
                 >
-                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207 ↗
+                  Get directions ↗
                 </a>
-              </p>
-            </div>
-            <div style={{ padding: 24, background: 'rgba(255,255,255,0.05)', borderRadius: 14, border: '1px solid rgba(255,255,255,0.1)' }}>
-              <h4 style={{ color: '#fff', fontSize: 18, marginBottom: 8 }}>📍 Pashan Office</h4>
-              <p style={{ color: '#a8a5cb', fontSize: 14, lineHeight: 1.6 }}>
-                Legismith Partners LLP, Pashan, Pune
-              </p>
-            </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>

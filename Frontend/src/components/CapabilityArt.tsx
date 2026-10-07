@@ -281,6 +281,347 @@ export function CapabilityArt({ id, className = '' }: CapabilityArtProps) {
         </div>
       )
 
+    case 'marketing-website':
+      return (
+        <div className={`cap-art cap-art--marketing ${className}`}>
+          <svg className="cap-art__svg" viewBox="0 0 420 210" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="mwPurpleGlow" cx="68%" cy="32%" r="55%">
+                <stop offset="0%" stopColor="#6d28d9" stopOpacity="0.55" />
+                <stop offset="55%" stopColor="#3b0764" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="#0b091b" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="mwFrameSide" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#1e1938" />
+                <stop offset="50%" stopColor="#2d2654" />
+                <stop offset="100%" stopColor="#0e0b20" />
+              </linearGradient>
+            </defs>
+            {/* Base dark background */}
+            <rect width="420" height="210" fill="#0b091b" />
+            <rect width="420" height="210" fill="url(#mwPurpleGlow)" />
+
+            {/* Side metallic frame pillars matching screenshot */}
+            <rect x="0" y="0" width="26" height="210" fill="url(#mwFrameSide)" opacity="0.85" />
+            <line x1="26" y1="0" x2="26" y2="210" stroke="#3b3366" strokeWidth="1" />
+            <rect x="394" y="0" width="26" height="210" fill="url(#mwFrameSide)" opacity="0.85" />
+            <line x1="394" y1="0" x2="394" y2="210" stroke="#3b3366" strokeWidth="1" />
+
+            {/* Inner screen container */}
+            <rect x="38" y="8" width="344" height="194" rx="8" fill="#0f0c24" fillOpacity="0.7" stroke="#231d45" strokeWidth="1" />
+
+            {/* Top-left Headline & Subtitle */}
+            <text x="68" y="48" fill="#ffffff" fontSize="13.5" fontWeight="700" fontFamily="sans-serif" letterSpacing="0.03em">
+              UNLEASH PEAK DIGITAL
+            </text>
+            <text x="68" y="65" fill="#ffffff" fontSize="13.5" fontWeight="700" fontFamily="sans-serif" letterSpacing="0.03em">
+              PERFORMANCE
+            </text>
+            <text x="68" y="80" fill="#8b87ab" fontSize="7.2" fontWeight="500" fontFamily="sans-serif">
+              Experience unmatched speed &amp; conversion
+            </text>
+
+            {/* Top-right 98 PageSpeed Gauge */}
+            <g transform="translate(306, 56)">
+              <circle cx="0" cy="0" r="24" stroke="#251e47" strokeWidth="3.5" fill="#120e2b" />
+              <circle
+                cx="0"
+                cy="0"
+                r="24"
+                stroke="#8b5cf6"
+                strokeWidth="3.5"
+                strokeDasharray="132 160"
+                strokeLinecap="round"
+                transform="rotate(-125)"
+              />
+              <text x="0" y="2" fill="#ffffff" fontSize="14.5" fontWeight="800" fontFamily="sans-serif" textAnchor="middle">
+                98
+              </text>
+              <text x="0" y="11" fill="#94a3b8" fontSize="5.2" fontWeight="600" fontFamily="sans-serif" textAnchor="middle">
+                PageSpeed
+              </text>
+              {/* Tiny green trend indicator at bottom right */}
+              <path d="M22,18 L28,12 L28,18 Z" fill="#10b981" />
+              <line x1="20" y1="19" x2="29" y2="19" stroke="#10b981" strokeWidth="1.2" />
+            </g>
+
+            {/* Bottom 3 Feature Boxes */}
+            {/* Box 1 */}
+            <g transform="translate(68, 114)">
+              <rect width="84" height="62" rx="6" fill="#141229" stroke="#252142" strokeWidth="1" />
+              <circle cx="42" cy="20" r="7" stroke="#8b5cf6" strokeWidth="1.3" fill="none" />
+              <path d="M42,20 L46,16" stroke="#a78bfa" strokeWidth="1.3" strokeLinecap="round" />
+              <text x="42" y="40" fill="#cbd5e1" fontSize="5.4" fontWeight="700" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                ULTRA-FAST
+              </text>
+              <text x="42" y="48" fill="#94a3b8" fontSize="5.2" fontWeight="600" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                LOAD TIMES
+              </text>
+            </g>
+
+            {/* Box 2 */}
+            <g transform="translate(164, 114)">
+              <rect width="84" height="62" rx="6" fill="#141229" stroke="#252142" strokeWidth="1" />
+              <rect x="36" y="13" width="12" height="14" rx="2" stroke="#8b5cf6" strokeWidth="1.3" fill="none" />
+              <line x1="39" y1="17" x2="45" y2="17" stroke="#a78bfa" strokeWidth="1.1" />
+              <line x1="39" y1="21" x2="43" y2="21" stroke="#a78bfa" strokeWidth="1.1" />
+              <text x="42" y="40" fill="#cbd5e1" fontSize="5.4" fontWeight="700" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                AI-POWERED
+              </text>
+              <text x="42" y="48" fill="#94a3b8" fontSize="5.2" fontWeight="600" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                OPTIMIZATION
+              </text>
+            </g>
+
+            {/* Box 3 */}
+            <g transform="translate(260, 114)">
+              <rect width="84" height="62" rx="6" fill="#141229" stroke="#252142" strokeWidth="1" />
+              <circle cx="42" cy="20" r="4" stroke="#8b5cf6" strokeWidth="1.3" fill="none" />
+              <circle cx="42" cy="20" r="7.5" stroke="#8b5cf6" strokeWidth="1.2" strokeDasharray="2 2.5" fill="none" />
+              <text x="42" y="40" fill="#cbd5e1" fontSize="5.4" fontWeight="700" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                SEAMLESS USER
+              </text>
+              <text x="42" y="48" fill="#94a3b8" fontSize="5.2" fontWeight="600" fontFamily="sans-serif" textAnchor="middle" letterSpacing="0.04em">
+                EXPERIENCE
+              </text>
+            </g>
+          </svg>
+        </div>
+      )
+
+    case 'ecommerce-platform':
+      return (
+        <div className={`cap-art cap-art--ecommerce ${className}`}>
+          <svg className="cap-art__svg" viewBox="0 0 420 210" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ecWarmGlow" cx="20%" cy="15%" r="60%">
+                <stop offset="0%" stopColor="#d97706" stopOpacity="0.32" />
+                <stop offset="55%" stopColor="#78350f" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#14131a" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="420" height="210" fill="#16151d" />
+            <rect width="420" height="210" fill="url(#ecWarmGlow)" />
+
+            {/* Storefront Window Frame */}
+            <rect x="26" y="0" width="368" height="206" fill="#14141c" stroke="#2b2938" strokeWidth="1" />
+
+            {/* Top Navbar */}
+            <rect x="26" y="0" width="368" height="18" fill="#191923" />
+            <text x="36" y="11" fill="#ffffff" fontSize="6" fontWeight="800" fontFamily="sans-serif">LOGO</text>
+            <text x="128" y="11" fill="#94a3b8" fontSize="5.2" fontFamily="sans-serif">Home</text>
+            <rect x="150" y="0" width="28" height="18" fill="#f59e0b" fillOpacity="0.18" />
+            <rect x="150" y="16.5" width="28" height="1.5" fill="#f59e0b" />
+            <text x="154" y="11" fill="#fbbf24" fontSize="5.2" fontWeight="700" fontFamily="sans-serif">Catalog</text>
+            <text x="186" y="11" fill="#94a3b8" fontSize="5.2" fontFamily="sans-serif">Orders</text>
+            <text x="212" y="11" fill="#94a3b8" fontSize="5.2" fontFamily="sans-serif">Profile</text>
+            <rect x="312" y="4" width="68" height="10" rx="5" fill="#232331" stroke="#343446" strokeWidth="0.7" />
+            <text x="320" y="10.5" fill="#64748b" fontSize="4.5" fontFamily="sans-serif">Search products...</text>
+
+            {/* Left Filter Sidebar */}
+            <rect x="32" y="24" width="54" height="174" rx="4" fill="#181822" stroke="#262636" strokeWidth="0.8" />
+            <text x="37" y="35" fill="#94a3b8" fontSize="5" fontWeight="600" fontFamily="sans-serif">Category</text>
+            <line x1="37" y1="40" x2="80" y2="40" stroke="#262636" strokeWidth="0.7" />
+            <text x="37" y="52" fill="#94a3b8" fontSize="4.8" fontFamily="sans-serif">Brand</text>
+            <rect x="70" y="48" width="10" height="5" rx="2.5" fill="#f59e0b" />
+            <circle cx="77.5" cy="50.5" r="1.8" fill="#fff" />
+            <text x="37" y="64" fill="#94a3b8" fontSize="4.8" fontFamily="sans-serif">In Stock</text>
+            <rect x="70" y="60" width="10" height="5" rx="2.5" fill="#f59e0b" />
+            <circle cx="77.5" cy="62.5" r="1.8" fill="#fff" />
+            <text x="37" y="80" fill="#94a3b8" fontSize="4.8" fontFamily="sans-serif">Price Range</text>
+            <line x1="37" y1="88" x2="80" y2="88" stroke="#333347" strokeWidth="1.5" />
+            <line x1="44" y1="88" x2="68" y2="88" stroke="#f59e0b" strokeWidth="1.5" />
+            <circle cx="44" cy="88" r="2.2" fill="#f59e0b" />
+            <circle cx="68" cy="88" r="2.2" fill="#f59e0b" />
+            <text x="37" y="106" fill="#94a3b8" fontSize="4.8" fontFamily="sans-serif">Rating</text>
+            <circle cx="40" cy="115" r="2" fill="#f59e0b" />
+            <circle cx="76" cy="115" r="2" fill="#f59e0b" />
+            <rect x="37" y="126" width="14" height="5" rx="2.5" fill="#f59e0b" />
+
+            {/* Center 4x2 Product Grid */}
+            {[
+              { x: 92, y: 24, price: '$249.99', accent: '#6366f1', shape: 'box' },
+              { x: 146, y: 24, price: '$349.99', accent: '#ec4899', shape: 'watch' },
+              { x: 200, y: 24, price: '$249.99', accent: '#38bdf8', shape: 'cam' },
+              { x: 254, y: 24, price: '$349.99', accent: '#f97316', shape: 'bag' },
+              { x: 92, y: 112, price: '$249.99', accent: '#a855f7', shape: 'laptop' },
+              { x: 146, y: 112, price: '$349.99', accent: '#22d3ee', shape: 'phone' },
+              { x: 200, y: 112, price: '$249.99', accent: '#f59e0b', shape: 'shoe' },
+              { x: 254, y: 112, price: '$349.99', accent: '#10b981', shape: 'screen' },
+            ].map((item, idx) => (
+              <g key={idx} transform={`translate(${item.x}, ${item.y})`}>
+                <rect width="50" height="84" rx="4" fill="#1c1c27" stroke="#2c2c3c" strokeWidth="0.8" />
+                {/* Product image area */}
+                <rect x="4" y="4" width="42" height="34" rx="2.5" fill="#12121a" />
+                <circle cx="25" cy="21" r="11" fill={item.accent} fillOpacity="0.22" />
+                <rect x="17" y="13" width="16" height="16" rx="3" fill={item.accent} fillOpacity="0.75" />
+                {/* Title & Price */}
+                <text x="5" y="47" fill="#cbd5e1" fontSize="4.6" fontWeight="600" fontFamily="sans-serif">
+                  Product Item
+                </text>
+                <text x="5" y="57" fill="#ffffff" fontSize="6.5" fontWeight="800" fontFamily="sans-serif">
+                  {item.price}
+                </text>
+                {/* Add to Cart Button */}
+                <rect x="5" y="66" width="40" height="11" rx="5.5" fill="#f59e0b" />
+                <text x="25" y="73" fill="#111827" fontSize="3.8" fontWeight="800" fontFamily="sans-serif" textAnchor="middle">
+                  ADD TO CART
+                </text>
+              </g>
+            ))}
+
+            {/* Right Cart Drawer */}
+            <rect x="310" y="24" width="76" height="174" rx="4" fill="#181822" stroke="#262636" strokeWidth="0.8" />
+            <text x="316" y="34" fill="#e2e8f0" fontSize="5.2" fontWeight="700" fontFamily="sans-serif">Cart (4)</text>
+            {[0, 1, 2, 3, 4].map((row) => (
+              <g key={row} transform={`translate(316, ${42 + row * 22})`}>
+                <rect width="12" height="12" rx="2" fill="#252536" />
+                <circle cx="6" cy="6" r="3.5" fill={row % 2 === 0 ? '#f59e0b' : '#38bdf8'} />
+                <text x="16" y="5.5" fill="#cbd5e1" fontSize="4.2" fontWeight="600" fontFamily="sans-serif">Order Item</text>
+                <text x="16" y="11" fill="#fbbf24" fontSize="4.2" fontWeight="700" fontFamily="sans-serif">$249.99</text>
+                <line x1="0" y1="17" x2="64" y2="17" stroke="#252534" strokeWidth="0.6" />
+              </g>
+            ))}
+            <text x="316" y="160" fill="#94a3b8" fontSize="4.5" fontWeight="700" fontFamily="sans-serif">SUBTOTAL</text>
+            <text x="380" y="160" fill="#ffffff" fontSize="5" fontWeight="800" fontFamily="sans-serif" textAnchor="end">$999.96</text>
+            <rect x="316" y="168" width="64" height="13" rx="6.5" fill="#f59e0b" />
+            <text x="348" y="176" fill="#111827" fontSize="4.5" fontWeight="800" fontFamily="sans-serif" textAnchor="middle">
+              CHECKOUT
+            </text>
+          </svg>
+        </div>
+      )
+
+    case 'custom-web-app':
+      return (
+        <div className={`cap-art cap-art--webapp ${className}`}>
+          <svg className="cap-art__svg" viewBox="0 0 420 210" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="waTealArea" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.48" />
+                <stop offset="100%" stopColor="#14b8a6" stopOpacity="0.0" />
+              </linearGradient>
+            </defs>
+            <rect width="420" height="210" fill="#071317" />
+
+            {/* Dashboard App Window */}
+            <rect x="28" y="0" width="364" height="206" fill="#141920" stroke="#23313a" strokeWidth="1" />
+
+            {/* Left Sidebar */}
+            <rect x="28" y="0" width="62" height="206" fill="#0d2127" />
+            <line x1="90" y1="0" x2="90" y2="206" stroke="#1b3842" strokeWidth="1" />
+            {/* Logo cube */}
+            <rect x="52" y="8" width="14" height="14" rx="3" stroke="#14b8a6" strokeWidth="1.2" fill="#09181d" />
+            <circle cx="59" cy="15" r="3" fill="#14b8a6" />
+
+            {/* Sidebar menu items */}
+            {[
+              { label: 'Dashboard', y: 38, active: true },
+              { label: 'Data Analytics', y: 54, active: false },
+              { label: 'Workflows', y: 70, active: false },
+              { label: 'Users', y: 86, active: false },
+              { label: 'Reports', y: 102, active: false },
+              { label: 'Settings', y: 118, active: false },
+            ].map((nav, i) => (
+              <g key={i} transform={`translate(34, ${nav.y})`}>
+                <circle cx="4" cy="-2" r="2" fill={nav.active ? '#14b8a6' : '#475569'} />
+                <text x="10" y="0" fill={nav.active ? '#2dd4bf' : '#94a3b8'} fontSize="4.8" fontWeight={nav.active ? '700' : '500'} fontFamily="sans-serif">
+                  {nav.label}
+                </text>
+              </g>
+            ))}
+
+            {/* Top Header */}
+            <text x="100" y="16" fill="#ffffff" fontSize="9" fontWeight="700" fontFamily="sans-serif">
+              Enterprise Portal
+            </text>
+
+            {/* Widget 1: Recent Activities (Top-Left) */}
+            <rect x="100" y="26" width="138" height="80" rx="5" fill="#1a2029" stroke="#283240" strokeWidth="0.8" />
+            <text x="108" y="38" fill="#e2e8f0" fontSize="5.8" fontWeight="700" fontFamily="sans-serif">
+              Recent Activities
+            </text>
+            {[0, 1, 2, 3, 4].map((r) => (
+              <g key={r} transform={`translate(108, ${48 + r * 11})`}>
+                <circle cx="2" cy="-2" r="1.5" fill="#14b8a6" />
+                <rect x="8" y="-4" width="42" height="3.2" rx="1.5" fill="#475569" />
+                <rect x="62" y="-4" width="24" height="3.2" rx="1.5" fill="#334155" />
+                <rect x="98" y="-4" width="22" height="3.2" rx="1.5" fill="#14b8a6" fillOpacity="0.35" />
+                <line x1="0" y1="3" x2="122" y2="3" stroke="#232c38" strokeWidth="0.6" />
+              </g>
+            ))}
+
+            {/* Widget 2: Sales Performance (Top-Right) */}
+            <rect x="244" y="26" width="138" height="80" rx="5" fill="#1a2029" stroke="#283240" strokeWidth="0.8" />
+            <text x="252" y="38" fill="#e2e8f0" fontSize="5.8" fontWeight="700" fontFamily="sans-serif">
+              Sales Performance
+            </text>
+            {/* Area chart */}
+            <path
+              d="M252,88 L264,78 L276,82 L288,68 L300,73 L312,58 L324,62 L324,94 L252,94 Z"
+              fill="url(#waTealArea)"
+            />
+            <path
+              d="M252,88 L264,78 L276,82 L288,68 L300,73 L312,58 L324,62"
+              fill="none"
+              stroke="#14b8a6"
+              strokeWidth="1.6"
+            />
+            {/* Glowing Donut Chart */}
+            <circle cx="354" cy="70" r="15" stroke="#23353d" strokeWidth="5.5" fill="none" />
+            <circle
+              cx="354"
+              cy="70"
+              r="15"
+              stroke="#06b6d4"
+              strokeWidth="5.5"
+              strokeDasharray="75 100"
+              strokeLinecap="round"
+              transform="rotate(-90 354 70)"
+              fill="none"
+            />
+
+            {/* Widget 3: Project Overview (Bottom-Left) */}
+            <rect x="100" y="112" width="138" height="84" rx="5" fill="#1a2029" stroke="#283240" strokeWidth="0.8" />
+            <text x="108" y="124" fill="#e2e8f0" fontSize="5.8" fontWeight="700" fontFamily="sans-serif">
+              Project Overview
+            </text>
+            {[0, 1, 2, 3, 4].map((r) => (
+              <g key={r} transform={`translate(108, ${135 + r * 11})`}>
+                <rect x="0" y="-4" width="38" height="3.2" rx="1.5" fill="#475569" />
+                <rect x="48" y="-4" width="36" height="3.2" rx="1.5" fill="#14b8a6" fillOpacity="0.45" />
+                <rect x="96" y="-4" width="24" height="3.2" rx="1.5" fill="#334155" />
+                <line x1="0" y1="3" x2="122" y2="3" stroke="#232c38" strokeWidth="0.6" />
+              </g>
+            ))}
+
+            {/* Widget 4a: User Management (Bottom-Right Top) */}
+            <rect x="244" y="112" width="138" height="40" rx="5" fill="#1a2029" stroke="#283240" strokeWidth="0.8" />
+            <text x="252" y="122" fill="#e2e8f0" fontSize="5.2" fontWeight="700" fontFamily="sans-serif">
+              User Management
+            </text>
+            <circle cx="260" cy="136" r="7" fill="#334155" />
+            <circle cx="260" cy="134" r="2.5" fill="#cbd5e1" />
+            <path d="M255,141 C255,138 265,138 265,141" fill="#cbd5e1" />
+            <rect x="272" y="132" width="36" height="3.5" rx="1.5" fill="#64748b" />
+            <rect x="272" y="138" width="24" height="3" rx="1.5" fill="#475569" />
+            <rect x="352" y="129" width="20" height="7" rx="3.5" fill="#10b981" />
+            <rect x="352" y="139" width="20" height="7" rx="3.5" fill="#ef4444" />
+
+            {/* Widget 4b: Workflow Automation (Bottom-Right Bottom) */}
+            <rect x="244" y="156" width="138" height="40" rx="5" fill="#1a2029" stroke="#283240" strokeWidth="0.8" />
+            <text x="252" y="166" fill="#e2e8f0" fontSize="5.2" fontWeight="700" fontFamily="sans-serif">
+              Workflow Automation
+            </text>
+            <rect x="254" y="174" width="26" height="11" rx="2.5" fill="#112a30" stroke="#14b8a6" strokeWidth="0.8" />
+            <line x1="280" y1="179.5" x2="296" y2="179.5" stroke="#14b8a6" strokeWidth="0.8" />
+            <rect x="296" y="174" width="26" height="11" rx="2.5" fill="#112a30" stroke="#14b8a6" strokeWidth="0.8" />
+            <line x1="322" y1="179.5" x2="338" y2="179.5" stroke="#14b8a6" strokeWidth="0.8" />
+            <rect x="338" y="174" width="26" height="11" rx="2.5" fill="#112a30" stroke="#14b8a6" strokeWidth="0.8" />
+          </svg>
+        </div>
+      )
+
     case 'multimodal-ai':
     case 'magenta':
     default:

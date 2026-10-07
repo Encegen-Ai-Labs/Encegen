@@ -5,12 +5,12 @@
   position: relative;
   z-index: 10;
   box-shadow: none;
-  padding: clamp(3.5rem, 2.5rem + 3vw, 5.5rem) var(--space-md) clamp(3.5rem, 2.5rem + 2.5vw, 5rem);
+  padding: clamp(2.5rem, 3.5vw, 3.5rem) var(--space-md);
   width: 100%;
 }
 
 .cta__panel {
-  max-width: 760px;
+  max-width: 680px;
   margin-inline: auto;
   text-align: center;
   display: flex;
@@ -25,11 +25,11 @@
 }
 
 .cta__title {
-  font-size: clamp(2.4rem, 2rem + 2.2vw, 3.85rem);
+  font-size: var(--fs-h2);
   font-weight: 800;
   color: #0f172a;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
+  line-height: 1.16;
+  letter-spacing: -0.025em;
   margin: 0;
 }
 
@@ -39,9 +39,9 @@
 }
 
 .cta__sub {
-  margin-top: 18px;
-  max-width: 650px;
-  font-size: clamp(0.96rem, 0.9rem + 0.3vw, 1.06rem);
+  margin-top: 12px;
+  max-width: 560px;
+  font-size: var(--fs-sub);
   line-height: 1.6;
   color: #64748b;
   font-weight: 400;
@@ -53,7 +53,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  margin-top: 1.5rem;
 }
 
 .cta__button {

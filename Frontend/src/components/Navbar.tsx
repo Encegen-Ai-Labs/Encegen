@@ -65,9 +65,9 @@ export default function Navbar() {
           {
             heading: t('navbar.headings.byIndustry', 'By Industry'),
             links: [
-              { label: t('navbar.links.manufacturing', 'Manufacturing'), to: '/solutions/use-cases#manufacturing' },
-              { label: t('navbar.links.financialServices', 'Financial Services'), to: '/solutions/use-cases#financial-services' },
-              { label: t('navbar.links.healthcare', 'Healthcare'), to: '/solutions/use-cases#healthcare' },
+              { label: t('navbar.links.manufacturing', 'Manufacturing'), to: '/solutions/manufacturing' },
+              { label: t('navbar.links.financialServices', 'Financial Services'), to: '/solutions/financial-services' },
+              { label: t('navbar.links.healthcare', 'Healthcare'), to: '/solutions/healthcare' },
               { label: t('navbar.links.allIndustries', 'All industries'), to: '/solutions/use-cases' },
             ],
           },

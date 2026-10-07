@@ -11,6 +11,9 @@ import CustomSoftware from './pages/solutions/CustomSoftware'
 import DigitalMarketing from './pages/solutions/DigitalMarketing'
 import WebEcommerce from './pages/solutions/WebEcommerce'
 import UseCases from './pages/solutions/UseCases'
+import Manufacturing from './pages/solutions/Manufacturing'
+import FinancialServices from './pages/solutions/FinancialServices'
+import Healthcare from './pages/solutions/Healthcare'
 import EasyHunt from './pages/products/EasyHunt'
 import HrPortal from './pages/products/HrPortal'
 import ResumeBuilder from './pages/products/ResumeBuilder'
@@ -137,6 +140,9 @@ export default function App() {
           <Route path="/solutions/digital-marketing" element={<DigitalMarketing />} />
           <Route path="/solutions/web-ecommerce" element={<WebEcommerce />} />
           <Route path="/solutions/use-cases" element={<UseCases />} />
+          <Route path="/solutions/manufacturing" element={<Manufacturing />} />
+          <Route path="/solutions/financial-services" element={<FinancialServices />} />
+          <Route path="/solutions/healthcare" element={<Healthcare />} />
           <Route path="/products/easy-hunt" element={<EasyHunt />} />
           <Route path="/products/hr-portal" element={<HrPortal />} />
           <Route path="/products/resume-builder" element={<ResumeBuilder />} />

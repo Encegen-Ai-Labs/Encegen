@@ -1,10 +1,6 @@
 import Hero from '../components/Hero'
 import HowItWorks from '../components/HowItWorks'
 import Modules from '../components/Modules'
-import ProcessMiningSection from '../components/ProcessMiningSection'
-import ExecutionManagementSection from '../components/ExecutionManagementSection'
-import AIInsightsSection from '../components/AIInsightsSection'
-import ExplorePlatformSection from '../components/ExplorePlatformSection'
 import Process from '../components/Process'
 import Integrations from '../components/Integrations'
 import StatsBar from '../components/StatsBar'
@@ -17,10 +13,6 @@ export default function Platform() {
       <Hero />
       <HowItWorks />
       <Modules />
-      <ProcessMiningSection />
-      <ExecutionManagementSection />
-      <AIInsightsSection />
-      <ExplorePlatformSection />
       <Process />
       <Integrations />
       <StatsBar />

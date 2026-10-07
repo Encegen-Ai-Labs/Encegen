@@ -3,7 +3,7 @@ import { ArtTile, Btn, PageHero } from '../components/kit'
 import { API_BASE_URL } from '../config/api'
 import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
-import './Home.css'
+import './Resources.css'
 
 interface ResourceArticle {
   id: number | string
@@ -126,28 +126,36 @@ export default function Resources() {
   return (
     <>
       <PageHero
+        className="resources-hero"
         badge="Resources & Hub"
         title={
           <>
             Learn, Explore, and Master{' '}
-            <span className="accent-purple">Enterprise AI</span>
+            <span className="accent-purple">Process Intelligence</span>
           </>
         }
         sub="Articles, technical documentation, research reports, and webinars managed directly by the Encegen team."
       />
 
-      <section className="section section--light" style={{ paddingTop: 64 }}>
+      <section className="resources-featured section section--light">
         <div className="container">
-          <div className="home-res-head">
-            <h2 className="left-title" style={{ fontSize: 28 }}>
-              Featured Resource
-            </h2>
+          <div className="resources-section-heading">
+            <span className="resources-section-heading__eyebrow">Featured</span>
+            <h2>Featured this month</h2>
+            <a href="#resource-library">View all →</a>
           </div>
 
           {featuredResource && (
             <div
               className="featured-card"
-              style={{ marginTop: 26, cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault()
+                  setSelectedResource(featuredResource)
+                }
+              }}
               onClick={() => setSelectedResource(featuredResource)}
             >
               <div className="featured-card__body">
@@ -171,8 +179,6 @@ export default function Resources() {
                     backgroundImage: `url(${featuredResource.cover_image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    minHeight: '220px',
-                    borderRadius: '12px',
                   }}
                 />
               ) : (
@@ -186,17 +192,24 @@ export default function Resources() {
       </section>
 
       {/* Article grid */}
-      <section className="section section--lavender" style={{ paddingTop: 56 }}>
+      <section className="resources-library section section--lavender" id="resource-library">
         <div className="container">
-          <div className="pill-tabs" style={{ marginTop: 0 }}>
+          <div className="pill-tabs resources-tabs" role="tablist" aria-label="Resource categories">
             {TABS.map((t) => (
-              <button key={t} className={t === tab ? 'active' : ''} onClick={() => setTab(t)}>
+              <button
+                key={t}
+                type="button"
+                role="tab"
+                aria-selected={t === tab}
+                className={t === tab ? 'active' : ''}
+                onClick={() => setTab(t)}
+              >
                 {t}
               </button>
             ))}
           </div>
 
-          <div className="cards-3" style={{ marginTop: 36 }}>
+          <div className="cards-3 resources-grid">
             {filteredArticles.map((a) => {
               const actionText =
                 a.category === 'Webinars'
@@ -211,30 +224,31 @@ export default function Resources() {
                 <article
                   key={a.id}
                   className="acard"
-                  style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      setSelectedResource(a)
+                    }
+                  }}
                   onClick={() => setSelectedResource(a)}
                 >
                   {a.cover_image ? (
                     <div
-                      style={{
-                        height: '180px',
-                        backgroundImage: `url(${a.cover_image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        borderTopLeftRadius: '16px',
-                        borderTopRightRadius: '16px',
-                      }}
+                      className="acard__image"
+                      style={{ backgroundImage: `url(${a.cover_image})` }}
                     />
                   ) : (
                     <ArtTile variant="cyan" className="acard__art" />
                   )}
-                  <div className="acard__body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div className="acard__body">
                     <span className="acard__tag">{a.category}</span>
                     <h3>{a.title}</h3>
                     <p className="acard__desc">
                       {a.summary}
                     </p>
-                    <div className="acard__foot" style={{ marginTop: 'auto' }}>
+                    <div className="acard__foot">
                       <span className="who">
                         <strong>{a.author}</strong>
                       </span>
@@ -280,9 +294,9 @@ export default function Resources() {
       </section>
 
       {/* Documentation Section */}
-      <section className="section section--light">
-        <div className="container split">
-          <div>
+      <section className="resources-documentation section section--light">
+        <div className="container split resources-documentation__layout">
+          <div className="resources-documentation__copy">
             <p className="shead__eyebrow">Documentation</p>
             <h2 className="left-title">Everything you need to build on Encegen.</h2>
             <p className="left-copy">
@@ -293,7 +307,7 @@ export default function Resources() {
                 <li key={d}>{d}</li>
               ))}
             </ul>
-            <div style={{ marginTop: 30 }}>
+            <div className="resources-documentation__action">
               <Btn variant="lavender" onClick={() => setTab('Documentation')}>
                 Browse docs →
               </Btn>
@@ -324,103 +338,44 @@ const result = await encegen.agents.execute({
       {/* INTERACTIVE RESOURCE READER & VIDEO MODAL */}
       {selectedResource && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 99999,
-            background: 'rgba(10, 15, 29, 0.85)',
-            backdropFilter: 'blur(10px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '1.5rem',
-          }}
+          className="resource-reader-backdrop"
+          role="presentation"
           onClick={() => setSelectedResource(null)}
         >
           <div
-            style={{
-              width: '100%',
-              maxWidth: '780px',
-              maxHeight: '90vh',
-              overflowY: 'auto',
-              background: '#ffffff',
-              color: '#0f172a',
-              borderRadius: '20px',
-              padding: '2.5rem',
-              position: 'relative',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-            }}
+            className="resource-reader"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="resource-reader-title"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
+              className="resource-reader__close"
+              aria-label="Close resource"
               onClick={() => setSelectedResource(null)}
-              style={{
-                position: 'absolute',
-                top: '1.5rem',
-                right: '1.5rem',
-                background: '#f1f5f9',
-                border: 'none',
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                cursor: 'pointer',
-                fontSize: '1.2rem',
-                color: '#64748b',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
             >
               ✕
             </button>
 
-            <span
-              style={{
-                display: 'inline-block',
-                padding: '4px 12px',
-                background: '#eff6ff',
-                color: '#2563eb',
-                borderRadius: '20px',
-                fontWeight: 600,
-                fontSize: '0.8rem',
-                marginBottom: '1rem',
-              }}
-            >
+            <span className="resource-reader__category">
               {selectedResource.category}
             </span>
 
-            <h1 style={{ fontSize: '2rem', fontWeight: 800, margin: '0 0 1rem 0', color: '#0f172a', lineHeight: 1.25 }}>
+            <h1 id="resource-reader-title">
               {selectedResource.title}
             </h1>
 
-            <p style={{ color: '#64748b', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
+            <p className="resource-reader__author">
               By <strong>{selectedResource.author}</strong>
             </p>
 
             {/* Video Player Embed if present */}
             {videoEmbed ? (
-              <div
-                style={{
-                  position: 'relative',
-                  paddingBottom: '56.25%',
-                  height: 0,
-                  borderRadius: '14px',
-                  overflow: 'hidden',
-                  marginBottom: '1.5rem',
-                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
-                }}
-              >
+              <div className="resource-reader__video">
                 <iframe
                   src={videoEmbed}
                   title={selectedResource.title}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 0,
-                  }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -429,63 +384,26 @@ const result = await encegen.agents.execute({
               <img
                 src={selectedResource.cover_image}
                 alt={selectedResource.title}
-                style={{
-                  width: '100%',
-                  maxHeight: '340px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  marginBottom: '1.5rem',
-                }}
+                className="resource-reader__cover"
               />
             ) : null}
 
             {/* Summary Lead */}
-            <p
-              style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.6',
-                color: '#1e293b',
-                fontWeight: 500,
-                marginBottom: '1.5rem',
-                borderLeft: '4px solid #8b5cf6',
-                paddingLeft: '1rem',
-              }}
-            >
+            <p className="resource-reader__summary">
               {selectedResource.summary}
             </p>
 
             {/* Full Body Text */}
-            <div
-              style={{
-                fontSize: '1.05rem',
-                lineHeight: '1.8',
-                color: '#334155',
-                whiteSpace: 'pre-line',
-              }}
-            >
+            <div className="resource-reader__content">
               {selectedResource.content}
             </div>
 
             {/* Report Download or External Link Action */}
-            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+            <div className="resource-reader__actions">
               {selectedResource.category === 'Reports' && (
                 <button
                   type="button"
                   onClick={() => downloadReportAsWord(selectedResource)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
-                    color: '#ffffff',
-                    padding: '0.8rem 1.6rem',
-                    borderRadius: '10px',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
-                  }}
                 >
                   📥 Download Report (.doc / Word)
                 </button>
@@ -496,17 +414,6 @@ const result = await encegen.agents.execute({
                   href={selectedResource.media_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    background: '#0f172a',
-                    color: '#ffffff',
-                    padding: '0.8rem 1.4rem',
-                    borderRadius: '10px',
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                  }}
                 >
                   Open Resource Link →
                 </a>

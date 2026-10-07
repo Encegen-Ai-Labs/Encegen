@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import {
+  Btn,
   ClosingCTA,
   GradBand,
   MockPanel,
@@ -8,6 +10,7 @@ import {
   StepFlow,
   TestimonialCard,
 } from '../../components/kit'
+import ContactModal from '../../components/ContactModal'
 import { CapabilityArt } from '../../components/CapabilityArt'
 import '../../components/CapabilityArt.css'
 import './solutions.css'
@@ -105,9 +108,12 @@ const TESTIMONIALS = [
 ]
 
 export default function DigitalMarketing() {
+  const [showContact, setShowContact] = useState(false)
+
   return (
     <>
       <PageHero
+        className="ai-research-hero digital-marketing-hero"
         badge={<>● Encegen AI Labs · Digital Marketing · SEO · Paid Ads · Growth</>}
         title={
           <>
@@ -117,9 +123,17 @@ export default function DigitalMarketing() {
           </>
         }
         sub="From AI-driven SEO to full-funnel paid media, we build growth systems that acquire, convert, and keep customers — and show you exactly which channel did the work."
+        actions={
+          <>
+            <Btn onClick={() => setShowContact(true)} variant="white">Start growing →</Btn>
+            <Btn to="/insights" variant="outline-light">See case studies</Btn>
+          </>
+        }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
-        trustedLabel="trusted by"
+        trustedLabel="— build for"
       />
+
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
 
       <GradBand
         stats={[
@@ -131,14 +145,14 @@ export default function DigitalMarketing() {
       />
 
       {/* Problem */}
-      <section className="section section--light">
+      <section className="section section--light dm-problem-section">
         <div className="container">
           <SectionHead
             eyebrow="The Problem"
             title="Most agencies run ads. Very few build a growth system."
           />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div>
+          <div className="split dm-split">
+            <div className="dm-split__copy">
               <p className="left-copy">
                 <strong>The old way:</strong> you get a report full of impressions, clicks, and
                 reach — numbers that feel like progress but never tie back to revenue. Channels run
@@ -159,6 +173,7 @@ export default function DigitalMarketing() {
               </ul>
             </div>
             <MockPanel
+              className="dm-split__mock"
               title="Campaign Performance Comparison"
               rows={[
                 { label: 'TYPICAL AGENCY', chip: 'Before', chipColor: '#ef4444' },
@@ -179,14 +194,14 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Flagship */}
-      <section className="section section--lavender">
+      <section className="section section--lavender dm-flagship-section">
         <div className="container">
           <SectionHead
             eyebrow="Flagship Service"
             title="Paid Media That Compounds — Not Just Converts."
           />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div>
+          <div className="split dm-split">
+            <div className="dm-split__copy">
               <h3 className="left-title" style={{ fontSize: 24 }}>
                 Most agencies optimise for the click. We optimise for the customer who stays.
               </h3>
@@ -215,6 +230,7 @@ export default function DigitalMarketing() {
               </ul>
             </div>
             <MockPanel
+              className="dm-split__mock"
               title="Campaign Performance Dashboard"
               rows={[
                 { label: 'ROAS', chip: '6.4×', chipColor: '#2fe08e' },
@@ -296,7 +312,7 @@ export default function DigitalMarketing() {
       </section>
 
       {/* Proof */}
-      <section className="section section--lavender">
+      <section className="section section--lavender ai-research-proof">
         <div className="container">
           <SectionHead
             eyebrow="Chapter 4 · The Proof"
@@ -304,17 +320,18 @@ export default function DigitalMarketing() {
           />
           <div className="tgrid">
             {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.tag} {...t} />
+              <TestimonialCard key={t.tag} {...t} outlineStars />
             ))}
           </div>
         </div>
       </section>
 
       <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
+        eyebrow="LET’S BUILD"
         line1="Your growth story starts with the"
         line2="right data."
         sub="Tell us your current cost of acquisition, your revenue goal, and your biggest bottleneck. We'll build the system to close the gap."
+        primary={{ label: 'Start growing →', to: '/contact' }}
         secondary={{ label: 'View case studies', to: '/insights' }}
         checks={['30-day support', '2-week setup', 'Fixed-price engagement']}
       />

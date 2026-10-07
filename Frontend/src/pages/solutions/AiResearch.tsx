@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import {
   Btn,
   ClosingCTA,
   GradBand,
-  LiveDot,
   PageHero,
   ResultBar,
   SectionHead,
@@ -10,27 +10,33 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
+import ContactModal from '../../components/ContactModal'
 import { CapabilityArt } from '../../components/CapabilityArt'
+import { BarChartIcon, FileTextIcon } from '../../components/icons'
 import '../../components/CapabilityArt.css'
 import './solutions.css'
 
 const FLAGSHIP_ITEMS = [
   {
+    theme: 'purple',
     title: 'Domain-specific training data curation',
     desc: "We curate the exact data your model needs to learn your world, not the internet's.",
     chips: ['8% factor in model accuracy', '2.3× better than generic', '<2 wks curation avg'],
   },
   {
+    theme: 'green',
     title: 'Proprietary context injection',
     desc: 'Your workflows, terminology, and business rules go into the model, so its answers fit your reality.',
     chips: ['Business-rule grounding', 'Terminology alignment'],
   },
   {
+    theme: 'amber',
     title: 'Hallucination elimination techniques',
     desc: 'We ground outputs in evidence and cut false positives, combining retrieval with alignment so the model stays honest.',
     chips: ['<0.5% error rate achieved', 'RLHF + RAG combined', 'Production-tested method'],
   },
   {
+    theme: 'blue',
     title: 'Continuous learning pipelines',
     desc: 'The model keeps pace as your business changes, with retraining that triggers on its own and no downtime to ship it.',
     chips: ['+1.2% accuracy per month', 'Auto-retraining triggers', 'Zero downtime updates'],
@@ -178,6 +184,7 @@ const USE_CASES = [
   {
     tags: ['NLP', 'Finance'],
     color: '#22c55e',
+    icon: <FileTextIcon size={16} />,
     title: 'Financial Document Intelligence',
     desc: 'A custom NLP model reads through contracts at scale, pulls the clauses that matter, and flags the anomalies a generic model walks straight past.',
     metric: '98% accuracy',
@@ -186,6 +193,12 @@ const USE_CASES = [
   {
     tags: ['Vision', 'Manufacturing'],
     color: '#3b82f6',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
     title: 'Manufacturing Defect Detection',
     desc: 'A vision model trained on your product images catches the micro-defects standard models miss — the ones that reach the customer.',
     metric: '0.2% miss rate',
@@ -194,6 +207,7 @@ const USE_CASES = [
   {
     tags: ['ML', 'Supply Chain'],
     color: '#f59e0b',
+    icon: <BarChartIcon size={16} />,
     title: 'Demand Forecasting AI',
     desc: 'A model trained on your own supply-chain history holds up where generic forecasting falls apart: the odd events, the edge cases, the days that actually cost you.',
     metric: '3× accuracy uplift',
@@ -235,27 +249,35 @@ const TESTIMONIALS = [
 ]
 
 export default function AiResearch() {
+  const [showContact, setShowContact] = useState(false)
+
   return (
     <>
       <PageHero
-        badge={<>● Encegen AI Labs · Custom AI Research &amp; Engineering</>}
+        className="ai-research-hero"
+        badge={<>● Encegen AI Labs – Custom AI Research &amp; Engineering</>}
         title={
           <>
-            AI built for the exact problem
+            AI Built for the Exact Problem
             <br />
-            no one else will touch.
+            No One Else Will Solve
           </>
         }
-        sub="Off-the-shelf models solve generic problems. We build custom AI — trained on your data, shaped to your workflows, and grounded in how your business actually runs."
+        sub="Off-the-shelf AI solves generic problems. We build custom AI — fine-tuned on your data, designed for your workflows, grounded in your business context."
         actions={
           <>
-            <Btn to="#capabilities" variant="outline-light">Explore capabilities →</Btn>
+            <Btn onClick={() => setShowContact(true)} variant="white">Start a project →</Btn>
+            <Btn to="#capabilities" variant="outline-light">Explore capabilities ↓</Btn>
           </>
         }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
+        trustedLabel="trusted by"
       />
 
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
+
       <GradBand
+        className="ai-research-gband"
         stats={[
           { value: '94%', label: 'Accuracy Avg' },
           { value: '12 wks', label: 'To Production' },
@@ -265,65 +287,139 @@ export default function AiResearch() {
       />
 
       {/* Flagship */}
-      <section className="section section--light">
+      <section className="section section--light ai-research-flagship">
         <div className="container">
           <SectionHead
             eyebrow="Flagship Capability"
-            title="Language models that actually understand your business."
+            title={
+              <>
+                Language models that actually
+                <br />
+                understand your business.
+              </>
+            }
           />
-          <div className="split" style={{ marginTop: 56, alignItems: 'start' }}>
-            <div>
-              <h3 className="left-title" style={{ fontSize: 24 }}>
-                From generic to domain-expert, on your data.
-              </h3>
-              <p className="left-copy">
-                Most models know a little about everything and nothing about you. We fine-tune
-                foundation models on your own material — contracts, tickets, SOPs, transaction
-                history — until the model reads your domain the way your most experienced people do.
-              </p>
-              <div className="flag-list">
+          <div className="ai-research-flagship__split">
+            <div className="ai-research-flagship__left">
+              <div className="ai-research-flagship__intro">
+                <h3 className="ai-research-flagship__subtitle">
+                  From generic to domain-expert, on your data.
+                </h3>
+                <p className="ai-research-flagship__lead">
+                  Most models know a little about everything and nothing about you. We fine-tune
+                  foundation models on your own material — contracts, tickets, SOPs, transaction
+                  history — until the model reads your domain the way your most experienced people do.
+                </p>
+              </div>
+              <div className="ai-research-flag-list">
                 {FLAGSHIP_ITEMS.map((f) => (
-                  <div key={f.title} className="flag-item">
-                    <strong>✓ {f.title}</strong>
-                    <p>{f.desc}</p>
-                    <div className="flag-item__chips">
-                      {f.chips.map((c) => (
-                        <span key={c}>{c}</span>
-                      ))}
+                  <div
+                    key={f.title}
+                    className={`ai-research-flag-card ai-research-flag-card--${f.theme}`}
+                  >
+                    <span className="ai-research-flag-card__check" aria-hidden="true">
+                      ✓
+                    </span>
+                    <div className="ai-research-flag-card__body">
+                      <strong>{f.title}</strong>
+                      <p>{f.desc}</p>
+                      <div className="ai-research-flag-card__chips">
+                        {f.chips.map((c) => (
+                          <span key={c}>{c}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mock">
-              <div className="mock__head">
-                <span className="mock__title">Model Performance</span>
-                <span className="mock__right">
-                  <LiveDot label="Live" />
-                </span>
-              </div>
-              <div className="mock-big">
-                <strong>95.4%</strong>
-                <em>Overall Accuracy</em>
-                <span>+1.2% vs baseline</span>
-              </div>
-              {[
-                { label: 'Financial Document Extraction', tag: 'NLP', value: '96.2%', width: '96%' },
-                { label: 'Contract Clause Classification', tag: 'NLP', value: '94.8%', width: '95%' },
-                { label: 'Anomaly Detection Precision', tag: 'ML', value: '97.1%', width: '97%' },
-              ].map((b) => (
-                <div key={b.label} className="mock-bar">
-                  <span className="mock-bar__label">{b.label}</span>
-                  <span className="mock-bar__tag">{b.tag}</span>
-                  <span className="mock-bar__track">
-                    <span className="mock-bar__fill" style={{ width: b.width }} />
-                  </span>
-                  <span className="mock-bar__value">{b.value}</span>
+
+            <div className="ai-research-perf-card">
+              <div className="ai-perf__head">
+                <div className="ai-perf__head-left">
+                  <span className="ai-perf__title">MODEL PERFORMANCE</span>
+                  <span className="ai-perf__live-dot" aria-hidden="true" />
+                  <span className="ai-perf__live-text">· LIVE</span>
                 </div>
-              ))}
-              <div className="mock__footer">
-                <span>Without custom AI: 71.3% (generic GPT-4)</span>
-                <span>With Encegen: 96.2% (+25%)</span>
+                <div className="ai-perf__head-right">
+                  <span className="ai-perf__version-label">Custom LLM · v2.4.1</span>
+                  <span className="ai-perf__version-badge">V2.4.1</span>
+                </div>
+              </div>
+
+              <div className="ai-perf__hero">
+                <div className="ai-perf__hero-left">
+                  <div className="ai-perf__big-num">
+                    <strong>95.4</strong>
+                    <span>%</span>
+                  </div>
+                  <em className="ai-perf__big-sub">Overall Accuracy</em>
+                </div>
+                <span className="ai-perf__baseline-pill">↑ +1.2% vs baseline</span>
+              </div>
+
+              <div className="ai-perf__divider" />
+
+              <div className="ai-perf__bars">
+                {[
+                  { label: 'Financial Document Extraction', tag: 'NLP', tagType: 'nlp', value: '96.2%', width: '96.2%' },
+                  { label: 'Contract Clause Classification', tag: 'NLP', tagType: 'nlp', value: '94.8%', width: '94.8%' },
+                  { label: 'Anomaly Detection Precision', tag: 'ML', tagType: 'ml', value: '97.1%', width: '97.1%' },
+                ].map((b) => (
+                  <div key={b.label} className="ai-perf__bar-row">
+                    <div className="ai-perf__bar-label-group">
+                      <span className="ai-perf__bar-label">{b.label}</span>
+                      <span className={`ai-perf__bar-tag ai-perf__bar-tag--${b.tagType}`}>
+                        {b.tag}
+                      </span>
+                    </div>
+                    <span className="ai-perf__bar-track">
+                      <span
+                        className={`ai-perf__bar-fill ai-perf__bar-fill--${b.tagType}`}
+                        style={{ width: b.width }}
+                      />
+                    </span>
+                    <span className="ai-perf__bar-value">{b.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="ai-perf__compare">
+                <div className="ai-perf__compare-col">
+                  <span className="ai-perf__compare-eyebrow">WITHOUT CUSTOM AI</span>
+                  <strong className="ai-perf__compare-val ai-perf__compare-val--bad">71.3%</strong>
+                  <span className="ai-perf__compare-sub">Generic GPT-4</span>
+                </div>
+                <span className="ai-perf__compare-arrow" aria-hidden="true">
+                  →
+                </span>
+                <div className="ai-perf__compare-col">
+                  <span className="ai-perf__compare-eyebrow ai-perf__compare-eyebrow--good">
+                    WITH ENCEGEN
+                  </span>
+                  <strong className="ai-perf__compare-val ai-perf__compare-val--good">96.2%</strong>
+                  <span className="ai-perf__compare-sub">Custom fine-tuned</span>
+                </div>
+                <span className="ai-perf__compare-pill">+25%</span>
+              </div>
+
+              <div className="ai-perf__inferences">
+                <span className="ai-perf__inferences-title">RECENT INFERENCES</span>
+                <div className="ai-perf__inferences-list">
+                  {[
+                    { time: '09:41', desc: 'Contract extraction · 2,847 tokens', latency: '124ms' },
+                    { time: '09:38', desc: 'Anomaly detection · financial data', latency: '89ms' },
+                    { time: '09:35', desc: 'Model evaluation run', latency: '2.1s' },
+                  ].map((inf) => (
+                    <div key={inf.time} className="ai-perf__inf-row">
+                      <span className="ai-perf__inf-time">{inf.time}</span>
+                      <span className="ai-perf__inf-desc">{inf.desc}</span>
+                      <span className="ai-perf__inf-status">
+                        <b aria-hidden="true">✓</b> {inf.latency}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -331,14 +427,14 @@ export default function AiResearch() {
       </section>
 
       {/* Disciplines */}
-      <section id="capabilities" className="section section--lavender">
-        <div className="container">
+      <section id="capabilities" className="section section--lavender ai-research-capabilities">
+        <div className="container ai-research-capabilities__container">
           <SectionHead
             eyebrow="All Capabilities"
             title="Six research disciplines. One expert team."
             sub="Six AI disciplines. One expert team. Built to solve the problems generic models cannot touch."
           />
-          <div className="cards-3" style={{ marginTop: 40 }}>
+          <div className="cards-3 ai-research-disciplines">
             {DISCIPLINES.map((d) => (
               <article key={d.title} className="disc-card--styled">
                 <CapabilityArt id={d.id} />
@@ -371,17 +467,18 @@ export default function AiResearch() {
       </section>
 
       {/* Process */}
-      <section className="section section--light">
-        <div className="container">
+      <section className="section section--light ai-research-process">
+        <div className="container ai-research-process__container">
           <SectionHead
             eyebrow="Our Process"
             title="Research to production, with milestones you can hold us to."
             sub="A clear path from problem to deployed model — every stage with an outcome you can see."
           />
-          <div style={{ marginTop: 60 }}>
+          <div className="ai-research-process__steps">
             <StepFlow steps={STEPS} />
           </div>
           <ResultBar
+            className="ai-research-process__result"
             left="14 weeks avg from kickoff to production"
             chips={['20+ enterprise AI deployments completed']}
           />
@@ -389,10 +486,10 @@ export default function AiResearch() {
       </section>
 
       {/* Use cases */}
-      <section className="section section--dark">
-        <div className="container">
+      <section className="section section--dark ai-research-use-cases">
+        <div className="container ai-research-use-cases__container">
           <SectionHead eyebrow="Use Cases" title="AI solving the problems that matter." dark />
-          <div className="cards-3">
+          <div className="cards-3 ai-research-usecase-grid">
             {USE_CASES.map((u) => (
               <UseCaseCard key={u.title} {...u} />
             ))}
@@ -401,24 +498,25 @@ export default function AiResearch() {
       </section>
 
       {/* Proof */}
-      <section className="section section--lavender">
+      <section className="section section--lavender ai-research-proof">
         <div className="container">
           <SectionHead eyebrow="Customer Proof" title="What our clients are building." />
           <div className="tgrid">
             {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
+              <TestimonialCard key={t.name} {...t} outlineStars />
             ))}
           </div>
         </div>
       </section>
 
       <ClosingCTA
+        className="ai-research-closing"
         trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
         trustedLabel="trusted by our enterprise partners & clients"
         line1="Tell us your problem."
         line2="We'll build the AI."
         sub="No generic tools. No off-the-shelf models. Just research-grade custom AI built precisely for your business challenge - delivered in 14 weeks."
-        secondary={{ label: 'Talk to an expert', to: '/contact' }}
+        secondary={{ label: 'Talk to an expert', to: '/contact', variant: 'purple' }}
         checks={['NDA-protected engagements', '14-week delivery guarantee', 'No lock-in contracts']}
       />
     </>

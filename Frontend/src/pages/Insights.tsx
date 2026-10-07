@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
-import { ArtTile, Avatar, Btn, PageHero, SectionHead } from '../components/kit'
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArtTile, Avatar, Btn, PageHero } from '../components/kit'
 import { API_BASE_URL } from '../config/api'
 import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
+import './Insights.css'
 
 interface InsightItem {
   id: number | string
@@ -21,6 +23,44 @@ interface InsightItem {
   hue?: number
   is_featured?: boolean
   status?: string
+  created_at?: string
+}
+
+type SortOption = 'Latest' | 'Oldest' | 'Title (A–Z)' | 'Title (Z–A)'
+
+const SORT_OPTIONS: SortOption[] = ['Latest', 'Oldest', 'Title (A–Z)', 'Title (Z–A)']
+
+function getInsightSortScore(item: InsightItem, index: number): number {
+  if (item.created_at) {
+    const parsed = Date.parse(item.created_at)
+    if (!Number.isNaN(parsed)) return parsed
+  }
+  const meta = (item.meta || '').toLowerCase()
+  const yearMatch = meta.match(/\b(20\d{2})\b/) || item.title.match(/\b(20\d{2})\b/)
+  const year = yearMatch ? Number(yearMatch[1]) : 2025
+  const months: Record<string, number> = {
+    jan: 1, january: 1,
+    feb: 2, february: 2,
+    mar: 3, march: 3, q1: 3,
+    apr: 4, april: 4,
+    may: 5,
+    jun: 6, june: 6, q2: 6,
+    jul: 7, july: 7,
+    aug: 8, august: 8,
+    sep: 9, september: 9, q3: 9,
+    oct: 10, october: 10,
+    nov: 11, november: 11,
+    dec: 12, december: 12, q4: 12,
+  }
+  let month = 6
+  for (const [key, val] of Object.entries(months)) {
+    if (new RegExp(`\\b${key}\\b`, 'i').test(meta)) {
+      month = val
+      break
+    }
+  }
+  const numericId = typeof item.id === 'number' ? item.id : Number(item.id) || index
+  return year * 10000 + month * 100 + numericId
 }
 
 const TABS = ['All', 'Blog', 'Reports', 'Customer Stories', 'Webinars', 'Podcasts', 'Videos']
@@ -158,7 +198,14 @@ const DEFAULT_ARTICLES: InsightItem[] = [
   },
 ]
 
-const TOPICS = ['🔍 Process Mining', '🤖 AI & Automation', '💰 Finance Ops', '🚚 Supply Chain', '🔧 IT Operations', '🏭 Manufacturing']
+const TOPICS = [
+  { icon: '🔄', label: 'Process Mining', to: '/platform#process-mining' },
+  { icon: '🤖', label: 'AI & Automation', to: '/solutions/ai-agents' },
+  { icon: '💰', label: 'Finance Ops', to: '/solutions/use-cases#accounts-payable' },
+  { icon: '🔗', label: 'Supply Chain', to: '/solutions/use-cases#supply-chain' },
+  { icon: '🛠️', label: 'IT Operations', to: '/solutions/use-cases#it-service-management' },
+  { icon: '🏭', label: 'Manufacturing', to: '/solutions/manufacturing' },
+]
 
 // Helper to convert YouTube URL to embed URL
 function getEmbedUrl(url?: string) {
@@ -181,6 +228,9 @@ function getEmbedUrl(url?: string) {
 export default function Insights() {
   const [tab, setTab] = useState('All')
   const [topicQuery, setTopicQuery] = useState('')
+  const [sortBy, setSortBy] = useState<SortOption>('Latest')
+  const [sortMenuOpen, setSortMenuOpen] = useState(false)
+  const sortRef = useRef<HTMLDivElement>(null)
   const [insightsList, setInsightsList] = useState<InsightItem[]>(DEFAULT_ARTICLES)
   const [selectedInsight, setSelectedInsight] = useState<InsightItem | null>(null)
 
@@ -198,21 +248,54 @@ export default function Insights() {
       .catch((err) => console.warn('Could not fetch backend insights, using default dataset:', err))
   }, [])
 
-  // Filter items matching selected tab and, if set, the selected topic keyword
-  const articles = insightsList.filter((a) => {
-    const cat = (a.category || '').toLowerCase()
-    const target = tab.toLowerCase()
-    const matchesTab =
-      tab === 'All' ||
-      cat === target ||
-      cat.replace(/s$/, '') === target.replace(/s$/, '') ||
-      (target === 'customer stories' && (cat === 'customer story' || cat === 'customer stories')) ||
-      (target === 'reports' && (cat === 'report' || cat === 'reports'))
-    const matchesTopic =
-      !topicQuery ||
-      `${a.title} ${a.description} ${a.category}`.toLowerCase().includes(topicQuery.toLowerCase())
-    return matchesTab && matchesTopic
-  })
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
+        setSortMenuOpen(false)
+      }
+    }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setSortMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  // Filter items matching selected tab and, if set, the selected topic keyword, then sort
+  const articles = insightsList
+    .filter((a) => {
+      const cat = (a.category || '').toLowerCase()
+      const target = tab.toLowerCase()
+      const matchesTab =
+        tab === 'All' ||
+        cat === target ||
+        cat.replace(/s$/, '') === target.replace(/s$/, '') ||
+        (target === 'customer stories' && (cat === 'customer story' || cat === 'customer stories')) ||
+        (target === 'reports' && (cat === 'report' || cat === 'reports'))
+      const matchesTopic =
+        !topicQuery ||
+        `${a.title} ${a.description} ${a.category}`.toLowerCase().includes(topicQuery.toLowerCase())
+      return matchesTab && matchesTopic
+    })
+    .map((item, idx) => ({ item, idx }))
+    .sort((a, b) => {
+      if (sortBy === 'Title (A–Z)') {
+        return a.item.title.localeCompare(b.item.title)
+      }
+      if (sortBy === 'Title (Z–A)') {
+        return b.item.title.localeCompare(a.item.title)
+      }
+      const scoreA = getInsightSortScore(a.item, a.idx)
+      const scoreB = getInsightSortScore(b.item, b.idx)
+      return sortBy === 'Oldest' ? scoreA - scoreB : scoreB - scoreA
+    })
+    .map(({ item }) => item)
 
   // Featured article: either marked featured or the first available
   const featuredInsight = insightsList.find((i) => i.is_featured) || insightsList[0] || DEFAULT_ARTICLES[3]
@@ -222,6 +305,7 @@ export default function Insights() {
   return (
     <>
       <PageHero
+        className="insights-hero"
         badge="Insights Hub"
         title="Ideas that move enterprise forward"
         sub="Expert analysis, customer stories, research reports, webinars, podcasts, and hands-on guides — everything you need to stay ahead in process intelligence."
@@ -235,7 +319,7 @@ export default function Insights() {
         }
       />
 
-      <section className="section section--lavender" style={{ paddingTop: 64 }}>
+      <section className="section section--lavender">
         <div className="container">
           <p className="shead__eyebrow" style={{ textAlign: 'center' }}>
             Featured
@@ -245,7 +329,7 @@ export default function Insights() {
           {featuredInsight && (
             <div
               className="featured-card"
-              style={{ marginTop: 26, cursor: 'pointer' }}
+              style={{ cursor: 'pointer' }}
               onClick={() => setSelectedInsight(featuredInsight)}
             >
               <div className="featured-card__body">
@@ -298,6 +382,7 @@ export default function Insights() {
             {TABS.map((t) => (
               <button
                 key={t}
+                type="button"
                 className={t === tab ? 'active' : ''}
                 onClick={() => {
                   setTab(t)
@@ -307,11 +392,42 @@ export default function Insights() {
                 {t}
               </button>
             ))}
-            <span className="pill-tabs__right">Latest ▾</span>
+            <div className="pill-tabs__right" ref={sortRef}>
+              <button
+                type="button"
+                className={`pill-tabs__sort-btn ${sortMenuOpen ? 'open' : ''}`}
+                aria-haspopup="listbox"
+                aria-expanded={sortMenuOpen}
+                onClick={() => setSortMenuOpen((prev) => !prev)}
+              >
+                <span>{sortBy}</span>
+                <span className="pill-tabs__sort-caret" aria-hidden="true">▾</span>
+              </button>
+              {sortMenuOpen && (
+                <div className="pill-tabs__sort-menu" role="listbox" aria-label="Sort insights">
+                  {SORT_OPTIONS.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      role="option"
+                      aria-selected={sortBy === option}
+                      className={`pill-tabs__sort-option ${sortBy === option ? 'active' : ''}`}
+                      onClick={() => {
+                        setSortBy(option)
+                        setSortMenuOpen(false)
+                      }}
+                    >
+                      <span>{option}</span>
+                      {sortBy === option && <span aria-hidden="true">✓</span>}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Card Grid */}
-          <div className="cards-3" style={{ marginTop: 36 }}>
+          <div className="cards-3">
             {articles.map((a) => (
               <article
                 key={a.id || a.title}
@@ -397,21 +513,25 @@ export default function Insights() {
       </section>
 
       {/* Topics */}
-      <section className="section section--light">
+      <section className="section section--light insights-topics-section">
         <div className="container">
-          <SectionHead eyebrow="Browse by Topic" title="Find insights for your area" />
+          <div className="insights-topics-head">
+            <p className="shead__eyebrow">BROWSE BY TOPIC</p>
+            <h2 className="insights-topics-title">Find insights for your area</h2>
+          </div>
           <div className="topic-pills">
-            {TOPICS.map((t) => (
-              <span
-                key={t}
-                style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  setTab('All')
-                  setTopicQuery(t.replace(/^\S+\s*/, ''))
-                }}
+            {TOPICS.map((t, idx) => (
+              <Link
+                key={t.label}
+                to={t.to}
+                className="topic-pill"
+                style={{ ['--topic-idx' as string]: idx }}
               >
-                {t}
-              </span>
+                <span className="topic-pill__icon" aria-hidden="true">
+                  {t.icon}
+                </span>
+                <span className="topic-pill__label">{t.label}</span>
+              </Link>
             ))}
           </div>
         </div>

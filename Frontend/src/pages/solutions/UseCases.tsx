@@ -1,6 +1,7 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Btn,
-  ClosingCTA,
   GradBand,
   MockPanel,
   PageHero,
@@ -9,30 +10,31 @@ import {
   TestimonialCard,
   UseCaseCard,
 } from '../../components/kit'
-import { RefreshIcon, SearchIcon, SparklesIcon, ZapIcon } from '../../components/icons'
+import ContactModal from '../../components/ContactModal'
+import { BrainIcon, LightbulbIcon, RefreshIcon, ZapIcon } from '../../components/icons'
 import './solutions.css'
 
 const CAPABILITIES = [
   {
-    icon: <SearchIcon size={22} />,
+    icon: <BrainIcon size={20} />,
     title: 'Process Discovery',
     desc: 'Maps how work actually flows from raw system data — no manual modelling.',
     tag: 'Automated',
   },
   {
-    icon: <SparklesIcon size={22} />,
+    icon: <LightbulbIcon size={20} />,
     title: 'Root Cause Analysis',
     desc: 'Traces a problem back through the steps that caused it, in seconds not weeks.',
     tag: 'Intelligent',
   },
   {
-    icon: <ZapIcon size={22} />,
+    icon: <ZapIcon size={20} />,
     title: 'Recommended Actions',
     desc: 'Turns each gap into a ranked, ready-to-run recommendation, ordered by impact.',
     tag: 'Proactive',
   },
   {
-    icon: <RefreshIcon size={22} />,
+    icon: <RefreshIcon size={20} />,
     title: 'Continuous Optimization',
     desc: 'Watches the work around the clock and adjusts as the business changes.',
     tag: 'Adaptive',
@@ -109,6 +111,7 @@ const USE_CASES = [
     title: 'Supply Chain Resilience',
     desc: 'AI watches the chain in real time, sees the disruption coming, and recommends the re-route.',
     metric: '99.4% on-time',
+    id: 'supply-chain',
   },
   {
     tags: ['Finance'],
@@ -142,128 +145,61 @@ const USE_CASES = [
   },
 ]
 
-const INDUSTRIES = [
-  {
-    id: 'manufacturing',
-    tag: 'Manufacturing',
-    title: 'Manufacturing',
-    intro:
-      "On a factory floor, the cost of a problem is measured in downtime, scrap, and missed shipments. AI closes the gap between 'something went wrong' and 'it's already handled.'",
-    points: [
-      {
-        title: 'Keep production moving',
-        desc: 'Watch every line in real time, catch the deviation as it happens, and flag the fix before it becomes a stoppage.',
-      },
-      {
-        title: 'See the whole supply chain',
-        desc: 'Read demand signals, spot the disruption early, and re-plan inventory before a shortage reaches the line.',
-      },
-      {
-        title: 'Hold the quality line',
-        desc: 'Vision models trained on your own product images catch the micro-defects standard checks wave through — the ones that reach the customer.',
-      },
-    ],
-    startsWith:
-      'Most manufacturers begin with the highest-volume, most-measurable process — usually supply chain visibility or quality inspection — and expand from there.',
-  },
-  {
-    id: 'financial-services',
-    tag: 'Financial Services',
-    title: 'Financial Services',
-    intro:
-      'In finance, every workflow runs under a regulator\'s eye and a fraud team\'s clock. AI has to move fast and leave a clean trail — we build for both.',
-    points: [
-      {
-        title: 'Catch fraud as it moves',
-        desc: 'Read transaction patterns in real time, flag the anomaly before it clears, and cut the false positives that bury your review team.',
-      },
-      {
-        title: 'Make compliance less manual',
-        desc: 'Monitor transactions, assemble the documentation, and keep the audit trail current — so reporting stops eating the week.',
-      },
-      {
-        title: 'Speed the decisions that wait on people',
-        desc: 'Pull and check the documents behind onboarding, KYC, and credit so the judgment calls reach a human faster.',
-      },
-    ],
-    startsWith:
-      'Fraud and document automation tend to show returns first — high volume, clear before-and-after — which makes them the natural place to prove value.',
-  },
-  {
-    id: 'healthcare',
-    tag: 'Healthcare',
-    title: 'Healthcare',
-    intro:
-      'In healthcare, the administrative load pulls people away from patients. AI takes the repeatable weight off the back office — with a human always in the loop where it counts.',
-    points: [
-      {
-        title: 'Lighten the documentation load',
-        desc: 'Turn clinical notes into structured records and draft the paperwork, so clinicians spend less of the day typing and more of it with patients.',
-      },
-      {
-        title: 'Clean up the revenue cycle',
-        desc: 'Check claims before they go out, flag the ones likely to bounce, and pull the missing documentation straight from the record.',
-      },
-      {
-        title: 'Take the wait out of prior authorisation',
-        desc: 'Gather the documentation, check it against payer criteria, and prepare the packet — compressing days of back-and-forth into hours.',
-      },
-    ],
-    startsWith:
-      'Documentation and revenue-cycle work score highest on volume, measurability, and safety — errors get caught by a human before they ever reach care — which is why most teams start there.',
-  },
-]
-
 const TESTIMONIALS = [
   {
     tag: 'Varasa',
-    color: '#22c55e',
+    color: '#6553ee',
     quote: 'Encegen AI Labs transformed our heritage exploration platform, ancient artifact preservation documentation, and student scholarship grant tracking.',
     initials: 'VR',
     name: 'Research & Conservation Head',
     role: 'Varasa (Heritage Conservation & Scholarship)',
     metric: '10,000+ artifacts documented',
-    hue: 150,
+    metricIcon: '⚡',
+    hue: 255,
   },
   {
     tag: 'Pramay Agro',
-    color: '#3b82f6',
+    color: '#059669',
     quote: 'The specialized e-commerce platform and inventory workflows Encegen built allow our team to manage fertilizer and pesticide distribution seamlessly.',
     initials: 'PA',
     name: 'Operations Director',
     role: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
     metric: '5× faster distribution',
-    hue: 215,
+    metricIcon: '🚀',
+    hue: 155,
   },
   {
     tag: 'Fx Algo',
-    color: '#f59e0b',
+    color: '#2563eb',
     quote: "Encegen engineered algorithmic intelligence and high-throughput pipelines that execute trading strategies with sub-5 millisecond latency.",
     initials: 'FA',
     name: 'Quantitative Strategist',
     role: 'Fx Algo (Algorithmic Trading Platform)',
     metric: '<5ms latency',
-    hue: 30,
+    metricIcon: '✓',
+    hue: 215,
   },
 ]
 
 export default function UseCases() {
+  const [showContact, setShowContact] = useState(false)
+
   return (
     <>
       <PageHero
         badge="Encegen AI"
         title={
           <>
-            Put AI to work across <span className="accent-blue">every part of the business</span>
+            Put AI to Work Across <span className="accent-blue">Every Part of The Business</span>
           </>
         }
         sub="Encegen AI doesn't stop at insight — it acts. We build intelligent automation into the systems your teams already run on, from finance to operations to support."
       />
 
       {/* AI understands */}
-      <section className="section section--light">
-        <div className="container split">
-          <div>
+      <section className="section section--light use-cases-intro">
+        <div className="container split use-cases-intro__layout">
+          <div className="use-cases-intro__copy">
             <p className="shead__eyebrow">Context + AI</p>
             <h2 className="left-title">AI that understands your business — not just your data.</h2>
             <p className="left-copy">
@@ -277,6 +213,7 @@ export default function UseCases() {
             </div>
           </div>
           <MockPanel
+            className="use-cases-comparison"
             title="Traditional AI vs Encegen"
             rows={[
               { label: 'Siloed data analysis', sub: 'Works on snapshots, misses process context', chip: '✕', chipColor: '#ef4444' },
@@ -292,21 +229,28 @@ export default function UseCases() {
       </section>
 
       {/* Capabilities */}
-      <section className="section section--lavender">
+      <section className="section section--lavender uc-cap-section">
         <div className="container">
           <SectionHead eyebrow="AI Capabilities" title="Four ways AI changes how you operate." />
-          <div className="cards-2">
-            {CAPABILITIES.map((c) => (
-              <article key={c.title} className="fcard">
-                <span className="fcard__icon">{c.icon}</span>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
-                <span
-                  className="disc-card__tag"
-                  style={{ display: 'inline-block', marginTop: 16 }}
-                >
-                  {c.tag}
-                </span>
+          <div className="uc-cap-grid">
+            {CAPABILITIES.map((c, idx) => (
+              <article
+                key={c.title}
+                className="uc-cap-card"
+                style={{ ['--cap-idx' as string]: idx }}
+              >
+                <div className="uc-cap-card__main">
+                  <span className="uc-cap-card__icon" aria-hidden="true">
+                    {c.icon}
+                  </span>
+                  <div className="uc-cap-card__content">
+                    <h3>{c.title}</h3>
+                    <p>{c.desc}</p>
+                  </div>
+                </div>
+                <div className="uc-cap-card__foot">
+                  <span className="uc-cap-card__badge">{c.tag}</span>
+                </div>
               </article>
             ))}
           </div>
@@ -321,7 +265,7 @@ export default function UseCases() {
             title="Most teams are running half-blind. We fix that."
             sub="The answers are already in your systems — they're just locked in. Encegen unlocks them and acts on them."
           />
-          <div className="cards-2" style={{ alignItems: 'start' }}>
+          <div className="cards-2 use-cases-comparison-grid">
             <div className="compare-col">
               <h3 style={{ fontSize: 15, fontWeight: 700, color: '#ef4444', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 Without Encegen
@@ -354,25 +298,41 @@ export default function UseCases() {
             </div>
           </div>
           <ResultBar
-            left="87% of AI recommendations are actioned within 24 hours"
-            chips={['3.2× faster response to process disruptions', '5,000+ enterprise deployments worldwide']}
+            className="use-cases-resultbar"
+            left={
+              <>
+                <strong>87%</strong>
+                <span>of AI recommendations are actioned within 24 hours</span>
+              </>
+            }
+            chips={[
+              <>
+                <strong>3.2×</strong>
+                <span>faster response to process disruptions</span>
+              </>,
+              <>
+                <strong>5,000+</strong>
+                <span>enterprise deployments worldwide</span>
+              </>,
+            ]}
             action={<Btn to="/platform" variant="white">See how it works →</Btn>}
           />
         </div>
       </section>
 
       {/* Processes */}
-      <section className="section section--lavender">
-        <div className="container">
-          <SectionHead
-            eyebrow="By Process"
-            title="Optimize the processes that matter most."
-          />
-          <div className="proc-grid">
+      <section className="section section--light use-cases-process">
+        <div className="container use-cases-process__container">
+          <div className="use-cases-process__heading">
+            <h2>Optimize the processes that matter most.</h2>
+            <span className="use-cases-process__underline" aria-hidden="true" />
+            <p>By Process</p>
+          </div>
+          <div className="proc-grid use-cases-process__list">
             {PROCESSES.map((p) => (
               <a key={p.label} href={p.id ? `#${p.id}` : '#'} className="proc-card">
+                <span className="proc-card__arrow" aria-hidden="true">→</span>
                 <span>{p.label}</span>
-                <span className="proc-card__arrow">→</span>
               </a>
             ))}
           </div>
@@ -391,39 +351,10 @@ export default function UseCases() {
         </div>
       </section>
 
-      {/* By Industry */}
-      <section className="section section--light">
-        <div className="container">
-          <SectionHead
-            eyebrow="By Industry"
-            title="Built for the way your industry actually runs."
-            sub="The same intelligence layer, shaped to the pressures of your sector — the workflows, the regulation, the margins that don't leave much room for error."
-          />
-          {INDUSTRIES.map((industry) => (
-            <div key={industry.id} id={industry.id} className="industry-block">
-              <span className="disc-card__tag">{industry.tag}</span>
-              <h3 className="left-title" style={{ marginTop: 14 }}>{industry.title}</h3>
-              <p className="left-copy" style={{ marginTop: 12 }}>{industry.intro}</p>
-              <div className="cards-3" style={{ marginTop: 28 }}>
-                {industry.points.map((p) => (
-                  <article className="fcard" key={p.title}>
-                    <h3>{p.title}</h3>
-                    <p>{p.desc}</p>
-                  </article>
-                ))}
-              </div>
-              <p className="industry-block__foot">
-                <strong>Where it starts:</strong> {industry.startsWith}
-              </p>
-            </div>
-          ))}
-          <p className="left-copy" style={{ marginTop: 48, textAlign: 'center' }}>
-            Don't see your industry? The layer isn't industry-specific — it learns yours. Tell us how you operate and we'll show you where it fits.
-          </p>
-        </div>
-      </section>
-
       <GradBand
+        className="use-cases-impact"
+        eyebrow="Proven Impact"
+        title="Real results from real deployments."
         stats={[
           { value: '40%', label: 'Avg process improvement' },
           { value: '$2.4T', label: 'Business value unlocked' },
@@ -433,7 +364,7 @@ export default function UseCases() {
       />
 
       {/* Proof */}
-      <section className="section section--lavender">
+      <section className="section section--lavender use-cases-proof">
         <div className="container">
           <SectionHead eyebrow="Customer Stories" title="Enterprises running smarter with Encegen AI." />
           <div className="tgrid">
@@ -444,14 +375,77 @@ export default function UseCases() {
         </div>
       </section>
 
-      <ClosingCTA
-        trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
-        line1="Ready to put AI to work?"
-        sub="See what Encegen AI can do for your highest-priority processes."
-        primary={{ label: 'Explore the platform →', to: '/platform' }}
-        secondary={{ label: 'See case studies', to: '/insights' }}
-        checks={['Enterprise-grade security', 'Fixed-price delivery', 'Measurable ROI']}
-      />
+      {/* 3-Part Closing Section below Customer Stories */}
+      <div className="uc-bottom-stack">
+        {/* Part 1: Ready to put AI to work? */}
+        <section className="uc-bottom-card uc-bottom-card--ready">
+          <div className="container uc-bottom-card__inner">
+            <h2 className="uc-bottom-card__title">Ready to put AI to work?</h2>
+            <p className="uc-bottom-card__sub">
+              See how Encegen AI can transform your highest-priority processes in 30 days.
+            </p>
+            <div className="uc-bottom-card__actions">
+              <Link to="/resources" className="uc-neu-pill">
+                Explore AI Resources →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Part 2: Join 5,000+ companies dark stats band */}
+        <section className="uc-bottom-stats">
+          <div className="container uc-bottom-stats__inner">
+            <h2 className="uc-bottom-stats__title">
+              Join 5,000+ companies transforming their operations.
+            </h2>
+            <p className="uc-bottom-stats__eyebrow">STATS</p>
+
+            <div className="uc-bottom-stats__grid">
+              <div className="uc-bottom-stats__item">
+                <strong>70+</strong>
+                <span>INDUSTRIES</span>
+              </div>
+              <div className="uc-bottom-stats__item">
+                <strong>300%</strong>
+                <span>AVG ROI</span>
+              </div>
+              <div className="uc-bottom-stats__item">
+                <strong>$2.4T</strong>
+                <span>BUSINESS VALUE</span>
+              </div>
+            </div>
+
+            <div className="uc-bottom-stats__logos" aria-label="Enterprise brands">
+              <span>Easyhunt</span>
+              <span>Pramay Agro</span>
+              <span>Fx Algo</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Part 3: Find your solution. */}
+        <section className="uc-bottom-card uc-bottom-card--solution">
+          <div className="container uc-bottom-card__inner">
+            <h2 className="uc-bottom-card__title uc-bottom-card__title--sm">
+              Find your solution.
+            </h2>
+            <div className="uc-bottom-card__actions">
+              <button
+                type="button"
+                className="uc-neu-pill"
+                onClick={() => setShowContact(true)}
+              >
+                Talk to an expert →
+              </button>
+              <Link to="/platform" className="uc-neu-pill">
+                Browse all solutions
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
     </>
   )
 }

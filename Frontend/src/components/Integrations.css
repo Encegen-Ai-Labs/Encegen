@@ -1,20 +1,20 @@
 .integrations {
   background: var(--navy-950);
-  padding: var(--space-2xl) 0 var(--space-2xl);
+  padding: clamp(2.75rem, 4vw, 3.75rem) 0;
 }
 
 .integrations__title {
-  font-size: clamp(2rem, 1.7rem + 1.5vw, 3.25rem);
+  font-size: var(--fs-h2);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.16;
   text-align: center;
   color: #ffffff;
 }
 
 .integrations__sub {
-  margin: var(--space-sm) auto 0;
-  max-width: 640px;
-  font-size: var(--fs-md);
+  margin: 0.75rem auto 0;
+  max-width: 560px;
+  font-size: var(--fs-sub);
   line-height: 1.6;
   text-align: center;
   color: #a8a5cb;
@@ -22,37 +22,45 @@
 
 .integrations__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg) var(--space-md);
-  margin-top: var(--space-xl);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  max-width: 980px;
+  margin: 1.75rem auto 0;
 }
 
 .integrations__pill {
   display: grid;
   place-items: center;
-  height: 84px;
+  height: 50px;
+  padding: 0 14px;
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: var(--fs-lg);
+  font-size: 0.88rem;
   font-weight: 700;
-  box-shadow: 0 0 26px rgba(158, 140, 255, 0.5);
+  box-shadow: 0 0 20px rgba(158, 140, 255, 0.42);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.integrations__pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(158, 140, 255, 0.6);
 }
 
 .integrations__more {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-lg);
+  margin-top: 1.5rem;
 }
 
 .integrations__more-link {
-  padding: var(--space-sm) var(--space-md);
+  padding: 10px 22px;
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: var(--fs-md);
+  font-size: 0.85rem;
   font-weight: 600;
-  box-shadow: 0 0 26px rgba(158, 140, 255, 0.55);
+  box-shadow: 0 0 20px rgba(158, 140, 255, 0.48);
 }
 
 @media (max-width: 1024px) {
@@ -64,10 +72,10 @@
 @media (max-width: 720px) {
   .integrations__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
+    gap: 12px;
   }
 
   .integrations__pill {
-    height: 68px;
+    height: 46px;
   }
 }

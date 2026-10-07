@@ -5,19 +5,21 @@
 
 /* ---------- Typography tokens ---------- */
 :root {
-  --fs-eyebrow: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
-  --fs-h2: clamp(2rem, 1.65rem + 1.6vw, 2.875rem);
-  --fs-h3-card: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
-  --fs-sub: clamp(0.975rem, 0.92rem + 0.22vw, 1.08rem);
-  --fs-body: clamp(0.9rem, 0.86rem + 0.18vw, 0.975rem);
-  --fs-card-body: clamp(0.875rem, 0.84rem + 0.14vw, 0.925rem);
+  --fs-eyebrow: clamp(0.68rem, 0.65rem + 0.12vw, 0.75rem);
+  --fs-h2: clamp(1.75rem, 1.45rem + 1.2vw, 2.35rem);
+  --fs-h3-card: clamp(0.96rem, 0.92rem + 0.15vw, 1.06rem);
+  --fs-sub: clamp(0.86rem, 0.82rem + 0.18vw, 0.95rem);
+  --fs-body: clamp(0.85rem, 0.82rem + 0.14vw, 0.92rem);
+  --fs-card-body: clamp(0.82rem, 0.79rem + 0.12vw, 0.875rem);
   --lh-heading: 1.16;
-  --lh-body: 1.62;
+  --lh-body: 1.6;
 }
 
 /* Eyebrows — one size, weight, and tracking everywhere */
 .section-eyebrow,
-.shead__eyebrow {
+.shead__eyebrow,
+.closing__eyebrow {
+  font-family: var(--font);
   font-size: var(--fs-eyebrow);
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -27,10 +29,13 @@
 /* Section headings (h2-level) — identical scale on every page */
 .section-title,
 .shead__title,
+.closing__title,
+.closing__accent,
 .integrations__title,
 .cta__title,
 .newsletter h2,
 .about-cta h2 {
+  font-family: var(--font);
   font-size: var(--fs-h2);
   font-weight: 800;
   line-height: var(--lh-heading);
@@ -52,16 +57,33 @@
   line-height: var(--lh-body);
 }
 
+/* Page heroes share one title scale and consistent title-to-copy spacing. */
+.phero__title {
+  margin-top: 16px;
+  font-size: clamp(2.1rem, 1.7rem + 1.8vw, 2.95rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+
+.phero__sub {
+  margin-top: 14px;
+}
+
+.phero__actions {
+  margin-top: 1.35rem;
+}
+
 /* Split-section left titles */
 .left-title {
-  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.375rem);
+  font-size: clamp(1.6rem, 1.35rem + 1vw, 2.15rem);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.02em;
 }
 .left-copy {
   font-size: var(--fs-body);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 /* Card titles — every card family shares one size */
@@ -130,18 +152,48 @@
   justify-content: center;
   gap: 8px;
   border-radius: 999px;
-  font-size: 0.925rem;
+  font-size: 0.85rem;
   font-weight: 600;
   line-height: 1;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
+
+.kbtn--white,
+.hero__cta {
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.34);
+}
+
+.kbtn--outline-light {
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.14),
+    inset 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+.kbtn--outline-light:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.24),
+    inset 0 0 22px rgba(255, 255, 255, 0.12);
+}
+
+.kbtn--outline-dark {
+  border: 1.5px solid #d9d7ea;
+}
+
 .kbtn,
 .hero__cta,
 .cta__button,
 .integrations__more-link {
-  padding: 13px 26px;
+  min-width: 128px;
+  min-height: 40px;
+  padding: 11px 22px;
+  font-size: 0.85rem;
 }
 .hero__cta:hover,
 .cta__button:hover,
@@ -158,16 +210,30 @@
 .newsletter__form button,
 .sfilter__clear {
   border-radius: 999px;
-  padding: 11px 22px;
-  font-size: 0.875rem;
+  min-height: 38px;
+  padding: 10px 20px;
+  font-size: 0.82rem;
   font-weight: 600;
   line-height: 1;
 }
 .apply-submit {
   border-radius: 999px;
-  padding: 13px 24px;
+  min-height: 42px;
+  padding: 12px 22px;
   width: 100%;
-  font-size: 0.925rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 480px) {
+  .kbtn,
+  .hero__cta,
+  .cta__button,
+  .integrations__more-link {
+    min-width: 116px;
+    min-height: 38px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
 }
 
 /* Header button keeps its size but joins the pill family */
@@ -192,25 +258,245 @@
   transform: translateY(0);
 }
 
-/* ---------- Fixed header: heroes start under the overlay ---------- */
-.phero {
-  padding-top: clamp(6.5rem, 6rem + 2vw, 8.75rem);
-}
-.hero {
-  padding-top: clamp(7.25rem, 6.7rem + 2.2vw, 10rem);
-}
-.careers-hero {
-  padding-top: clamp(6.5rem, 6rem + 2vw, 8.75rem);
-}
-.search-hero {
-  padding-top: clamp(6rem, 5.5rem + 2vw, 8.125rem);
-}
-.jd-hero {
-  padding-top: clamp(6rem, 5.5rem + 2vw, 8.125rem);
-}
-.why-hero {
-  padding-top: clamp(6.75rem, 6.2rem + 2.2vw, 9.375rem);
-}
+/* ---------- Unified Page Hero sizing ---------- */
+.phero,
+.hero,
+.cp-hero,
+.careers-hero,
+.why-hero,
 .legal-hero {
-  padding-top: clamp(6.75rem, 6.2rem + 2.2vw, 9.25rem);
+  width: 100%;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(5.25rem, 4.8rem + 1.2vw, 6.25rem);
+  padding-bottom: clamp(2.75rem, 2.4rem + 1.2vw, 3.5rem);
 }
+
+.search-hero,
+.jd-hero {
+  padding-top: clamp(5.25rem, 4.8rem + 1.2vw, 6.25rem);
+}
+
+@media (max-width: 960px) {
+  .phero,
+  .hero,
+  .cp-hero,
+  .careers-hero,
+  .why-hero,
+  .legal-hero {
+    min-height: 400px;
+    padding-top: 5rem;
+    padding-bottom: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .phero,
+  .hero,
+  .cp-hero,
+  .careers-hero,
+  .why-hero,
+  .legal-hero {
+    min-height: 360px;
+    padding-top: 4.75rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   Unified Section, Header, Text & Grid Spacing Across All Pages & Components
+   ========================================================================== */
+:root {
+  --section-py: clamp(2.5rem, 2rem + 1.5vw, 3.5rem);
+  --band-py: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+  --head-to-content: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  --grid-gap: clamp(1rem, 0.85rem + 0.6vw, 1.35rem);
+}
+
+/* 1. Uniform vertical padding on every page section */
+.section,
+.hiw,
+.modules,
+.pm-section,
+.em-section,
+.ai-section,
+.ep-section,
+.process,
+.integrations,
+.security,
+.cta,
+.closing,
+.about-cta,
+.culture-join-cta,
+.home-about-section,
+.home-stories-section,
+.home-resources-section,
+.resources-featured,
+.resources-library,
+.resources-documentation,
+.insights-topics-section,
+.use-cases-intro,
+.uc-cap-section,
+.use-cases-capabilities,
+.use-cases-process,
+.use-cases-showcase,
+.search-results-section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* Compact horizontal bands (logos, stats bars, gradient bands) */
+.home-logos,
+.gband,
+.home-stats,
+.statsbar,
+.stats {
+  padding-top: var(--band-py);
+  padding-bottom: var(--band-py);
+}
+
+/* 2. Uniform eyebrow -> title -> subtitle spacing inside every section header */
+.section-eyebrow,
+.shead__eyebrow,
+.home-stories__eyebrow,
+.closing__eyebrow,
+.culture-join-cta__eyebrow,
+.team-showcase__eyebrow,
+.chapter-badge {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section-title,
+.shead__title,
+.insights-topics-title,
+.home-stories__title,
+.closing__title,
+.culture-join-cta__title {
+  margin-top: 0.625rem;
+}
+
+.shead__eyebrow + .left-title,
+.chapter-badge + .left-title,
+.disc-card__tag + .left-title,
+.team-showcase__eyebrow + h2 {
+  margin-top: 0.625rem;
+}
+
+.section-sub,
+.shead__sub,
+.left-copy,
+.integrations__sub,
+.closing__sub,
+.cta__sub,
+.culture-join-cta__sub {
+  margin-top: 0.875rem;
+}
+
+/* 3. Uniform spacing from section headers to content grids / panels */
+.cards-2,
+.cards-3,
+.cards-4,
+.uc-cap-grid,
+.use-cases-capability-grid,
+.use-cases-comparison-grid,
+.modules__grid,
+.proc-grid,
+.tgrid,
+.stepflow,
+.integrations__grid,
+.security__grid,
+.topic-pills,
+.milestones,
+.story-pillars,
+.stack-grid,
+.team-cards-4,
+.value-tiles,
+.leaders,
+.day-timeline,
+.hiw__panel,
+.process__steps,
+.ep-section__list {
+  margin-top: var(--head-to-content);
+}
+
+.shead__eyebrow + .featured-card {
+  margin-top: 1.25rem;
+}
+
+.featured-card + .pill-tabs {
+  margin-top: var(--head-to-content);
+}
+
+.home-stories__header {
+  margin-bottom: 1.5rem;
+}
+
+.home-stories__head,
+.home-res-head,
+.resources-section-heading {
+  margin-bottom: var(--head-to-content);
+}
+
+.home-res-grid {
+  margin-top: 0;
+}
+
+.resources-tabs + .resources-grid {
+  margin-top: var(--head-to-content);
+}
+
+/* 4. Uniform card grid gap across all multi-column grids */
+.cards-2,
+.cards-3,
+.cards-4,
+.uc-cap-grid,
+.modules__grid,
+.proc-grid,
+.tgrid,
+.home-res-grid,
+.resources-grid,
+.stack-grid,
+.story-pillars,
+.team-cards-4,
+.value-tiles,
+.leaders,
+.security__grid,
+.integrations__grid {
+  gap: var(--grid-gap);
+}
+
+/* 5. Uniform spacing for follow-up bars, CTAs, and stacked blocks inside sections */
+.resultbar,
+.use-cases-resultbar,
+.home-center-cta,
+.integrations__more,
+.pm-section__closing,
+.em-section__closing,
+.ai-section__closing,
+.ep-section__cta,
+.rule-bar,
+.industry-block {
+  margin-top: var(--head-to-content);
+}
+
+@media (max-width: 960px) {
+  :root {
+    --section-py: 2.25rem;
+    --band-py: 1.5rem;
+    --head-to-content: 1.5rem;
+    --grid-gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-py: 1.85rem;
+    --band-py: 1.25rem;
+    --head-to-content: 1.25rem;
+    --grid-gap: 0.85rem;
+  }
+}
+

@@ -65,13 +65,12 @@ export default function About() {
             <p className="shead__eyebrow">Our Mission</p>
             <h2 className="left-title">Turning technology into real-world business intelligence.</h2>
             <p className="left-copy">
-              The journey of Encegen AI Labs began with observing a recurring problem across businesses:
-              technology was everywhere, but meaningful automation and artificial intelligence were still difficult to implement.
-              Companies had data, software, teams, and processes, yet many everyday decisions and repetitive tasks continued to depend heavily on manual effort.
+              The journey of Encegen AI Labs began with a recurring gap across businesses: technology was
+              everywhere, yet everyday decisions and repetitive workflows still depended heavily on manual effort.
             </p>
             <p className="left-copy">
-              We founded Encegen AI Labs to change that. Our vision is to help businesses transition from traditional software
-              to intelligent systems capable of understanding, reasoning, communicating, and taking action.
+              We founded Encegen AI Labs to change that—helping enterprises transition from static software to
+              intelligent systems capable of understanding, reasoning, and taking action.
             </p>
           </div>
           <ArtTile variant="blue" className="about-photo" />

@@ -1,62 +1,71 @@
 .security {
   background: var(--lavender-50);
-  padding: var(--space-2xl) 0 var(--space-xl);
+  padding: clamp(2.75rem, 4vw, 3.75rem) 0;
 }
 
 .security__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
-  margin-top: var(--space-xl);
+  gap: 18px;
+  max-width: 980px;
+  margin: 1.75rem auto 0;
 }
 
 .security__card {
   background: #ffffff;
-  border: 1px solid #e9e8f4;
-  border-radius: 16px;
-  padding: var(--space-md) var(--space-sm) clamp(1.5rem, 1.3rem + 0.6vw, 2.125rem);
-  box-shadow: 0 10px 24px rgba(22, 20, 60, 0.05);
+  border: 1px solid #eceaf6;
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: 0 8px 20px rgba(22, 20, 60, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.security__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(101, 83, 238, 0.28);
+  box-shadow: 0 14px 30px rgba(22, 20, 60, 0.08);
 }
 
 .security__icon {
   display: grid;
   place-items: center;
-  width: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
-  height: clamp(2.75rem, 2.5rem + 1vw, 3.5rem);
-  border-radius: 13px;
-  background: var(--lavender-100);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f1effe;
   color: var(--purple-600);
 }
 
 .security__card h3 {
-  margin-top: var(--space-xs);
-  font-size: var(--fs-h3-card);
+  margin-top: 12px;
+  font-size: 0.96rem;
   font-weight: 700;
   color: var(--ink-900);
 }
 
 .security__card p {
-  margin-top: var(--space-2xs);
-  font-size: var(--fs-sub);
-  line-height: 1.6;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  line-height: 1.55;
   color: var(--gray-600);
 }
 
 .security__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-top: var(--space-md);
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
 }
 
 .security__badge {
-  padding: var(--space-xs) var(--space-sm);
+  padding: 6px 15px;
   border-radius: 999px;
   background: #ffffff;
   color: var(--purple-600);
-  font-size: var(--fs-base);
+  font-size: 0.76rem;
   font-weight: 600;
-  box-shadow: 0 8px 18px rgba(22, 20, 60, 0.12);
+  box-shadow: 0 6px 14px rgba(22, 20, 60, 0.1);
 }
 
 .security__badge--muted {

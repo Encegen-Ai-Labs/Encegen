@@ -6,19 +6,51 @@ import './content.css'
 
 const TABS = ['All Results', 'Blog', 'Resources', 'Products', 'Solutions', 'Videos']
 
-const SUGGESTIONS = ['Process Mining', 'AI Solutions', 'SAP Integration', 'Order-to-Cash', 'Accounts Payable', 'ROI Calculator']
+const SUGGESTIONS = [
+  'Process Mining',
+  'AI Solutions',
+  'SAP Integration',
+  'Order-to-Cash',
+  'Accounts Payable',
+  'ROI Calculator',
+]
 
-const TYPE_FILTERS = ['All Types', 'Blog Articles', 'Customer Stories', 'Whitepapers', 'Videos', 'Webinars', 'Documentation']
+const TYPE_FILTERS = [
+  'All Types',
+  'Blog Articles',
+  'Customer Stories',
+  'Whitepapers',
+  'Videos',
+  'Webinars',
+  'Documentation',
+]
 
-// Maps a result's display `tag` to the matching TYPE_FILTERS label — the two
-// use different wording/pluralization, so this is an explicit lookup rather
-// than a generic singular/plural strip (which doesn't hold for e.g.
-// "Customer Story" → "Customer Stories").
+const TOPIC_FILTERS = [
+  'Process Mining',
+  'AI & Automation',
+  'Supply Chain',
+  'Finance Ops',
+  'IT Operations',
+  'SAP Integration',
+]
+
+const INDUSTRY_FILTERS = [
+  'Manufacturing',
+  'Financial Services',
+  'Retail',
+  'Healthcare',
+]
+
 const TAG_TO_TYPE_FILTER: Record<string, string> = {
   Blog: 'Blog Articles',
   'Customer Story': 'Customer Stories',
   Whitepaper: 'Whitepapers',
+  Report: 'Whitepapers',
+  Reports: 'Whitepapers',
+  Video: 'Videos',
+  Videos: 'Videos',
   Webinar: 'Webinars',
+  Webinars: 'Webinars',
   Documentation: 'Documentation',
 }
 
@@ -26,12 +58,18 @@ interface SearchItem {
   id: string | number
   source: 'static' | 'resource'
   tag: string
-  topic?: string
+  topics: string[]
+  industries: string[]
+  suggestions?: string[]
   title: string
   desc: string
+  body?: string
   meta: string
   action: string
   color: string
+  tagBg?: string
+  actionColor?: string
+  thumbType?: 'whitepaper' | 'webinar'
 }
 
 const RESULTS: SearchItem[] = [
@@ -39,74 +77,157 @@ const RESULTS: SearchItem[] = [
     id: 'static-1',
     source: 'static',
     tag: 'Blog',
-    topic: 'Process Mining',
+    topics: ['Process Mining', 'SAP Integration', 'IT Operations'],
+    industries: ['Manufacturing', 'Retail'],
+    suggestions: ['Process Mining', 'SAP Integration', 'Order-to-Cash'],
     color: '#6553ee',
+    tagBg: '#eeebfc',
+    actionColor: '#6553ee',
     title: 'How Process Mining Unlocks Hidden Efficiency in SAP Environments',
     desc: 'Enterprise business processes are often siloed and invisible. Discover how mining your SAP event logs provides the objective truth about how work happens.',
     meta: '8 min read · June 12 2025 · Process Mining',
-    action: 'See details →',
+    action: 'Read article →',
   },
   {
     id: 'static-2',
     source: 'static',
     tag: 'Customer Story',
-    color: '#22c55e',
+    topics: ['AI & Automation', 'Finance Ops'],
+    industries: ['Financial Services', 'Retail'],
+    suggestions: ['AI Solutions', 'Accounts Payable', 'ROI Calculator'],
+    color: '#16a34a',
+    tagBg: '#dcfce7',
+    actionColor: '#16a34a',
     title: 'How EasyHunt Accelerated Title Search and Land Records by 90% with Encegen AI',
     desc: 'By identifying bottlenecks in legal documentation, EasyHunt automated 99.4% of land revenue record extractions.',
     meta: '12 min · May 28 2025',
-    action: 'See details →',
+    action: 'Read story →',
   },
   {
     id: 'static-3',
     source: 'static',
     tag: 'Whitepaper',
-    topic: 'Process Mining',
-    color: '#3b82f6',
+    topics: ['Process Mining', 'AI & Automation', 'Supply Chain'],
+    industries: ['Manufacturing', 'Financial Services', 'Retail', 'Healthcare'],
+    suggestions: ['Process Mining', 'AI Solutions', 'ROI Calculator'],
+    color: '#2563eb',
+    tagBg: '#dbeafe',
+    actionColor: '#2563eb',
+    thumbType: 'whitepaper',
     title: 'The 2026 State of Process Intelligence Report',
     desc: "The definitive guide to how the world's largest enterprises are leveraging AI and mining to drive resilience.",
     meta: 'Research Report · Q1 2026',
-    action: 'See details →',
+    action: 'Download PDF →',
   },
   {
     id: 'static-4',
     source: 'static',
     tag: 'Product',
-    topic: 'AI & Automation',
-    color: '#f59e0b',
+    topics: ['AI & Automation', 'Process Mining', 'Finance Ops', 'IT Operations'],
+    industries: ['Manufacturing', 'Financial Services', 'Retail', 'Healthcare'],
+    suggestions: ['Process Mining', 'AI Solutions', 'Order-to-Cash', 'Accounts Payable', 'ROI Calculator'],
+    color: '#d97706',
+    tagBg: '#fef3c7',
+    actionColor: '#d97706',
     title: 'Encegen EMS — Product Overview',
     desc: 'The Execution Management System is the brains of your process intelligence layer. Fix processes directly in your stack.',
     meta: 'Core Platform',
-    action: 'See details →',
+    action: 'Explore product →',
   },
   {
     id: 'static-5',
     source: 'static',
     tag: 'Webinar',
-    topic: 'AI & Automation',
-    color: '#8b5cf6',
+    topics: ['AI & Automation', 'Supply Chain', 'IT Operations'],
+    industries: ['Manufacturing', 'Healthcare', 'Financial Services'],
+    suggestions: ['AI Solutions', 'Order-to-Cash'],
+    color: '#7c3aed',
+    tagBg: '#ede9fe',
+    actionColor: '#6553ee',
+    thumbType: 'webinar',
     title: 'AI at Scale: How Fortune 500s Automate Process Execution',
     desc: 'Join CDOs from IBM and Airbus for a deep dive into scalable process automation strategies.',
     meta: 'Available On-Demand',
-    action: 'See details →',
+    action: 'Watch now →',
   },
   {
     id: 'static-6',
     source: 'static',
     tag: 'Documentation',
-    topic: 'Process Mining',
-    color: '#22d3ee',
+    topics: ['Process Mining', 'IT Operations', 'SAP Integration'],
+    industries: ['Financial Services', 'Healthcare', 'Manufacturing'],
+    suggestions: ['Process Mining', 'SAP Integration'],
+    color: '#33315c',
+    tagBg: '#f1f0f7',
+    actionColor: '#16143c',
     title: 'Getting Started with the Encegen Process Mining API',
     desc: 'Everything you need to know about pushing data from custom internal tools directly into the mining layer.',
     meta: 'Developer Docs',
-    action: 'See details →',
+    action: 'View docs →',
   },
 ]
 
-// Same category → tag mapping convention used by Resources.tsx's own tab
-// filter (singular/plural tolerant), reused here for the "Resources" tab
-// and Type-filter matching against fetched resource categories.
-function categoryMatchesType(category: string, typeFilterLabel: string) {
+function inferResourceStyle(category: string): Pick<SearchItem, 'color' | 'tagBg' | 'actionColor' | 'action' | 'thumbType'> {
+  const cat = category.toLowerCase()
+  if (cat.includes('webinar') || cat.includes('video')) {
+    return {
+      color: '#7c3aed',
+      tagBg: '#ede9fe',
+      actionColor: '#6553ee',
+      action: 'Watch now →',
+      thumbType: 'webinar',
+    }
+  }
+  if (cat.includes('whitepaper') || cat.includes('report')) {
+    return {
+      color: '#2563eb',
+      tagBg: '#dbeafe',
+      actionColor: '#2563eb',
+      action: 'Download PDF →',
+      thumbType: 'whitepaper',
+    }
+  }
+  if (cat.includes('doc')) {
+    return {
+      color: '#33315c',
+      tagBg: '#f1f0f7',
+      actionColor: '#16143c',
+      action: 'View docs →',
+    }
+  }
+  if (cat.includes('story') || cat.includes('case')) {
+    return {
+      color: '#16a34a',
+      tagBg: '#dcfce7',
+      actionColor: '#16a34a',
+      action: 'Read story →',
+    }
+  }
+  return {
+    color: '#6553ee',
+    tagBg: '#eeebfc',
+    actionColor: '#6553ee',
+    action: 'Read article →',
+  }
+}
+
+function inferResourceTopics(title: string, summary: string, category: string): string[] {
+  const text = `${title} ${summary} ${category}`.toLowerCase()
+  const matched: string[] = []
+  if (text.includes('mining') || text.includes('process')) matched.push('Process Mining')
+  if (text.includes('ai') || text.includes('agent') || text.includes('automat')) matched.push('AI & Automation')
+  if (text.includes('supply') || text.includes('logistic')) matched.push('Supply Chain')
+  if (text.includes('finance') || text.includes('invoice') || text.includes('payable')) matched.push('Finance Ops')
+  if (text.includes('cloud') || text.includes('api') || text.includes('microservice') || text.includes('it ')) matched.push('IT Operations')
+  if (text.includes('sap') || text.includes('erp')) matched.push('SAP Integration')
+  return matched.length > 0 ? matched : ['AI & Automation', 'Process Mining']
+}
+
+function categoryMatchesSingleType(category: string, typeFilterLabel: string) {
   if (typeFilterLabel === 'All Types') return true
+  if (typeFilterLabel === 'Videos' && (category === 'Webinar' || category === 'Webinars' || category === 'Video' || category === 'Videos')) {
+    return true
+  }
   const mapped = TAG_TO_TYPE_FILTER[category]
   if (mapped) return mapped === typeFilterLabel
   const cat = category.toLowerCase().replace(/s$/, '')
@@ -114,16 +235,22 @@ function categoryMatchesType(category: string, typeFilterLabel: string) {
   return cat === target
 }
 
+function categoryMatchesSelectedTypes(category: string, selectedTypes: string[]) {
+  if (selectedTypes.length === 0 || selectedTypes.includes('All Types')) return true
+  return selectedTypes.some((t) => categoryMatchesSingleType(category, t))
+}
+
 export default function SearchPage() {
   const [tab, setTab] = useState('All Results')
-  const [selectedType, setSelectedType] = useState('All Types')
+  const [selectedTypes, setSelectedTypes] = useState<string[]>(['All Types'])
   const [selectedTopics, setSelectedTopics] = useState<string[]>([])
+  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([])
+  const [selectedSuggestions, setSelectedSuggestions] = useState<string[]>([])
   const [selectedResult, setSelectedResult] = useState<SearchItem | null>(null)
   const [resourceItems, setResourceItems] = useState<SearchItem[]>([])
+  const [searchInput, setSearchInput] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
 
-  // Search should also surface Resources content — read-only fetch against
-  // the same live endpoint Resources.tsx already calls. No backend change.
   useEffect(() => {
     fetch(`${API_BASE_URL}/resources`)
       .then((res) => res.json())
@@ -131,17 +258,22 @@ export default function SearchPage() {
         if (Array.isArray(data)) {
           const published = data.filter((r: any) => r.status === 'published' || !r.status)
           setResourceItems(
-            published.map((r: any) => ({
-              id: `resource-${r.id}`,
-              source: 'resource' as const,
-              tag: r.category || 'Resource',
-              title: r.title,
-              desc: r.summary || '',
-              meta: r.author ? `By ${r.author}` : '',
-              action: 'See details →',
-              color: '#6553ee',
-              // full body kept out of the list item; stashed for the modal via `raw`-style lookup below
-            }))
+            published.map((r: any) => {
+              const cat = r.category || 'Resource'
+              const style = inferResourceStyle(cat)
+              return {
+                id: `resource-${r.id}`,
+                source: 'resource' as const,
+                tag: cat,
+                topics: inferResourceTopics(r.title || '', r.summary || '', cat),
+                industries: ['Manufacturing', 'Financial Services', 'Retail', 'Healthcare'],
+                title: r.title,
+                desc: r.summary || '',
+                body: r.content || r.summary || '',
+                meta: r.author ? `By ${r.author}` : 'Encegen Resource',
+                ...style,
+              }
+            })
           )
         }
       })
@@ -150,73 +282,153 @@ export default function SearchPage() {
 
   const combined = useMemo(() => [...RESULTS, ...resourceItems], [resourceItems])
 
-  const toggleTopic = (f: string) => {
-    setSelectedTopics((prev) => (prev.includes(f) ? prev.filter((x) => x !== f) : [...prev, f]))
-  }
-  const clearAllFilters = () => setSelectedType('All Types')
-
-  // Typing a query overrides Type/Topic-pill filtering entirely (a "start
-  // fresh" search) rather than combining with them — reset both so the UI
-  // (radio selection, pill highlighting) doesn't show stale, ignored state.
-  const handleSearchChange = (value: string) => {
-    setSearchQuery(value)
-    if (value.trim() !== '') {
-      setSelectedType('All Types')
-      setSelectedTopics([])
+  const toggleType = (typeLabel: string) => {
+    if (typeLabel === 'All Types') {
+      setSelectedTypes(['All Types'])
+      return
     }
+    setSelectedTypes((prev) => {
+      const withoutAll = prev.filter((x) => x !== 'All Types')
+      const exists = withoutAll.includes(typeLabel)
+      const next = exists ? withoutAll.filter((x) => x !== typeLabel) : [...withoutAll, typeLabel]
+      return next.length === 0 ? ['All Types'] : next
+    })
+  }
+
+  const toggleTopic = (topic: string) => {
+    setSelectedTopics((prev) => (prev.includes(topic) ? prev.filter((x) => x !== topic) : [...prev, topic]))
+  }
+
+  const toggleIndustry = (industry: string) => {
+    setSelectedIndustries((prev) =>
+      prev.includes(industry) ? prev.filter((x) => x !== industry) : [...prev, industry]
+    )
+  }
+
+  const toggleSuggestion = (suggestion: string) => {
+    setSelectedSuggestions((prev) =>
+      prev.includes(suggestion) ? prev.filter((x) => x !== suggestion) : [...prev, suggestion]
+    )
+  }
+
+  const clearAllFilters = () => {
+    setSelectedTypes(['All Types'])
+    setSelectedTopics([])
+    setSelectedIndustries([])
+    setSelectedSuggestions([])
+    setTab('All Results')
+    setSearchInput('')
+    setSearchQuery('')
+  }
+
+  const handleSearchChange = (value: string) => {
+    setSearchInput(value)
+    setSearchQuery(value)
+  }
+
+  const handleSearchSubmit = () => {
+    setSearchQuery(searchInput)
   }
 
   const filteredResults = useMemo(() => {
     const query = searchQuery.trim().toLowerCase()
-    if (query !== '') {
-      return combined.filter((item) => {
-        return (
+
+    return combined.filter((item) => {
+      // 1. Search query match
+      if (query !== '') {
+        const matchesQuery =
           item.title.toLowerCase().includes(query) ||
           item.desc.toLowerCase().includes(query) ||
           item.tag.toLowerCase().includes(query) ||
-          (item.topic ? item.topic.toLowerCase().includes(query) : false)
-        )
-      })
-    }
-    return combined.filter((item) => {
-      // Tab filter
-      if (tab !== 'All Results') {
-        if (tab === 'Resources' && item.source !== 'resource') return false
-        if (tab === 'Blog' && item.tag !== 'Blog') return false
-        if (tab === 'Products' && item.tag !== 'Product') return false
-        if (tab === 'Solutions' && item.tag !== 'Solution') return false
-        if (tab === 'Videos' && item.tag !== 'Webinar') return false
+          item.meta.toLowerCase().includes(query) ||
+          item.topics.some((t) => t.toLowerCase().includes(query)) ||
+          item.industries.some((ind) => ind.toLowerCase().includes(query)) ||
+          (item.suggestions ? item.suggestions.some((s) => s.toLowerCase().includes(query)) : false)
+        if (!matchesQuery) return false
       }
-      // Type filter (single-select)
-      if (!categoryMatchesType(item.tag, selectedType)) return false
-      // Topic pill filter (multi-select — empty means no constraint)
-      if (selectedTopics.length > 0 && !(item.topic && selectedTopics.includes(item.topic))) return false
+
+      // 2. Tab filter
+      if (tab !== 'All Results') {
+        const tagLower = item.tag.toLowerCase()
+        if (tab === 'Blog' && tagLower !== 'blog') return false
+        if (
+          tab === 'Resources' &&
+          item.source !== 'resource' &&
+          tagLower !== 'whitepaper' &&
+          tagLower !== 'documentation' &&
+          tagLower !== 'report'
+        ) {
+          return false
+        }
+        if (tab === 'Products' && tagLower !== 'product') return false
+        if (tab === 'Solutions' && tagLower !== 'solution' && tagLower !== 'customer story' && tagLower !== 'product') {
+          return false
+        }
+        if (tab === 'Videos' && tagLower !== 'webinar' && tagLower !== 'webinars' && tagLower !== 'video') {
+          return false
+        }
+      }
+
+      // 3. Filter by Type (sidebar checkboxes)
+      if (!categoryMatchesSelectedTypes(item.tag, selectedTypes)) return false
+
+      // 4. Filter by Topic (sidebar checkboxes)
+      if (selectedTopics.length > 0) {
+        const matchesTopic = selectedTopics.some((t) => item.topics.includes(t))
+        if (!matchesTopic) return false
+      }
+
+      // 5. Filter by Industry (sidebar checkboxes)
+      if (selectedIndustries.length > 0) {
+        const matchesIndustry = selectedIndustries.some((ind) => item.industries.includes(ind))
+        if (!matchesIndustry) return false
+      }
+
+      // 6. Hero Suggestion pills
+      if (selectedSuggestions.length > 0) {
+        const matchesSuggestion = selectedSuggestions.some((s) => {
+          const sLower = s.toLowerCase()
+          return (
+            (item.suggestions && item.suggestions.includes(s)) ||
+            item.topics.includes(s) ||
+            item.title.toLowerCase().includes(sLower) ||
+            item.desc.toLowerCase().includes(sLower)
+          )
+        })
+        if (!matchesSuggestion) return false
+      }
+
       return true
     })
-  }, [combined, tab, selectedType, selectedTopics, searchQuery])
+  }, [combined, tab, selectedTypes, selectedTopics, selectedIndustries, selectedSuggestions, searchQuery])
 
   return (
     <>
       <section className="search-hero">
         <div className="container">
-          <p className="shead__eyebrow">Search</p>
+          <p className="shead__eyebrow">SEARCH</p>
           <h1>What are you looking for?</h1>
           <div className="search-hero__bar">
-            <SearchIcon size={19} />
+            <SearchIcon size={18} />
             <input
-              placeholder="Search for products, solutions, resources, use cases…"
-              value={searchQuery}
+              placeholder="Search for products, solutions, resources, use cases..."
+              value={searchInput}
               onChange={(e) => handleSearchChange(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleSearchSubmit()
+              }}
             />
-            <button type="button">Search</button>
+            <button type="button" onClick={handleSearchSubmit}>
+              Search
+            </button>
           </div>
           <div className="search-hero__suggestions">
             {SUGGESTIONS.map((s) => (
               <button
                 key={s}
                 type="button"
-                className={selectedTopics.includes(s) ? 'active' : ''}
-                onClick={() => toggleTopic(s)}
+                className={selectedSuggestions.includes(s) ? 'active' : ''}
+                onClick={() => toggleSuggestion(s)}
               >
                 {s}
               </button>
@@ -225,7 +437,7 @@ export default function SearchPage() {
         </div>
       </section>
 
-      <section className="section section--light" style={{ paddingTop: 40 }}>
+      <section className="section section--light search-results-section">
         <div className="container">
           <div className="search-tabs">
             {TABS.map((t) => (
@@ -233,54 +445,147 @@ export default function SearchPage() {
                 {t}
               </button>
             ))}
+            <span className="search-tabs__count">
+              {filteredResults.length.toLocaleString()} {filteredResults.length === 1 ? 'result' : 'results'}
+            </span>
           </div>
 
           <div className="search-layout">
             <aside className="sfilter">
-              <h4>Filter by Type</h4>
-              {TYPE_FILTERS.map((f) => (
-                <label key={f}>
-                  <input
-                    type="radio"
-                    name="type-filter"
-                    checked={selectedType === f}
-                    onChange={() => setSelectedType(f)}
-                  />{' '}
-                  {f}
-                </label>
-              ))}
-              <button className="sfilter__clear" onClick={clearAllFilters}>
+              <div className="sfilter__group">
+                <h4>FILTER BY TYPE</h4>
+                {TYPE_FILTERS.map((f) => {
+                  const isChecked = selectedTypes.includes(f)
+                  return (
+                    <label key={f} className={isChecked ? 'is-checked' : ''}>
+                      <input
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => toggleType(f)}
+                      />
+                      <span>{f}</span>
+                    </label>
+                  )
+                })}
+              </div>
+
+              <div className="sfilter__group">
+                <h4>FILTER BY TOPIC</h4>
+                {TOPIC_FILTERS.map((f) => {
+                  const isChecked = selectedTopics.includes(f)
+                  return (
+                    <label key={f} className={isChecked ? 'is-checked' : ''}>
+                      <input
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => toggleTopic(f)}
+                      />
+                      <span>{f}</span>
+                    </label>
+                  )
+                })}
+              </div>
+
+              <div className="sfilter__group sfilter__group--last">
+                <h4>FILTER BY INDUSTRY</h4>
+                {INDUSTRY_FILTERS.map((f) => {
+                  const isChecked = selectedIndustries.includes(f)
+                  return (
+                    <label key={f} className={isChecked ? 'is-checked' : ''}>
+                      <input
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => toggleIndustry(f)}
+                      />
+                      <span>{f}</span>
+                    </label>
+                  )
+                })}
+              </div>
+
+              <button type="button" className="sfilter__clear" onClick={clearAllFilters}>
                 Clear all filters
               </button>
             </aside>
 
-            <div>
+            <div className="sresults-list">
               {filteredResults.map((r) => (
-                <article key={r.id} className="sresult">
-                  <span
-                    className="sresult__tag"
-                    style={{
-                      background: `color-mix(in srgb, ${r.color} 13%, transparent)`,
-                      color: r.color,
-                    }}
-                  >
-                    {r.tag}
-                  </span>
-                  <h3>{r.title}</h3>
-                  <p>{r.desc}</p>
-                  <div className="sresult__foot">
-                    <span>{r.meta}</span>
-                    <a href="#" onClick={(e) => { e.preventDefault(); setSelectedResult(r) }}>
-                      {r.action}
-                    </a>
+                <article
+                  key={r.id}
+                  className={`sresult ${r.thumbType ? 'sresult--with-media' : ''}`}
+                >
+                  <div className="sresult__main">
+                    <span
+                      className="sresult__tag"
+                      style={{
+                        background: r.tagBg || `color-mix(in srgb, ${r.color} 13%, transparent)`,
+                        color: r.color,
+                      }}
+                    >
+                      {r.tag}
+                    </span>
+                    <h3>{r.title}</h3>
+                    <p>{r.desc}</p>
+                    <div className="sresult__foot">
+                      <span>{r.meta}</span>
+                      {!r.thumbType && (
+                        <a
+                          href="#"
+                          style={{ color: r.actionColor || r.color }}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setSelectedResult(r)
+                          }}
+                        >
+                          {r.action}
+                        </a>
+                      )}
+                    </div>
                   </div>
+
+                  {r.thumbType && (
+                    <div className="sresult__side">
+                      <div
+                        className={`sresult__thumb sresult__thumb--${r.thumbType}`}
+                        onClick={() => setSelectedResult(r)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            setSelectedResult(r)
+                          }
+                        }}
+                      >
+                        {r.thumbType === 'webinar' && (
+                          <span className="sresult__play-badge" aria-hidden="true">
+                            <span className="sresult__play-dot" />
+                          </span>
+                        )}
+                      </div>
+                      <a
+                        href="#"
+                        className="sresult__side-action"
+                        style={{ color: r.actionColor || r.color }}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          setSelectedResult(r)
+                        }}
+                      >
+                        {r.action}
+                      </a>
+                    </div>
+                  )}
                 </article>
               ))}
 
               {filteredResults.length === 0 && (
-                <p style={{ textAlign: 'center', padding: '3rem', color: 'var(--gray-600)' }}>
-                  No results match the current filters.
-                </p>
+                <div className="sresult-empty">
+                  <p>No results match the current filters.</p>
+                  <button type="button" className="sfilter__clear" onClick={clearAllFilters}>
+                    Reset filters
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -293,8 +598,9 @@ export default function SearchPage() {
         tag={selectedResult?.tag || ''}
         title={selectedResult?.title || ''}
         meta={selectedResult?.meta}
-        body={selectedResult?.desc || ''}
+        body={selectedResult?.body || selectedResult?.desc || ''}
       />
     </>
   )
 }
+

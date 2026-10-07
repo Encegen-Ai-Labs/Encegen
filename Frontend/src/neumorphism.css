@@ -27,7 +27,12 @@
 }
 
 .closing {
-  background: #ffffff;
+  background: radial-gradient(
+    ellipse 58% 68% at 50% 48%,
+    rgba(226, 219, 255, 0.42) 0%,
+    rgba(246, 245, 254, 0.88) 58%,
+    #f9f8fe 100%
+  );
 }
 
 /* ---------- Buttons ---------- */
@@ -129,7 +134,8 @@
 .sol-chip,
 .closing__trusted-pill,
 .security__badge,
-.topic-pills span,
+.topic-pill,
+.topic-pills > span,
 .logo-wall span,
 .careers-hero__badge,
 .stepflow__chips span,
@@ -142,27 +148,28 @@
   box-shadow: none;
   border: 1px solid #e2e1ef;
 }
-.topic-pills span:hover {
+.topic-pill:hover,
+.topic-pills > span:hover {
   box-shadow: var(--nm-sm);
 }
 
 /* Filter / tab pills */
 .job-filters button,
-.pill-tabs button {
+.pill-tabs:not(.resources-tabs) > button {
   background: var(--nm-surface);
   border: none;
   box-shadow: var(--nm-sm);
 }
 .job-filters button:hover,
-.pill-tabs button:hover {
+.pill-tabs:not(.resources-tabs) > button:hover {
   box-shadow: var(--nm-md);
 }
 .job-filters button:active,
-.pill-tabs button:active {
+.pill-tabs:not(.resources-tabs) > button:active {
   box-shadow: var(--nm-inset-sm);
 }
 .job-filters button.active,
-.pill-tabs button.active {
+.pill-tabs:not(.resources-tabs) > button.active {
   background: var(--purple-600);
   color: #ffffff;
   box-shadow: var(--nm-purple);
@@ -183,13 +190,23 @@
 }
 
 /* Misc raised buttons */
-.sfilter__clear,
 .job-row__apply,
 .apply-submit,
 .integrations__more-link {
   box-shadow: var(--nm-md);
 }
+.sfilter__clear,
+.search-hero__bar button {
+  background: #ebe8fc;
+  color: var(--purple-600);
+  box-shadow: 5px 5px 12px rgba(178, 176, 208, 0.55), -5px -5px 10px #ffffff;
+}
+.sfilter__clear:hover,
+.search-hero__bar button:hover {
+  background: #e2defb;
+}
 .sfilter__clear:active,
+.search-hero__bar button:active,
 .job-row__apply:active,
 .apply-submit:active {
   box-shadow: var(--nm-inset-sm);
@@ -202,16 +219,13 @@
 /* ---------- Search bars: raised shell, inset field ---------- */
 .careers-hero__search,
 .search-hero__bar {
-  border: none;
+  border: 1px solid #eceaf6;
   background: var(--nm-surface);
   box-shadow: var(--nm-md);
 }
 .careers-hero__search input,
 .search-hero__bar input {
   background: transparent;
-}
-.search-hero__bar button {
-  box-shadow: var(--nm-purple);
 }
 .newsletter__form input {
   box-shadow: inset 3px 3px 8px rgba(70, 50, 160, 0.35), inset -3px -3px 8px rgba(255, 255, 255, 0.55);
@@ -238,12 +252,10 @@
   box-shadow: var(--nm-inset-sm);
 }
 
-/* Sidebar filter checkboxes card */
+/* Sidebar filter checkboxes — flat clean sidebar matching Figma */
 .sfilter {
-  background: var(--nm-surface);
-  border-radius: 16px;
-  padding: 26px 24px;
-  box-shadow: var(--nm-md);
+  background: transparent;
+  box-shadow: none;
 }
 
 /* ---------- Step circles & timeline dots ---------- */

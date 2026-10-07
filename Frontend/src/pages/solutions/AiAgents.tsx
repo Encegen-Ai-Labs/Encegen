@@ -238,12 +238,12 @@ export default function AiAgents() {
       </section>
 
       {/* Proof */}
-      <section className="section section--lavender">
+      <section className="section section--lavender ai-research-proof">
         <div className="container">
           <SectionHead eyebrow="Customer Proof" title="Real enterprises. Real results. Real stories." />
           <div className="tgrid">
             {TESTIMONIALS.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
+              <TestimonialCard key={t.name} {...t} outlineStars />
             ))}
           </div>
         </div>

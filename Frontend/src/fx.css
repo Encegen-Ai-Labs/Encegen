@@ -366,8 +366,8 @@
 }
 
 /* --- 4. Interactive Tabs & Filters --- */
-.pill-tabs button, .topic-pills span, .search-hero__suggestions span,
-.job-filters button, .search-tabs button, .sfilter__clear, .pagination button {
+.pill-tabs:not(.resources-tabs) > button, .topic-pill, .topic-pills > span, .search-hero__suggestions span,
+.job-filters button, .sfilter__clear, .pagination button {
   transition:
     transform 0.2s var(--ease-spring),
     border-color var(--duration-fast) var(--ease-out),
@@ -375,8 +375,8 @@
     background-color var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
 }
-.pill-tabs button:hover, .topic-pills span:hover, .search-hero__suggestions span:hover,
-.job-filters button:hover, .search-tabs button:hover, .sfilter__clear:hover, .pagination button:hover {
+.pill-tabs:not(.resources-tabs) > button:hover, .topic-pill:hover, .topic-pills > span:hover, .search-hero__suggestions span:hover,
+.job-filters button:hover, .sfilter__clear:hover, .pagination button:hover {
   transform: translateY(-2px);
   border-color: var(--purple-400);
   color: var(--purple-600);
@@ -586,8 +586,8 @@
 }
 
 /* --- 4. Interactive Tabs & Filters --- */
-.pill-tabs button, .topic-pills span, .search-hero__suggestions span,
-.job-filters button, .search-tabs button, .sfilter__clear, .pagination button {
+.pill-tabs:not(.resources-tabs) > button, .topic-pill, .topic-pills > span, .search-hero__suggestions span,
+.job-filters button, .sfilter__clear, .pagination button {
   transition:
     transform 0.2s var(--ease-spring),
     border-color var(--duration-fast) var(--ease-out),
@@ -595,8 +595,8 @@
     background-color var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
 }
-.pill-tabs button:hover, .topic-pills span:hover, .search-hero__suggestions span:hover,
-.job-filters button:hover, .search-tabs button:hover, .sfilter__clear:hover, .pagination button:hover {
+.pill-tabs:not(.resources-tabs) > button:hover, .topic-pill:hover, .topic-pills > span:hover, .search-hero__suggestions span:hover,
+.job-filters button:hover, .sfilter__clear:hover, .pagination button:hover {
   transform: translateY(-2px);
   border-color: var(--purple-400);
   color: var(--purple-600);

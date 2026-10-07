@@ -36,27 +36,27 @@ function TimelineFill() {
 
 const PRINCIPLES = [
   {
-    title: '01 — Build for the Problem, Not the Hype',
+    title: 'Build for the Problem, Not the Hype',
     desc: "We don't use AI simply because AI is trending. Every project begins with a question: What problem are we actually trying to solve? Technology comes after understanding.",
   },
   {
-    title: '02 — Move Fast, Learn Faster',
+    title: 'Move Fast, Learn Faster',
     desc: 'Encegen operates with a startup mindset: Build → Test → Learn → Improve. Instead of spending months polishing an unvalidated concept, we test and iterate rapidly.',
   },
   {
-    title: '03 — Own the Outcome',
+    title: 'Own the Outcome',
     desc: 'We don’t believe in simply completing assigned tasks. Every team member takes ownership. The question is not "Did we complete it?" but "Did we solve the problem properly?"',
   },
   {
-    title: '04 — Client Problems Become Engineering Challenges',
+    title: 'Client Problems Become Engineering Challenges',
     desc: 'Clients often come with a business requirement rather than a fixed technical specification. We listen, identify bottlenecks, and engineer practical solutions.',
   },
   {
-    title: '05 — Experimentation Is Part of the Job',
+    title: 'Experimentation Is Part of the Job',
     desc: 'AI is changing rapidly. We continuously test new models, frameworks, APIs, and agent architectures to evaluate whether they make our solutions faster, cheaper, and more accurate.',
   },
   {
-    title: '06 — Keep Learning',
+    title: 'Keep Learning',
     desc: 'There is no fixed finish line in technology. We encourage curiosity, technical exploration, sharing knowledge, and staying close to emerging technologies.',
   },
 ]
@@ -109,19 +109,23 @@ export default function Culture() {
               View Open Roles →
             </Btn>
             <Btn to="/values" variant="outline-light">
-              Our Culture
+              Our Value
             </Btn>
           </>
         }
       />
 
       {/* Principles */}
-      <section className="section section--light">
+      <section className="section section--light culture-principles-section">
         <div className="container">
-          <SectionHead eyebrow="Our Principles" title="Values in Practice" sub="How we approach problems, build products, and work with clients every day." />
-          <div className="cards-2">
+          <SectionHead eyebrow="OUR PRINCIPLES" title="What guides us every day" />
+          <div className="cards-2 culture-principles-grid">
             {PRINCIPLES.map((p, i) => (
-              <div key={p.title} className="principle">
+              <div
+                key={p.title}
+                className="principle"
+                style={{ ['--principle-idx' as string]: i }}
+              >
                 <span className="principle__num">{String(i + 1).padStart(2, '0')}</span>
                 <strong>{p.title}</strong>
                 <p>{p.desc}</p>

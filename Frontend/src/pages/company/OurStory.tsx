@@ -148,50 +148,54 @@ export default function OurStory() {
       />
 
       {/* Section 2: Chapter 01 — Origin & The Truth Card */}
-      <section id="chapter-01" className="section section--light">
-        <div className="container split">
-          <div>
-            <span className="chapter-badge">Chapter 01</span>
-            <p className="shead__eyebrow">The Origin of Encegen AI Labs</p>
-            <h2 className="left-title">
-              Most enterprise software promises transformation,
-              <br />
-              Most delivers dashboards.
-            </h2>
-            <p className="left-copy">
-              The journey began by observing a recurring problem across businesses—technology was everywhere,
-              but meaningful automation and artificial intelligence were still difficult to implement.
-              Companies had data, software, teams, and processes, yet many everyday decisions and repetitive
-              tasks continued to depend heavily on manual effort.
-            </p>
-            <p className="left-copy">
-              We saw an opportunity to change that. Encegen AI Labs was born to bridge that exact gap.
-              From the beginning, our vision was not to build technology simply because it was possible.
-              We wanted to build solutions that solved genuine business challenges—whether that meant creating
-              a smarter digital platform, automating repetitive workflows, improving how teams operate, or
-              using AI to make complex processes faster and more intelligent.
-            </p>
+      <section id="chapter-01" className="section section--light story-origin">
+        <div className="container split story-origin__wrap">
+          <div className="story-origin__copy">
+            <div className="story-origin__top">
+              <div className="story-origin__label-wrap">
+                <span className="story-origin__rail" aria-hidden="true" />
+                <span className="chapter-badge">Chapter 01</span>
+              </div>
+              <p className="shead__eyebrow story-origin__eyebrow">The Frustration</p>
+              <h2 className="left-title story-origin__title">
+                Most enterprise software promises transformation.
+                <br />
+                Most delivers dashboards.
+              </h2>
+            </div>
+            <div className="story-origin__paras">
+              <p className="left-copy">
+                We've all been there: the demo is slick, the slides are convincing, and the ROI model looks too
+                good to be true. But when the pilot starts, the reality sets in: brittle models, broken workflows,
+                and decisions delayed by weeks.
+              </p>
+              <p className="left-copy">
+                The gap between AI hype and real enterprise value isn't a technology problem — it's a trust
+                problem. We built Encegen to close that gap with a different kind of AI: one that runs
+                operations, not just reports them.
+              </p>
+            </div>
           </div>
-          <div className="truth">
+          <div className="truth story-origin__truth">
             <div className="truth__head">
-              <span className="truth__title">Our Approach</span>
-              <span className="truth__note">Problem-first engineering</span>
+              <span className="truth__title">The Truth</span>
+              <span className="truth__note">Reality vs. promise</span>
             </div>
             <div className="truth__cols">
               <div className="truth__col truth__col--promise">
-                <h4>Traditional Software</h4>
+                <h4>The Promise</h4>
                 <ul>
-                  <li>Static dashboards & manual data entry</li>
-                  <li>Rigid, disconnected workflows</li>
-                  <li>Technology looking for a problem</li>
+                  <li>AI that automates everything</li>
+                  <li>10x ROI in 30 days</li>
+                  <li>Zero integration effort</li>
                 </ul>
               </div>
               <div className="truth__col truth__col--reality">
-                <h4>Encegen Intelligent Systems</h4>
+                <h4>The Reality</h4>
                 <ul>
-                  <li>AI agents that understand & take action</li>
-                  <li>Automated end-to-end business execution</li>
-                  <li>Engineered specifically for the problem</li>
+                  <li>Models that break in production</li>
+                  <li>ROI measured in dashboards</li>
+                  <li>Months of &ldquo;integration&rdquo; work</li>
                 </ul>
               </div>
             </div>
@@ -199,41 +203,45 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Section 3: Boardroom Quote & Founding Pillars (Cyan Box) */}
-      <section className="section section--dark">
-        <div className="container">
+      {/* Section 3: Boardroom Quote & Founding Timeline */}
+      <section className="section section--dark story-quote">
+        <div className="container story-quote__inner">
           <div className="shead shead--dark" style={{ textAlign: 'center' }}>
-            <h2 className="shead__title" style={{ maxWidth: 860, marginInline: 'auto' }}>
+            <h2 className="shead__title story-quote__title" style={{ maxWidth: 860, marginInline: 'auto' }}>
               "We sat in a boardroom watching a $4M AI pilot fail in real time.
               <br />
               That was the day we decided to build differently."
             </h2>
-            <p className="shead__sub" style={{ color: 'var(--purple-300)', fontWeight: 600 }}>
+            <p className="shead__sub story-quote__byline" style={{ color: 'var(--purple-300)', fontWeight: 600 }}>
               — OUR FOUNDING STORY & PHILOSOPHY, 2024
             </p>
           </div>
-          <div className="story-pillars">
+          <div className="story-timeline">
             {STORY_PILLARS.map((p) => (
-              <div key={p.pill + p.title} className="story-pillar">
-                <span className="story-pillar__pill">{p.pill}</span>
+              <article key={p.pill + p.title} className="story-milestone">
+                <span className="story-milestone__label">{p.pill}</span>
+                <span className="story-milestone__dot" aria-hidden="true" />
                 <h4>{p.title}</h4>
                 <p>{p.desc}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* Section 4: Chapter 02 — How We Build (1440 Fill x 640 Hug) */}
-      <section className="section section--light">
-        <div className="container split">
-          <div>
-            <span className="chapter-badge">Chapter 02</span>
+      <section className="section section--light story-chapter-two">
+        <div className="container split story-chapter-two__wrap">
+          <div className="story-chapter-two__copy">
+            <div className="story-origin__label-wrap">
+              <span className="story-origin__rail" aria-hidden="true" />
+              <span className="chapter-badge">Chapter 03</span>
+            </div>
             <p className="shead__eyebrow">Building for the Real World</p>
             <h2 className="left-title">
               We don't believe every problem needs AI.
               <br />
-              We believe the right problem deserves the right technology.
+              The right problem deserves the right system.
             </h2>
             <div className="story-bullets">
               <div className="story-bullet">
@@ -263,12 +271,11 @@ export default function OurStory() {
             title="Encegen Intelligence Stack"
             right={<LiveDot label="Active" />}
             rows={[
-              { label: 'EasyHunt: Land Records OCR & Search', value: 'Live', chip: 'Flairnetic Advocates' },
-              { label: 'Pramay Agro: Fertilizer E-Commerce Portal', value: 'Active', chip: 'Agri E-Commerce', chipColor: '#22d3ee' },
-              { label: 'Fx Algo: High-Throughput Trading Engine', value: 'Live', chip: '<5ms Latency', chipColor: '#a99cff' },
-              { label: 'Varasa: Heritage Exploration & Grant System', value: 'Running', chip: '10k+ Artifacts' },
-              { label: 'Document Intelligence & Multilingual OCR', value: 'Running', chip: '99.4% accuracy', chipColor: '#22d3ee' },
-              { label: 'Voice AI & Autonomous Agent Pipelines', value: 'Active', chip: '<400ms latency', chipColor: '#a99cff' },
+              { label: 'EasyHunt: Land Records OCR', value: 'Live', chip: 'Flairnetic' },
+              { label: 'Pramay Agro: E-Commerce Portal', value: 'Active', chip: 'Agri Tech', chipColor: '#22d3ee' },
+              { label: 'Fx Algo: Trading Engine', value: 'Live', chip: '<5ms Latency', chipColor: '#a99cff' },
+              { label: 'Varasa: Heritage & Grant System', value: 'Running', chip: '10k+ Records' },
+              { label: 'Multilingual Document OCR', value: 'Running', chip: '99.4% accuracy', chipColor: '#22d3ee' },
             ]}
             footer={
               <>
@@ -280,35 +287,38 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Section 5: Chapter 03 — Built by people who've sat in your seat */}
-      <section className="section section--lavender">
+      {/* Section 5: Chapter 04 — Built by people who've sat in your seat */}
+      <section className="section section--light story-chapter04">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <span className="chapter-badge">Chapter 03</span>
-            <SectionHead
-              eyebrow="Leadership & Experience"
-              title="Built by people who've sat in your seat."
-              sub="Our team comes from enterprise, startup, and research backgrounds. We engineer technology that solves what business leaders actually deal with every day."
-            />
+          <div className="story-chapter04__head">
+            <div className="story-chapter04__badge-row">
+              <span className="story-chapter04__accent-bar" aria-hidden="true" />
+              <span className="chapter-badge">Chapter 04</span>
+            </div>
+            <h2 className="story-chapter04__title">Built by people who've sat in your seat.</h2>
+            <p className="story-chapter04__sub">
+              Our team comes from enterprise, startup, and research backgrounds. We engineer technology that solves what business leaders actually deal with every day.
+            </p>
           </div>
           <div className="team-cards-4">
             {TEAM_MEMBERS.map((m) => (
               <div key={m.name} className="team-card">
-                <span className="team-card__avatar" style={{ background: m.color }}>
+                <span className="team-card__top-line" aria-hidden="true" />
+                <span className="team-card__avatar">
                   {m.initials}
                 </span>
                 <h3>{m.name}</h3>
                 <span className="role">{m.role}</span>
-                <p>"{m.quote}"</p>
+                <p>{m.quote}</p>
               </div>
             ))}
           </div>
           <div className="rule-bar">
             <strong>We have one rule at Encegen: if you wouldn't bet your own career on it, we don't ship it.</strong>
             <div className="rule-bar__avatars">
-              {TEAM_MEMBERS.map((m) => (
-                <span key={m.initials} className="avatar" style={{ background: m.color }}>
-                  {m.initials}
+              {[...TEAM_MEMBERS.map((m) => m.initials), 'CP'].map((initials) => (
+                <span key={initials} className="avatar">
+                  {initials}
                 </span>
               ))}
             </div>
@@ -337,9 +347,9 @@ export default function OurStory() {
       </section>
 
       {/* Section 7: Stats and Logo Wall */}
-      <section className="section section--light">
+      <section className="section section--light story-impact">
         <div className="container">
-          <div className="tstat-row" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="tstat-row">
             {STATS.map((s) => (
               <div key={s.label} className="tstat">
                 <strong>{s.value}</strong>
@@ -357,6 +367,7 @@ export default function OurStory() {
 
       {/* Section 8: Closing CTA (No bottom border, meets footer seamlessly) */}
       <ClosingCTA
+        className="story-ending"
         trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Pramay Agro', 'Fx Algo']}
         trustedLabel="trusted by our enterprise partners & clients"
         line1="This story isn't over."

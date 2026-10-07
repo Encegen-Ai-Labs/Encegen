@@ -13,62 +13,66 @@ const MODULES = [
     icon: SearchIcon,
     title: 'Process Mining',
     description:
-      'Maps every version of a process straight from your system data, in real time.',
-    href: '#process-mining',
+      'Automatically map every process variant from your system data, in real time.',
+    href: '/solutions/use-cases',
   },
   {
     icon: ZapIcon,
     title: 'Execution Management',
     description:
-      'Runs actions across the enterprise from one control plane.',
-    href: '#execution-management',
+      'Orchestrate actions across your enterprise from a single control plane.',
+    href: '/solutions/ai-agents',
   },
   {
     icon: SparklesIcon,
     title: 'AI Insights',
     description:
-      'Surfaces the root causes and the openings with AI-driven analysis.',
-    href: '#ai-insights',
+      'Surface root causes and opportunities with AI-driven process analysis.',
+    href: '/solutions/ai-research',
   },
   {
     icon: RefreshIcon,
     title: 'Action Flows',
     description:
-      'Triggers the fix directly inside the systems you already run.',
+      'Trigger automated fixes directly inside SAP, Salesforce, and ServiceNow.',
+    href: '/solutions/custom-software',
   },
   {
     icon: PenIcon,
     title: 'Studio',
     description:
-      'Builds custom process apps and dashboards with a no-code editor.',
+      'Build custom process apps and dashboards with a no-code visual editor.',
+    href: '/solutions/web-ecommerce',
   },
   {
     icon: CodeIcon,
     title: 'Data Push API',
     description:
-      'Connects any source with pre-built connectors and open APIs.',
+      'Connect any data source with pre-built connectors and open APIs.',
+    href: '/solutions/custom-software',
   },
 ]
 
 export default function Modules() {
   return (
-    <section className="modules">
+    <section className="modules" id="modules">
       <div className="container">
         <p className="section-eyebrow">Platform Modules</p>
-        <h2 className="section-title">Everything working together, not bolted alongside.</h2>
+        <h2 className="section-title">Everything you need, fully integrated.</h2>
         <p className="section-sub">
-          Specialised tools that combine to solve the process problems one
-          tool can't.
+          Deploy specialized tools that work together to solve complex process
+          problems.
         </p>
 
         <div className="modules__grid">
           {MODULES.map((mod) => (
             <article key={mod.title} className="modules__card">
               <span className="modules__icon">
-                <mod.icon size={26} />
+                <mod.icon size={20} />
               </span>
               <h3>{mod.title}</h3>
               <p>{mod.description}</p>
+             
             </article>
           ))}
         </div>

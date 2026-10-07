@@ -88,12 +88,21 @@ type GradBandProps = {
   quote?: ReactNode
   cite?: string
   tone?: 'purple' | 'orange'
+  className?: string
+  eyebrow?: string
+  title?: ReactNode
 }
 
-export function GradBand({ stats, quote, cite, tone = 'purple' }: GradBandProps) {
+export function GradBand({ stats, quote, cite, tone = 'purple', className = '', eyebrow, title }: GradBandProps) {
   return (
-    <section className={`gband gband--${tone}`}>
+    <section className={`gband gband--${tone} ${className}`.trim()}>
       <div className="container">
+        {(eyebrow || title) && (
+          <div className="gband__heading">
+            {eyebrow && <p className="gband__eyebrow">{eyebrow}</p>}
+            {title && <h2 className="gband__title">{title}</h2>}
+          </div>
+        )}
         {stats && (
           <div className="gband__stats">
             {stats.map((s) => (
@@ -168,14 +177,37 @@ export function StepFlow({ steps, dark }: { steps: Step[]; dark?: boolean }) {
 
 /* ---------- Result bar (dark rounded strip under sections) ---------- */
 
-export function ResultBar({ left, chips, action }: { left: ReactNode; chips?: string[]; action?: ReactNode }) {
+export function ResultBar({
+  left,
+  chips,
+  action,
+  className = '',
+}: {
+  left: ReactNode
+  chips?: ReactNode[]
+  action?: ReactNode
+  className?: string
+}) {
+  const hasFixedPriceChip = chips?.some(
+    (chip) => typeof chip === 'string' && chip.trim().toUpperCase() === 'FIXED-PRICE',
+  )
+
   return (
-    <div className="resultbar">
+    <div className={`resultbar ${hasFixedPriceChip ? 'resultbar--fixed-price' : ''} ${className}`.trim()}>
       <span className="resultbar__left">{left}</span>
       {chips && (
         <span className="resultbar__chips">
-          {chips.map((c) => (
-            <span key={c}>{c}</span>
+          {chips.map((chip, index) => (
+            <span
+              key={index}
+              className={
+                typeof chip === 'string' && chip.trim().toUpperCase() === 'FIXED-PRICE'
+                  ? 'resultbar__chip--fixed-price'
+                  : undefined
+              }
+            >
+              {chip}
+            </span>
           ))}
         </span>
       )}
@@ -189,6 +221,7 @@ export function ResultBar({ left, chips, action }: { left: ReactNode; chips?: st
 type UseCaseProps = {
   tags: string[]
   color?: string
+  icon?: ReactNode
   title: string
   desc: string
   metric: string
@@ -196,19 +229,51 @@ type UseCaseProps = {
   id?: string
 }
 
-export function UseCaseCard({ tags, color = '#22c55e', title, desc, metric, compare, id }: UseCaseProps) {
+export function UseCaseCard({ tags, color = '#22c55e', icon, title, desc, metric, compare, id }: UseCaseProps) {
+  const compareParts = compare && compare.includes('→') ? compare.split('→').map((s) => s.trim()) : null
+
   return (
-    <article id={id} className="ucase" style={{ ['--uc-color' as string]: color }}>
-      <div className="ucase__tags">
-        {tags.map((t) => (
-          <span key={t}>{t}</span>
-        ))}
-      </div>
-      <h3>{title}</h3>
+    <article id={id} className={`ucase ${icon ? 'ucase--with-icon' : ''}`.trim()} style={{ ['--uc-color' as string]: color }}>
+      {icon ? (
+        <div className="ucase__top ucase__top--icon">
+          <span className="ucase__icon" aria-hidden="true">{icon}</span>
+          <div className="ucase__head-text">
+            <div className="ucase__tags">
+              {tags.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <h3>{title}</h3>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="ucase__top">
+            <div className="ucase__tags">
+              {tags.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <h3>{title}</h3>
+        </>
+      )}
       <p>{desc}</p>
       <div className="ucase__footer">
         <span className="ucase__metric">{metric}</span>
-        {compare && <span className="ucase__compare">{compare}</span>}
+        {compare && (
+          <span className="ucase__compare">
+            {compareParts ? (
+              <>
+                <span className="ucase__compare-before">{compareParts[0]}</span>
+                <span className="ucase__compare-arrow" aria-hidden="true">→</span>
+                <strong className="ucase__compare-after">{compareParts[1]}</strong>
+              </>
+            ) : (
+              compare
+            )}
+          </span>
+        )}
       </div>
     </article>
   )
@@ -216,10 +281,10 @@ export function UseCaseCard({ tags, color = '#22c55e', title, desc, metric, comp
 
 /* ---------- Stars ---------- */
 
-export function Stars() {
+export function Stars({ outline = false }: { outline?: boolean } = {}) {
   return (
     <span className="stars" aria-label="5 out of 5 stars">
-      ★★★★★
+      {outline ? '☆☆☆☆☆' : '★★★★★'}
     </span>
   )
 }
@@ -252,20 +317,36 @@ type TestimonialProps = {
   name: string
   role: string
   metric?: string
+  metricIcon?: ReactNode
   hue?: number
+  outlineStars?: boolean
 }
 
-export function TestimonialCard({ tag, color = '#22c55e', quote, initials, name, role, metric, hue = 255 }: TestimonialProps) {
+export function TestimonialCard({
+  tag,
+  color = '#6553ee',
+  quote,
+  initials,
+  name,
+  role,
+  metric,
+  metricIcon,
+  hue = 255,
+  outlineStars = true,
+}: TestimonialProps) {
   return (
     <article className="tcard" style={{ ['--tc-color' as string]: color }}>
       <div className="tcard__head">
         {tag && <span className="tcard__tag">{tag}</span>}
-        <Stars />
+        <Stars outline={outlineStars} />
+      </div>
+      <div className="tcard__quote-mark" aria-hidden="true">
+        “
       </div>
       <p className="tcard__quote">“{quote}”</p>
       <div className="tcard__foot">
         <div className="tcard__person">
-          <Avatar text={initials} hue={hue} size={42} />
+          <Avatar text={initials} hue={hue} size={36} />
           <span className="tcard__who">
             <strong>{name}</strong>
             <span>{role}</span>
@@ -273,7 +354,14 @@ export function TestimonialCard({ tag, color = '#22c55e', quote, initials, name,
         </div>
         {metric && (
           <div className="tcard__meta-bar">
-            <span className="tcard__metric">{metric}</span>
+            <span className="tcard__metric">
+              {metricIcon && (
+                <span className="tcard__metric-icon" aria-hidden="true">
+                  {metricIcon}
+                </span>
+              )}
+              {metric}
+            </span>
           </div>
         )}
       </div>
@@ -284,6 +372,7 @@ export function TestimonialCard({ tag, color = '#22c55e', quote, initials, name,
 /* ---------- Closing CTA ---------- */
 
 type ClosingCTAProps = {
+  className?: string
   eyebrow?: ReactNode
   trusted?: string[]
   trustedLabel?: string
@@ -291,13 +380,14 @@ type ClosingCTAProps = {
   line2?: ReactNode
   sub?: ReactNode
   primary?: { label: string; to?: string; newTab?: boolean; variant?: 'purple' | 'white' | 'lavender'; onClick?: () => void }
-  secondary?: { label: string; to?: string; newTab?: boolean; variant?: 'outline-dark' | 'outline-light' | 'white'; onClick?: () => void }
+  secondary?: { label: string; to?: string; newTab?: boolean; variant?: 'outline-dark' | 'outline-light' | 'white' | 'purple' | 'lavender'; onClick?: () => void }
   checks?: Array<string | { text: string; icon?: ReactNode }>
   note?: ReactNode
   dark?: boolean
 }
 
 export function ClosingCTA({
+  className = '',
   eyebrow,
   trusted,
   trustedLabel = 'trusted by our enterprise partners & clients',
@@ -324,7 +414,7 @@ export function ClosingCTA({
   }
 
   return (
-    <section className={`closing ${dark ? 'closing--dark' : ''}`}>
+    <section className={`closing ${dark ? 'closing--dark' : ''} ${className}`.trim()}>
       <div className="closing__inner">
         {eyebrow && <span className="closing__eyebrow">{eyebrow}</span>}
         {trusted && trusted.length > 0 && (
@@ -389,12 +479,33 @@ export function ClosingCTA({
           <div className="closing__checks">
             {checks.map((c, i) => {
               const text = typeof c === 'string' ? c : c.text
-              const icon = typeof c === 'object' && c.icon
-                ? c.icon
-                : (i === 0 && !text.includes('🔒') ? '🔒' : undefined)
+              const defaultIcons = [
+                (
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="12" height="12" rx="3" />
+                    <path d="M5.2 8.2l2 2 3.6-4" />
+                  </svg>
+                ),
+                (
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2.5" width="12" height="11" rx="2.5" />
+                    <path d="M2 6.2h12M2 9.8h12" />
+                  </svg>
+                ),
+                (
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2.5" y="2" width="11" height="12" rx="2.5" />
+                    <path d="M6 2v2.2h4V2" />
+                  </svg>
+                ),
+              ]
+              const icon =
+                typeof c === 'object' && c.icon && typeof c.icon !== 'string'
+                  ? c.icon
+                  : defaultIcons[i % defaultIcons.length]
               return (
                 <span key={i} className="closing__check-item">
-                  {icon && <span className="closing__check-icon">{icon}</span>}
+                  <span className="closing__check-icon" aria-hidden="true">{icon}</span>
                   <span>{text}</span>
                 </span>
               )
