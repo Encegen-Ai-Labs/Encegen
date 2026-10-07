@@ -295,7 +295,7 @@ export default function EasyHunt() {
             key="learn-more"
             to="https://easyhunt.in/blog"
             newTab
-            variant="outline"
+            variant="outline-light"
           >
             Learn More
           </Btn>,

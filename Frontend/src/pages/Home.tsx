@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import {
-  ArrowRight,
   BuildingIcon,
   CarIcon,
   FactoryIcon,
@@ -51,7 +50,6 @@ import logoEasyHunt from '../assets/easyhunt.png'
 import logoPramay from '../assets/pramay.png'
 import logoVarasa from '../assets/varasa.png'
 import logoFxAlgo from '../assets/fxalgo.png'
-import Divider from '../components/divider'
 
 const CLIENT_ITEMS = [
   { name: 'EasyHunt', logo: logoEasyHunt, tag: 'Title Search Software' },
