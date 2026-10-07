@@ -1312,7 +1312,7 @@
 }
 
 .fcard--top-accent {
-  border-top: 4px solid var(--purple-600);
+  border-top: 15px solid var(--purple-600);
 }
 
 /* Comparison rows (before/after) */

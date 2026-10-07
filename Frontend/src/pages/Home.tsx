@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Btn, PageHero, SectionHead, TestimonialCard } from '../components/kit'
 import {
-  ArrowRight,
   BuildingIcon,
   CarIcon,
   FactoryIcon,
@@ -142,14 +141,12 @@ export default function Home() {
   const totalPages = 2
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const [isPaused, setIsPaused] = useState(false)
-  const [progressKey, setProgressKey] = useState(0)
 
   // Auto-play carousel
   useEffect(() => {
     if (isPaused) return
     autoPlayRef.current = setInterval(() => {
       setStoryPage((prev) => (prev + 1) % totalPages)
-      setProgressKey((k) => k + 1)
     }, 5000)
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current)
@@ -158,13 +155,11 @@ export default function Home() {
 
   const handlePageChange = (page: number) => {
     setStoryPage(page)
-    setProgressKey((k) => k + 1)
     // Reset auto-play timer
     if (autoPlayRef.current) clearInterval(autoPlayRef.current)
     if (!isPaused) {
       autoPlayRef.current = setInterval(() => {
         setStoryPage((prev) => (prev + 1) % totalPages)
-        setProgressKey((k) => k + 1)
       }, 5000)
     }
   }
@@ -237,8 +232,7 @@ export default function Home() {
             </Btn>
           </>
         }
-        trustedLabel={t('home.trustedBy', "Trusted by the world's leading companies")}
-        trusted={[]}
+        // trustedLabel={t('home.trustedBy', "Trusted by the world's leading companies")}
       >
         <div className="home-hero-visual">
           <img 
@@ -326,10 +320,12 @@ export default function Home() {
       {/* Capabilities */}
       <section className="section section--lavender">
         <div className="container">
-          <SectionHead
-            eyebrow={t('home.capabilities.eyebrow', 'Capabilities')}
-            title={t('home.capabilities.title', 'Everything you need to achieve process excellence')}
-          />
+          <div className="capabilities-head">
+            <SectionHead
+              eyebrow={t('home.capabilities.eyebrow', 'Capabilities')}
+              title={t('home.capabilities.title', 'Everything you need to achieve process excellence')}
+            />
+          </div>
           <div className="cards-3" ref={capRef}>
             {capabilities.map((c) => (
               <article key={c.title} className="fcard fcard--top-accent hover-lift anim-item">
@@ -343,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* Platform */}
-      <section className="section section--dark">
+      <section className="section section--dark home-platform-section">
         <div className="container split">
           <div>
             <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
@@ -377,15 +373,17 @@ export default function Home() {
       {/* Industries */}
       <section className="section section--light">
         <div className="container">
-          <SectionHead
-            eyebrow={t('home.industries.eyebrow', 'Solutions for every industry')}
-            title={
-              <>
-                Your Industry. Your Processes. <span className="accent-purple">Our Platform.</span>
-              </>
-            }
-            sub={t('home.industries.title', 'Tailored for your sector\'s most complex challenges')}
-          />
+          <div className="capabilities-head">
+            <SectionHead
+              eyebrow={t('home.industries.eyebrow', 'Solutions for every industry')}
+              title={
+                <>
+                  Your Industry. Your Processes. <span className="accent-purple">Our Platform.</span>
+                </>
+              }
+              sub={t('home.industries.title', 'Tailored for your sector\'s most complex challenges')}
+            />
+          </div>
           <div className="cards-3" ref={indRef}>
             {industries.map((ind) => (
               <article key={ind.title} className="fcard anim-item hover-lift">
@@ -431,26 +429,6 @@ export default function Home() {
                 {t('home.stories.title', 'Trusted by the brands that run the world')}
               </h2>
             </div>
-            <div className="home-stories__controls" aria-label="Customer stories navigation">
-              <button
-                type="button"
-                className="home-stories__arrow"
-                onClick={() => handlePageChange(0)}
-                disabled={storyPage === 0}
-                aria-label="Previous customer stories"
-              >
-                <ArrowRight size={17} className="home-stories__arrow--previous" />
-              </button>
-              <button
-                type="button"
-                className="home-stories__arrow home-stories__arrow--next"
-                onClick={() => handlePageChange(1)}
-                disabled={storyPage === 1}
-                aria-label="Next customer stories"
-              >
-                <ArrowRight size={17} />
-              </button>
-            </div>
           </div>
 
           {/* Cards carousel */}
@@ -481,16 +459,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Auto-play progress bar */}
-          <div className="home-stories__progress">
-            <div className="home-stories__progress-bar">
-              <div
-                key={progressKey}
-                className="home-stories__progress-fill"
-                style={isPaused ? { animationPlayState: 'paused' } : {}}
-              />
-            </div>
-          </div>
         </div>
       </section>
 
