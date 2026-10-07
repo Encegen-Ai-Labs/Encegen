@@ -75,6 +75,14 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cp-pill:hover {
+  transform: translateY(-2px);
+  background: rgba(124, 99, 255, 0.16);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow: 0 8px 20px rgba(101, 83, 238, 0.22);
 }
 
 .cp-pill strong {
@@ -259,6 +267,13 @@
   padding: 18px;
   display: flex;
   flex-direction: column;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.cp-graphic-stat:hover {
+  transform: translateY(-3px);
+  background: rgba(124, 99, 255, 0.12);
+  border-color: rgba(167, 139, 250, 0.35);
 }
 
 .cp-graphic-stat__num {
@@ -302,7 +317,7 @@
   border-radius: 16px;
   padding: 30px 24px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cp-value-card:hover {
@@ -320,6 +335,12 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease;
+}
+
+.cp-value-card:hover .cp-value-card__icon {
+  transform: scale(1.08) rotate(-4deg);
+  background: rgba(101, 83, 238, 0.15);
 }
 
 .cp-value-card h3 {
@@ -465,6 +486,14 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.82rem;
   color: #e2e8f0;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.cp-role-pills span:hover {
+  transform: translateY(-2px);
+  background: rgba(124, 99, 255, 0.22);
+  border-color: rgba(167, 139, 250, 0.45);
+  color: #ffffff;
 }
 
 .cp-careers-stats {
@@ -479,6 +508,14 @@
   border-radius: 14px;
   padding: 22px;
   text-align: center;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.cp-stat-box:hover {
+  transform: translateY(-4px);
+  background: rgba(124, 99, 255, 0.12);
+  border-color: rgba(167, 139, 250, 0.38);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
 
 .cp-stat-box strong {
@@ -509,6 +546,13 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.cp-testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(101, 83, 238, 0.35);
+  box-shadow: 0 18px 38px rgba(101, 83, 238, 0.12);
 }
 
 .cp-testimonial-head {
