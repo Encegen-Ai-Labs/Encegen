@@ -2,35 +2,48 @@ import { useMemo, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchIcon } from '../../components/icons'
 import { ClosingCTA } from '../../components/kit'
-import { DEPARTMENTS, DEPT_COLORS, JOBS as DEFAULT_JOBS } from '../../data/jobs'
+import { DEPT_COLORS, type Job } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 
 export default function Careers() {
   const [dept, setDept] = useState('All Departments')
   const [query, setQuery] = useState('')
-  const [jobsList, setJobsList] = useState(DEFAULT_JOBS)
+  const [jobsList, setJobsList] = useState<Job[]>([])
+  const [jobsLoading, setJobsLoading] = useState(true)
+  const [jobsLoadError, setJobsLoadError] = useState(false)
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/jobs`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`Jobs request failed with status ${res.status}`)
+        return res.json()
+      })
       .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          // Map backend jobs format to UI format
-          const formatted = data.map((j) => ({
+        if (!Array.isArray(data)) throw new Error('Jobs response was not a list')
+        const formatted: Job[] = data
+          .filter((j) => j.status === 'active')
+          .map((j) => ({
             title: j.title,
             slug: j.id.toString(),
             department: j.department || 'Engineering',
             type: j.employment_type || 'Full-time',
             location: j.location || 'Remote',
-            posted: j.status === 'active' ? 'Active' : 'Closed',
-            description: j.description
+            posted: 'Active',
           }))
-          setJobsList(formatted)
-        }
+        setJobsList(formatted)
       })
-      .catch((err) => console.warn('Could not fetch backend jobs, using fallback list:', err))
+      .catch((err) => {
+        console.warn('Could not fetch backend jobs:', err)
+        setJobsLoadError(true)
+      })
+      .finally(() => setJobsLoading(false))
   }, [])
+
+  const departments = useMemo(
+    () => ['All Departments', ...new Set(jobsList.map((job) => job.department))],
+    [jobsList],
+  )
 
   const filtered = useMemo(() => {
     return jobsList.filter(
@@ -59,20 +72,21 @@ export default function Careers() {
             Find your place at <span className="accent">Encegen</span>.
           </h1>
           <p>
-            Join a team building the future of autonomous AI — we're hiring across engineering,
-            research, product, and more.
+            Explore current opportunities with a team building the future of autonomous AI.
           </p>
-          <div className="careers-hero__search">
-            <SearchIcon size={18} />
-            <input
-              placeholder="Search roles, teams, or keywords…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </div>
+          {jobsList.length > 0 && (
+            <div className="careers-hero__search">
+              <SearchIcon size={18} />
+              <input
+                placeholder="Search roles, teams, or keywords…"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+            </div>
+          )}
           <div className="careers-hero__meta">
             <span>🌐 Global team</span>
-            <span>· {jobsList.length} open roles</span>
+            <span>· {jobsList.length} open {jobsList.length === 1 ? 'role' : 'roles'}</span>
             <span>· Fully remote-friendly</span>
           </div>
         </div>
@@ -80,52 +94,72 @@ export default function Careers() {
 
       <section className="section section--lavender" style={{ paddingTop: 20 }}>
         <div className="container">
-          <div className="job-filters">
-            {DEPARTMENTS.map((d) => (
-              <button key={d} className={d === dept ? 'active' : ''} onClick={() => setDept(d)}>
-                {d}
-              </button>
-            ))}
-          </div>
-          <div className="job-filters__meta">
-            <span>
-              {filtered.length} open positions across {groups.length} departments
-            </span>
-            <a href="#" onClick={(e) => { e.preventDefault(); setDept('All Departments'); setQuery('') }}>
-              View all
-            </a>
-          </div>
-
-          {groups.map(([department, jobs]) => (
-            <div
-              key={department}
-              className="job-group"
-              style={{ ['--group-color' as string]: DEPT_COLORS[department] }}
-            >
-              <div className="job-group__head">
-                <h2>{department}</h2>
-                <span>
-                  {jobs.length} role{jobs.length > 1 ? 's' : ''}
-                </span>
+          {!jobsLoading && !jobsLoadError && jobsList.length > 0 && (
+            <>
+              <div className="job-filters">
+                {departments.map((d) => (
+                  <button key={d} className={d === dept ? 'active' : ''} onClick={() => setDept(d)}>
+                    {d}
+                  </button>
+                ))}
               </div>
-              {jobs.map((job) => (
-                <div key={job.slug} className="job-row">
-                  <div className="job-row__info">
-                    <h3>{job.title}</h3>
-                    <div className="job-row__chips">
-                      <span>{job.department}</span>
-                      <span>{job.type}</span>
-                      <span>{job.posted}</span>
-                    </div>
+              <div className="job-filters__meta">
+                <span>{filtered.length} open positions across {groups.length} departments</span>
+                <a href="#" onClick={(e) => { e.preventDefault(); setDept('All Departments'); setQuery('') }}>
+                  View all
+                </a>
+              </div>
+            </>
+          )}
+
+          {jobsLoading ? (
+              <div className="roles-empty-state" role="status">
+                <p>Loading open positions...</p>
+              </div>
+          ) : jobsLoadError ? (
+              <div className="roles-empty-state" role="alert">
+                <p>We’re unable to load open positions right now. Please try again later.</p>
+              </div>
+          ) : jobsList.length === 0 ? (
+              <div className="roles-empty-state">
+                <p>There are no open positions right now. Please check back soon.</p>
+              </div>
+          ) : groups.length === 0 ? (
+              <div className="roles-empty-state">
+                <p>No open positions match your search. Try another search or view all departments.</p>
+              </div>
+          ) : (
+              groups.map(([department, jobs]) => (
+                <div
+                  key={department}
+                  className="job-group"
+                  style={{ ['--group-color' as string]: DEPT_COLORS[department] ?? '#6553ee' }}
+                >
+                  <div className="job-group__head">
+                    <h2>{department}</h2>
+                    <span>
+                      {jobs.length} role{jobs.length > 1 ? 's' : ''}
+                    </span>
                   </div>
-                  <span className="job-row__loc">📍 {job.location}</span>
-                  <Link to={`/careers/${job.slug}`} className="job-row__apply">
-                    Apply →
-                  </Link>
+                  {jobs.map((job) => (
+                    <div key={job.slug} className="job-row">
+                      <div className="job-row__info">
+                        <h3>{job.title}</h3>
+                        <div className="job-row__chips">
+                          <span>{job.department}</span>
+                          <span>{job.type}</span>
+                          <span>{job.posted}</span>
+                        </div>
+                      </div>
+                      <span className="job-row__loc">📍 {job.location}</span>
+                      <Link to={`/careers/${job.slug}`} className="job-row__apply">
+                        Apply →
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ))}
+              ))
+          )}
         </div>
       </section>
 

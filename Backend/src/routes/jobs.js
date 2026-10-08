@@ -24,38 +24,26 @@ const upload = multer({
 // Fallback in-memory applications store (used if the DB insert fails)
 let memoryApplications = [];
 
-// Fallback in-memory jobs store
-let memoryJobs = [
-  {
-    id: 1,
-    title: 'AI Research & Automation Engineer',
-    department: 'Engineering',
-    location: 'Pune / Remote',
-    employment_type: 'Full-time',
-    experience_level: 'Senior Level (5+ yrs)',
-    salary: '₹18L – ₹30L per annum',
-    description: 'Design and deploy production-grade LLM agents, automated workflows, and high-performance microservices.',
-    requirements: 'Experience with PyTorch/TensorFlow, Node.js/Python, Vector DBs, and API integrations.',
-    status: 'active',
-    created_at: new Date().toISOString()
-  },
-  {
-    id: 2,
-    title: 'Senior Full Stack Developer (React & Node.js)',
-    department: 'Engineering',
-    location: 'Pune / Remote',
-    employment_type: 'Full-time',
-    experience_level: 'Mid Level (2-4 yrs)',
-    salary: '₹12L – ₹22L per annum',
-    description: 'Build modern enterprise dashboards, real-time analytics interfaces, and scalable microservices.',
-    requirements: 'Proficiency in React 19, TypeScript, Express, PostgreSQL, and Cloud infrastructure.',
-    status: 'active',
-    created_at: new Date().toISOString()
-  }
-];
+// Used for jobs created while the database is unavailable.
+let memoryJobs = [];
 
-// ADMIN: Get all job openings
-router.get('/jobs', authenticateAdmin, async (req, res) => {
+// Public: list active job openings
+router.get('/jobs', async (req, res) => {
+  try {
+    const result = await query(
+      "SELECT * FROM jobs WHERE status = 'active' ORDER BY created_at DESC"
+    );
+    return res.json(result.rows);
+  } catch (err) {
+    console.warn('DB query failed, using in-memory jobs:', err.message);
+    const activeMemoryJobs = memoryJobs.filter(job => job.status === 'active');
+    if (activeMemoryJobs.length > 0) return res.json(activeMemoryJobs);
+    return res.status(503).json({ error: 'Job listings are temporarily unavailable' });
+  }
+});
+
+// ADMIN: Get all job openings, including closed positions
+router.get('/admin/jobs', authenticateAdmin, async (req, res) => {
   try {
     const result = await query('SELECT * FROM jobs ORDER BY created_at DESC');
     return res.json(result.rows);
@@ -66,7 +54,7 @@ router.get('/jobs', authenticateAdmin, async (req, res) => {
 });
 
 // ADMIN: Get single job by ID
-router.get('/jobs/:id', authenticateAdmin, async (req, res) => {
+router.get('/admin/jobs/:id', authenticateAdmin, async (req, res) => {
   const { id } = req.params;
   try {
     const result = await query('SELECT * FROM jobs WHERE id = $1', [id]);

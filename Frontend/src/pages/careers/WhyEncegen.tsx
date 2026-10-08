@@ -10,7 +10,7 @@ import {
   Stars,
 } from '../../components/kit'
 import { SearchIcon } from '../../components/icons'
-import { JOBS as DEFAULT_JOBS } from '../../data/jobs'
+import { type Job } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 import '../company/company.css'
@@ -147,26 +147,35 @@ const CLIENT_RECOGNITION = [
 export default function WhyEncegen() {
   const [dept, setDept] = useState('All Departments')
   const [query, setQuery] = useState('')
-  const [jobsList, setJobsList] = useState(DEFAULT_JOBS)
+  const [jobsList, setJobsList] = useState<Job[]>([])
+  const [jobsLoading, setJobsLoading] = useState(true)
+  const [jobsLoadError, setJobsLoadError] = useState(false)
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/jobs`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`Jobs request failed with status ${res.status}`)
+        return res.json()
+      })
       .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          const formatted = data.map((j) => ({
+        if (!Array.isArray(data)) throw new Error('Jobs response was not a list')
+        const formatted: Job[] = data
+          .filter((j) => j.status === 'active')
+          .map((j) => ({
             slug: j.id.toString(),
             title: j.title,
             department: j.department || 'Engineering',
             type: j.employment_type || 'Full-time',
             location: j.location || 'Remote',
-            posted: j.status === 'active' ? 'Actively hiring' : (j.created_at ? 'Recently posted' : 'Active'),
-            description: j.description
+            posted: 'Actively hiring',
           }))
-          setJobsList(formatted)
-        }
+        setJobsList(formatted)
       })
-      .catch((err) => console.warn('Could not fetch backend jobs, using fallback list:', err))
+      .catch((err) => {
+        console.warn('Could not fetch backend jobs:', err)
+        setJobsLoadError(true)
+      })
+      .finally(() => setJobsLoading(false))
   }, [])
 
   const departments = useMemo(() => {
@@ -403,38 +412,54 @@ export default function WhyEncegen() {
             <span className="roles-search-eyebrow">CHAPTER 06 · YOUR ROLE</span>
             <div className="roles-search-title-row">
               <h2 className="roles-search-title">Where will you make your mark?</h2>
-              <span className="roles-search-badge">Actively hiring</span>
+              {jobsList.length > 0 && <span className="roles-search-badge">Actively hiring</span>}
             </div>
           </div>
 
           {/* Search Bar */}
-          <div className="roles-search-bar">
-            <SearchIcon size={18} className="roles-search-icon" />
-            <input
-              type="text"
-              placeholder="Search roles..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          </div>
+          {jobsList.length > 0 && (
+            <div className="roles-search-bar">
+              <SearchIcon size={18} className="roles-search-icon" />
+              <input
+                type="text"
+                placeholder="Search roles..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+            </div>
+          )}
 
           {/* Department Filter Pills */}
-          <div className="roles-filter-pills">
-            {departments.map((d) => (
-              <button
-                key={d}
-                type="button"
-                className={`roles-filter-pill ${d.toLowerCase() === dept.toLowerCase() ? 'active' : ''}`}
-                onClick={() => setDept(d)}
-              >
-                {d}
-              </button>
-            ))}
-          </div>
+          {jobsList.length > 0 && (
+            <div className="roles-filter-pills">
+              {departments.map((d) => (
+                <button
+                  key={d}
+                  type="button"
+                  className={`roles-filter-pill ${d.toLowerCase() === dept.toLowerCase() ? 'active' : ''}`}
+                  onClick={() => setDept(d)}
+                >
+                  {d}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Job Rows List */}
           <div className="roles-jobs-list">
-            {filteredJobs.length > 0 ? (
+            {jobsLoading ? (
+              <div className="roles-empty-state" role="status">
+                <p>Loading open positions...</p>
+              </div>
+            ) : jobsLoadError ? (
+              <div className="roles-empty-state" role="alert">
+                <p>We’re unable to load open positions right now. Please try again later.</p>
+              </div>
+            ) : jobsList.length === 0 ? (
+              <div className="roles-empty-state">
+                <p>There are no open positions right now. Please check back soon.</p>
+              </div>
+            ) : filteredJobs.length > 0 ? (
               filteredJobs.map((job) => (
                 <div key={job.slug} className="role-card-exact">
                   <div className="role-card-main">

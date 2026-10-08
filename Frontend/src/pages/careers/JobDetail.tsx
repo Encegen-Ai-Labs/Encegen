@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { JOBS as DEFAULT_JOBS } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 
@@ -26,6 +25,7 @@ export default function JobDetail() {
   const { slug } = useParams()
   const [job, setJob] = useState<JobData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   // Form State
   const [fullName, setFullName] = useState('')
@@ -45,52 +45,36 @@ export default function JobDetail() {
 
   useEffect(() => {
     setLoading(true)
+    setLoadError(false)
+    setJob(null)
     fetch(`${API_BASE_URL}/jobs`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`Jobs request failed with status ${res.status}`)
+        return res.json()
+      })
       .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          const found = data.find((j: any) => j.id.toString() === slug || j.slug === slug || j.title.toLowerCase().replace(/\s+/g, '-') === slug)
-          if (found) {
-            setJob({
-              id: found.id,
-              title: found.title,
-              department: found.department || 'Engineering',
-              location: found.location || 'Remote',
-              type: found.employment_type || 'Full-time',
-              posted: found.status === 'active' ? 'Active' : 'Closed',
-              description: found.description,
-              requirements: found.requirements
-            })
-            setLoading(false)
-            return
-          }
-        }
-        // Fallback to static job data
-        const staticFound = DEFAULT_JOBS.find((j) => j.slug === slug) ?? DEFAULT_JOBS[0]
+        if (!Array.isArray(data)) throw new Error('Jobs response was not a list')
+        const found = data.find((j) =>
+          j.status === 'active' &&
+          (j.id.toString() === slug || j.slug === slug || j.title.toLowerCase().replace(/\s+/g, '-') === slug),
+        )
+        if (!found) return
         setJob({
-          title: staticFound.title,
-          department: staticFound.department,
-          location: staticFound.location,
-          type: staticFound.type,
-          posted: staticFound.posted,
-          description: `Join Encegen as a ${staticFound.title} in the ${staticFound.department} team. You will lead core projects, architect high-performance solutions, and collaborate with global engineering teams.`,
-          requirements: '5+ years experience in software/AI development, strong problem solving, familiarity with React, Node.js, and cloud deployments.'
+          id: found.id,
+          title: found.title,
+          department: found.department || 'Engineering',
+          location: found.location || 'Remote',
+          type: found.employment_type || 'Full-time',
+          posted: 'Active',
+          description: found.description,
+          requirements: found.requirements
         })
-        setLoading(false)
       })
-      .catch(() => {
-        const staticFound = DEFAULT_JOBS.find((j) => j.slug === slug) ?? DEFAULT_JOBS[0]
-        setJob({
-          title: staticFound.title,
-          department: staticFound.department,
-          location: staticFound.location,
-          type: staticFound.type,
-          posted: staticFound.posted,
-          description: `Join Encegen as a ${staticFound.title} in the ${staticFound.department} team. You will lead core projects, architect high-performance solutions, and collaborate with global engineering teams.`,
-          requirements: '5+ years experience in software/AI development, strong problem solving.'
-        })
-        setLoading(false)
+      .catch((err) => {
+        console.warn('Could not fetch job details:', err)
+        setLoadError(true)
       })
+      .finally(() => setLoading(false))
   }, [slug])
 
   // --- Real-Time Interactive Validation Rules & Handlers ---
@@ -442,10 +426,20 @@ export default function JobDetail() {
     }
   }
 
-  if (loading || !job) {
+  if (loading) {
     return (
       <div style={{ paddingTop: 140, paddingBottom: 100, textAlign: 'center', color: '#94a3b8' }}>
         <h2>Loading position details...</h2>
+      </div>
+    )
+  }
+
+  if (!job) {
+    return (
+      <div style={{ padding: '140px 24px 100px', textAlign: 'center', color: '#64748b' }}>
+        <h2>{loadError ? 'Unable to load this position right now.' : 'This position is no longer available.'}</h2>
+        <p>{loadError ? 'Please try again later.' : 'There are no openings for this role at the moment.'}</p>
+        <Link to="/careers" className="job-row__apply">View current openings</Link>
       </div>
     )
   }

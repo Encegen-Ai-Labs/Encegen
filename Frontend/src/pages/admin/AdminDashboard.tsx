@@ -235,7 +235,9 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const [resJobs, resInsights, resResources, resApplications] = await Promise.allSettled([
-        fetch(`${API_BASE_URL}/jobs`),
+        fetch(`${API_BASE_URL}/admin/jobs`, {
+          headers: { Authorization: `Bearer ${token}` }
+        }),
         fetch(`${API_BASE_URL}/insights?includeDrafts=true`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
