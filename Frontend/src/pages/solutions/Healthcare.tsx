@@ -21,6 +21,7 @@ import {
   ZapIcon,
 } from '../../components/icons'
 import './solutions.css'
+import healthcareRevCycleImg from '../../assets/figma/figma_74.png'
 
 const CORE_PILLARS = [
   {
@@ -156,6 +157,7 @@ export default function Healthcare() {
   return (
     <>
       <PageHero
+        className="phero--healthcare"
         badge="Industry Solutions · Healthcare"
         title={
           <>
@@ -238,42 +240,57 @@ export default function Healthcare() {
             </div>
           </div>
 
-          <MockPanel
-            title="Clinical & Revenue Cycle Hub"
-            right={<LiveDot label="Active Guardrails" />}
-            rows={[
-              {
-                label: 'Clinical Note · Encounter #8841',
-                sub: 'SOAP note & discharge summary structured · ICD-10 citations attached',
-                chip: 'Ready for MD sign-off',
-                chipColor: '#2fe08e',
-              },
-              {
-                label: 'Prior Auth · MRI Lumbar Spine',
-                sub: '6-week PT history & conservative care notes matched to payer policy',
-                chip: 'Packet assembled',
-                chipColor: '#22d3ee',
-              },
-              {
-                label: 'Pre-Bill Claim Scrub · CLM-3092',
-                sub: 'Missing modifier -25 flagged & supporting chart note linked pre-submission',
-                chip: 'Denial prevented',
-                chipColor: '#a99cff',
-              },
-              {
-                label: 'Referral Intake Queue',
-                sub: 'Insurance eligibility verified · Routed to Cardiology within 90 seconds',
-                chip: 'Auto-triaged',
-                chipColor: '#2fe08e',
-              },
-            ]}
-            footer={
-              <>
-                <span>Standards: HL7 FHIR · ICD-10 / CPT · HIPAA Ready</span>
-                <span>Clean Claim Rate: 96.8%</span>
-              </>
-            }
-          />
+          <div className="top-right-panel-frame" style={{ maxWidth: 540, width: '100%', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <img
+              src={healthcareRevCycleImg}
+              alt="Clinical & Revenue Cycle Intelligence"
+              style={{
+                width: '100%',
+                height: 200,
+                objectFit: 'cover',
+                borderRadius: 16,
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)',
+                display: 'block',
+              }}
+            />
+            <MockPanel
+              title="Clinical & Revenue Cycle Hub"
+              right={<LiveDot label="Active Guardrails" />}
+              rows={[
+                {
+                  label: 'Clinical Note · Encounter #8841',
+                  sub: 'SOAP note & discharge summary structured · ICD-10 citations attached',
+                  chip: 'Ready for MD sign-off',
+                  chipColor: '#2fe08e',
+                },
+                {
+                  label: 'Prior Auth · MRI Lumbar Spine',
+                  sub: '6-week PT history & conservative care notes matched to payer policy',
+                  chip: 'Packet assembled',
+                  chipColor: '#22d3ee',
+                },
+                {
+                  label: 'Pre-Bill Claim Scrub · CLM-3092',
+                  sub: 'Missing modifier -25 flagged & supporting chart note linked pre-submission',
+                  chip: 'Denial prevented',
+                  chipColor: '#a99cff',
+                },
+                {
+                  label: 'Referral Intake Queue',
+                  sub: 'Insurance eligibility verified · Routed to Cardiology within 90 seconds',
+                  chip: 'Auto-triaged',
+                  chipColor: '#2fe08e',
+                },
+              ]}
+              footer={
+                <>
+                  <span>Standards: HL7 FHIR · ICD-10 / CPT · HIPAA Ready</span>
+                  <span>Clean Claim Rate: 96.8%</span>
+                </>
+              }
+            />
+          </div>
         </div>
       </section>
 

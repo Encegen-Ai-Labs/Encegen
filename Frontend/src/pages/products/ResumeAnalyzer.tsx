@@ -51,6 +51,7 @@ export default function ResumeAnalyzer() {
   return (
     <>
       <PageHero
+        className="phero--resume-analyzer"
         badge="AI-Powered Candidate Screening"
         title={
           <>

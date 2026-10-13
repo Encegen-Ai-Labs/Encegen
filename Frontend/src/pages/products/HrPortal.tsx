@@ -118,6 +118,7 @@ export default function HrPortal() {
   return (
     <>
       <PageHero
+        className="phero--hr-portal"
         badge="AI-Powered Recruitment"
         title={
           <>

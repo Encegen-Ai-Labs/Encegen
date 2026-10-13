@@ -5,6 +5,15 @@ import { API_BASE_URL } from '../config/api'
 import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
 import './Insights.css'
+import figmaSupplyChain from '../assets/figma/figma_13.png'
+import figmaAirbus from '../assets/figma/figma_39.png'
+import figmaArchitecture from '../assets/figma/figma_5.png'
+import figmaCosmic from '../assets/figma/figma_20.png'
+import figmaPodcastMic from '../assets/figma/figma_42.png'
+import figmaDemoConsole from '../assets/figma/figma_17.png'
+import figmaFinanceAP from '../assets/figma/figma_3.png'
+import figmaVodafone from '../assets/figma/figma_79.png'
+import figmaControlRoom from '../assets/figma/figma_43.png'
 
 interface InsightItem {
   id: number | string
@@ -78,6 +87,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Principal Analyst',
     action_label: 'Read →',
     art_variant: 'cyan',
+    cover_image: figmaSupplyChain,
     hue: 190,
   },
   {
@@ -92,6 +102,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Senior Editor',
     action_label: 'Read →',
     art_variant: 'orange',
+    cover_image: figmaAirbus,
     hue: 30,
   },
   {
@@ -107,6 +118,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     action_label: 'Watch →',
     media_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     art_variant: 'magenta',
+    cover_image: figmaArchitecture,
     hue: 300,
   },
   {
@@ -121,6 +133,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Research Director',
     action_label: 'Download →',
     art_variant: 'purple',
+    cover_image: figmaCosmic,
     hue: 255,
     is_featured: true,
   },
@@ -137,6 +150,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     action_label: 'Listen →',
     media_url: 'https://soundcloud.com',
     art_variant: 'blue',
+    cover_image: figmaPodcastMic,
     hue: 215,
   },
   {
@@ -152,6 +166,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     action_label: 'Watch →',
     media_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     art_variant: 'purple',
+    cover_image: figmaDemoConsole,
     hue: 255,
   },
   {
@@ -166,6 +181,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Finance Lead',
     action_label: 'Read →',
     art_variant: 'green',
+    cover_image: figmaFinanceAP,
     hue: 150,
   },
   {
@@ -180,6 +196,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Customer Success',
     action_label: 'Read →',
     art_variant: 'cyan',
+    cover_image: figmaVodafone,
     hue: 190,
   },
   {
@@ -194,6 +211,7 @@ const DEFAULT_ARTICLES: InsightItem[] = [
     author_role: 'Analyst Relations',
     action_label: 'Download →',
     art_variant: 'orange',
+    cover_image: figmaControlRoom,
     hue: 30,
   },
 ]
@@ -305,16 +323,18 @@ export default function Insights() {
   return (
     <>
       <PageHero
-        className="insights-hero"
+        className="insights-hero phero--insights"
         badge="Insights Hub"
         title="Ideas that move enterprise forward"
         sub="Expert analysis, customer stories, research reports, webinars, podcasts, and hands-on guides — everything you need to stay ahead in process intelligence."
         actions={
           <>
             <Btn variant="white" onClick={() => window.scrollTo({ top: 500, behavior: 'smooth' })}>
-              Browse all insights →
+              Browse all insights &rarr;
             </Btn>
-          
+            <Btn variant="white" onClick={() => document.getElementById('newsletter-card')?.scrollIntoView({ behavior: 'smooth' })}>
+              Subscribe to newsletter
+            </Btn>
           </>
         }
       />

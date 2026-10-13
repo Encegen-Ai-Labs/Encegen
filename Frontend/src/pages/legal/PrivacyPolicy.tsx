@@ -132,7 +132,7 @@ export default function PrivacyPolicy() {
           </section>
 
           {/* 7. Cookies and Similar Technologies */}
-          <section className="legal-section">
+          <section id="cookies" className="legal-section">
             <h2 className="legal-section__heading">7. Cookies and Similar Technologies</h2>
             <p>
               We use cookies, local storage, and similar web technologies to enable core site functionality, remember your preferences (such as selected language), and analyze website performance.

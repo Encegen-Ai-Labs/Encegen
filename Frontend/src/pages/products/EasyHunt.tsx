@@ -2,7 +2,6 @@ import {
   Btn,
   ClosingCTA,
   GradBand,
-  MockPanel,
   PageHero,
   SectionHead,
   TestimonialCard,
@@ -22,6 +21,7 @@ import {
 
 import './products.css'
 import logoEasyHunt from '../../assets/easy.png'
+import easyhuntPropertyProfileSvg from '../../assets/generated_panels/easyhunt-property-profile.svg'
 
 const STAT_TILES = [
   {
@@ -256,6 +256,7 @@ export default function EasyHunt() {
       ========================================= */}
 
       <PageHero
+        className="phero--easyhunt"
         badge={
           <>
             <span
@@ -383,85 +384,19 @@ export default function EasyHunt() {
             </p>
           </div>
 
-          <div className="easyhunt-profile">
-            <MockPanel
-              title="AI Property Profile"
-              right={
-                <span
-                  style={{
-                    background: 'rgba(99, 102, 241, 0.18)',
-                    color: '#818cf8',
-                    border:
-                      '1px solid rgba(99, 102, 241, 0.35)',
-                    borderRadius: 999,
-                    padding: '3px 10px',
-                    fontSize: 11,
-                    fontWeight: 700,
-                  }}
-                >
-                  ★ AI Verified
-                </span>
-              }
-              rows={[
-                {
-                  label: '2024',
-                  sub: 'Godrej Properties (Current Owner)',
-                  chipColor: '#818cf8',
-                },
-                {
-                  label: '2018',
-                  sub: 'Acquired from Mehta Family Trust',
-                  chipColor: '#818cf8',
-                },
-                {
-                  label: '1995',
-                  sub: 'Original Allotment - Govt of Maharashtra',
-                  chipColor: '#818cf8',
-                },
-              ]}
-              footer={
-                <div style={{ width: '100%' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: '0.06em',
-                      color: '#8f9bb3',
-                      textTransform: 'uppercase',
-                      marginBottom: 8,
-                    }}
-                  >
-                    <span>
-                      LITIGATION &amp; ENCUMBRANCE RISK
-                    </span>
-
-                    <span style={{ color: '#10b981' }}>
-                      Low Risk
-                    </span>
-                  </div>
-
-                  <div
-                    style={{
-                      width: '100%',
-                      height: 6,
-                      background: 'rgba(255, 255, 255, 0.1)',
-                      borderRadius: 3,
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '24%',
-                        height: '100%',
-                        background: '#10b981',
-                        borderRadius: 3,
-                      }}
-                    />
-                  </div>
-                </div>
-              }
+          <div className="easyhunt-profile" style={{ maxWidth: 540, width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <img
+              src={easyhuntPropertyProfileSvg}
+              alt="AI Property Profile - Risk & Ownership History"
+              className="top-right-panel-img"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 16,
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.35)',
+                display: 'block',
+              }}
             />
           </div>
         </div>

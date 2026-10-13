@@ -148,35 +148,35 @@ const STEPS = [
     title: 'Discovery',
     meta: 'Week 1-2',
     desc: 'Stakeholder workshops, problem framing, a data-landscape audit, and an honest feasibility and ROI read before anyone writes code.',
-    chips: ['Problem brief', 'Data audit report'],
+    chips: ['📋 Problem brief', '🔍 Data audit report'],
   },
   {
     num: '02',
     title: 'Data Strategy',
     meta: 'Week 3-5',
     desc: "Sourcing, a cleaning pipeline, annotation guidelines, synthetic data where it helps, and a train/test split that holds up.",
-    chips: ['Clean dataset', 'Labeling schema'],
+    chips: ['🗄️ Clean dataset', '📊 Labeling schema'],
   },
   {
     num: '03',
     title: 'Architecture',
     meta: 'Week 6-7',
     desc: 'Foundation-model selection, a fine-tuning strategy, an evaluation framework, and baseline runs to measure against.',
-    chips: ['Model blueprint', 'Baseline metrics'],
+    chips: ['🧠 Model blueprint', '📈 Baseline metrics'],
   },
   {
     num: '04',
     title: 'Training & Validate',
     meta: 'Week 8-11',
     desc: 'Iterative training, tuning, alignment, red-teaming, and validation against the targets we agreed on.',
-    chips: ['Validated model', 'Eval scorecard'],
+    chips: ['✅ Validated model', '📋 Benchmark report'],
   },
   {
     num: '05',
     title: 'Deployment',
     meta: 'Week 12-14',
     desc: 'API integration, monitoring, A/B testing, handover, documentation, and a 30-day support window.',
-    chips: ['Live in production', 'Full documentation'],
+    chips: ['🚀 Live in production', '📖 Full documentation'],
   },
 ]
 
@@ -254,7 +254,7 @@ export default function AiResearch() {
   return (
     <>
       <PageHero
-        className="ai-research-hero"
+        className="ai-research-hero phero--ai-research"
         badge={<>● Encegen AI Labs – Custom AI Research &amp; Engineering</>}
         title={
           <>
@@ -267,7 +267,7 @@ export default function AiResearch() {
         actions={
           <>
             <Btn onClick={() => setShowContact(true)} variant="white">Start a project →</Btn>
-            <Btn to="#capabilities" variant="outline-light">Explore capabilities ↓</Btn>
+            <Btn to="#capabilities" variant="outline-light">Explore capabilities →</Btn>
           </>
         }
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}

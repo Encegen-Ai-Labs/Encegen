@@ -64,7 +64,6 @@ const REVEAL_SELECTORS = [
   '.team-showcase__intro > *',
   '.team-showcase__stats > *',
   '.culture-join-cta__inner > *',
-  '.home-logos__label',
 ]
 
 const COUNTER_SELECTORS = [

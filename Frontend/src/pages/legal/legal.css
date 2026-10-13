@@ -5,9 +5,7 @@
 }
 
 .legal-hero {
-  background:
-    radial-gradient(700px 420px at 50% 0%, rgba(124, 92, 255, 0.35), transparent 65%),
-    linear-gradient(180deg, #100e28 0%, #17153a 100%);
+  background: #060B27;
   color: #ffffff;
   padding: clamp(6.75rem, 6.2rem + 2.2vw, 9.25rem) 0 clamp(2.5rem, 2rem + 1.5vw, 4rem);
   text-align: center;

@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logo from '../assets/footerlogo.png'
-import { LinkedInIcon, XIcon, InstagramIcon } from './icons'
+import { LinkedInIcon, XIcon, YoutubeIcon } from './icons'
 import './Footer.css'
 
 export default function Footer() {
@@ -10,48 +10,42 @@ export default function Footer() {
 
   const columns = useMemo(() => [
     {
-      heading: t('navbar.solutions', 'Solutions'),
+      heading: t('footer.headings.solutions', 'Solutions'),
       links: [
-        { label: t('navbar.links.aiAgents', 'AI Agents & Automation'), to: '/solutions/ai-agents' },
-        { label: t('navbar.links.aiResearch', 'AI Research Solutions'), to: '/solutions/ai-research' },
-        { label: t('navbar.links.customSoftware', 'Custom Software Dev'), to: '/solutions/custom-software' },
-        { label: t('navbar.links.digitalMarketing', 'Digital Marketing & Growth'), to: '/solutions/digital-marketing' },
-        { label: t('navbar.links.webEcommerce', 'Website & Ecommerce Dev'), to: '/solutions/web-ecommerce' },
-        { label: t('navbar.links.allTransformations', 'Use Cases & Industries'), to: '/solutions/use-cases' },
+        { label: t('footer.links.aiAgents', 'AI Agents & Automation'), to: '/solutions/ai-agents' },
+        { label: t('footer.links.aiResearch', 'AI Research Solutions'), to: '/solutions/ai-research' },
+        { label: t('footer.links.customSoftware', 'Custom Software Dev'), to: '/solutions/custom-software' },
+        { label: t('footer.links.digitalMarketing', 'Digital Marketing & Growth'), to: '/solutions/digital-marketing' },
+        { label: t('footer.links.webEcommerce', 'Website & Ecommerce Dev'), to: '/solutions/web-ecommerce' },
+        { label: t('footer.links.useCases', 'Use Cases & Industries'), to: '/solutions/use-cases' },
       ],
     },
     {
-      heading: t('navbar.products', 'Products'),
+      heading: t('footer.headings.products', 'Products'),
       links: [
-        { label: t('navbar.links.easyHunt', 'Easy Hunt'), to: '/products/easy-hunt' },
-        { label: t('navbar.links.hrPortal', 'HR Portal'), to: '/products/hr-portal' },
-        { label: t('navbar.links.resumeBuilder', 'Resume Builder'), to: '/products/resume-builder' },
-        { label: t('navbar.links.resumeAnalyzer', 'Resume Analyzer'), to: '/products/resume-analyzer' },
-        { label: t('navbar.links.voiceAgent', 'Voice Agent'), to: '/products/voice-agent' },
-        { label: 'CBMS (Call Back Management System)', to: '/products/cbms' },
-        { label: 'HMS (Hostel Management System)', to: '/products/hms' },
-        { label: t('navbar.headings.platform', 'Encegen Platform'), to: '/platform' },
+        { label: t('footer.links.easyHunt', 'Easy Hunt'), to: '/products/easy-hunt' },
+        { label: t('footer.links.hrPortal', 'HR Portal'), to: '/products/hr-portal' },
+        { label: t('footer.links.cbms', 'CBMS'), to: '/products/cbms' },
+        { label: t('footer.links.hms', 'HMS'), to: '/products/hms' },
       ],
     },
     {
-      heading: t('navbar.resources', 'Resources'),
+      heading: t('footer.headings.resources', 'Resources'),
       links: [
-        { label: t('navbar.insights', 'Insights'), to: '/insights' },
-        { label: t('navbar.featuredStories', 'Case Studies'), to: '/insights' },
-        { label: t('navbar.resources', 'Knowledge Hub'), to: '/resources' },
-        { label: t('navbar.links.aiResearch', 'Research Papers'), to: '/resources' },
-        { label: t('navbar.links.explorePlatformLink', 'Documentation'), to: '/resources' },
+        { label: t('footer.links.insights', 'Insights'), to: '/insights' },
+        { label: t('footer.links.caseStudies', 'Case Studies'), to: '/insights' },
+        { label: t('footer.links.knowledgeHub', 'Knowledge Hub'), to: '/resources' },
+        { label: t('footer.links.researchPapers', 'Research Papers'), to: '/resources' },
+        { label: t('footer.links.documentation', 'Documentation'), to: '/resources' },
       ],
     },
     {
-      heading: t('navbar.company', 'Company'),
+      heading: t('footer.headings.company', 'Company'),
       links: [
-        { label: t('navbar.links.aboutUs', 'About Us'), to: '/about' },
-        { label: 'Company Profile', to: '/company/profile' },
-        { label: t('navbar.links.ourStory', 'Our Story'), to: '/our-story' },
-        { label: t('navbar.links.ourValues', 'Our Values'), to: '/values' },
-        { label: t('navbar.links.ourCulture', 'Our Culture'), to: '/culture' },
-        { label: t('navbar.links.careers', 'Careers'), to: '/careers' },
+        { label: t('footer.links.aboutUs', 'About Us'), to: '/about' },
+        { label: t('footer.links.careers', 'Careers'), to: '/careers' },
+        { label: t('footer.links.ourValues', 'Our Values'), to: '/values' },
+        { label: t('footer.links.ourCulture', 'Our Culture'), to: '/culture' },
       ],
     },
   ], [t])
@@ -59,6 +53,7 @@ export default function Footer() {
   const legalLinks = useMemo(() => [
     { label: t('footer.links.privacy', 'Privacy Policy'), to: '/privacy-policy' },
     { label: t('footer.links.terms', 'Terms of Use'), to: '/terms-and-conditions' },
+    { label: t('footer.links.cookies', 'Cookie Settings'), to: '/privacy-policy#cookies' },
   ], [t])
 
   return (
@@ -66,24 +61,12 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <Link to="/" className="navbar__logo">
+            <Link to="/" className="footer__logo" aria-label="Encegen AI Labs">
               <img src={logo} alt="Encegen AI Labs" />
             </Link>
             <p>
               {t('footer.tagline', 'AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.')}
             </p>
-            <div className="footer__offices">
-              <div>
-                <strong>📍 Wagholi Office: </strong>
-                <a
-                  href="https://maps.app.goo.gl/TXjPKk6BFvho6c4R7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
-                </a>
-              </div>
-            </div>
           </div>
 
           <div className="footer__columns">
@@ -103,20 +86,23 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <span className="footer__copyright">
-            {t('footer.copyright', '© 2026 Encegen AI Labs Inc. All rights reserved.')}
-          </span>
-          <div className="footer__socials">
-            <a href="https://www.linkedin.com/company/encegen-ai-labs-pvt-ltd/posts/?feedView=all" aria-label="LinkedIn">
-              <LinkedInIcon size={16} />
-            </a>
-            <a href="https://x.com/EncegenAi" aria-label="X (Twitter)">
-              <XIcon size={16} />
-            </a>
-            <a href="https://www.instagram.com/encegen_ail_labs?igsh=MWdqMTRocXAwZmQzbA%3D%3D" aria-label="Instagram">
-              <InstagramIcon size={17} />
-            </a>
+          <div className="footer__bottom-left">
+            <span className="footer__copyright">
+              {t('footer.copyright', '© 2025 Encegen SE. All rights reserved.')}
+            </span>
+            <div className="footer__socials">
+              <a href="https://www.linkedin.com/company/encegen-ai-labs-pvt-ltd/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <LinkedInIcon size={17} />
+              </a>
+              <a href="https://x.com/EncegenAi" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <XIcon size={17} />
+              </a>
+              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <YoutubeIcon size={18} />
+              </a>
+            </div>
           </div>
+
           <div className="footer__legal">
             {legalLinks.map((item) => (
               <Link key={item.label} to={item.to}>

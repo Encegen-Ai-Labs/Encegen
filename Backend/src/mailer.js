@@ -3,7 +3,17 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, HR_EMAIL, ADMIN_EMAIL } = process.env;
+const {
+  SMTP_HOST,
+  SMTP_PORT,
+  SMTP_USER,
+  SMTP_PASS,
+  SMTP_FROM,
+  HR_EMAIL,
+  ADMIN_EMAIL,
+  CONTACT_EMAIL,
+  CONTACT_FROM,
+} = process.env;
 
 let transporter = null;
 
@@ -63,6 +73,44 @@ export async function sendApplicationEmail({ job, applicant, resumeFile }) {
     return { sent: true };
   } catch (err) {
     console.error('Failed to send application email:', err.message);
+    return { sent: false, reason: err.message };
+  }
+}
+
+/**
+ * Emails a website enquiry to the configured contact inbox.
+ * @param {{ contact: { name: string, email: string, company: string, phone: string, message: string } }} params
+ */
+export async function sendContactEmail({ contact }) {
+  if (!transporter) {
+    return { sent: false, reason: 'SMTP not configured' };
+  }
+
+  const recipient = CONTACT_EMAIL || 'contact@encegen.com';
+  const from = CONTACT_FROM || SMTP_FROM || SMTP_USER;
+  const lines = [
+    'New enquiry from the Encegen website',
+    '',
+    `Name: ${contact.name}`,
+    `Email: ${contact.email}`,
+    `Company: ${contact.company}`,
+    `Phone: ${contact.phone || 'Not provided'}`,
+    '',
+    'What they would like to achieve:',
+    contact.message,
+  ];
+
+  try {
+    await transporter.sendMail({
+      from,
+      to: recipient,
+      replyTo: contact.email,
+      subject: `Website enquiry: ${contact.name}`,
+      text: lines.join('\n'),
+    });
+    return { sent: true };
+  } catch (err) {
+    console.error('Failed to send website contact enquiry:', err.message);
     return { sent: false, reason: err.message };
   }
 }

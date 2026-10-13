@@ -1,12 +1,12 @@
 import {
   Btn,
   ClosingCTA,
-  LiveDot,
-  MockPanel,
   PageHero,
   SectionHead,
 } from '../../components/kit'
 import './company.css'
+import truthRealityVsPromiseSvg from '../../assets/generated_panels/truth-reality-vs-promise.svg'
+import aiDeploymentStatusSvg from '../../assets/generated_panels/ai-deployment-status.svg'
 
 const STORY_PILLARS = [
   {
@@ -126,22 +126,24 @@ export default function OurStory() {
     <>
       {/* Section 1: Hero */}
       <PageHero
-        badge="Our Origin & Journey"
+        className="phero--our-story story-hero"
         title={
           <>
-            We didn't build an AI company.
+            We didn't build
             <br />
-            <span className="accent-purple">We built a better future.</span>
+            an AI company.
+            <br />
+            We built a better future.
           </>
         }
-        sub="Encegen was born from a simple frustration — that every enterprise software talks about AI, but very few actually deliver it."
+        sub="Encogen was born from a simple frustration – that most enterprise software talks about AI, but very few actually deliver it."
         actions={
           <>
             <Btn to="#chapter-01" variant="white">
-              Read the story ↓
+              Read the story →
             </Btn>
             <Btn to="/values" variant="outline-light">
-              Our Values
+              Our values
             </Btn>
           </>
         }
@@ -163,42 +165,25 @@ export default function OurStory() {
                 Most delivers dashboards.
               </h2>
             </div>
-            <div className="story-origin__paras">
-              <p className="left-copy">
-                We've all been there: the demo is slick, the slides are convincing, and the ROI model looks too
-                good to be true. But when the pilot starts, the reality sets in: brittle models, broken workflows,
-                and decisions delayed by weeks.
-              </p>
-              <p className="left-copy">
-                The gap between AI hype and real enterprise value isn't a technology problem — it's a trust
-                problem. We built Encegen to close that gap with a different kind of AI: one that runs
-                operations, not just reports them.
-              </p>
-            </div>
+              <div className="story-origin__paras">
+                <p className="left-copy">
+                  We've all been there: the demo is slick, the slides are convincing, and the ROI model looks too
+                  good to be true. But when the pilot starts, the reality sets in: brittle models, broken workflows,
+                  and decisions delayed by weeks.
+                </p>
+                <p className="left-copy">
+                  The gap between AI hype and real enterprise value isn't a technology problem — it's a trust
+                  problem. We built Encogen to close that gap with a different kind of AI: one that runs
+                  operations, not just reports them.
+                </p>
+              </div>
           </div>
-          <div className="truth story-origin__truth">
-            <div className="truth__head">
-              <span className="truth__title">The Truth</span>
-              <span className="truth__note">Reality vs. promise</span>
-            </div>
-            <div className="truth__cols">
-              <div className="truth__col truth__col--promise">
-                <h4>The Promise</h4>
-                <ul>
-                  <li>AI that automates everything</li>
-                  <li>10x ROI in 30 days</li>
-                  <li>Zero integration effort</li>
-                </ul>
-              </div>
-              <div className="truth__col truth__col--reality">
-                <h4>The Reality</h4>
-                <ul>
-                  <li>Models that break in production</li>
-                  <li>ROI measured in dashboards</li>
-                  <li>Months of &ldquo;integration&rdquo; work</li>
-                </ul>
-              </div>
-            </div>
+          <div className="story-origin__truth-frame">
+            <img
+              src={truthRealityVsPromiseSvg}
+              alt="The Truth: Reality vs Promise"
+              className="story-origin__truth-img"
+            />
           </div>
         </div>
       </section>
@@ -229,61 +214,48 @@ export default function OurStory() {
         </div>
       </section>
 
-      {/* Section 4: Chapter 02 — How We Build (1440 Fill x 640 Hug) */}
-      <section className="section section--light story-chapter-two">
+      {/* Section 4: Chapter 03 — How We Build (1440 Fill x 640 Hug) */}
+      <section className="section story-chapter-two">
         <div className="container split story-chapter-two__wrap">
           <div className="story-chapter-two__copy">
             <div className="story-origin__label-wrap">
               <span className="story-origin__rail" aria-hidden="true" />
               <span className="chapter-badge">Chapter 03</span>
             </div>
-            <p className="shead__eyebrow">Building for the Real World</p>
-            <h2 className="left-title">
-              We don't believe every problem needs AI.
-              <br />
-              The right problem deserves the right system.
+            <h2 className="left-title story-chapter-two__title">
+              We build AI that actually runs your business.
             </h2>
             <div className="story-bullets">
               <div className="story-bullet">
                 <span className="story-bullet__dot" />
                 <div className="story-bullet__content">
-                  <h4>Not just hours. Deliver outcomes.</h4>
-                  <p>Software is useless if it doesn't solve what real teams need. We engineer for bottom-line business results.</p>
+                  <h4>No black boxes. Only outcomes.</h4>
+                  <p>We measure success by decisions made, not models trained.</p>
                 </div>
               </div>
               <div className="story-bullet">
                 <span className="story-bullet__dot" />
                 <div className="story-bullet__content">
                   <h4>Deployed in weeks, not years.</h4>
-                  <p>Agile, research-grade engineering from kickoff to production deployment in 14 weeks average.</p>
+                  <p>We ship fast, iterate fast, and improve fast — without breaking workflows.</p>
                 </div>
               </div>
               <div className="story-bullet">
                 <span className="story-bullet__dot" />
                 <div className="story-bullet__content">
                   <h4>Your data never leaves your walls.</h4>
-                  <p>Enterprise security, on-premise or private VPC deployments with strict NDA protection and zero lock-in.</p>
+                  <p>We run where you need us: on-prem, in your cloud, or in a secure enclave.</p>
                 </div>
               </div>
             </div>
           </div>
-          <MockPanel
-            title="Encegen Intelligence Stack"
-            right={<LiveDot label="Active" />}
-            rows={[
-              { label: 'EasyHunt: Land Records OCR', value: 'Live', chip: 'Flairnetic' },
-              { label: 'Pramay Agro: E-Commerce Portal', value: 'Active', chip: 'Agri Tech', chipColor: '#22d3ee' },
-              { label: 'Fx Algo: Trading Engine', value: 'Live', chip: '<5ms Latency', chipColor: '#a99cff' },
-              { label: 'Varasa: Heritage & Grant System', value: 'Running', chip: '10k+ Records' },
-              { label: 'Multilingual Document OCR', value: 'Running', chip: '99.4% accuracy', chipColor: '#22d3ee' },
-            ]}
-            footer={
-              <>
-                <span>● Practical AI & Engineering In Production</span>
-                <span>Encegen AI Labs</span>
-              </>
-            }
-          />
+          <div className="story-chapter-two__frame">
+            <img
+              src={aiDeploymentStatusSvg}
+              alt="Encegen Intelligence Stack - AI Deployment Status"
+              className="story-chapter-two__img"
+            />
+          </div>
         </div>
       </section>
 
@@ -315,13 +287,7 @@ export default function OurStory() {
           </div>
           <div className="rule-bar">
             <strong>We have one rule at Encegen: if you wouldn't bet your own career on it, we don't ship it.</strong>
-            <div className="rule-bar__avatars">
-              {[...TEAM_MEMBERS.map((m) => m.initials), 'CP'].map((initials) => (
-                <span key={initials} className="avatar">
-                  {initials}
-                </span>
-              ))}
-            </div>
+            <span className="rule-bar__byline">– Saurabh Gite, Managing Director &amp; Co-Founder</span>
           </div>
         </div>
       </section>

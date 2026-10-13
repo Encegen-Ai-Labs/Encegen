@@ -6,6 +6,7 @@ import jobsRoutes from './routes/jobs.js';
 import blogsRoutes from './routes/blogs.js';
 import insightsRoutes from './routes/insights.js';
 import resourcesRoutes from './routes/resources.js';
+import contactRoutes from './routes/contact.js';
 import { initDb } from './initDb.js';
 
 dotenv.config();
@@ -29,7 +30,8 @@ app.get('/', (req, res) => {
       jobs: '/api/jobs',
       blogs: '/api/blogs',
       insights: '/api/insights',
-      resources: '/api/resources'
+      resources: '/api/resources',
+      contact: '/api/contact'
     }
   });
 });
@@ -40,6 +42,7 @@ app.use('/api', jobsRoutes);
 app.use('/api', blogsRoutes);
 app.use('/api', insightsRoutes);
 app.use('/api', resourcesRoutes);
+app.use('/api/contact', contactRoutes);
 
 
 // Global Error Handler

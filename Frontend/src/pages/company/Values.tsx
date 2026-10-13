@@ -99,6 +99,12 @@ import logoPramay from '../../assets/pramay.png'
 import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
 
+const TEAM_SHOWCASE = [
+  { value: '12', label: 'Nationalities' },
+  { value: '60%', label: 'Engineers' },
+  { value: '40%', label: 'from Top AI Labs' },
+]
+
 const STATS = [
   { value: '24 May 2025', label: 'Incorporated' },
   { value: '11–50', label: 'Team Members' },
@@ -133,17 +139,36 @@ const VOICES = [
   },
 ]
 
+const CULTURE_VOICES = [
+  {
+    quote: 'At Encegen, roles aren\u2019t rigid boxes. A developer investigates an AI model, a client discussion turns into a new product feature, and you actually see your work create value.',
+    name: 'Engineering Team',
+    role: 'Encegen AI Labs',
+  },
+  {
+    quote: 'The rhythm here is fast and grounded in reality. We build real AI systems for real clients\u2014from EasyHunt to custom business automations.',
+    name: 'AI & Systems Builder',
+    role: 'Encegen AI Labs',
+  },
+  {
+    quote: 'We don\u2019t build technology for hype. Every project is focused on making complex operations simpler, faster, and smarter for our partners.',
+    name: 'Solutions & Product Lead',
+    role: 'Encegen AI Labs',
+  },
+]
+
 export default function Values() {
   return (
     <>
       <PageHero
+        className="phero--values"
         badge="Our values"
         title="What we stand for."
         sub="At Encegen AI Labs, our values are not statements written on a wall. They are reflected in how we approach problems, build products, work with clients, and make decisions every day."
         actions={
           <>
             <Btn to="/our-story" variant="white">
-              Our Story →
+              Our Story &rarr;
             </Btn>
             <Btn to="/culture" variant="outline-light">
               Our Culture
@@ -183,7 +208,7 @@ export default function Values() {
       <GradBand
         quote={
           <>
-            "We don't just build software. We engineer what comes next."
+            &ldquo;We don&rsquo;t just build software. We engineer what comes next.&rdquo;
           </>
         }
         cite="ENCEGEN AI LABS PVT. LTD."
@@ -209,40 +234,55 @@ export default function Values() {
       </section>
 
       {/* Team stats */}
-      <section className="section section--light">
+      <section className="section section--light culture-team-section">
         <div className="container">
-          <SectionHead
-            eyebrow="The Venture"
-            title="A lean, evolving AI technology team based in Pune."
-          />
-          <div className="tstat-row" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            {STATS.map((s) => (
-              <div key={s.label} className="tstat">
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
-              </div>
-            ))}
+          <div className="team-showcase">
+            <div className="team-showcase__intro">
+              <span className="team-showcase__eyebrow">THE TEAM</span>
+              <h2>Built by 67 extraordinary humans across 3 continents.</h2>
+            </div>
+
+            <div className="team-showcase__stats">
+              {TEAM_SHOWCASE.map((s, idx) => (
+                <div
+                  key={s.label}
+                  className="team-showcase__stat"
+                  style={{ ['--stat-idx' as string]: idx }}
+                >
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Voices */}
-      <section className="section section--dark">
+      <section className="section culture-voices-section">
         <div className="container">
-          <SectionHead eyebrow="Client Voices" title="What partners say about working with Encegen" dark />
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginTop: 36 }}>
-            {VOICES.map((v) => (
-              <div key={v.name + v.role} className="voice" style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ height: 38, display: 'flex', alignItems: 'center', marginBottom: 12 }}>
-                  {v.logo ? (
-                    <img src={v.logo} alt={v.role} style={{ maxHeight: 34, maxWidth: 110, objectFit: 'contain' }} />
-                  ) : (
-                    <ShieldIcon size={22} style={{ color: 'var(--purple-300)' }} />
-                  )}
+          <SectionHead eyebrow="VOICES" title="Don't take our word for it" dark />
+          <div className="cards-3 culture-voices-grid">
+            {CULTURE_VOICES.map((v, idx) => (
+              <div
+                key={v.name + v.role}
+                className="culture-voice-card"
+                style={{ ['--voice-idx' as string]: idx }}
+              >
+                <div className="culture-voice-card__icon" aria-hidden="true">
+                  <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 3.5H4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M3.25 7.5V14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path className="voice-line voice-line--1" d="M8.5 3.5H16.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <path className="voice-line voice-line--2" d="M8.5 9H19.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <path className="voice-line voice-line--3" d="M8.5 14.5H19.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
                 </div>
-                <p style={{ flex: 1, lineHeight: 1.55 }}>“{v.quote}”</p>
-                <strong style={{ marginTop: 14, color: '#fff' }}>{v.name}</strong>
-                <span style={{ color: 'var(--purple-300)', fontSize: '0.85rem' }}>{v.role}</span>
+                <p className="culture-voice-card__quote">&ldquo;{v.quote}&rdquo;</p>
+                <div className="culture-voice-card__footer">
+                  <strong>{v.name}</strong>
+                  <span>{v.role}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -253,7 +293,7 @@ export default function Values() {
         trusted={['Flairnetic Advocates', 'EasyHunt', 'Varasa', 'Paramya Agro', 'Fx Algo']}
         trustedLabel="trusted by modern businesses"
         line1="Live these values with us."
-        line2="Join our engineering & AI team."
+        line2="Join our engineering &amp; AI team."
         sub="We are actively looking for builders, developers, and problem solvers who want to ship real, durable intelligence."
         primary={{ label: 'Explore Open Roles', to: '/careers' }}
         secondary={{ label: 'Our Story', to: '/our-story' }}

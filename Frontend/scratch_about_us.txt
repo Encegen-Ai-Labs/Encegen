@@ -1,0 +1,42 @@
+## 5. `About Us - Cinematic Story` (`node-id=2318-156`, Width: `1440px`)
+**Screenshots:**
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\about_us_1.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\about_us_2.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\about_us_3.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\about_us_4.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\about_us_5.png`
+
+**Sections & Colors:**
+1. **`header`**: `#FFFFFF`.
+2. **`chapter-0` (Hero, `node-id=2327-5`)**:
+   - **Dimensions & Padding:** `1440px × 640px` (Fixed), Padding `120px` top/bottom, `80px` left/right.
+   - **Background:** Linear Gradient `#0A0F1E` -> `#1E1B4B`.
+   - **Content:** Heading `"We didn't build an AI company. We built a better future."`, Subtitle `"Encegen was born from a simple frustration – that most enterprise software talks about AI, but very few actually deliver it."`, 2 buttons (`Read the story ->` white pill, `Our values` dark outline pill).
+3. **`chapter-1` (`CHAPTER 01` - The Frustration)**:
+   - **Background:** `#FFFFFF`.
+   - **Content:** 2-column layout. Left: Pill `"CHAPTER 01"`, Red eyebrow `"THE FRUSTRATION"`, Heading `"Most enterprise software promises transformation. Most delivers dashboards."` Right: Dark card `"THE TRUTH: Reality vs. promise"` comparing `THE PROMISE` (checkmarks) vs `THE REALITY` (red `X` marks).
+4. **`chapter-2` (`node-id=2327-54` - Founder Quote & Timeline)**:
+   - **Dimensions & Padding:** `1440px × 640px`, Padding `96px` top/bottom, `80px` left/right, Gap `32px`.
+   - **Background:** `#0A0F1E`.
+   - **Content:** Centered quote `"We sat in a boardroom watching a $4M AI pilot fail in real time. That was the day we decided to build differently."` (`- ALEX RIVERA, CEO & CO-FOUNDER, 2019`) + 4-step horizontal timeline (`2019 The Spark`, `2020 First Clients`, `2022 Series A`, `2024 Global Scale`).
+5. **`chapter-3` (`CHAPTER 03`)**:
+   - **Background:** `#F8F9FF`.
+   - **Content:** 2-column layout. Left: Pill `"CHAPTER 03"`, Heading `"We build AI that actually runs your business."` with 3 bullet points (`No black boxes. Only outcomes.`, `Deployed in weeks, not years.`, `Your data never leaves your walls.`). Right: Dark card `"AI DEPLOYMENT STATUS • Live"` showing 7 live engines (`Anomaly Detection`, `Forecasting Engine`, `Compliance Monitor`, etc.).
+6. **`chapter-4` (`CHAPTER 04`, `node-id=2327-118`)**:
+   - **Dimensions & Padding:** `1440px × 678px`, Padding `80px`, Gap `32px`.
+   - **Background:** `#FFFFFF`.
+   - **Content:** Pill `"CHAPTER 04"`, Heading `"Built by people who've sat in your seat."`, 4 founder/leader cards (`Alex Rivera`, `Priya Nair`, `Marcus Böhm`, `Sophia Chen`) + dark bottom bar `"We have one rule at Encegen: if you wouldn't bet your own career on it, we don't ship it."`
+7. **`chapter-5`**:
+   - **Background:** `#0A0F1E`.
+   - **Content:** Heading `"What we stand for."` 3×2 grid of 6 colored-tint dark cards (`01 Honesty over hype` purple, `02 Speed with integrity` blue, `03 Client obsession` green, `04 Radical clarity` rust/red, `05 Built to last` olive/gold, `06 Human first` magenta/purple).
+8. **`chapter-6` (`node-id=2327-197`)**:
+   - **Dimensions & Padding:** `1440px × 429px`, Padding `80px`, Gap `32px`.
+   - **Background:** `#F8F9FF`.
+   - **Content:** 4 purple stats (`200+ Clients Transformed`, `$2B+ in Value Created`, `50+ AI Models in Production`, `18 Countries`) + 5×2 grid of 10 client name tiles (`Acme Corp`, `Northwind`, `Globex`, `Initech`, `Umbrella`, `Stark Ind`, `Wayne Ent`, `Massive`, `Soylent`, `Hooli`).
+9. **`final-cta` (`node-id=2332-416`)**:
+   - **Dimensions & Padding:** `1440px × 512px`, Top-left/Top-right radius `50px`, Neumorphic radial gradient `#EDE9FE` -> `#F8F9FF`.
+   - **Content:** Trust pills (`Siemens`, `Vodafone`, `Airbus`, `IBM`), Heading `"This story isn't over."` (`#0A0F1E`) + `"It's just getting started."` (`#7C3AED`), 2 pill buttons (`Join the Team`, `Partner with Us`).
+10. **`footer`**: `#060B27`.
+
+---
+

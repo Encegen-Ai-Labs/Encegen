@@ -20,18 +20,21 @@
 
 /* Slightly tinted light surfaces matching Figma lavender sections */
 .section--lavender,
-.hiw,
 .security,
 .process {
-  background: var(--lavender-50);
+  background: #F8F9FF;
+}
+
+.hiw {
+  background: #ffffff;
 }
 
 .closing {
   background: radial-gradient(
-    ellipse 58% 68% at 50% 48%,
-    rgba(226, 219, 255, 0.42) 0%,
-    rgba(246, 245, 254, 0.88) 58%,
-    #f9f8fe 100%
+    ellipse 62% 72% at 50% 48%,
+    rgba(226, 219, 255, 0.5) 0%,
+    rgba(248, 249, 255, 0.92) 60%,
+    #F8F9FF 100%
   );
 }
 

@@ -1,0 +1,56 @@
+<svg width="540" height="360" viewBox="0 0 540 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow4" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#060b27" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#6366f1" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f2e"/>
+      <stop offset="100%" stop-color="#060b27"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="540" height="360" rx="16" fill="url(#bgGrad4)" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1.2" filter="url(#glow4)"/>
+
+  <!-- Top bar -->
+  <circle cx="34" cy="38" r="3" fill="#f87171"/>
+  <text x="44" y="42" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#f87171" text-transform="uppercase">TYPICAL AI PROJECT</text>
+  
+  <text x="496" y="42" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#34d399" text-transform="uppercase" text-anchor="end">WITH ENCEGEN</text>
+  <circle cx="506" cy="38" r="3" fill="#34d399"/>
+
+  <line x1="26" y1="62" x2="514" y2="62" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Row 1: Time to Deploy -->
+  <text x="26" y="104" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#f87171">12 mo</text>
+  <rect x="26" y="114" width="160" height="4" rx="2" fill="#f87171"/>
+  <text x="270" y="112" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8" text-anchor="middle">Time to Deploy</text>
+  <text x="514" y="104" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#34d399" text-anchor="end">3 wks</text>
+  <rect x="424" y="114" width="90" height="4" rx="2" fill="#34d399"/>
+
+  <!-- Row 2: Total Cost -->
+  <text x="26" y="164" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#f87171">$2.4M</text>
+  <rect x="26" y="174" width="180" height="4" rx="2" fill="#f87171"/>
+  <text x="270" y="172" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8" text-anchor="middle">Total Cost</text>
+  <text x="514" y="164" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#34d399" text-anchor="end">$180K</text>
+  <rect x="444" y="174" width="70" height="4" rx="2" fill="#34d399"/>
+
+  <!-- Row 3: User Adoption -->
+  <text x="26" y="224" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#f87171">3%</text>
+  <rect x="26" y="234" width="50" height="4" rx="2" fill="#f87171"/>
+  <text x="270" y="232" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8" text-anchor="middle">User Adoption</text>
+  <text x="514" y="224" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#34d399" text-anchor="end">74%</text>
+  <rect x="364" y="234" width="150" height="4" rx="2" fill="#34d399"/>
+
+  <!-- Row 4: Time to Value -->
+  <text x="26" y="284" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#f87171">18 mo</text>
+  <rect x="26" y="294" width="170" height="4" rx="2" fill="#f87171"/>
+  <text x="270" y="292" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8" text-anchor="middle">Time to Value</text>
+  <text x="514" y="284" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#34d399" text-anchor="end">&lt; 30 days</text>
+  <rect x="414" y="294" width="100" height="4" rx="2" fill="#34d399"/>
+
+  <line x1="26" y1="324" x2="514" y2="324" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="270" y="344" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#64748b" text-anchor="middle">* Based on average enterprise AI deployments, 2020–2024</text>
+</svg>

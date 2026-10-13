@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  ArtTile,
   Avatar,
   Btn,
   ClosingCTA,
@@ -14,6 +13,11 @@ import { type Job } from '../../data/jobs'
 import { API_BASE_URL } from '../../config/api'
 import './careers.css'
 import '../company/company.css'
+import typicalVsEncegenSvg from '../../assets/generated_panels/typical-vs-encegen-project.svg'
+import heroTile1 from '../../assets/figma/figma_6.png'
+import heroTile2 from '../../assets/figma/figma_7.png'
+import heroTile3 from '../../assets/figma/figma_8.png'
+import heroTile4 from '../../assets/figma/figma_9.png'
 
 const BENEFITS = [
   {
@@ -104,11 +108,32 @@ const PEOPLE_STATS = [
 
 const DEPT_CARDS = [
   {
-    title: 'Engineering & AI Systems',
-    count: '2 Open roles',
-    desc: 'Full-stack development, AI agent pipelines, robust APIs, scalable databases, and cloud infrastructure.',
-    chips: ['AI Research & Automation Engineer', 'Senior Full Stack Developer (React & Node.js)'],
+    title: 'AI & Research',
+    departmentKey: 'AI Research',
+    desc: "Building the models and systems that power Encegen's intelligence layer.",
+    chips: ['ML Engineer', 'Research Scientist', 'AI Lead'],
     color: '#6553ee',
+  },
+  {
+    title: 'Engineering',
+    departmentKey: 'Engineering',
+    desc: 'Full-stack, backend, infrastructure. We ship fast and we ship well.',
+    chips: ['Backend Engineer', 'Platform Engineer', 'Solutions Architect'],
+    color: '#2573f0',
+  },
+  {
+    title: 'Product',
+    departmentKey: 'Product',
+    desc: 'Turning complex AI capabilities into experiences enterprises actually want to use.',
+    chips: ['Product Manager', 'UX Researcher', 'Product Designer'],
+    color: '#09b698',
+  },
+  {
+    title: 'Go-to-Market',
+    departmentKey: 'Go-to-Market',
+    desc: 'Sales, marketing, and solutions for a team that\'s scaling globally.',
+    chips: ['Account Executive', 'Growth Marketing', 'Solutions Architect'],
+    color: '#f56e0f',
   },
 ]
 
@@ -203,83 +228,86 @@ export default function WhyEncegen() {
       <section className="why-hero">
         <div className="container why-hero__grid">
           <div className="why-hero__copy">
-            <span className="phero__badge">Our story begins with you</span>
+            <span className="why-hero__eyebrow">OUR STORY BEGINS HERE</span>
             <h1>
-              We don't just build software. We engineer what comes next.
+              We’re not building an AI company.
+              <br />
+              We’re building a better future.
             </h1>
             <p>
-              Join a team of builders, operators, and thinkers solving real business problems with
-              practical AI and modern engineering.
+              Join a team of builders, operators, and thinkers solving the hardest problems in enterprise technology.
             </p>
             <div className="why-hero__actions">
               <Btn to="/careers" variant="white">
-                Explore Open Roles →
+                Explore Open Roles ↓
               </Btn>
               <Btn to="/culture" variant="outline-light">
                 Our Culture
               </Btn>
             </div>
             <div className="why-hero__chips">
-              <span>11–50 team members</span>
-              <span>· Pune Headquarters</span>
-              <span>· Problem-First Culture</span>
+              <span className="why-chip--green">50+ team members</span>
+              <span className="why-chip--purple">Remote-first</span>
+              <span className="why-chip--purple">$18M Series A</span>
             </div>
           </div>
           <div className="why-hero__tiles">
-            <ArtTile variant="purple" className="why-hero__tile why-hero__tile--one" />
-            <ArtTile variant="magenta" className="why-hero__tile why-hero__tile--two" />
-            <ArtTile variant="blue" className="why-hero__tile why-hero__tile--three" />
-            <ArtTile variant="cyan" className="why-hero__tile why-hero__tile--four" />
+            <div className="why-hero__tile why-hero__tile--one">
+              <img src={heroTile1} alt="Encegen Team with Laser Projection" />
+            </div>
+            <div className="why-hero__tile why-hero__tile--two">
+              <img src={heroTile2} alt="Encegen Command Center" />
+            </div>
+            <div className="why-hero__tile why-hero__tile--three">
+              <img src={heroTile3} alt="Encegen Builders" />
+            </div>
+            <div className="why-hero__tile why-hero__tile--four">
+              <img src={heroTile4} alt="Encegen HQ Berlin" />
+              <div className="why-hero__tile-badge">ENCEGEN HQ · BERLIN</div>
+            </div>
           </div>
         </div>
       </section>
 
       <GradBand
         className="why-encegen-quote"
-        quote="We exist to bridge the gap between business problems and intelligent technology — and we need exceptional builders to make it happen."
-        cite="ENCEGEN AI LABS PVT. LTD."
+        quote="“We exist to make AI the engine behind every great business decision - and we need exceptional people to make it happen.”"
+        cite="Encegen Ai Labs"
       />
 
       {/* The problem */}
-      <section className="section section--dark">
+      <section className="section section--dark why-problem-section">
         <div className="container split">
-          <div>
-            <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
-              Chapter 02 · The Philosophy
-            </p>
-            <h2 className="left-title" style={{ color: '#fff' }}>
-              We build for the problem, not the hype.
+          <div className="why-problem-left">
+            <span className="why-problem-chapter">CHAPTER 01 · THE PROBLEM</span>
+            <p className="why-problem-fails">fails</p>
+            <h2 className="why-problem-heading">
+              Most enterprise AI fails before it reaches production.
             </h2>
-            <p className="left-copy" style={{ color: '#a8a5cb' }}>
-              We don’t believe every problem needs AI. We believe the right problem deserves the right technology.
-              Sometimes that means a robust software platform. Sometimes it means automation.
-              Sometimes it means an AI agent working alongside humans.
+            <p className="why-problem-body">
+              We've seen it firsthand – the $4M pilots, the 18-month deployments, the
+              dashboards that no one looks at. Encegen was built to fix this.
             </p>
-            <ul className="check-list check-list--dark">
-              <li>We move fast and learn faster</li>
-              <li>We build for outcomes and real utility</li>
-              <li>We take full ownership of what we deliver</li>
+            <ul className="why-problem-list">
+              <li>We move fast and we show our work.</li>
+              <li>We build for outcomes, not demos.</li>
+              <li>We hire for impact, not credentials.</li>
             </ul>
           </div>
-          <div className="fail-panel">
-            <div className="fail-panel__head">
-              <span>Generic Approaches</span>
-              <span>With Encegen</span>
-            </div>
-            <div className="fail-panel__rows">
-              {[
-                { bad: 'Months', label: 'Idea to Prototype', good: 'Days' },
-                { bad: 'Manual', label: 'Workflow Execution', good: 'Automated' },
-                { bad: 'Generic', label: 'AI Accuracy', good: 'Domain-Tuned' },
-                { bad: 'Complex', label: 'User Experience', good: 'Intuitive' },
-              ].map((r) => (
-                <div key={r.label} className="fail-panel__row">
-                  <span className="bad">{r.bad}</span>
-                  <span className="label">{r.label}</span>
-                  <span className="good">{r.good}</span>
-                </div>
-              ))}
-            </div>
+          <div className="top-right-panel-frame" style={{ maxWidth: 540, width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <img
+              src={typicalVsEncegenSvg}
+              alt="Typical Project vs Encegen Project"
+              className="top-right-panel-img"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 16,
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.35)',
+                display: 'block',
+              }}
+            />
           </div>
         </div>
       </section>
@@ -287,7 +315,7 @@ export default function WhyEncegen() {
       {/* Benefits */}
       <section className="section section--lavender why-benefits-section">
         <div className="container">
-          <SectionHead eyebrow="Chapter 03 · Why Here" title="Everything you need to do your best work." />
+          <SectionHead eyebrow="Chapter 02 · Why Here" title="Everything you need to do your best work." />
           <div className="cards-3 why-benefits-grid">
             {BENEFITS.map((b, idx) => (
               <div
@@ -359,20 +387,33 @@ export default function WhyEncegen() {
       <section className="section section--lavender">
         <div className="container">
           <SectionHead eyebrow="Chapter 05 · Where You Fit" title="Find where you belong." />
-          <div className="dept-cards-single-wrap">
-            {DEPT_CARDS.map((d) => (
-              <div key={d.title} className="dept-card dept-card--single" style={{ ['--dept-color' as string]: d.color }}>
-                <h3>{d.title}</h3>
-                <span className="count">{d.count}</span>
-                <p>{d.desc}</p>
-                <div className="dept-card__chips">
-                  {d.chips.map((c) => (
-                    <span key={c}>{c}</span>
-                  ))}
+          <div className="dept-cards-grid">
+            {DEPT_CARDS.map((d) => {
+              const roleCount = jobsList.filter(
+                (j) => j.department.toLowerCase().includes(d.departmentKey.toLowerCase()) ||
+                  d.departmentKey.toLowerCase().includes(j.department.toLowerCase())
+              ).length
+              const countLabel = jobsLoading
+                ? 'Loading...'
+                : roleCount > 0
+                  ? `${roleCount} open ${roleCount === 1 ? 'role' : 'roles'}`
+                  : 'No open roles'
+              return (
+                <div key={d.title} className="dept-card" style={{ ['--dept-color' as string]: d.color }}>
+                  <h3>{d.title}</h3>
+                  <span className={`count${roleCount === 0 && !jobsLoading ? ' count--empty' : ''}`}>{countLabel}</span>
+                  <p>{d.desc}</p>
+                  {roleCount > 0 && (
+                    <div className="dept-card__chips">
+                      {d.chips.map((c) => (
+                        <span key={c}>{c}</span>
+                      ))}
+                    </div>
+                  )}
+                  <Link to="/careers">View roles →</Link>
                 </div>
-                <Link to="/careers">View roles →</Link>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -501,40 +542,104 @@ export default function WhyEncegen() {
         </div>
       </section>
 
-      {/* 2 Offices in Pune */}
-      <section className="section section--dark why-offices">
-        <div className="container why-offices__container">
-          <SectionHead
-            title="2 Offices in Pune · Innovating for the World"
-            sub="Our core technology and engineering hubs operate out of Pune, Maharashtra, India."
-            dark
-          />
-          <div className="why-offices__map">
-            <iframe
-              title="Map centered on Encegen's Wagholi office"
-              src="https://maps.google.com/maps?q=BA+HUB,+Office+no+03,+Sambhaji+Nagar,+Wagholi,+Pune+412207&ll=18.5806299,73.9833099&z=14&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+      {/* Where We Work */}
+      <section className="section why-where-section">
+        <div className="container">
+          <div className="why-where__head">
+            <span className="why-where__eyebrow">WHERE WE WORK</span>
+            <h2 className="why-where__title">Remote-first. Globally connected.</h2>
+            <p className="why-where__sub">Our team works from 12 nationalities. These are our hub cities.</p>
           </div>
-          <div className="why-offices__locations">
-            <article className="why-offices__location">
-              <span className="why-offices__pin" aria-hidden="true">●</span>
-              <div>
-                <h3>Wagholi Office</h3>
-                <p>
-                  BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207
-                </p>
-                <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=BA+HUB,+Office+no+03,+Sambhaji+Nagar,+Wagholi,+Pune+412207"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get directions ↗
-                </a>
-              </div>
-            </article>
+
+          {/* World Map SVG */}
+          <div className="why-where__map-wrap">
+            <svg
+              viewBox="0 0 1000 500"
+              className="why-where__map-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="World map showing Encegen hub cities"
+            >
+              <g fill="#2d3554" stroke="#1e2540" strokeWidth="0.8">
+                {/* North America */}
+                <path d="M80,80 L160,70 L200,90 L220,130 L200,160 L170,180 L140,200 L110,220 L80,210 L60,190 L50,160 L55,120 Z"/>
+                <path d="M60,220 L100,230 L130,250 L120,270 L90,280 L70,260 Z"/>
+                <path d="M200,90 L240,80 L270,100 L260,130 L230,140 L210,120 Z"/>
+                <path d="M220,40 L260,30 L280,50 L270,70 L240,75 L215,60 Z"/>
+                {/* South America */}
+                <path d="M150,280 L190,270 L210,300 L220,340 L210,380 L190,410 L170,420 L150,400 L135,370 L130,330 L140,300 Z"/>
+                {/* Europe */}
+                <path d="M420,70 L460,65 L480,80 L475,100 L455,110 L430,105 L415,90 Z"/>
+                <path d="M450,100 L480,95 L500,110 L490,130 L465,135 L445,120 Z"/>
+                <path d="M410,90 L430,85 L440,100 L425,115 L408,108 Z"/>
+                <path d="M395,75 L410,72 L415,85 L405,92 L393,85 Z"/>
+                {/* Africa */}
+                <path d="M420,130 L470,120 L500,140 L510,180 L505,230 L490,270 L470,300 L445,310 L420,295 L405,260 L400,220 L405,180 L410,150 Z"/>
+                <path d="M460,115 L500,108 L520,125 L515,145 L495,155 L465,148 Z"/>
+                {/* Asia */}
+                <path d="M500,70 L600,55 L700,60 L770,80 L800,110 L790,140 L750,160 L700,170 L650,165 L600,155 L550,145 L520,130 L500,110 Z"/>
+                <path d="M600,160 L680,155 L730,170 L740,200 L720,220 L680,225 L640,210 L610,190 Z"/>
+                {/* India */}
+                <path d="M570,160 L610,155 L625,180 L620,210 L600,230 L580,225 L565,200 L560,175 Z"/>
+                {/* SE Asia */}
+                <path d="M680,180 L720,175 L740,195 L730,215 L700,220 L675,205 Z"/>
+                <path d="M720,210 L750,205 L765,225 L755,240 L725,238 L710,222 Z"/>
+                {/* Japan */}
+                <path d="M770,100 L795,95 L805,115 L795,130 L770,125 Z"/>
+                <path d="M800,110 L825,105 L830,125 L815,135 L798,125 Z"/>
+                {/* Australia */}
+                <path d="M720,310 L790,300 L830,320 L840,360 L830,400 L800,420 L760,425 L720,410 L700,380 L695,345 L700,315 Z"/>
+                <path d="M855,380 L870,375 L875,395 L865,405 L852,398 Z"/>
+                {/* Middle East */}
+                <path d="M510,130 L550,125 L565,145 L555,165 L530,168 L510,155 Z"/>
+                <path d="M550,80 L610,72 L630,90 L620,110 L590,115 L555,105 Z"/>
+                {/* Scandinavia */}
+                <path d="M440,45 L465,40 L475,58 L460,68 L438,62 Z"/>
+                <path d="M460,40 L480,35 L488,52 L470,60 L455,52 Z"/>
+              </g>
+
+              {/* Dot: London, UK */}
+              <g>
+                <circle cx="403" cy="82" r="16" fill="rgba(109,86,255,0.12)" />
+                <circle cx="403" cy="82" r="8" fill="rgba(109,86,255,0.30)" />
+                <circle cx="403" cy="82" r="3.5" fill="#8b78ff" />
+                <text x="413" y="78" fill="#c4b5fd" fontSize="11" fontFamily="system-ui,sans-serif" fontWeight="500">London, UK</text>
+              </g>
+
+              {/* Dot: Pune, India */}
+              <g>
+                <circle cx="590" cy="190" r="16" fill="rgba(109,86,255,0.12)" />
+                <circle cx="590" cy="190" r="8" fill="rgba(109,86,255,0.30)" />
+                <circle cx="590" cy="190" r="3.5" fill="#8b78ff" />
+                <text x="600" y="186" fill="#c4b5fd" fontSize="11" fontFamily="system-ui,sans-serif" fontWeight="500">Pune, India</text>
+              </g>
+
+              {/* Dot: Sydney, Australia */}
+              <g>
+                <circle cx="790" cy="376" r="16" fill="rgba(109,86,255,0.12)" />
+                <circle cx="790" cy="376" r="8" fill="rgba(109,86,255,0.30)" />
+                <circle cx="790" cy="376" r="3.5" fill="#8b78ff" />
+                <text x="800" y="372" fill="#c4b5fd" fontSize="11" fontFamily="system-ui,sans-serif" fontWeight="500">Sydney, Australia</text>
+              </g>
+            </svg>
+          </div>
+
+          {/* 3 Location Cards */}
+          <div className="why-where__cards">
+            <div className="why-where__card">
+              <h3>Pune</h3>
+              <span className="why-where__card-region">APAC</span>
+              <p>Headquarters</p>
+            </div>
+            <div className="why-where__card">
+              <h3>London</h3>
+              <span className="why-where__card-region">EMEA</span>
+              <p>Hub office</p>
+            </div>
+            <div className="why-where__card">
+              <h3>Sydney</h3>
+              <span className="why-where__card-region">APAC</span>
+              <p>Hub office</p>
+            </div>
           </div>
         </div>
       </section>

@@ -15,7 +15,10 @@ export default function Hero() {
 
         <h1 className="hero__title">
           One Platform to Run{' '}
-          <span className="hero__title-accent">Every Business Process</span>
+          <span className="hero__title-accent">
+            <br />
+            Every Business Process
+          </span>
         </h1>
 
         <p className="hero__sub">
@@ -27,7 +30,7 @@ export default function Hero() {
           <a href="#how-it-works" className="hero__cta">
             Explore the platform <ArrowRight size={15} />
           </a>
-          
+         
         </div>
 
         <div className="hero__badges">

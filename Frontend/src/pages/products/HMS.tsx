@@ -89,6 +89,7 @@ export default function HMS() {
   return (
     <>
       <PageHero
+        className="phero--hms"
         badge="Enterprise Hostel Software"
         title={
           <>
@@ -100,7 +101,7 @@ export default function HMS() {
         sub="An AI-assisted hostel management platform that automates room allocation, student onboarding, gate passes, fee reconciliation, and maintenance — all from one unified control plane."
         actions={[
           <Btn key="1" to="/platform#explore-platform" variant="white">
-            Schedule a Demo &rarr;
+            Book a Consultation &rarr;
           </Btn>,
           <Btn key="2" to="/solutions/custom-software" variant="outline-light">
             View Custom Solutions
@@ -207,7 +208,7 @@ export default function HMS() {
         dark
         line1="Transform your campus hostel operations."
         sub="Book an institutional walkthrough and see how Encegen HMS eliminates manual paperwork."
-        primary={{ label: 'Request Institutional Demo', to: '/platform#explore-platform' }}
+        primary={{ label: 'Request Institutional Consultation', to: '/platform#explore-platform' }}
         checks={['Role-Based Security', 'ERP Integration Ready', 'Cloud & On-Premises']}
       />
     </>

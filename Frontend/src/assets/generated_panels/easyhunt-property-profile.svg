@@ -1,0 +1,53 @@
+<svg width="540" height="330" viewBox="0 0 540 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow6" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#060b27" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#6366f1" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="bgGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f2e"/>
+      <stop offset="100%" stop-color="#060b27"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="540" height="330" rx="16" fill="url(#bgGrad6)" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1.2" filter="url(#glow6)"/>
+
+  <!-- Header -->
+  <text x="26" y="38" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#ffffff">AI Property Profile</text>
+  <rect x="382" y="22" width="132" height="24" rx="12" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1"/>
+  <circle cx="394" cy="34" r="3.5" fill="#10b981"/>
+  <text x="404" y="38" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#10b981">98% Match · Verified</text>
+
+  <line x1="26" y1="56" x2="514" y2="56" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Property & Owner -->
+  <text x="26" y="84" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#818cf8">SURVEY NO. 104/A · PUNE METRO REGION</text>
+  <text x="26" y="106" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">Godrej Properties Development Site</text>
+
+  <!-- Ownership History Timeline -->
+  <text x="26" y="142" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.8" fill="#94a3b8" text-transform="uppercase">OWNERSHIP HISTORY TIMELINE</text>
+
+  <g transform="translate(26, 158)">
+    <circle cx="6" cy="6" r="6" fill="#10b981"/>
+    <text x="22" y="10" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#ffffff">2024</text>
+    <text x="64" y="10" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94a3b8">· Clear Title Certified (Zero Encumbrances)</text>
+
+    <line x1="6" y1="18" x2="6" y2="34" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+    <circle cx="6" cy="42" r="5" fill="#60a5fa"/>
+    <text x="22" y="46" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#ffffff">2018</text>
+    <text x="64" y="46" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94a3b8">· Conveyance Deed Registered with Haveli SRO</text>
+
+    <line x1="6" y1="54" x2="6" y2="70" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-dasharray="2 2"/>
+
+    <circle cx="6" cy="78" r="4" fill="#a78bfa"/>
+    <text x="22" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#ffffff">1995</text>
+    <text x="64" y="82" font-family="'Inter', sans-serif" font-size="12" font-weight="500" fill="#94a3b8">· Original Revenue Grant &amp; Mutation Entry 4182</text>
+  </g>
+
+  <line x1="26" y1="268" x2="514" y2="268" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Risk Bar -->
+  <text x="26" y="296" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#10b981">Risk Assessment: Low Risk (0.02%)</text>
+  <text x="514" y="296" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#a5b4fc" text-anchor="end">Instant 40-Year Legal Verification</text>
+</svg>

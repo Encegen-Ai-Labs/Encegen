@@ -1,8 +1,7 @@
 import {
+  Btn,
   ClosingCTA,
   GradBand,
-  LiveDot,
-  MockPanel,
   PageHero,
   ResultBar,
   SectionHead,
@@ -12,6 +11,8 @@ import {
 } from '../../components/kit'
 import { CapabilityArt } from '../../components/CapabilityArt'
 import {
+  BarChartIcon,
+  EyeIcon,
   FileTextIcon,
   MessageSquareIcon,
   RefreshIcon,
@@ -34,60 +35,96 @@ const AGENTS = [
 const USE_CASES = [
   {
     tags: ['NLP', 'Finance'],
-    color: '#22c55e',
+    color: '#10b981',
+    icon: <FileTextIcon size={18} />,
     title: 'Accounts Payable',
-    desc: 'Catch and resolve invoice exceptions before they escalate — reconcile mismatches, validate vendors, and route approvals on their own.',
-    metric: '73% fewer exceptions',
-    compare: 'Manual: 17% → AI: 73%',
+    desc: 'Auto-resolve invoice exceptions before they escalate — reconcile discrepancies, validate vendors, and route approvals.',
+    metric: '73% fewer escalations',
+    compare: 'Manual: 27% → AI: 73%',
   },
   {
     tags: ['Vision', 'Support'],
     color: '#3b82f6',
+    icon: <EyeIcon size={18} />,
     title: 'Customer Support',
-    desc: 'Triage and resolve tickets without manual routing — read intent, pull context, and answer in the moment.',
-    metric: '45% auto-resolution',
+    desc: 'Auto-triage and resolve tickets without human routing — classify intent, fetch context, and send answers instantly.',
+    metric: '83% auto-resolution',
     compare: 'Manual: 17% → AI: 83%',
   },
   {
     tags: ['ML', 'HR'],
-    color: '#8b5cf6',
+    color: '#f59e0b',
+    icon: <BarChartIcon size={18} />,
     title: 'HR & Onboarding',
-    desc: 'Stand up a new hire across HR, IT, and facilities — accounts created, policies assigned, teams notified, no checklist required.',
-    metric: '3× faster onboarding',
+    desc: 'Fully set up new hires across HR, IT, and Facilities — create accounts, assign policies, and notify teams automatically.',
+    metric: '5× faster onboarding',
     compare: 'Manual: 1× → AI: 5×',
   },
   {
     tags: ['NLP', 'Supply Chain'],
-    color: '#22d3ee',
+    color: '#10b981',
+    icon: <FileTextIcon size={18} />,
     title: 'Supply Chain',
-    desc: 'Track demand signals and adjust forecasts daily — read the market, spot the anomaly, update the plan.',
+    desc: 'Monitor demand signals and adjust forecasts daily — read market data, detect anomalies, and update inventory plans.',
     metric: '91% forecast accuracy',
     compare: 'Baseline: 80% → AI: 91%',
   },
   {
     tags: ['Vision', 'Compliance'],
-    color: '#f59e0b',
+    color: '#3b82f6',
+    icon: <EyeIcon size={18} />,
     title: 'Compliance',
-    desc: 'Watch every transaction in real time — surface risk, flag deviations, and keep the audit trail current on its own.',
+    desc: 'Watch every transaction for violations in real time — detect anomalies, flag risks, and keep audit trails current.',
     metric: 'Zero manual audits',
     compare: 'Manual: 3/day → AI: 0',
   },
   {
     tags: ['ML', 'Finance'],
-    color: '#ec4899',
+    color: '#f59e0b',
+    icon: <BarChartIcon size={18} />,
     title: 'Financial Close',
-    desc: 'Reconcile accounts and flag anomalies automatically — match transactions, validate journals, close the books sooner.',
+    desc: 'Reconcile accounts and flag anomalies automatically — match transactions, validate journals, and close books faster.',
     metric: '2× faster close',
     compare: 'Manual: 1× → AI: 2×',
   },
 ]
 
 const STEPS = [
-  { num: '01', title: 'Trigger', meta: 'Step 1', desc: 'A webhook, a schedule, or a system event sets it off.', chips: ['Event detected', 'Instant'] },
-  { num: '02', title: 'Context', meta: 'Step 2', desc: 'The agent gathers what it needs from your ERP, CRM, and connected systems.', chips: ['Data fetched', 'Cross-system'] },
-  { num: '03', title: 'Decide', meta: 'Step 3', desc: 'The reasoning engine weighs the options and picks the right action against your rules.', chips: ['Model inference', 'Policy check'] },
-  { num: '04', title: 'Execute', meta: 'Step 4', desc: 'It acts directly in your system — no export, no hand-off.', chips: ['Action taken', 'Logged'] },
-  { num: '05', title: 'Verify', meta: 'Step 5', desc: 'It confirms the outcome, writes the audit trail, and notifies the team.', chips: ['Audit trail', 'Notification'] },
+  {
+    num: '01',
+    title: 'Trigger',
+    meta: 'Step 1',
+    desc: 'Webhook, schedule, or system event',
+    chips: ['⚡ Event detected', '⏱ Instant'],
+  },
+  {
+    num: '02',
+    title: 'Context',
+    meta: 'Step 2',
+    desc: 'Reads SAP, CRM, ERP data',
+    chips: ['🗄 Data fetched', '↔ Cross-system'],
+  },
+  {
+    num: '03',
+    title: 'Decide',
+    meta: 'Step 3',
+    desc: 'AI reasoning engine chooses action',
+    chips: ['✳ Model inference', '☑ Policy check'],
+  },
+  {
+    num: '04',
+    title: 'Execute',
+    meta: 'Step 4',
+    desc: 'Takes action directly in your system',
+    chips: ['✔ Action taken', '📋 Logged'],
+  },
+  {
+    num: '05',
+    title: 'Verify',
+    meta: 'Step 5',
+    desc: 'Confirms outcome and notifies team',
+    chips: ['💳 Audit trail', '🔔 Notification'],
+  },
 ]
 
 const TESTIMONIALS = [
@@ -127,58 +164,146 @@ export default function AiAgents() {
   return (
     <>
       <PageHero
+        className="ai-research-hero phero--ai-agents"
         badge={<>● Encegen AI Labs · Agent Automation</>}
-        title="Your team is doing work a machine should have finished hours ago."
+        title="Your team is stuck doing work a machine should do."
         sub="Every day, exceptions pile up — approvals waiting, records re-keyed between systems, queues that only move when a person clears them. That's your best people spending their hours on work an agent can own end to end."
+        actions={
+          <>
+            <Btn variant="white" to="/platform#explore-platform">
+              Deploy an agent &rarr;
+            </Btn>
+            <Btn variant="outline-light" to="#turning-point">
+              See how it works
+            </Btn>
+          </>
+        }
+        trustedLabel="trusted by"
         trusted={['EasyHunt', 'Varasa', 'Pramay Agro', 'FxAlgo']}
       />
 
-      <GradBand quote="What if the exception cleared itself before anyone opened the queue?" />
+      <GradBand
+        className="gband--magenta-purple"
+        quote="But what if every exception resolved itself?"
+      />
 
-      {/* Turning point */}
-      <section className="section section--light">
+      {/* Turning point - Chapter 2 (Exact Figma Design Match) */}
+      <section className="tp-turning-point" id="turning-point">
         <div className="container">
-          <SectionHead
-            eyebrow="Chapter 2 · The Turning Point"
-            title="Imagine the work being done before you're even in the room."
-          />
-          <div className="split" style={{ marginTop: 56 }}>
-            <div>
-              <p className="left-copy">
-                An invoice lands overnight with a mismatch. <strong>The old way:</strong>{' '}
-                it waits in a queue until morning, gets reviewed by hand, bounced to the vendor, and
-                sits there until someone follows up.
+          <p className="tp-eyebrow">CHAPTER 2 · THE TURNING POINT</p>
+          <h2 className="tp-title">Imagine waking up and finding everything already done.</h2>
+
+          <div className="tp-split">
+            <div className="tp-left-content">
+              <p className="tp-copy">
+                At 3:47am, an invoice arrives with a discrepancy. <strong>In the old world:</strong> it
+                sits in a queue until morning. Someone manually reviews it, emails the vendor, waits
+                for a reply.
               </p>
-              <p className="left-copy">
-                <strong>With an Encegen agent:</strong> the mismatch is caught the moment it arrives.
-                The agent checks the purchase order, reconciles against your ERP, queries the vendor
-                system, and closes the exception — cleanly, with a full trail — before the first
-                login of the day.
+              <p className="tp-copy">
+                <strong>With Encegen AI Agents:</strong> the exception is caught in milliseconds. The
+                agent cross-references your ERP, checks the purchase order, queries the vendor system,
+                reconciles the discrepancy - and resolves it. All before your team's first coffee.
               </p>
-              <div className="sol-chip-row">
-                <span className="sol-chip">3:47am — exception detected</span>
-                <span className="sol-chip">3:47am — resolved autonomously</span>
-              </div>
-              <div className="sol-chip-row">
-                <span className="sol-chip sol-chip--green">87% of all exceptions resolved this way</span>
+              <div className="tp-chips-group">
+                <div className="tp-chips-row">
+                  <span className="tp-pill">
+                    <strong>3:47am</strong> exception detected
+                  </span>
+                  <span className="tp-pill">
+                    <strong>3:47am</strong> resolved automatically
+                  </span>
+                </div>
+                <div className="tp-chips-row">
+                  <span className="tp-pill">
+                    <strong>87%</strong> of all exceptions resolved this way
+                  </span>
+                </div>
               </div>
             </div>
-            <MockPanel
-              title="Live Agent Activity"
-              right={<LiveDot label="Live" />}
-              rows={[
-                { label: '03:47:00', sub: 'Exception detected', chip: 'INV-2847', chipColor: '#ef4444' },
-                { label: '03:47:02', sub: 'ERP check', chip: 'PO-10293 matched', chipColor: '#2fe08e' },
-                { label: '03:47:04', sub: 'Vendor query', chip: 'Response received', chipColor: '#22d3ee' },
-                { label: '03:47:08', sub: 'Resolved', chip: 'No human required', chipColor: '#2fe08e' },
-              ]}
-              footer={
-                <>
-                  <span>Resolved in 8 seconds</span>
-                  <span>Autonomy: 100%</span>
-                </>
-              }
-            />
+
+            <div className="tp-live-card">
+              <div className="tp-live-card__header">LIVE AGENT ACTIVITY</div>
+              <div className="tp-live-card__rows">
+                <div className="tp-live-row">
+                  <span className="tp-live-time">03:47:00</span>
+                  <span className="tp-live-action">Exception detected</span>
+                  <span className="tp-text-red">INV-2947</span>
+                  <span className="tp-status-dot" aria-label="Exception alert"></span>
+                </div>
+                <div className="tp-live-row">
+                  <span className="tp-live-time">03:47:02</span>
+                  <span className="tp-live-action">ERP check</span>
+                  <span className="tp-text-cyan">PO-10290 matched</span>
+                  <span className="tp-status-check">✓</span>
+                </div>
+                <div className="tp-live-row">
+                  <span className="tp-live-time">03:47:04</span>
+                  <span className="tp-live-action">Vendor query</span>
+                  <span className="tp-text-cyan">Response received</span>
+                  <span className="tp-status-check">✓</span>
+                </div>
+                <div className="tp-live-row">
+                  <span className="tp-live-time">03:47:08</span>
+                  <span className="tp-live-action">Resolved</span>
+                  <span className="tp-text-green">No human required</span>
+                  <span className="tp-status-square-check">✓</span>
+                </div>
+              </div>
+              <div className="tp-live-card__footer">
+                <span>Resolved in 8 seconds</span>
+                <span>Autonomy: 100%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Operations Team Exceptions (Full Width Card) */}
+          <div className="tp-ops-card">
+            <div className="tp-ops-card__header">
+              <span className="tp-ops-card__title">
+                A typical operations team - overwhelmed by process exceptions that never end.
+              </span>
+              <span className="tp-live-badge">LIVE</span>
+            </div>
+            <div className="tp-ops-grid">
+              <div>
+                <div className="tp-ops-col-head">
+                  <span className="tp-ops-col-title">Exceptions queue</span>
+                  <span className="tp-ops-col-badge">1,247 pending</span>
+                </div>
+                <div className="tp-ops-item">
+                  <span className="tp-item-id">INV-2947</span>
+                  <span className="tp-text-red">Discrepancy</span>
+                </div>
+                <div className="tp-ops-item">
+                  <span className="tp-item-id">PO-10290</span>
+                  <span className="tp-text-red">Approval</span>
+                </div>
+                <div className="tp-ops-item">
+                  <span className="tp-item-id">VND-771</span>
+                  <span className="tp-text-red">Vendor</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="tp-ops-col-head">
+                  <span className="tp-ops-col-title">Team alerts</span>
+                  <span className="tp-ops-col-badge">12 urgent</span>
+                </div>
+                <div className="tp-alert-item">
+                  <span className="tp-alert-dot"></span>
+                  <span>Vendor reply missing</span>
+                </div>
+                <div className="tp-alert-item">
+                  <span className="tp-alert-dot"></span>
+                  <span>Approval timeout</span>
+                </div>
+                <div className="tp-alert-item">
+                  <span className="tp-alert-dot"></span>
+                  <span>Queue growing</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -208,10 +333,10 @@ export default function AiAgents() {
       </section>
 
       {/* Use cases */}
-      <section className="section section--dark">
+      <section className="section section--light ai-research-use-cases ai-agents-use-cases">
         <div className="container">
-          <SectionHead eyebrow="Use Cases" title="Agents pointed at the work that actually costs you." dark />
-          <div className="cards-2">
+          <SectionHead eyebrow="Use Cases" title="AI solving the problems that matter." />
+          <div className="cards-2 ai-agents-usecase-grid">
             {USE_CASES.map((u) => (
               <UseCaseCard key={u.title} {...u} />
             ))}
@@ -220,19 +345,31 @@ export default function AiAgents() {
       </section>
 
       {/* Process */}
-      <section className="section section--light">
-        <div className="container">
+      <section className="section section--light ai-research-process ai-agents-process">
+        <div className="container ai-research-process__container">
           <SectionHead
             eyebrow="The Moment"
-            title="From the trigger to the resolution, here's the whole path."
-            sub="Five clean steps from the event firing to the outcome confirmed — every one logged, every one measurable."
+            title={
+              <>
+                From the moment it triggers to the
+                <br />
+                moment it's resolved.
+              </>
+            }
+            sub="A structured path from trigger to resolution — with clear milestones and measurable outcomes."
           />
-          <div style={{ marginTop: 60 }}>
+          <div className="ai-research-process__steps">
             <StepFlow steps={STEPS} />
           </div>
           <ResultBar
+            className="ai-research-process__result ai-agents-process__result"
             left="Average resolution time: 8.3 seconds"
-            chips={['87% resolved autonomously', '+ ZERO HUMAN INTERVENTION REQUIRED']}
+            chips={['87% resolved autonomously']}
+            action={
+              <button type="button" className="ai-agents-result-btn">
+                &rarr; ZERO HUMAN INTERVENTION REQUIRED
+              </button>
+            }
           />
         </div>
       </section>

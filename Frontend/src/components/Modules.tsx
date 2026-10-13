@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   CodeIcon,
   PenIcon,
@@ -72,7 +73,9 @@ export default function Modules() {
               </span>
               <h3>{mod.title}</h3>
               <p>{mod.description}</p>
-             
+              <Link to={mod.href} className="modules__link">
+                Learn more →
+              </Link>
             </article>
           ))}
         </div>

@@ -1,0 +1,54 @@
+<svg width="540" height="310" viewBox="0 0 540 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow1" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#060b27" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#6366f1" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f2e"/>
+      <stop offset="100%" stop-color="#060b27"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="540" height="310" rx="16" fill="url(#bgGrad1)" stroke="rgba(99, 102, 241, 0.32)" stroke-width="1.2" filter="url(#glow1)"/>
+
+  <!-- Top bar -->
+  <text x="24" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#818cf8" text-transform="uppercase">LIVE AGENT ACTIVITY</text>
+  
+  <!-- Live indicator pill -->
+  <rect x="444" y="22" width="72" height="24" rx="12" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1"/>
+  <circle cx="458" cy="34" r="4" fill="#10b981"/>
+  <text x="468" y="38" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.8" fill="#10b981">LIVE</text>
+
+  <line x1="24" y1="58" x2="516" y2="58" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Row 1: INV-2847 -->
+  <text x="24" y="88" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">03:47:00</text>
+  <text x="24" y="104" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Exception detected</text>
+  <rect x="424" y="76" width="92" height="26" rx="13" fill="rgba(239, 68, 68, 0.14)" stroke="rgba(239, 68, 68, 0.5)" stroke-width="1"/>
+  <text x="470" y="93" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">INV-2847</text>
+
+  <!-- Row 2: PO-10293 matched -->
+  <text x="24" y="136" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">03:47:02</text>
+  <text x="24" y="152" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8">ERP check</text>
+  <rect x="368" y="124" width="148" height="26" rx="13" fill="rgba(46, 224, 142, 0.14)" stroke="rgba(46, 224, 142, 0.5)" stroke-width="1"/>
+  <text x="442" y="141" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#2fe08e" text-anchor="middle">PO-10293 matched</text>
+
+  <!-- Row 3: Response received -->
+  <text x="24" y="184" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">03:47:04</text>
+  <text x="24" y="200" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Vendor query</text>
+  <rect x="372" y="172" width="144" height="26" rx="13" fill="rgba(34, 211, 238, 0.14)" stroke="rgba(34, 211, 238, 0.5)" stroke-width="1"/>
+  <text x="444" y="189" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#22d3ee" text-anchor="middle">Response received</text>
+
+  <!-- Row 4: No human required -->
+  <text x="24" y="232" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">03:47:08</text>
+  <text x="24" y="248" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#94a3b8">Resolved</text>
+  <rect x="374" y="220" width="142" height="26" rx="13" fill="rgba(46, 224, 142, 0.14)" stroke="rgba(46, 224, 142, 0.5)" stroke-width="1"/>
+  <text x="445" y="237" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#2fe08e" text-anchor="middle">No human required</text>
+
+  <line x1="24" y1="270" x2="516" y2="270" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="24" y="294" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#2fe08e">Resolved in 8 seconds</text>
+  <text x="516" y="294" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#2fe08e" text-anchor="end">Autonomy: 100%</text>
+</svg>

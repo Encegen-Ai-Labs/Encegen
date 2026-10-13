@@ -56,6 +56,12 @@
   },
   "footer": {
     "tagline": "KI-gestützte Lösungen für das moderne Unternehmen. Wir transformieren Unternehmen durch intelligente Automatisierung und Forschung.",
+    "headings": {
+      "solutions": "Lösungen",
+      "products": "Produkte",
+      "resources": "Ressourcen",
+      "company": "Unternehmen"
+    },
     "columns": {
       "platform": "Plattform & Technologie",
       "solutions": "Lösungen",
@@ -64,6 +70,25 @@
       "legal": "Rechtliches & Sicherheit"
     },
     "links": {
+      "aiAgents": "KI-Agenten & Automatisierung",
+      "aiResearch": "KI-Forschungslösungen",
+      "customSoftware": "Individuelle Softwareentwicklung",
+      "digitalMarketing": "Digitales Marketing & Wachstum",
+      "webEcommerce": "Web- & E-Commerce-Entwicklung",
+      "useCases": "Anwendungsfälle & Branchen",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "HR-Portal",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "insights": "Einblicke",
+      "caseStudies": "Fallstudien",
+      "knowledgeHub": "Knowledge Hub",
+      "researchPapers": "Forschungspapiere",
+      "documentation": "Dokumentation",
+      "aboutUs": "Über uns",
+      "careers": "Karriere",
+      "ourValues": "Unsere Werte",
+      "ourCulture": "Unsere Kultur",
       "privacy": "Datenschutzerklärung",
       "terms": "Nutzungsbedingungen",
       "security": "Sicherheit & Compliance",
@@ -74,13 +99,13 @@
     "newsletterSub": "Erhalten Sie exklusive Analysen, Architektur-Blueprints und technologische Durchbrüche.",
     "newsletterPlaceholder": "Geschäftliche E-Mail-Adresse eingeben",
     "newsletterButton": "Abonnieren",
-    "copyright": "© 2026 Encegen AI Labs Inc. Alle Rechte vorbehalten."
+    "copyright": "© 2025 Encegen SE. Alle Rechte vorbehalten."
   },
   "home": {
     "heroBadge": "Prozess-Intelligenz-Plattform",
     "heroTitle": "Verwandeln Sie jeden Prozess in einen Wettbewerbsvorteil",
     "heroSub": "Encegen bietet Ihnen den Röntgenblick, um jeden Geschäftsprozess in Echtzeit und im weltweiten Maßstab zu erkennen, zu beheben und zu optimieren.",
-    "startFree": "Kostenlos starten →",
+    "startFree": "Jetzt starten",
     "watchDemo": "Demo ansehen",
     "trustedBy": "Von weltweit führenden Unternehmen geschätzt",
     "aboutEyebrow": "Über Encegen AI Labs",
@@ -148,7 +173,15 @@
       "title": "Bereit zu sehen, was Encegen für Ihr Unternehmen tun kann?",
       "sub": "Schließen Sie sich Tausenden von Unternehmen an, die aus jedem Prozess messbaren Mehrwert schöpfen.",
       "btn1": "Heute noch starten",
-      "btn2": "Mit einem Experten sprechen"
+      "btn2": "Mit einem Experten sprechen",
+      "platformTitle": "Bereit, Ihre Abläufe zu transformieren?",
+      "platformSub": "Schließen Sie sich über 5.000 Unternehmen an, die mit Encegen smarter arbeiten.",
+      "demoButton": "Persönliche Demo anfragen",
+      "platformStartButton": "Jetzt starten",
+      "platformTitle": "Bereit, Ihre Abläufe zu transformieren?",
+      "platformSub": "Schließen Sie sich über 5.000 Unternehmen an, die mit Encegen smarter arbeiten.",
+      "demoButton": "Persönliche Demo anfragen",
+      "platformStartButton": "Jetzt starten"
     }
   },
   "common": {

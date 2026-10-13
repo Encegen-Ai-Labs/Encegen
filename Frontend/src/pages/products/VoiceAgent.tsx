@@ -50,6 +50,7 @@ export default function VoiceAgent() {
   return (
     <>
       <PageHero
+        className="phero--voice-agent"
         badge="Next-Generation Conversational AI"
         title={
           <>

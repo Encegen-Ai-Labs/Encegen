@@ -4,6 +4,10 @@ import { API_BASE_URL } from '../config/api'
 import { downloadReportAsWord } from '../utils/downloadWordDoc'
 import './content.css'
 import './Resources.css'
+import featuredCosmicImg from '../assets/figma/figma_20.png'
+import webinarStudioImg from '../assets/figma/figma_42.png'
+import desktopDevImg from '../assets/figma/figma_18.png'
+import enterpriseConsoleImg from '../assets/figma/figma_17.png'
 
 interface ResourceArticle {
   id: number | string
@@ -30,7 +34,7 @@ const DEFAULT_ARTICLES: ResourceArticle[] = [
     category: 'Blog',
     summary: 'Discover how multi-agent systems and foundational models are reshaping modern business processes.',
     content: 'Enterprise AI is rapidly shifting from single-turn chat interfaces to full autonomous workflows. In this article, we explore how Encegen builds secure, high-precision agent networks for enterprise operations.\n\nKey takeaways:\n1. Autonomous tool calling reduces human workload by 70%.\n2. Multi-agent coordination handles complex multi-step reasoning.\n3. Real-time observability ensures compliance and safety.',
-    cover_image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    cover_image: featuredCosmicImg,
     author: 'Encegen AI Research',
     is_featured: true,
   },
@@ -41,7 +45,7 @@ const DEFAULT_ARTICLES: ResourceArticle[] = [
     category: 'Documentation',
     summary: 'Best practices for architecting resilient REST & GraphQL APIs to handle high-concurrency LLM inference traffic.',
     content: 'Scaling AI inference requires modular backend microservices, intelligent request queuing, and persistent caching strategies. Learn how to optimize throughput while minimizing cloud latency.\n\nTopics covered:\n- Asynchronous queueing with Redis & BullMQ\n- Model quantization techniques\n- Auto-scaling microservice clusters',
-    cover_image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+    cover_image: desktopDevImg,
     author: 'Tech Lead @ Encegen',
   },
   {
@@ -51,7 +55,7 @@ const DEFAULT_ARTICLES: ResourceArticle[] = [
     category: 'Webinars',
     summary: 'On-demand masterclass on identifying top ROI automation targets across ERP workflows.',
     content: 'Join Encegen architects as we break down concrete enterprise case studies and live benchmarks on automating legacy systems with multi-agent intelligence.\n\nKey discussion points:\n- Legacy system ingestion pipelines\n- Agent guardrails and compliance\n- Measuring automation ROI',
-    cover_image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+    cover_image: webinarStudioImg,
     author: 'Encegen Solutions Team',
     media_url: 'https://youtu.be/ECB1RyE9Q40',
   },
@@ -62,7 +66,7 @@ const DEFAULT_ARTICLES: ResourceArticle[] = [
     category: 'Reports',
     summary: 'Comprehensive market benchmark on AI integration speed and business impact metrics.',
     content: 'Our annual research survey capturing insights from over 800 IT leaders on agentic systems, security parameters, and measurable productivity gains across financial operations.\n\nBenchmark highlights:\n- 4.2x faster invoice reconciliation cycle time\n- 82% reduction in repetitive operational tickets\n- Zero downtime rollout frameworks',
-    cover_image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    cover_image: enterpriseConsoleImg,
     author: 'Market Insights Group',
   },
 ]
@@ -126,15 +130,15 @@ export default function Resources() {
   return (
     <>
       <PageHero
-        className="resources-hero"
-        badge="Resources & Hub"
+        className="resources-hero phero--resources"
+        badge="RESOURCES"
         title={
           <>
             Learn, Explore, and Master{' '}
             <span className="accent-purple">Process Intelligence</span>
           </>
         }
-        sub="Articles, technical documentation, research reports, and webinars managed directly by the Encegen team."
+        sub="Guides, reports, webinars, and documentation to help you get the most out of Encegen."
       />
 
       <section className="resources-featured section section--light">

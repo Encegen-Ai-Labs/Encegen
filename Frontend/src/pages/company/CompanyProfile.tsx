@@ -6,6 +6,7 @@ import logoEasyHunt from '../../assets/easyhunt.png'
 import logoPramay from '../../assets/pramay.png'
 import logoVarasa from '../../assets/varasa.png'
 import logoFxAlgo from '../../assets/fxalgo.png'
+import teamBoardroom from '../../assets/team-boardroom.png'
 
 import photoSaurabh from '../../assets/Saurabh Gite.png'
 import photoSwamini from '../../assets/Swamini Hirolikar.png'
@@ -256,37 +257,12 @@ export default function CompanyProfile() {
           </div>
 
           <div className="cp-split__right">
-            <div className="cp-graphic-card">
-              <div className="cp-graphic-card__header">
-                <span className="cp-dot cp-dot--red" />
-                <span className="cp-dot cp-dot--yellow" />
-                <span className="cp-dot cp-dot--green" />
-                <span className="cp-graphic-card__label">Encegen Global Operations Room</span>
-              </div>
-              <div className="cp-graphic-card__body">
-                <div className="cp-graphic-grid">
-                  <div className="cp-graphic-stat">
-                    <span className="cp-graphic-stat__num">99.4%</span>
-                    <span className="cp-graphic-stat__lbl">Extraction Accuracy</span>
-                  </div>
-                  <div className="cp-graphic-stat">
-                    <span className="cp-graphic-stat__num">50+</span>
-                    <span className="cp-graphic-stat__lbl">Enterprise Systems</span>
-                  </div>
-                  <div className="cp-graphic-stat">
-                    <span className="cp-graphic-stat__num">&lt;5ms</span>
-                    <span className="cp-graphic-stat__lbl">Trading Latency</span>
-                  </div>
-                  <div className="cp-graphic-stat">
-                    <span className="cp-graphic-stat__num">100%</span>
-                    <span className="cp-graphic-stat__lbl">IP Ownership</span>
-                  </div>
-                </div>
-                <div className="cp-graphic-bar">
-                  <span>Pune HQ · Wagholi &amp; Pashan Technology Hubs</span>
-                  <span className="cp-live-tag">● LIVE</span>
-                </div>
-              </div>
+            <div className="cp-mission-photo-wrap">
+              <img
+                src={teamBoardroom}
+                alt="Encegen team collaborating in a modern boardroom"
+                className="cp-mission-photo"
+              />
             </div>
           </div>
         </div>

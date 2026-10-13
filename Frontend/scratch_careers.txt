@@ -1,0 +1,52 @@
+## 7. `careers-page` (`node-id=2334-3`, Width: `1440px`)
+**Screenshots:**
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_1.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_2.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_why_join.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_3.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_4.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\careers_5.png`
+
+**Sections & Colors:**
+1. **`header`**: `#FFFFFF`.
+2. **`hero` (`node-id=2338-5`)**:
+   - **Dimensions & Padding:** `1440px × 854px`, Horizontal 2-column flow, Padding `120px`, Gap `48px`.
+   - **Background:** `#0A0F1E`.
+   - **Content:** Left: Eyebrow `"OUR STORY BEGINS HERE"`, Heading `"We're not building an AI company. We're building a better future."`, 2 buttons (`Explore Open Roles ↓` white pill, `Our Culture` outline pill), 3 dark pill tags (`• 50+ team members`, `• Remote-first`, `• $18M Series A`). Right: 2×2 grid of 4 neon-lit team silhouette photos.
+3. **`mission-band`**:
+   - **Background:** Purple-to-pink linear gradient (`#7C3AED` -> `#EC4899`).
+   - **Content:** Italic quote `"We exist to make AI the engine behind every great business decision - and we need exceptional people to make it happen." — Alex Rivera, CEO`.
+4. **`chapter-01-problem` (`node-id=2339-11`)**:
+   - **Dimensions & Padding:** `1440px × 776px`, Padding `80px` top/bottom, `120px` left/right.
+   - **Background:** `#0A0F1E`.
+   - **Content:** Left: Pill `"CHAPTER 01 • THE PROBLEM"`, red word `"fails"`, Heading `"Most enterprise AI fails before it reaches production."`, 3 arrow bullets. Right: Dark comparison card (`TYPICAL AI PROJECT` red bars vs `WITH ENCEGEN` green bars: `12 mo vs 3 wks`, `$2.4M vs $180K`, `3% vs 74%`, `18 mo vs < 30 days`).
+5. **`why-join` (`node-id=2338-41`)**:
+   - **Dimensions & Padding:** `1440px × 656px`, Padding `80px` top/bottom, `120px` left/right, Gap `40px`.
+   - **Background:** `#F3F0FF` (soft lavender).
+   - **Content:** Eyebrow `"CHAPTER 02 • WHY HERE"`, Heading `"Everything you need to do your best work."` 3×2 grid of 6 white perk cards (`Equity for all`, `Remote-first`, `Learning & growth`, `Healthcare`, `No-meeting days`, `Team offsites`).
+6. **`chapter-03-people`**:
+   - **Background:** `#0A0F1E`.
+   - **Content:** Eyebrow `"CHAPTER 03 • THE PEOPLE"`, Heading `"Built by people who've done it before."` Left stats table (`Average experience: 9 years`, `Companies represented: 40+`, `Countries: 18`, `PhDs on team: 7`). Right: 3 horizontal team member quote rows (`Priya N.`, `Marcus B.`, `Sophia C.`).
+7. **`teams` (`node-id=2338-78`)**:
+   - **Dimensions & Padding:** `1440px × 752px`, Padding `80px` top/bottom, `120px` left/right, Gap `40px`.
+   - **Background:** `#FFFFFF`.
+   - **Content:** Eyebrow `"CHAPTER 04 • WHERE YOU FIT"`, Heading `"Find where you belong."` 2×2 grid of department cards with colored top borders (`AI & Research` purple `8 open roles`, `Engineering` blue `12 open roles`, `Product` teal `5 open roles`, `Go-to-Market` orange `9 open roles`).
+8. **`employee-stories`**:
+   - **Background:** `#F8F9FF`.
+   - **Content:** 3 employee testimonial cards with 5-star ratings + dark callout bar `"Join 50+ people already building the future of enterprise AI. -> Read more stories on Glassdoor"`.
+9. **`open-roles` (`node-id=2338-152`)**:
+   - **Dimensions & Padding:** `1440px × 1285px`, Padding `80px` top/bottom, `120px` left/right, Gap `40px`.
+   - **Background:** `#FFFFFF`.
+   - **Content:** Eyebrow `"CHAPTER 06 • YOUR ROLE"`, Heading `"Where will you make your mark?"` + green `"Actively hiring"` pill. Search input `"Search roles..."`, department filter pills (`All Departments` active purple, `Engineering`, `AI & Research`, `Product`, `Sales`, `Operations`, `Design`), and 8 stacked job listing rows (`Senior AI Engineer`, `ML Platform Engineer`, `Senior Product Manager`, `Enterprise Account Executive`, `AI Research Scientist`, `Solutions Architect`, `Head of People Operations`, `Growth Marketing Lead`) each with a purple `"Apply ->"` button + `"See all 34 open roles ->"` link. (Note: dedicated sub-frames `all-open-roles` and `apply-senior-ai-engineer` also exist in the sidebar).
+10. **`locations`**:
+    - **Background:** `#0A0F1E`.
+    - **Content:** Heading `"Remote-first. Globally connected."` Dark world map with glowing hub pins + 5 hub cards (`London`, `Berlin`, `Singapore`, `New York`, `San Francisco`).
+11. **`awards` (`node-id=2338-300`)**:
+    - **Dimensions & Padding:** `1440px × 474px`, Padding `80px` top/bottom, `120px` left/right, Gap `40px`.
+    - **Background:** `#F8F9FF`.
+    - **Content:** Eyebrow `"RECOGNITION"`, Heading `"A great place to build."`, 5 award cards (`Glassdoor Best Places to Work 2024`, `Forbes AI 50 2024`, `Gartner Cool Vendor`, `Deloitte Fast 500`, `G2 Top 50 AI Products`).
+12. **`final-cta`**: Neumorphic lavender card (`#EDE9FE` -> `#F8F9FF`, top radius `50px`), Heading `"This is where the story gets interesting. And you could be in the next chapter."` (`View All Open Roles`, `Send an Open Application`).
+13. **`footer`**: `#060B27`.
+
+---
+

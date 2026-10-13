@@ -1,0 +1,35 @@
+## 8. `our-culture` (`node-id=2365-187`, Width: `1440px`)
+**Screenshots:**
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\our_culture_1.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\our_culture_2.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\our_culture_3.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\our_culture_4.png`
+
+**Sections & Colors:**
+1. **`header`**: `#FFFFFF`.
+2. **`Hero` (`node-id=2365-201`)**:
+   - **Dimensions & Padding:** `1440px × 600px` (Fixed), Padding `120px` left/right, Gap `32px`.
+   - **Background:** `#0A0F1E` with `#6B4EFF` radial gradient.
+   - **Content:** Solid purple pill `"OUR CULTURE"`, Heading `"We don't just build AI. We raise it."`, Subtitle `"At Encegen, intelligence isn't manufactured — it's cultivated. Every model, every agent, every system is built with intention, care, and relentless curiosity."`, 2 pill buttons (`View Open Roles ->` white, `Our Culture` dark outline).
+3. **`Principles` (`node-id=2365-212`)**:
+   - **Dimensions & Padding:** `1440px × 873px`, Padding `60px` top/bottom, `80px` left/right, Gap `48px`.
+   - **Background:** `#FFFFFF`.
+   - **Content:** Eyebrow `"OUR PRINCIPLES"`, Heading `"What guides us every day"`. 5 numbered cards (`01 Curiosity Over Certainty`, `02 Ownership Without Ego`, `03 Build in the Open`, `04 Speed with Intention`, `05 Human-Centered AI`) + lavender quote banner `"These aren't posters on a wall. They're how we make decisions, resolve disagreements, and choose what to build next."`
+4. **`DayAtEncogen` (`node-id=2365-245`)**:
+   - **Dimensions & Padding:** `1440px × 1625px`, Padding `120px`, Gap `80px`.
+   - **Background:** `#F8F9FF`.
+   - **Content:** Eyebrow `"A DAY AT ENCEGEN"`, Heading `"A rhythm of focus and flow"`. Vertical timeline with purple time pills (`09:00 Morning Sync`, `10:00 Deep Work Block`, `12:30 Lunch & Learn`, `14:00 Collaboration Hour`, `16:00 Ship It`, `17:30 Wind Down`) and white cards with colored left borders.
+5. **`Team`**:
+   - **Background:** `#FFFFFF`.
+   - **Content:** Left: Eyebrow `"THE TEAM"`, Heading `"Built by 47 extraordinary humans across 3 continents."` Right: 3 stat cards (`12 Nationalities`, `60% Engineers`, `40% from Top AI Labs`).
+6. **`Voices` (`node-id=2365-320`)**:
+   - **Dimensions & Padding:** `1440px × 671px`, Padding `120px`, Gap `64px`.
+   - **Background:** `#F8F9FF`.
+   - **Content:** Eyebrow `"VOICES"`, Heading `"Don't take our word for it"`, 3 white quote cards (`Dr. Priya Sharma`, `Marcus Chen`, `Sarah Williams`).
+7. **`JoinUs`**:
+   - **Background:** `#FFFFFF`.
+   - **Content:** Heading `"Ready to do the best work of your life?"`, 2 pill buttons.
+8. **`footer`**: `#060B27`.
+
+---
+

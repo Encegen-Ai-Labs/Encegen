@@ -62,6 +62,7 @@ export default function ResumeBuilder() {
   return (
     <>
       <PageHero
+        className="phero--resume-builder"
         badge="Next-Gen Resume Creation"
         title={
           <>

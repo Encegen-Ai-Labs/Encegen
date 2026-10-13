@@ -481,18 +481,21 @@
 
 /* Newsletter band */
 .newsletter {
-  background: linear-gradient(120deg, #8465ff 0%, #6a4cf2 60%, #5f41ea 100%);
+  background: linear-gradient(135deg, #8B5CF6 0%, #4B2ECC 100%);
+  font-family: 'Inter', var(--font);
   padding: var(--space-xl) 0;
   color: #fff;
   text-align: center;
 }
 .newsletter h2 {
-  font-size: clamp(1.75rem, 1.5rem + 1.3vw, 2.625rem);
+  font-family: 'Inter', var(--font);
+  font-size: clamp(1.85rem, 1.55rem + 1.25vw, 2.65rem);
   font-weight: 800;
 }
 .newsletter p {
   margin: var(--space-xs) auto 0;
   max-width: 560px;
+  font-family: 'Inter', var(--font);
   font-size: var(--fs-md);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.88);
@@ -517,7 +520,7 @@
 .newsletter__form button {
   padding: var(--space-sm) var(--space-md);
   border-radius: 999px;
-  background: var(--navy-900);
+  background: #060B27;
   color: #fff;
   font-size: var(--fs-base);
   font-weight: 700;
@@ -536,7 +539,7 @@
 
 /* Docs code block */
 .codeblock {
-  background: var(--navy-800);
+  background: #060B27;
   border: 1px solid rgba(122, 99, 255, 0.25);
   border-radius: 16px;
   padding: 22px 24px;

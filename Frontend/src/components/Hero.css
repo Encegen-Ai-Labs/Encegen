@@ -1,15 +1,8 @@
 .hero {
   position: relative;
-  background:
-    radial-gradient(
-      680px 440px at 50% 60%,
-      rgba(99, 74, 255, 0.58),
-      rgba(99, 74, 255, 0.2) 48%,
-      transparent 72%
-    ),
-    var(--navy-950);
-  min-height: 440px;
-  padding: clamp(5.25rem, 7vh, 6rem) 0 clamp(3rem, 5vh, 3.75rem);
+  background: radial-gradient(ellipse 75% 65% at 50% 35%, rgba(107, 78, 255, 0.85) 0%, rgba(67, 33, 169, 0.45) 40%, #060B27 75%), #060B27 !important;
+  min-height: 480px;
+  padding: clamp(5.5rem, 8vh, 6.75rem) 0 clamp(3.5rem, 5vh, 4.5rem);
   overflow: hidden;
 }
 
@@ -34,6 +27,7 @@
 .hero__title {
   margin-top: 18px;
   max-width: 720px;
+  font-family: 'Inter', var(--font);
   font-size: clamp(2.15rem, 1.7rem + 2vw, 3.1rem);
   font-weight: 800;
   line-height: 1.12;
@@ -90,6 +84,36 @@
   box-shadow:
     0 0 0 5px rgba(214, 205, 255, 0.2),
     0 0 34px rgba(158, 140, 255, 0.8);
+}
+
+.hero__cta--white {
+  background: #ffffff;
+  color: var(--purple-700);
+  border: 1.5px solid #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(214, 205, 255, 0.12),
+    0 0 24px rgba(158, 140, 255, 0.6);
+}
+
+.hero__cta--white:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 5px rgba(214, 205, 255, 0.2),
+    0 0 34px rgba(158, 140, 255, 0.8);
+}
+
+.hero__cta--ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero__cta--ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  box-shadow: 0 0 24px rgba(158, 140, 255, 0.4);
 }
 
 .hero__badges {

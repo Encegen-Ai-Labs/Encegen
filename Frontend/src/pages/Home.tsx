@@ -7,8 +7,6 @@ import {
   CarIcon,
   FactoryIcon,
   HeartPulseIcon,
-  MapPinIcon,
-  ShieldIcon,
   ShoppingBagIcon,
   SparklesIcon,
   TargetIcon,
@@ -44,19 +42,15 @@ function useScrollReveal<T extends HTMLElement>() {
   return ref
 }
 
-import heroImage from '../assets/hero1.png'
+import heroImage from '../assets/hero-home.png'
 import hero2 from '../assets/hero2.png'
-import logoEasyHunt from '../assets/easyhunt.png'
-import logoPramay from '../assets/pramay.png'
-import logoVarasa from '../assets/varasa.png'
-import logoFxAlgo from '../assets/fxalgo.png'
 
 const CLIENT_ITEMS = [
-  { name: 'EasyHunt', logo: logoEasyHunt, tag: 'Title Search Software' },
-  { name: 'Pramay Agro', logo: logoPramay, tag: 'Agri E-Commerce (Fertilizers & Pesticides)' },
-  { name: 'Varasa', logo: logoVarasa, tag: 'Heritage Conservation & Scholarship' },
-  { name: 'Fx Algo', logo: logoFxAlgo, tag: 'Algorithmic Trading Systems' },
-  { name: 'Flairnetic Advocates', logo: null, tag: 'Major Client for EasyHunt (Legal Due Diligence)' },
+  'EasyHunt',
+  'Pramay Agro',
+  'Varasa',
+  'Fx Algo',
+  'Flairnetic Advocates',
 ]
 
 const STORIES = [
@@ -141,6 +135,8 @@ export default function Home() {
   const indRef = useScrollReveal<HTMLDivElement>()
   const statsRef = useScrollReveal<HTMLDivElement>()
   const resRef = useScrollReveal<HTMLDivElement>()
+  const aboutRef = useScrollReveal<HTMLDivElement>()
+  const platformRef = useScrollReveal<HTMLDivElement>()
   const [storyPage, setStoryPage] = useState(0)
   const totalPages = 2
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -169,23 +165,23 @@ export default function Home() {
   }
 
   const facts = useMemo(() => [
-    { value: '2025', label: t('home.facts.founded', 'Founded'), sub: t('home.facts.foundedSub', 'Incorporated 24 May 2025') },
-    { value: '11–50', label: t('home.facts.team', 'Team Size'), sub: t('home.facts.teamSub', 'AI engineers, developers & builders') },
+    {
+      value: '2025',
+      label: t('home.facts.founded', 'Founded'),
+      sub: t('home.facts.foundedSub', 'Incorporated 24 May 2025'),
+      color: '#6c47ff',
+    },
+    {
+      value: '11–50',
+      label: t('home.facts.team', 'Team'),
+      sub: t('home.facts.teamSub', 'AI engineers, developers & builders'),
+      color: '#05b184',
+    },
     {
       value: '2',
       label: t('home.facts.offices', 'Offices in Pune'),
-      offices: [
-        {
-          name: 'Wagholi Office',
-          address: 'BA HUB, Office no : 03, Sambhaji Nagar (Baif road), Near BA Varmont Society, Wagholi, Pune-412207',
-          mapUrl: 'https://maps.app.goo.gl/TXjPKk6BFvho6c4R7',
-        },
-        {
-          name: 'Sus Road Office',
-          address: 'Office No. 507,Sukhwani Boulevard Commerz, Pashan-Sus Road, Above Domnios, Sus. Pune Maharashtra 411021',
-          mapUrl: 'https://www.google.com/maps/place/Legismith+Partners+LLP/@18.5528432,73.7551646,612a,75y,87.03h,90t/data=!3m7!1e1!3m5!1s7itLVbuKwXhTbJ1suLtkOQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3D7itLVbuKwXhTbJ1suLtkOQ%26yaw%3D87.03443356390962!7i16384!8i8192!4m7!3m6!1s0x3bc2bfa66853ed39:0x6339bde89311682b!8m2!3d18.5525751!4d73.7550038!10e5!16s%2Fg%2F11vz6648ss!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D',
-        },
-      ],
+      sub: t('home.facts.officesSub', 'Across Wagholi & Sus Road, Pune'),
+      color: '#f97316',
     },
   ], [t])
 
@@ -231,11 +227,23 @@ export default function Home() {
         title={t('home.heroTitle', 'Turn Every Process Into a Competitive Advantage')}
         sub={t('home.heroSub', 'Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale.')}
         actions={
-          <>
-            <Btn to="/platform" variant="white">
-              {t('home.startFree', 'Start for free →')}
-            </Btn>
-          </>
+          <Btn to="/get-started" variant="outline-light">
+            <span>{t('home.startFree', 'Get started')}</span>
+            <svg
+              className="home-hero-cta-arrow"
+              width="13.33"
+              height="13.33"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 8h10M8 3l5 5-5 5" />
+            </svg>
+          </Btn>
         }
       >
         <p className="home-hero-proof">
@@ -250,26 +258,14 @@ export default function Home() {
         </div>
       </PageHero>
 
-      {/* Logo marquee */}
+      {/* Trusted companies */}
       <section className="home-logos">
         <div className="container">
-          <p className="home-logos__label">{t('home.trustedBy', "Our Products, Clients & Trusted Partners")}</p>
-          <div className="home-logos__row marquee">
-            <div className="marquee__track">
-              {[...CLIENT_ITEMS, ...CLIENT_ITEMS].map((item, i) => (
-                <div key={`${item.name}-${i}`} className="client-logo-item">
-                  {item.logo ? (
-                    <img src={item.logo} alt={item.name} className="client-logo-img" />
-                  ) : (
-                    <span className="client-logo-icon">
-                      <ShieldIcon size={20} />
-                    </span>
-                  )}
-                  <div>
-                    <span className="client-logo-label">{item.name}</span>
-                    <span className="client-logo-tag">{item.tag}</span>
-                  </div>
-                </div>
+          <p className="home-logos__label">{t('home.trustedBy', "Trusted by the world's leading companies")}</p>
+          <div className="home-logos__row">
+            <div className="home-logos__track">
+              {CLIENT_ITEMS.map((client) => (
+                <span key={client} className="client-logo-label">{client}</span>
               ))}
             </div>
           </div>
@@ -288,36 +284,20 @@ export default function Home() {
               {t('home.aboutCopy', 'More than 1,400 companies around the world use Encegen to analyze, design, and operate AI-driven processes. Now your agents, humans, and systems can work together to deliver real business outcomes.')}
             </p>
           </div>
-          <div className="home-facts">
+          <div className="home-facts" ref={aboutRef}>
             {facts.map((f) => (
-              <div key={f.label} className="home-facts__card">
-                <strong>
-                  {f.value} <span>{f.label}</span>
-                </strong>
-                {f.sub && <p>{f.sub}</p>}
-                {'offices' in f && Array.isArray((f as any).offices) && (
-                  <div className="home-facts__offices">
-                    {((f as any).offices as Array<{ name: string; address: string; mapUrl: string | null }>).map((off) => (
-                      <div key={off.name} className="home-facts__office">
-                        <span className="home-facts__office-name">
-                          <MapPinIcon size={13} /> {off.name}
-                        </span>
-                        {off.mapUrl ? (
-                          <a
-                            href={off.mapUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="home-facts__office-link"
-                          >
-                            {off.address} ↗
-                          </a>
-                        ) : (
-                          <span>{off.address}</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
+              <div
+                key={f.label}
+                className="home-facts__card anim-item"
+                style={{ ['--fact-color' as string]: f.color }}
+              >
+                <span className="home-facts__bar" aria-hidden="true" />
+                <div className="home-facts__body">
+                  <strong>
+                    {f.value} <span>{f.label}</span>
+                  </strong>
+                  {f.sub && <p>{f.sub}</p>}
+                </div>
               </div>
             ))}
           </div>
@@ -325,7 +305,7 @@ export default function Home() {
       </section>
 
       {/* Capabilities */}
-      <section className="section section--lavender">
+      <section className="section section--light home-capabilities-section">
         <div className="container">
           <div className="capabilities-head">
             <SectionHead
@@ -347,8 +327,8 @@ export default function Home() {
 
       {/* Platform */}
       <section className="section section--dark home-platform-section">
-        <div className="container split">
-          <div>
+        <div className="container split" ref={platformRef}>
+          <div className="anim-item">
             <p className="shead__eyebrow" style={{ color: 'var(--purple-400)' }}>
               {t('home.platform.eyebrow', 'The Encegen Platform')}
             </p>
@@ -371,24 +351,29 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="home-platform-visual">
+          <div className="home-platform-visual anim-item">
             <img src={hero2} alt="Platform Preview" className="home-platform-img" />
           </div>
         </div>
       </section>
 
       {/* Industries */}
-      <section className="section section--light">
+      <section className="section section--light home-industries-section">
         <div className="container">
           <div className="capabilities-head">
             <SectionHead
               eyebrow={t('home.industries.eyebrow', 'Solutions for every industry')}
               title={
                 <>
-                  Your Industry. Your Processes. <span className="accent-purple">Our Platform.</span>
+                  Your Industry. Your Processes.
+                  <br />
+                  <span className="accent-purple">Our Platform.</span>
                 </>
               }
-              sub={t('home.industries.title', 'Tailored for your sector\'s most complex challenges')}
+              sub={t(
+                'home.industries.sub',
+                'From finance to manufacturing, Encegen is deployed across 70+ industries to deliver measurable, real-world results.'
+              )}
             />
           </div>
           <div className="cards-3" ref={indRef}>
@@ -410,6 +395,9 @@ export default function Home() {
                 <span className="fcard__icon">{ind.icon}</span>
                 <h3>{ind.title}</h3>
                 <p>{ind.desc}</p>
+                <span className="home-ind-link">
+                  {t('home.industries.explore', 'Explore solution →')}
+                </span>
               </article>
             ))}
           </div>

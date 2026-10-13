@@ -1,0 +1,113 @@
+<svg width="540" height="580" viewBox="0 0 540 580" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow-card" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b1e"/>
+      <stop offset="100%" stop-color="#050817"/>
+    </linearGradient>
+    <linearGradient id="impactGradHigh" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container Box -->
+  <rect width="540" height="580" rx="18" fill="url(#bgGrad)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" filter="url(#glow-card)"/>
+
+  <!-- ================= TOP: TRADITIONAL AI ================= -->
+  <!-- Header Pill & Red Status Dot -->
+  <rect x="24" y="24" width="108" height="24" rx="6" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="0.8"/>
+  <text x="78" y="40" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.8" fill="#94a3b8" text-anchor="middle">TRADITIONAL AI</text>
+  
+  <circle cx="512" cy="36" r="3.5" fill="#ef4444"/>
+  <circle cx="512" cy="36" r="8" fill="#ef4444" opacity="0.25"/>
+
+  <!-- Row 1: Siloed data analysis -->
+  <g transform="translate(24, 72)">
+    <circle cx="12" cy="12" r="10" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.2"/>
+    <path d="M8.5 8.5 L15.5 15.5 M15.5 8.5 L8.5 15.5" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Siloed data analysis</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Works on snapshots, misses process context</text>
+  </g>
+
+  <!-- Row 2: Static rule-based alerts -->
+  <g transform="translate(24, 118)">
+    <circle cx="12" cy="12" r="10" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.2"/>
+    <path d="M8.5 8.5 L15.5 15.5 M15.5 8.5 L8.5 15.5" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Static rule-based alerts</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Flags issues but can't explain why they happen</text>
+  </g>
+
+  <!-- Row 3: Manual hand-off required -->
+  <g transform="translate(24, 164)">
+    <circle cx="12" cy="12" r="10" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.2"/>
+    <path d="M8.5 8.5 L15.5 15.5 M15.5 8.5 L8.5 15.5" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Manual hand-off required</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Insights sit in dashboards, never reach systems</text>
+  </g>
+
+  <!-- Row 4: Reactive by design -->
+  <g transform="translate(24, 210)">
+    <circle cx="12" cy="12" r="10" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.2"/>
+    <path d="M8.5 8.5 L15.5 15.5 M15.5 8.5 L8.5 15.5" stroke="#ef4444" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Reactive by design</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Detects problems only after they've already occurred</text>
+  </g>
+
+  <!-- Traditional Impact Bar -->
+  <rect x="24" y="246" width="492" height="4" rx="2" fill="rgba(255, 255, 255, 0.08)"/>
+  <rect x="24" y="246" width="60" height="4" rx="2" fill="#ef4444"/>
+  <text x="24" y="262" font-family="'Inter', sans-serif" font-size="10.5" font-weight="600" fill="#ef4444">Process Impact: Low</text>
+
+  <!-- ================= MIDDLE DIVIDER & VS BADGE ================= -->
+  <line x1="24" y1="285" x2="516" y2="285" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+  <rect x="252" y="274" width="36" height="22" rx="11" fill="#6366f1"/>
+  <text x="270" y="289" font-family="'Inter', sans-serif" font-size="10.5" font-weight="800" fill="#ffffff" text-anchor="middle">VS</text>
+
+  <!-- ================= BOTTOM: ENCEGEN AI ================= -->
+  <!-- Header Pill & Green Status Dot -->
+  <rect x="24" y="310" width="94" height="24" rx="6" fill="rgba(99, 102, 241, 0.14)" stroke="rgba(99, 102, 241, 0.3)" stroke-width="0.8"/>
+  <text x="71" y="326" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="0.8" fill="#38bdf8" text-anchor="middle">ENCEGEN AI</text>
+  
+  <circle cx="512" cy="322" r="3.5" fill="#10b981"/>
+  <circle cx="512" cy="322" r="8" fill="#10b981" opacity="0.25"/>
+
+  <!-- Row 1: End-to-end process intelligence -->
+  <g transform="translate(24, 348)">
+    <circle cx="12" cy="12" r="10" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.2"/>
+    <path d="M7.5 12 L10.5 15.5 L16.5 8.5" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">End-to-end process intelligence</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Understands full context, not just data points</text>
+  </g>
+
+  <!-- Row 2: AI-powered root cause analysis -->
+  <g transform="translate(24, 394)">
+    <circle cx="12" cy="12" r="10" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.2"/>
+    <path d="M7.5 12 L10.5 15.5 L16.5 8.5" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">AI-powered root cause analysis</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Pinpoints exactly why each process fails</text>
+  </g>
+
+  <!-- Row 3: Direct system action -->
+  <g transform="translate(24, 440)">
+    <circle cx="12" cy="12" r="10" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.2"/>
+    <path d="M7.5 12 L10.5 15.5 L16.5 8.5" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Direct system action</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Pushes fixes into SAP, Salesforce, ServiceNow automatically</text>
+  </g>
+
+  <!-- Row 4: Continuously proactive -->
+  <g transform="translate(24, 486)">
+    <circle cx="12" cy="12" r="10" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1.2"/>
+    <path d="M7.5 12 L10.5 15.5 L16.5 8.5" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="34" y="10" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">Continuously proactive</text>
+    <text x="34" y="25" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">Prevents issues before they impact the business</text>
+  </g>
+
+  <!-- Encegen Impact Bar -->
+  <rect x="24" y="522" width="492" height="4" rx="2" fill="rgba(255, 255, 255, 0.08)"/>
+  <rect x="24" y="522" width="410" height="4" rx="2" fill="url(#impactGradHigh)"/>
+  <text x="24" y="538" font-family="'Inter', sans-serif" font-size="10.5" font-weight="600" fill="#22d3ee">Process Impact: High</text>
+</svg>

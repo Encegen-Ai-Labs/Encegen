@@ -56,6 +56,12 @@
   },
   "footer": {
     "tagline": "Solutions basées sur l'IA pour l'entreprise moderne. Transformer les organisations grâce à l'automatisation intelligente et la recherche.",
+    "headings": {
+      "solutions": "Solutions",
+      "products": "Produits",
+      "resources": "Ressources",
+      "company": "Entreprise"
+    },
     "columns": {
       "platform": "Plateforme & Tech",
       "solutions": "Solutions",
@@ -64,6 +70,25 @@
       "legal": "Légal & Sécurité"
     },
     "links": {
+      "aiAgents": "Agents IA & Automatisation",
+      "aiResearch": "Solutions de Recherche IA",
+      "customSoftware": "Développement Logiciel Sur Mesure",
+      "digitalMarketing": "Marketing Digital & Croissance",
+      "webEcommerce": "Développement Web & E-commerce",
+      "useCases": "Cas d'Usage & Industries",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "Portail RH",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "insights": "Perspectives",
+      "caseStudies": "Études de Cas",
+      "knowledgeHub": "Base de Connaissances",
+      "researchPapers": "Articles de Recherche",
+      "documentation": "Documentation",
+      "aboutUs": "À Propos de Nous",
+      "careers": "Carrières",
+      "ourValues": "Nos Valeurs",
+      "ourCulture": "Notre Culture",
       "privacy": "Politique de Confidentialité",
       "terms": "Conditions d'Utilisation",
       "security": "Sécurité & Conformité",
@@ -74,13 +99,13 @@
     "newsletterSub": "Recevez nos analyses approfondies, nos architectures de référence et nos percées technologiques.",
     "newsletterPlaceholder": "Entrez votre e-mail professionnel",
     "newsletterButton": "S'abonner",
-    "copyright": "© 2026 Encegen AI Labs Inc. Tous droits réservés."
+    "copyright": "© 2025 Encegen SE. Tous droits réservés."
   },
   "home": {
     "heroBadge": "Plateforme d'Intelligence des Processus",
     "heroTitle": "Transformez chaque processus en avantage concurrentiel",
     "heroSub": "Encegen vous offre la vision radiologique pour observer, corriger et optimiser chaque processus métier — en temps réel et à l'échelle mondiale.",
-    "startFree": "Commencer gratuitement →",
+    "startFree": "Commencer",
     "watchDemo": "Voir la démonstration",
     "trustedBy": "Reconnu par les plus grandes entreprises mondiales",
     "aboutEyebrow": "À Propos d'Encegen AI Labs",
@@ -148,7 +173,11 @@
       "title": "Prêt à découvrir ce qu'Encegen peut apporter à votre entreprise ?",
       "sub": "Rejoignez des milliers d'entreprises qui créent de la valeur mesurable à partir de chaque processus.",
       "btn1": "Commencer aujourd'hui",
-      "btn2": "Parler à un expert"
+      "btn2": "Parler à un expert",
+      "platformTitle": "Prêt à transformer vos opérations ?",
+      "platformSub": "Rejoignez plus de 5 000 entreprises qui travaillent plus intelligemment avec Encegen.",
+      "demoButton": "Demander une démo personnalisée",
+      "platformStartButton": "Commencer"
     }
   },
   "common": {

@@ -99,7 +99,7 @@ export default function Culture() {
   return (
     <>
       <PageHero
-        className="culture-hero"
+        className="culture-hero phero--culture"
         badge="OUR CULTURE"
         title="We don’t just build AI. We raise it."
         sub="At Encegen, intelligence isn’t manufactured — it’s cultivated. Every model, every agent, every system is built with intention, care, and relentless curiosity."
@@ -193,9 +193,9 @@ export default function Culture() {
       </section>
 
       {/* Voices */}
-      <section className="section section--lavender culture-voices-section">
+      <section className="section culture-voices-section">
         <div className="container">
-          <SectionHead eyebrow="Inside Encegen" title="What makes a day at Encegen different?" />
+          <SectionHead eyebrow="VOICES" title="Don't take our word for it" dark />
           <div className="cards-3 culture-voices-grid">
             {VOICES.map((v, idx) => (
               <div

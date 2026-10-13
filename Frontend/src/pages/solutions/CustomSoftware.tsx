@@ -105,7 +105,7 @@ export default function CustomSoftware() {
   return (
     <>
       <PageHero
-        className="ai-research-hero custom-software-hero"
+        className="ai-research-hero custom-software-hero phero--custom-software"
         badge={<>● Encegen AI Labs · Custom Software · AI-Native · Enterprise Scale</>}
         title={
           <>

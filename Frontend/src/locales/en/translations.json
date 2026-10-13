@@ -56,6 +56,12 @@
   },
   "footer": {
     "tagline": "AI-powered solutions for the modern enterprise. Transforming businesses with intelligent automation and research.",
+    "headings": {
+      "solutions": "Solutions",
+      "products": "Products",
+      "resources": "Resources",
+      "company": "Company"
+    },
     "columns": {
       "platform": "Platform & Tech",
       "solutions": "Solutions",
@@ -64,6 +70,25 @@
       "legal": "Legal & Security"
     },
     "links": {
+      "aiAgents": "AI Agents & Automation",
+      "aiResearch": "AI Research Solutions",
+      "customSoftware": "Custom Software Dev",
+      "digitalMarketing": "Digital Marketing & Growth",
+      "webEcommerce": "Website & Ecommerce Dev",
+      "useCases": "Use Cases & Industries",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "HR Portal",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "insights": "Insights",
+      "caseStudies": "Case Studies",
+      "knowledgeHub": "Knowledge Hub",
+      "researchPapers": "Research Papers",
+      "documentation": "Documentation",
+      "aboutUs": "About Us",
+      "careers": "Careers",
+      "ourValues": "Our Values",
+      "ourCulture": "Our Culture",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "security": "Security & Compliance",
@@ -74,14 +99,14 @@
     "newsletterSub": "Receive exclusive deep-dives, architectural blueprints, and intelligence breakthroughs.",
     "newsletterPlaceholder": "Enter your corporate email",
     "newsletterButton": "Subscribe",
-    "copyright": "© 2026 Encegen AI Labs Inc. All rights reserved."
+    "copyright": "© 2025 Encegen SE. All rights reserved."
   },
   "home": {
     "heroBadge": "Process Intelligence Platform",
     "heroTitle": "Turn Every Process Into a Competitive Advantage",
     "heroSub": "Encegen gives you the x-ray vision to see, fix, and optimize every business process – in real time, at global scale.",
-    "startFree": "Start for free →",
-    "watchDemo": "Watch demo",
+    "startFree": "Get started",
+   
     "trustedBy": "Trusted by the world's leading companies",
     "aboutEyebrow": "About Encegen AI Labs",
     "aboutTitle": "Turning technology into real-world business intelligence.",
@@ -148,7 +173,15 @@
       "title": "Ready to see what Encegen can do for your business?",
       "sub": "Join thousands of enterprises driving measurable value from every process.",
       "btn1": "Get started today",
-      "btn2": "Talk to an expert"
+      "btn2": "Talk to an expert",
+      "platformTitle": "Ready to transform your operations?",
+      "platformSub": "Join 5,000+ enterprises running smarter with Encegen.",
+      "demoButton": "Get a personalized demo",
+      "platformStartButton": "Get started",
+      "platformTitle": "Ready to transform your operations?",
+      "platformSub": "Join 5,000+ enterprises running smarter with Encegen.",
+      "demoButton": "Get a personalized demo",
+      "platformStartButton": "Get started"
     }
   },
   "common": {

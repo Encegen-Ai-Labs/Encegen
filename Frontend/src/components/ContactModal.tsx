@@ -7,7 +7,7 @@ interface ContactModalProps {
   onClose: () => void
 }
 
-const PHONES = ['+91 7798715090', '+91 7030555123', '+91 9226113909', '+91 7030555126']
+const PHONES = ['+91 7030555126']
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   useEffect(() => {
@@ -31,24 +31,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="contact-modal-header">
           <span className="contact-modal-badge">Get in Touch</span>
           <h2>Talk to an expert</h2>
+          <p>Have a project in mind? Give our team a call and let’s get started.</p>
         </div>
 
-        <div className="contact-modal-group">
+        <div className="contact-modal-group contact-modal-primary">
+          <span className="contact-modal-label">Call us directly</span>
+          <div className="contact-modal-phones">
+            {PHONES.map((phone) => (
+              <a key={phone} href={`tel:${phone.replace(/\s+/g, '')}`} className="contact-modal-phone">
+                <span className="contact-modal-phone-number">{phone}</span>
+                <span className="contact-modal-call-action">
+                  Call now <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="contact-modal-group contact-modal-email-group">
           <span className="contact-modal-label">Email</span>
           <a href="mailto:info@encegenailabs.com" className="contact-modal-email">
             info@encegenailabs.com
           </a>
-        </div>
-
-        <div className="contact-modal-group">
-          <span className="contact-modal-label">Contact</span>
-          <div className="contact-modal-phones">
-            {PHONES.map((phone) => (
-              <a key={phone} href={`tel:${phone.replace(/\s+/g, '')}`} className="contact-modal-phone">
-                {phone}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </div>,

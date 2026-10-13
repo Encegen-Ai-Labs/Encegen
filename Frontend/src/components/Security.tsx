@@ -31,10 +31,10 @@ export default function Security() {
     <section className="security">
       <div className="container">
         <p className="section-eyebrow">Security &amp; Compliance</p>
-        <h2 className="section-title">Security built in from day one.</h2>
+        <h2 className="section-title">Enterprise-grade security, built in from day one.</h2>
         <p className="section-sub">
-          Protect your data and your operations with strong controls and
-          clear practices.
+          Protect your data and operations with robust controls and independent
+          audits.
         </p>
 
         <div className="security__grid">
@@ -51,7 +51,10 @@ export default function Security() {
 
         <div className="security__badges">
           {BADGES.map((badge) => (
-            <span key={badge} className="security__badge">
+            <span
+              key={badge}
+              className={`security__badge${badge === 'CSA' ? ' security__badge--muted' : ''}`}
+            >
               {badge}
             </span>
           ))}

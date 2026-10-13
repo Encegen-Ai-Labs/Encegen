@@ -1,6 +1,7 @@
-import { ArtTile, Btn, PageHero, SectionHead } from '../../components/kit'
+import { Btn, PageHero, SectionHead } from '../../components/kit'
 import { CompassIcon, ShieldIcon, TargetIcon, UsersIcon, ZapIcon } from '../../components/icons'
 import './company.css'
+import boardroomMeetingImg from '../../assets/figma/figma_21.png'
 
 import logoEasyHunt from '../../assets/easyhunt.png'
 import logoPramay from '../../assets/pramay.png'
@@ -45,6 +46,7 @@ export default function About() {
   return (
     <>
       <PageHero
+        className="phero--about"
         badge="Who we are"
         title={
           <>
@@ -73,7 +75,19 @@ export default function About() {
               intelligent systems capable of understanding, reasoning, and taking action.
             </p>
           </div>
-          <ArtTile variant="blue" className="about-photo" />
+          <div className="about-photo-wrap" style={{ maxWidth: 480, width: '100%' }}>
+            <img
+              src={boardroomMeetingImg}
+              alt="Encegen Team Executive Boardroom"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 16,
+                boxShadow: '0 16px 36px rgba(10, 15, 30, 0.12)',
+                display: 'block',
+              }}
+            />
+          </div>
         </div>
       </section>
 

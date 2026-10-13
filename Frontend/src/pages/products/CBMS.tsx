@@ -90,6 +90,7 @@ export default function CBMS() {
   return (
     <>
       <PageHero
+        className="phero--cbms"
         badge="Enterprise Operations Platform"
         title={
           <>
@@ -208,7 +209,7 @@ export default function CBMS() {
         dark
         line1="Supercharge your enterprise operations."
         sub="Experience how Encegen CBMS gives your management team complete clarity and execution speed."
-        primary={{ label: 'Schedule a Platform Demo', to: '/platform#explore-platform' }}
+        primary={{ label: 'Schedule Enterprise Consultation', to: '/platform#explore-platform' }}
         checks={['Custom Workflow Logic', 'Role-Based Permissions', 'REST API & Webhooks']}
       />
     </>

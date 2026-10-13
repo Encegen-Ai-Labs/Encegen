@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollFX from './components/ScrollFX'
 import Home from './pages/Home'
+import GetStarted from './pages/GetStarted'
 import Platform from './pages/Platform'
 import AiAgents from './pages/solutions/AiAgents'
 import AiResearch from './pages/solutions/AiResearch'
@@ -133,6 +134,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/get-started" element={<GetStarted />} />
           <Route path="/platform" element={<Platform />} />
           <Route path="/solutions/ai-agents" element={<AiAgents />} />
           <Route path="/solutions/ai-research" element={<AiResearch />} />

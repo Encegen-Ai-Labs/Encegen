@@ -1,6 +1,14 @@
 .insights-hero .phero__badge {
-  border: 1px solid rgba(99, 102, 241, 0.5);
-  background: rgba(79, 70, 229, 0.2);
-  box-shadow: 0 0 16px rgba(79, 70, 229, 0.16);
-  color: #8b83ff;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.45), 0 4px 16px rgba(99, 102, 241, 0.25);
+  color: #6366f1;
+  font-family: 'Rethink Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 17px !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  padding: 5px 18px;
+  border-radius: 9999px;
 }

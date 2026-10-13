@@ -1,5 +1,6 @@
 .stats {
-  background: linear-gradient(135deg, #8465ff 0%, #6a4cf2 55%, #5f41ea 100%);
+  background: linear-gradient(135deg, #8B5CF6 0%, #4B2ECC 100%);
+  font-family: 'Inter', var(--font);
   padding: clamp(1.75rem, 3vw, 2.5rem) 0;
 }
 
@@ -24,14 +25,17 @@
 }
 
 .stats__value {
-  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.35rem);
+  font-family: 'Inter', var(--font);
+  font-size: clamp(2rem, 1.6rem + 1.3vw, 2.65rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.05;
 }
 
 .stats__label {
-  font-size: 0.82rem;
+  font-family: 'Inter', var(--font);
+  font-size: 0.85rem;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
 }
 

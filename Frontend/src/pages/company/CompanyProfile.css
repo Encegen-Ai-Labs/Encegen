@@ -7,7 +7,7 @@
 
 /* Hero */
 .cp-hero {
-  background: radial-gradient(circle at 50% 20%, #1e1145 0%, #0c081e 60%, #060411 100%);
+  background: radial-gradient(ellipse 65% 55% at 50% 35%, rgba(139, 92, 246, 0.42) 0%, rgba(76, 29, 149, 0.16) 45%, #060B27 75%), #060B27 !important;
   padding: 100px 0 80px;
   text-align: center;
   color: #ffffff;
@@ -434,7 +434,7 @@
 
 /* Careers Band */
 .cp-careers-band {
-  background: #0b0819;
+  background: #060B27;
   color: #ffffff;
   padding: 80px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -667,6 +667,35 @@
   border-color: #ffffff;
   box-shadow: 0 0 32px rgba(255, 255, 255, 0.24), inset 0 0 20px rgba(255, 255, 255, 0.14);
   transform: translateY(-2px);
+}
+
+/* Mission Photo (right side of Vision section) */
+.cp-mission-photo-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18), 0 8px 20px rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.38s ease;
+}
+
+.cp-mission-photo-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 32px 72px rgba(15, 23, 42, 0.24), 0 10px 28px rgba(101, 83, 238, 0.1);
+}
+
+.cp-mission-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cp-mission-photo-wrap:hover .cp-mission-photo {
+  transform: scale(1.04);
 }
 
 /* Responsive */

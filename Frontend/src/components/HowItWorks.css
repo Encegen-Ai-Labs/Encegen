@@ -1,12 +1,13 @@
 .hiw {
-  background: var(--lavender-50);
+  background: #ffffff;
+  font-family: 'Inter', var(--font);
   padding: clamp(2.75rem, 4vw, 3.75rem) 0;
 }
 
 .hiw__panel {
   max-width: 980px;
   margin: 1.75rem auto 0;
-  background: var(--panel-navy);
+  background: #060B27;
   border-radius: 18px;
   padding: 20px 24px;
   box-shadow: 0 24px 48px rgba(22, 20, 60, 0.24);

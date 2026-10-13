@@ -56,6 +56,12 @@
   },
   "footer": {
     "tagline": "Soluciones impulsadas por IA para la empresa moderna. Transformando negocios con automatización inteligente e investigación.",
+    "headings": {
+      "solutions": "Soluciones",
+      "products": "Productos",
+      "resources": "Recursos",
+      "company": "Empresa"
+    },
     "columns": {
       "platform": "Plataforma & Tecnología",
       "solutions": "Soluciones",
@@ -64,6 +70,25 @@
       "legal": "Legal & Seguridad"
     },
     "links": {
+      "aiAgents": "Agentes de IA & Automatización",
+      "aiResearch": "Soluciones de Investigación en IA",
+      "customSoftware": "Desarrollo de Software a Medida",
+      "digitalMarketing": "Marketing Digital & Crecimiento",
+      "webEcommerce": "Desarrollo Web & Comercio Electrónico",
+      "useCases": "Casos de Uso & Sectores",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "Portal de RRHH",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "insights": "Perspectivas",
+      "caseStudies": "Casos de Estudio",
+      "knowledgeHub": "Centro de Conocimiento",
+      "researchPapers": "Artículos de Investigación",
+      "documentation": "Documentación",
+      "aboutUs": "Sobre Nosotros",
+      "careers": "Carreras",
+      "ourValues": "Nuestros Valores",
+      "ourCulture": "Nuestra Cultura",
       "privacy": "Política de Privacidad",
       "terms": "Términos de Uso",
       "security": "Seguridad & Cumplimiento",
@@ -74,13 +99,13 @@
     "newsletterSub": "Reciba análisis exclusivos, planos arquitectónicos y avances de inteligencia artificial.",
     "newsletterPlaceholder": "Ingrese su correo corporativo",
     "newsletterButton": "Suscribirse",
-    "copyright": "© 2026 Encegen AI Labs Inc. Todos los derechos reservados."
+    "copyright": "© 2025 Encegen SE. Todos los derechos reservados."
   },
   "home": {
     "heroBadge": "Plataforma de Inteligencia de Procesos",
     "heroTitle": "Convierta cada proceso en una ventaja competitiva",
     "heroSub": "Encegen le ofrece la visión de rayos X para ver, corregir y optimizar cada proceso empresarial, en tiempo real y a escala global.",
-    "startFree": "Comenzar gratis →",
+    "startFree": "Empezar",
     "watchDemo": "Ver demostración",
     "trustedBy": "Con la confianza de las empresas líderes del mundo",
     "aboutEyebrow": "Sobre Encegen AI Labs",
@@ -148,7 +173,11 @@
       "title": "¿Listo para ver lo que Encegen puede hacer por su empresa?",
       "sub": "Únase a miles de empresas que generan valor medible en cada proceso.",
       "btn1": "Comenzar hoy mismo",
-      "btn2": "Hablar con un experto"
+      "btn2": "Hablar con un experto",
+      "platformTitle": "¿Listo para transformar sus operaciones?",
+      "platformSub": "Únase a más de 5.000 empresas que trabajan mejor con Encegen.",
+      "demoButton": "Solicitar una demostración personalizada",
+      "platformStartButton": "Empezar"
     }
   },
   "common": {

@@ -56,6 +56,12 @@
   },
   "footer": {
     "tagline": "Soluzioni basate su intelligenza artificiale per l'impresa moderna. Trasformiamo le aziende con automazione intelligente e ricerca.",
+    "headings": {
+      "solutions": "Soluzioni",
+      "products": "Prodotti",
+      "resources": "Risorse",
+      "company": "Azienda"
+    },
     "columns": {
       "platform": "Piattaforma & Tecnologia",
       "solutions": "Soluzioni",
@@ -64,6 +70,25 @@
       "legal": "Legale & Sicurezza"
     },
     "links": {
+      "aiAgents": "Agenti IA & Automazione",
+      "aiResearch": "Soluzioni di Ricerca IA",
+      "customSoftware": "Sviluppo Software su Misura",
+      "digitalMarketing": "Marketing Digitale & Crescita",
+      "webEcommerce": "Sviluppo Web & E-commerce",
+      "useCases": "Casi d'Uso & Settori",
+      "easyHunt": "Easy Hunt",
+      "hrPortal": "Portale Risorse Umane",
+      "cbms": "CBMS",
+      "hms": "HMS",
+      "insights": "Approfondimenti",
+      "caseStudies": "Casi Studio",
+      "knowledgeHub": "Centro di Conoscenza",
+      "researchPapers": "Documenti di Ricerca",
+      "documentation": "Documentazione",
+      "aboutUs": "Chi Siamo",
+      "careers": "Carriere",
+      "ourValues": "I Nostri Valori",
+      "ourCulture": "La Nostra Cultura",
       "privacy": "Informativa sulla Privacy",
       "terms": "Termini di Servizio",
       "security": "Sicurezza & Conformità",
@@ -74,13 +99,13 @@
     "newsletterSub": "Ricevi approfondimenti esclusivi, architetture di riferimento e scoperte tecnologiche.",
     "newsletterPlaceholder": "Inserisci la tua email aziendale",
     "newsletterButton": "Iscriviti",
-    "copyright": "© 2026 Encegen AI Labs Inc. Tutti i diritti riservati."
+    "copyright": "© 2025 Encegen SE. Tutti i diritti riservati."
   },
   "home": {
     "heroBadge": "Piattaforma di Process Intelligence",
     "heroTitle": "Trasforma ogni processo in un vantaggio competitivo",
     "heroSub": "Encegen ti offre la visione a raggi X per analizzare, correggere e ottimizzare ogni processo aziendale: in tempo reale e su scala globale.",
-    "startFree": "Inizia gratuitamente →",
+    "startFree": "Inizia ora",
     "watchDemo": "Guarda la demo",
     "trustedBy": "Scelto dalle aziende leader nel mondo",
     "aboutEyebrow": "Informazioni su Encegen AI Labs",
@@ -148,7 +173,11 @@
       "title": "Pronto a scoprire cosa può fare Encegen per la tua azienda?",
       "sub": "Unisciti a migliaia di aziende che generano valore misurabile da ogni processo.",
       "btn1": "Inizia oggi stesso",
-      "btn2": "Parla con un esperto"
+      "btn2": "Parla con un esperto",
+      "platformTitle": "Pronto a trasformare le tue operazioni?",
+      "platformSub": "Unisciti a oltre 5.000 aziende che lavorano meglio con Encegen.",
+      "demoButton": "Richiedi una demo personalizzata",
+      "platformStartButton": "Inizia ora"
     }
   },
   "common": {

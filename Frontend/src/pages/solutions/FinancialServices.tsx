@@ -22,6 +22,7 @@ import {
   ZapIcon,
 } from '../../components/icons'
 import './solutions.css'
+import finDashboardImg from '../../assets/figma/figma_3.png'
 
 const CORE_PILLARS = [
   {
@@ -157,6 +158,7 @@ export default function FinancialServices() {
   return (
     <>
       <PageHero
+        className="phero--financial-services"
         badge="Industry Solutions · Financial Services"
         title={
           <>
@@ -237,42 +239,57 @@ export default function FinancialServices() {
             </div>
           </div>
 
-          <MockPanel
-            title="Financial Risk & Compliance Engine"
-            right={<LiveDot label="Live Stream" />}
-            rows={[
-              {
-                label: 'Wire Stream · TXN-994821',
-                sub: 'Cross-border velocity anomaly scored in 3.8ms · Placed on smart hold',
-                chip: 'Flagged · 3.8ms',
-                chipColor: '#f59e0b',
-              },
-              {
-                label: 'Corporate KYC · Entity #4029',
-                sub: 'UBO registry, tax filings & sanctions verified across 14 documents',
-                chip: 'Cleared · Auto',
-                chipColor: '#2fe08e',
-              },
-              {
-                label: 'Credit Packet · SME Facility',
-                sub: '36-month cash-flow & covenant ratios extracted · Ready for underwriter',
-                chip: 'Packet ready',
-                chipColor: '#22d3ee',
-              },
-              {
-                label: 'Regulatory Audit Trail',
-                sub: '100% of model inferences & policy rules logged to immutable ledger',
-                chip: 'Compliant',
-                chipColor: '#2fe08e',
-              },
-            ]}
-            footer={
-              <>
-                <span>Guardrails: AML / KYC · SOC 2 · ISO 27001</span>
-                <span>False-Positive Reduction: 68%</span>
-              </>
-            }
-          />
+          <div className="top-right-panel-frame" style={{ maxWidth: 540, width: '100%', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <img
+              src={finDashboardImg}
+              alt="Financial Risk & Compliance Dashboard"
+              style={{
+                width: '100%',
+                height: 200,
+                objectFit: 'cover',
+                borderRadius: 16,
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)',
+                display: 'block',
+              }}
+            />
+            <MockPanel
+              title="Financial Risk & Compliance Engine"
+              right={<LiveDot label="Live Stream" />}
+              rows={[
+                {
+                  label: 'Wire Stream · TXN-994821',
+                  sub: 'Cross-border velocity anomaly scored in 3.8ms · Placed on smart hold',
+                  chip: 'Flagged · 3.8ms',
+                  chipColor: '#f59e0b',
+                },
+                {
+                  label: 'Corporate KYC · Entity #4029',
+                  sub: 'UBO registry, tax filings & sanctions verified across 14 documents',
+                  chip: 'Cleared · Auto',
+                  chipColor: '#2fe08e',
+                },
+                {
+                  label: 'Credit Packet · SME Facility',
+                  sub: '36-month cash-flow & covenant ratios extracted · Ready for underwriter',
+                  chip: 'Packet ready',
+                  chipColor: '#22d3ee',
+                },
+                {
+                  label: 'Regulatory Audit Trail',
+                  sub: '100% of model inferences & policy rules logged to immutable ledger',
+                  chip: 'Compliant',
+                  chipColor: '#2fe08e',
+                },
+              ]}
+              footer={
+                <>
+                  <span>Guardrails: AML / KYC · SOC 2 · ISO 27001</span>
+                  <span>False-Positive Reduction: 68%</span>
+                </>
+              }
+            />
+          </div>
         </div>
       </section>
 

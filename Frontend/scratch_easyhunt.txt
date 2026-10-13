@@ -1,0 +1,52 @@
+## 10. `Product - Easy Hunt` & `easyhunt-landing` (Both Variants + `Search`)
+There are **two distinct Easy Hunt product page designs** in the Figma sidebar, plus the **`Search`** page frame:
+
+### 10A. `Product - Easy Hunt` (Property Intelligence Platform — `node-id=2399-187` & `node-id=2402-4`)
+**Screenshots:**
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\product_easyhunt_1.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\product_easyhunt_2.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\product_easyhunt_3.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\product_easyhunt_4.png`
+- Overview screenshots: `product_easy_hunt_a.png` (`node-id=2402-4`) & `product_easy_hunt_b.png` (`node-id=2399-187`)
+
+**Sections & Colors:**
+1. **`Hero` (`node-id=2399-203`)**:
+   - **Dimensions & Padding:** `1440px × 1114px`, Padding `96px` top/bottom, `80px` left/right, Gap `40px`.
+   - **Background:** Radial Gradient `#1E1B4B` -> `#060B27`.
+   - **Content:** Pill `"⚡ AI-POWERED PROPERTY INTELLIGENCE"`, Heading `"Experience Speed and Confidence with Easy Hunt"` (or `"Transform Property Research Into Intelligent Decisions"` in `2402-4`), 2 buttons (`Get Started ->` purple pill `#6B4EFF`, `Learn More` dark outline pill), dark app mockup table (`Mumbai Suburbs Survey No. 104/A...`, `Search AI` button, rows for `Godrej Properties Ltd`, `Ramesh J. Mehta & Ors`, `Tata Housing Development` with `98% Match` green badges), and trust strip (`SBI Legal`, `National Housing Bank`, `HDFC Law`, `Shardul Amarchand`, `AZB & Partners`, `JSA Law`).
+2. **`Chapter 1` (`HOW IT WORKS`)**: `#FFFFFF` background, 2-column layout with 3 step cards (`Step 1: Search by...`, `Step 2: AI Matches`, `Step 3: Get Instant Results`).
+3. **`Interstitial Banner`**: Purple-to-pink linear gradient (`#7C3AED` -> `#EC4899`) with quote `"Stay on top of your property research"`.
+4. **`Chapter 2` (`node-id=2399-286`)**: `1440px × 540px`, `#FFFFFF` background, 2-column layout (`INTELLIGENCE` — `"Stay on top of your property research"` + dark card `AI Property Profile` with `OWNERSHIP HISTORY TIMELINE` 2024/2018/1995 and `Low Risk` bar).
+5. **`Chapter 3`**: `#F8F9FF` background, `"Search and verify effortlessly"`, 3 numbered cards (`01 Smart Search`, `02 AI Verification`, `03 Complete Reports`).
+6. **`Chapter 4` (`node-id=2399-339`)**: `1440px × 846px`, `#060B27` background, Pill `"PLATFORM"`, Heading `"Everything you need in one platform"`, 3×2 grid of dark cards (`Smart Property Search`, `Document Intelligence`, `Risk Assessment`, `Ownership Tracking`, `Government Data Access`, `Enterprise API`).
+7. **`Chapter 5`**: `#FFFFFF` background, audience/stakeholder cards.
+8. **`By the Numbers`**: Purple-to-pink gradient bar (`10L+ Property Records Indexed`, `500+ Organizations Trust Us`, `30 Sec Average Search Time`, `99.9% Platform Uptime`).
+9. **`Chapter 6` (`node-id=2399-424`)**: `1440px × 1087px`, `#FFFFFF` background, Pill `"FAQ"`, Heading `"Frequently asked questions"`, 5 stacked accordion/FAQ cards (`What is Easy Hunt?`, `Who is Easy Hunt for?`, `How accurate is the data?`, `Is my data secure?`, `How do I get started?`).
+10. **`Final CTA`**: `#060B27` dark section `"Join Easy Hunt today"`.
+11. **`footer`**: `#060B27`.
+
+### 10B. `easyhunt-landing` (AI-Powered Recruitment — `node-id=2389-187`)
+**Screenshots:**
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\easyhunt_1.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\easyhunt_2.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\easyhunt_3.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\easyhunt_4.png`
+- `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\easyhunt_5.png`
+
+**Sections & Colors:**
+1. **`hero` (`node-id=2389-203`)**: `1440px × 1211.13px`, `#060B27`, Pill `"AI-POWERED RECRUITMENT"`, Heading `"Find the Right Talent. Land the Right Job. Powered by AI."`, buttons (`Start Hiring ->` purple pill, `Find Jobs` outline pill), dark `EasyHunt Console` mockup (`Senior AI Engineer Match Pipeline`), trust logos (`TCS`, `Infosys`, `Wipro`, `HCL`, `Accenture`, `Deloitte`).
+2. **`how-it-works`**: `#FFFFFF`, 2-column layout.
+3. **`capabilities` (`node-id=2389-372`)**: `1440px × 971px`, `#F8F9FF`, Eyebrow `"PLATFORM CAPABILITIES"`, Heading `"Four ways AI transforms your hiring."`, 2×2 grid (`Smart Resume Parsing`, `Intelligent Job Matching`, `Automated Screening`, `Real-Time Analytics`).
+4. **`problem-solver`**: `#FFFFFF`, `"Most companies are hiring blind. EasyHunt fixes that."` Before/After comparison rows.
+5. **`for-job-seekers` (`node-id=2389-460`)**: `1440px × 778px`, `#060B27`, Pill `"FOR JOB SEEKERS"`, Heading `"Your dream job, found by AI."` + `CANDIDATE DASHBOARD` dark card.
+6. **`for-employers`**: `#FFFFFF`, Eyebrow `"FOR EMPLOYERS"`, `"Hire 10x faster."`
+7. **`stats`**: Purple-to-pink gradient bar (`2M+ Candidates`, `50K+ Jobs Posted`, `10K+ Successful Hires`, `95% Client Satisfaction`).
+8. **`testimonials` (`node-id=2389-585`)**: `1440px × 738px`, `#FFFFFF`, `"Real companies. Real results. Real hires."` (`SIEMENS`, `UBER`, `AIRBUS`).
+9. **`pricing` (`node-id=2389-619`)**: `1440px × 906px`, `#F8F9FF`, `"Plans that scale with your hiring needs."` 3 pricing cards: `Starter` (`Free`, white card), `Professional` (`$99/mo`, dark `#060B27` highlighted card), `Enterprise` (`Custom`, white card).
+10. **`cta-banner`** & **`footer`**: `#060B27`.
+
+### 10C. Additional Sub-page Frames Present in Left Sidebar
+- **`Search` (`node-id=2041-186`)**: Screenshot saved at `C:\Users\Laptop\.gemini\antigravity\brain\afe6610d-81c3-4153-ab7d-52936ab1308f\search_page.png` (`1440px × 2380px`, `#FFFFFF`, light lavender search hero `"What are you looking for?"`, topic pills, left filter sidebar `FILTER BY TYPE` / `FILTER BY TOPIC`, right search results list with pagination).
+- **Solution & Role Detail Frames** (also visible in `our_values_overview.png` / `solutions_page_3.png`): `apply-senior-ai-engineer`, `all-open-roles`, `digital-marketing-growth`, `website-ecommerce-dev`, `ai-research-solutions`, `ai-agents-automation`, `custom-software-dev`, `supply-chain-solution`, `technology-saas`.
+
+Note: The recording of this session is available in the conversation artifacts.

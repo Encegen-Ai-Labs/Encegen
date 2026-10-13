@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Btn,
   ClosingCTA,
   GradBand,
-  MockPanel,
   PageHero,
   ResultBar,
   SectionHead,
@@ -113,7 +113,7 @@ export default function DigitalMarketing() {
   return (
     <>
       <PageHero
-        className="ai-research-hero digital-marketing-hero"
+        className="ai-research-hero digital-marketing-hero phero--digital-marketing"
         badge={<>● Encegen AI Labs · Digital Marketing · SEO · Paid Ads · Growth</>}
         title={
           <>
@@ -151,44 +151,126 @@ export default function DigitalMarketing() {
             eyebrow="The Problem"
             title="Most agencies run ads. Very few build a growth system."
           />
-          <div className="split dm-split">
+          <div className="split dm-split dm-problem-split">
             <div className="dm-split__copy">
-              <p className="left-copy">
-                <strong>The old way:</strong> you get a report full of impressions, clicks, and
-                reach — numbers that feel like progress but never tie back to revenue. Channels run
-                in separate silos, attribution is a black box, and the big calls get made on gut
-                feel.
+              <span className="dm-problem-chapter">CHAPTER 1 · THE PROBLEM</span>
+              <p className="dm-problem-p">
+                <strong>In the old way:</strong> your agency reports vanity metrics (impressions, clicks,
+                reach) that don't correlate to revenue. Campaigns are siloed (paid, SEO, email) and
+                attribution is opaque. You can't see which audiences are driving real value, and decisions
+                are made on gut feel rather than data.
               </p>
-              <p className="left-copy">
-                <strong>With Encegen:</strong> every channel works off the same system. AI
-                optimisation runs around the clock, your CRM becomes the single source of truth, and
-                you can see exactly which audiences convert, which messages land, and which lever to
-                pull next.
+              <p className="dm-problem-p">
+                <strong>With Encegen:</strong> you get a full-funnel growth system where every channel
+                works together. AI optimisation runs continuously, and CRM integration gives you a single
+                source of truth. You see exactly which audiences are converting, which messages are
+                working, and which levers to pull next.
               </p>
-              <ul className="check-list">
-                <li>Full-funnel attribution across paid, SEO, email, and CRM</li>
-                <li>AI-driven optimisation running continuously, not campaign to campaign</li>
-                <li>CRM integration so you own the audience and the reporting</li>
-                <li>Weekly performance reviews and always-on A/B testing</li>
+
+              {/* Comparison Pill flow */}
+              <div className="dm-compare-pills">
+                <span className="dm-pill-before">1.2× ROAS, no attribution</span>
+                <span className="dm-pill-arrow">→</span>
+                <span className="dm-pill-after">5.4× ROAS, 31% bounce</span>
+              </div>
+              <p className="dm-pills-sub">
+                71% of marketers say attribution is their biggest challenge — and it's the first thing to break when campaigns scale.
+              </p>
+
+              <ul className="dm-check-list-s1">
+                <li><span className="dm-check-icon">✓</span> Full-funnel attribution across paid, SEO, email and CRM</li>
+                <li><span className="dm-check-icon">✓</span> AI-powered optimisation running continuously (24/7)</li>
+                <li><span className="dm-check-icon">✓</span> CRM integration for audience ownership and unified reporting</li>
+                <li><span className="dm-check-icon">✓</span> Weekly performance reports and ongoing A/B testing</li>
               </ul>
             </div>
-            <MockPanel
-              className="dm-split__mock"
-              title="Campaign Performance Comparison"
-              rows={[
-                { label: 'TYPICAL AGENCY', chip: 'Before', chipColor: '#ef4444' },
-                { label: 'ROAS', chip: '1.2×', chipColor: '#ef4444' },
-                { label: 'CAC', chip: '$210', chipColor: '#ef4444' },
-                { label: 'Conversion Rate', chip: '1.9%', chipColor: '#ef4444' },
-                { label: 'Agency response time', chip: '3-7 days', chipColor: '#ef4444' },
-                { label: 'WITH ENCEGEN', chip: 'After', chipColor: '#2fe08e' },
-                { label: 'ROAS', chip: '6.4×', chipColor: '#2fe08e' },
-                { label: 'CAC', chip: '$84', chipColor: '#2fe08e' },
-                { label: 'Conversion Rate', chip: '5.4%', chipColor: '#2fe08e' },
-                { label: 'Response', chip: 'Same day', chipColor: '#2fe08e' },
-              ]}
-              footer={<span>2.4× higher ROAS · Based on 50+ Encegen campaign systems</span>}
-            />
+
+            {/* Campaign Performance Comparison Card */}
+            <div className="dm-compare-card">
+              <div className="dm-compare-head">
+                <span className="dm-compare-title">CAMPAIGN PERFORMANCE COMPARISON</span>
+              </div>
+
+              {/* TYPICAL AGENCY GROUP */}
+              <div className="dm-compare-group">
+                <div className="dm-compare-badge dm-compare-badge--before">TYPICAL AGENCY</div>
+                <div className="dm-compare-rows">
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">01</span>
+                      <span className="dm-row-label">ROAS</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--red">1.2×</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">02</span>
+                      <span className="dm-row-label">CAC</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--red">$128</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">03</span>
+                      <span className="dm-row-label">Conversion Rate</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--red">1.9%</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">04</span>
+                      <span className="dm-row-label">Agency response time</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--red">6-7 days</span>
+                  </div>
+                </div>
+                <div className="dm-compare-stat-summary dm-compare-stat-summary--red">
+                  ROAS: 1.2× · CAC: $128 · Conversion rate: 1.9%
+                </div>
+              </div>
+
+              {/* WITH ENCEGEN GROUP */}
+              <div className="dm-compare-group dm-compare-group--after">
+                <div className="dm-compare-badge dm-compare-badge--after">WITH ENCEGEN</div>
+                <div className="dm-compare-rows">
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">01</span>
+                      <span className="dm-row-label">ROAS</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--green">2.8×</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">02</span>
+                      <span className="dm-row-label">CAC</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--green">$84</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">03</span>
+                      <span className="dm-row-label">Conversion Rate</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--green">5.4%</span>
+                  </div>
+                  <div className="dm-compare-row">
+                    <div className="dm-compare-row-left">
+                      <span className="dm-row-num">04</span>
+                      <span className="dm-row-label">Agency response time</span>
+                    </div>
+                    <span className="dm-row-chip dm-row-chip--green">Same-day</span>
+                  </div>
+                </div>
+                <div className="dm-compare-stat-summary dm-compare-stat-summary--green">
+                  ROAS: 2.8× · CAC: $84 · Conversion rate: 5.4%
+                </div>
+              </div>
+
+              <div className="dm-compare-footer">
+                2.4× higher ROAS · Based on 50+ Encegen campaign systems
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -200,48 +282,122 @@ export default function DigitalMarketing() {
             eyebrow="Flagship Service"
             title="Paid Media That Compounds — Not Just Converts."
           />
-          <div className="split dm-split">
+          <div className="split dm-split dm-flagship-split">
             <div className="dm-split__copy">
-              <h3 className="left-title" style={{ fontSize: 24 }}>
-                Most agencies optimise for the click. We optimise for the customer who stays.
+              <h3 className="dm-flagship-title">
+                Most ad agencies optimise for clicks. We optimise for LTV.
               </h3>
-              <p className="left-copy">
-                Every campaign we run answers one question: what does it really cost to acquire a
-                customer who sticks around? We build full-funnel paid media wired to your CRM, tuned
-                by AI, and measured against lifetime value — not the vanity numbers that look good in
-                a slide.
+              <p className="dm-flagship-copy">
+                Every campaign we run is designed around one question: what is the real cost of
+                acquiring a customer who stays? We build full-funnel paid media systems connected to
+                your CRM, optimised by AI, and measured against lifetime revenue — not surface-level
+                vanity metrics.
               </p>
-              <ul className="check-list">
+              <ul className="dm-flagship-list">
                 <li>
-                  <strong>Attribution from the ad all the way to closed revenue</strong> — every
-                  rupee tracked
+                  <span className="dm-check-icon">✓</span>
+                  <div>
+                    <strong>Full-funnel attribution from ad to revenue</strong>
+                    <span>Track every dollar from click to close.</span>
+                  </div>
                 </li>
                 <li>
-                  <strong>AI bid optimisation running around the clock</strong>, without the manual
-                  grind
+                  <span className="dm-check-icon">✓</span>
+                  <div>
+                    <strong>AI-powered bid optimisation running 24/7</strong>
+                    <span>Continuous improvement without manual fatigue.</span>
+                  </div>
                 </li>
                 <li>
-                  <strong>Wired into your CRM and commerce data</strong> for one connected view
+                  <span className="dm-check-icon">✓</span>
+                  <div>
+                    <strong>Connected to your CRM and e-commerce data</strong>
+                    <span>Unified decisioning across channels.</span>
+                  </div>
                 </li>
                 <li>
-                  <strong>Weekly reporting with nothing hidden</strong> — you own the data and the
-                  model
+                  <span className="dm-check-icon">✓</span>
+                  <div>
+                    <strong>Weekly performance reports with full transparency</strong>
+                    <span>No black boxes — you own the data and the model.</span>
+                  </div>
                 </li>
               </ul>
+              <div style={{ marginTop: 26 }}>
+                <Link to="/insights" className="dm-flagship-btn">
+                  See our paid media approach →
+                </Link>
+              </div>
             </div>
-            <MockPanel
-              className="dm-split__mock"
-              title="Campaign Performance Dashboard"
-              rows={[
-                { label: 'ROAS', chip: '6.4×', chipColor: '#2fe08e' },
-                { label: 'CAC Reduction', chip: '-65%', chipColor: '#2fe08e' },
-                { label: 'Conversion Rate', chip: '+3.2×', chipColor: '#2fe08e' },
-                { label: '09:12 · Bid optimisation model updated', chip: '✓', chipColor: '#2fe08e' },
-                { label: '09:45 · Audience sync completed', chip: '✓', chipColor: '#2fe08e' },
-                { label: '17:30 · Weekly report generated', chip: '✓', chipColor: '#2fe08e' },
-              ]}
-              footer={<span>Industry benchmark: 1.8× ROAS → Encegen: 6.4× ROAS</span>}
-            />
+
+            {/* Campaign Performance Dashboard Mock Panel */}
+            <div className="dm-dash-card">
+              <div className="dm-dash-head">
+                <span className="dm-dash-title">CAMPAIGN PERFORMANCE DASHBOARD</span>
+              </div>
+
+              <div className="dm-dash-metrics">
+                {/* Metric 1 */}
+                <div className="dm-dash-metric">
+                  <div className="dm-dash-metric-top">
+                    <span className="dm-dash-metric-label">ROAS</span>
+                    <span className="dm-dash-metric-val dm-dash-metric-val--purple">6.4×</span>
+                  </div>
+                  <div className="dm-dash-bar-track">
+                    <div className="dm-dash-bar-fill dm-dash-bar-fill--purple" style={{ width: '92%' }} />
+                  </div>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="dm-dash-metric">
+                  <div className="dm-dash-metric-top">
+                    <span className="dm-dash-metric-label">CAC Reduction</span>
+                    <span className="dm-dash-metric-val dm-dash-metric-val--green">-65%</span>
+                  </div>
+                  <div className="dm-dash-bar-track">
+                    <div className="dm-dash-bar-fill dm-dash-bar-fill--green" style={{ width: '82%' }} />
+                  </div>
+                </div>
+
+                {/* Metric 3 */}
+                <div className="dm-dash-metric">
+                  <div className="dm-dash-metric-top">
+                    <span className="dm-dash-metric-label">Conversion Rate</span>
+                    <span className="dm-dash-metric-val dm-dash-metric-val--green">+3.2×</span>
+                  </div>
+                  <div className="dm-dash-bar-track">
+                    <div className="dm-dash-bar-fill dm-dash-bar-fill--green" style={{ width: '74%' }} />
+                  </div>
+                </div>
+              </div>
+
+              {/* White glowing pill */}
+              <div className="dm-dash-pill">
+                <span>Industry benchmark: 1.8× ROAS → Encegen: 6.4× ROAS</span>
+              </div>
+
+              {/* Recent Activity */}
+              <div className="dm-dash-activity">
+                <div className="dm-dash-activity-title">RECENT ACTIVITY</div>
+                <div className="dm-dash-activity-rows">
+                  <div className="dm-dash-activity-row">
+                    <span className="dm-dash-activity-time">09:12</span>
+                    <span className="dm-dash-activity-desc">Bid optimisation model updated</span>
+                    <span className="dm-dash-activity-check">✓</span>
+                  </div>
+                  <div className="dm-dash-activity-row">
+                    <span className="dm-dash-activity-time">08:45</span>
+                    <span className="dm-dash-activity-desc">Audience sync completed</span>
+                    <span className="dm-dash-activity-check">✓</span>
+                  </div>
+                  <div className="dm-dash-activity-row">
+                    <span className="dm-dash-activity-time">07:30</span>
+                    <span className="dm-dash-activity-desc">Weekly report generated</span>
+                    <span className="dm-dash-activity-check">✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

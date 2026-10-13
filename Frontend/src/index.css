@@ -1,7 +1,7 @@
 :root {
-  --navy-950: #0a0922;
-  --navy-900: #0d0c2b;
-  --navy-800: #11103a;
+  --navy-950: #060B27;
+  --navy-900: #060B27;
+  --navy-800: #060B27;
   --panel-navy: #0d1140;
   --panel-navy-2: #10154c;
   --chip-navy: #171c55;
@@ -13,14 +13,14 @@
   --purple-400: #8f7bff;
   --purple-300: #a99cff;
 
-  --lavender-50: #f7f6fd;
+  --lavender-50: #F8F9FF;
   --lavender-100: #edeafd;
   --lavender-200: #e7e4f7;
-  --page-light: #f3f2fa;
+  --page-light: #F8F9FF;
 
   --ink-900: #16143c;
   --ink-700: #33315c;
-  --gray-600: #6f6e86;
+  --gray-600: #64748b;
   --gray-500: #8a89a0;
 
   --cyan-400: #22d3ee;
@@ -28,7 +28,7 @@
   --blue-400: #4f7cff;
   --green-400: #2fe08e;
 
-  --font: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Fluid spacing scale — clamp(min, preferred-vw, max) in rem so paddings/margins/gaps
      scale continuously with viewport width (and respect user font-size zoom) instead of
@@ -43,20 +43,20 @@
   --space-2xl: clamp(2.5rem, 2.1rem + 1.6vw, 3.5rem);
 
   /* Fluid type scale for body/label copy — headline sizes stay per-component clamp(). */
-  --fs-2xs: clamp(0.65rem, 0.63rem + 0.1vw, 0.72rem);
-  --fs-xs: clamp(0.72rem, 0.69rem + 0.14vw, 0.78rem);
-  --fs-sm: clamp(0.78rem, 0.74rem + 0.16vw, 0.875rem);
-  --fs-base: clamp(0.875rem, 0.84rem + 0.18vw, 0.95rem);
-  --fs-md: clamp(0.95rem, 0.9rem + 0.22vw, 1.05rem);
-  --fs-lg: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+  --fs-2xs: clamp(0.6875rem, 0.66rem + 0.1vw, 0.75rem);
+  --fs-xs: clamp(0.75rem, 0.72rem + 0.14vw, 0.8125rem);
+  --fs-sm: clamp(0.8125rem, 0.78rem + 0.16vw, 0.875rem);
+  --fs-base: clamp(0.875rem, 0.85rem + 0.18vw, 0.96875rem);
+  --fs-md: clamp(0.95rem, 0.9rem + 0.22vw, 1.0625rem);
+  --fs-lg: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem);
 
-  --fs-eyebrow: clamp(0.68rem, 0.65rem + 0.12vw, 0.75rem);
-  --fs-h2: clamp(1.75rem, 1.45rem + 1.2vw, 2.35rem);
-  --fs-h3-card: clamp(0.96rem, 0.92rem + 0.15vw, 1.06rem);
-  --fs-sub: clamp(0.86rem, 0.82rem + 0.18vw, 0.95rem);
-  --fs-body: clamp(0.85rem, 0.82rem + 0.14vw, 0.92rem);
-  --fs-card-body: clamp(0.82rem, 0.79rem + 0.12vw, 0.875rem);
-  --lh-heading: 1.16;
+  --fs-eyebrow: clamp(0.6875rem, 0.66rem + 0.12vw, 0.75rem);
+  --fs-h2: clamp(1.85rem, 1.55rem + 1.25vw, 2.65rem);
+  --fs-h3-card: clamp(1.0625rem, 1rem + 0.18vw, 1.1875rem);
+  --fs-sub: clamp(0.9375rem, 0.88rem + 0.2vw, 1.0625rem);
+  --fs-body: clamp(0.9rem, 0.86rem + 0.16vw, 0.96875rem);
+  --fs-card-body: clamp(0.875rem, 0.84rem + 0.12vw, 0.9375rem);
+  --lh-heading: 1.15;
   --lh-body: 1.6;
 
   /* Named container-width caps, reused instead of inventing a new max-width per file. */

@@ -22,7 +22,9 @@ import {
   TrendingUpIcon,
   ZapIcon,
 } from '../../components/icons'
+import '../../components/CapabilityArt.css'
 import './solutions.css'
+import mfgFactoryImg from '../../assets/figma/figma_22.png'
 
 const CORE_PILLARS = [
   {
@@ -158,6 +160,7 @@ export default function Manufacturing() {
   return (
     <>
       <PageHero
+        className="phero--manufacturing"
         badge="Industry Solutions · Manufacturing"
         title={
           <>
@@ -239,42 +242,57 @@ export default function Manufacturing() {
             </div>
           </div>
 
-          <MockPanel
-            title="Plant Floor Execution Console · Line 04"
-            right={<LiveDot label="Live Telemetry" />}
-            rows={[
-              {
-                label: 'Station 03 · CNC Spindle Drift',
-                sub: 'Thermal variance +1.8°C detected · Maintenance work order queued',
-                chip: 'Auto-scheduled',
-                chipColor: '#2fe08e',
-              },
-              {
-                label: 'Optical QA · Batch #M-4092',
-                sub: '1,420 units inspected · 2 micro-surface defects isolated automatically',
-                chip: '99.86% pass',
-                chipColor: '#22d3ee',
-              },
-              {
-                label: 'Tier-1 Raw Material Feed',
-                sub: 'resin-lot-88 delayed 6h · Alternate safety buffer allocated in SAP',
-                chip: 'Re-routed',
-                chipColor: '#a99cff',
-              },
-              {
-                label: 'Shift OEE Performance',
-                sub: 'Line running at 94.2% availability · Zero unplanned stoppages',
-                chip: '+22% vs baseline',
-                chipColor: '#2fe08e',
-              },
-            ]}
-            footer={
-              <>
-                <span>Connected: SAP S/4HANA · Siemens MES · Edge Vision</span>
-                <span>Latency: 12ms</span>
-              </>
-            }
-          />
+          <div className="top-right-panel-frame" style={{ maxWidth: 540, width: '100%', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <img
+              src={mfgFactoryImg}
+              alt="Autonomous Robotic Manufacturing Line"
+              style={{
+                width: '100%',
+                height: 200,
+                objectFit: 'cover',
+                borderRadius: 16,
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)',
+                display: 'block',
+              }}
+            />
+            <MockPanel
+              title="Plant Floor Execution Console · Line 04"
+              right={<LiveDot label="Live Telemetry" />}
+              rows={[
+                {
+                  label: 'Station 03 · CNC Spindle Drift',
+                  sub: 'Thermal variance +1.8°C detected · Maintenance work order queued',
+                  chip: 'Auto-scheduled',
+                  chipColor: '#2fe08e',
+                },
+                {
+                  label: 'Optical QA · Batch #M-4092',
+                  sub: '1,420 units inspected · 2 micro-surface defects isolated automatically',
+                  chip: '99.86% pass',
+                  chipColor: '#22d3ee',
+                },
+                {
+                  label: 'Tier-1 Raw Material Feed',
+                  sub: 'resin-lot-88 delayed 6h · Alternate safety buffer allocated in SAP',
+                  chip: 'Re-routed',
+                  chipColor: '#a99cff',
+                },
+                {
+                  label: 'Shift OEE Performance',
+                  sub: 'Line running at 94.2% availability · Zero unplanned stoppages',
+                  chip: '+22% vs baseline',
+                  chipColor: '#2fe08e',
+                },
+              ]}
+              footer={
+                <>
+                  <span>Connected: SAP S/4HANA · Siemens MES · Edge Vision</span>
+                  <span>Latency: 12ms</span>
+                </>
+              }
+            />
+          </div>
         </div>
       </section>
 

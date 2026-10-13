@@ -23,6 +23,13 @@ export const SearchIcon = (p: IconProps) => (
   </svg>
 )
 
+export const EyeIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+)
+
 export const ChevronDown = (p: IconProps) => (
   <svg {...base(p)}>
     <polyline points="6 9 12 15 18 9" />
