@@ -530,28 +530,7 @@ export default function UseCases() {
                 <span>Continuously learns with every process cycle</span>
               </div>
             </div>
-            <div style={{ marginTop: '28px' }}>
-              <Link
-                to="/platform#how-it-works"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 22px',
-                  borderRadius: '9999px',
-                  background: '#EDE9FE',
-                  color: '#6366f1',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  boxShadow: '0 2px 8px rgba(99, 102, 241, 0.12)',
-                  transition: 'background 0.15s ease',
-                }}
-              >
-                <span>Learn how it works</span>
-                <ArrowRightExact size={14} color="#6366f1" />
-              </Link>
-            </div>
+           
           </div>
           <div className="top-right-panel-frame" style={{ maxWidth: 480, width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
             <TraditionalVsEncegenCard />
