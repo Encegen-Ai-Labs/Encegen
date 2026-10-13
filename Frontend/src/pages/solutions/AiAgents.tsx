@@ -170,9 +170,7 @@ export default function AiAgents() {
         sub="Every day, exceptions pile up — approvals waiting, records re-keyed between systems, queues that only move when a person clears them. That's your best people spending their hours on work an agent can own end to end."
         actions={
           <>
-            <Btn variant="white" to="/platform#explore-platform">
-              Deploy an agent &rarr;
-            </Btn>
+           
             <Btn variant="outline-light" to="#turning-point">
               See how it works
             </Btn>

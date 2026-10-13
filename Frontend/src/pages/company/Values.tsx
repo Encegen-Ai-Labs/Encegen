@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { Btn, ClosingCTA, GradBand, PageHero, SectionHead } from '../../components/kit'
-import { ShieldIcon } from '../../components/icons'
 import './company.css'
 
 function TimelineFill() {
@@ -94,49 +93,10 @@ const PRACTICES = [
   { time: '06:00 PM', title: 'The Next Idea', desc: 'Brainstorming new automations, better solutions for client challenges, and next-gen AI capabilities.', color: '#ec4899' },
 ]
 
-import logoEasyHunt from '../../assets/easyhunt.png'
-import logoPramay from '../../assets/pramay.png'
-import logoVarasa from '../../assets/varasa.png'
-import logoFxAlgo from '../../assets/fxalgo.png'
-
 const TEAM_SHOWCASE = [
   { value: '12', label: 'Nationalities' },
   { value: '60%', label: 'Engineers' },
   { value: '40%', label: 'from Top AI Labs' },
-]
-
-const STATS = [
-  { value: '24 May 2025', label: 'Incorporated' },
-  { value: '11–50', label: 'Team Members' },
-  { value: 'Pune, India', label: 'Headquarters' },
-  { value: '100%', label: 'Problem-First Engineering' },
-]
-
-const VOICES = [
-  {
-    logo: logoVarasa,
-    quote: 'Encegen AI Labs engineered our digital platform for archaeological explorations, ancient artifact preservation documentation, and student scholarship research grants.',
-    name: 'Research & Conservation Head',
-    role: 'Varasa (Heritage Conservation & Academic Scholarship)',
-  },
-  {
-    logo: logoPramay,
-    quote: 'Encegen built our dedicated agricultural e-commerce platform for fertilizers, pesticides, and agro-inputs with automated ordering and real-time inventory synchronization.',
-    name: 'Operations Director',
-    role: 'Pramay Agro (Fertilizers & Pesticides E-Commerce)',
-  },
-  {
-    logo: logoFxAlgo,
-    quote: 'In algorithmic finance, latency and precision are paramount. Encegen engineered an ultra-reliable, high-throughput execution backend that consistently exceeds our execution benchmarks.',
-    name: 'Quantitative Strategist',
-    role: 'Fx Algo (Algorithmic Trading Platform)',
-  },
-  {
-    logo: logoEasyHunt,
-    quote: 'EasyHunt transformed our property title search process across Maharashtra land records, cutting research turnaround from days to minutes with high OCR precision.',
-    name: 'Senior Legal Partner',
-    role: 'Flairnetic Advocates (Major Client for EasyHunt Software)',
-  },
 ]
 
 const CULTURE_VOICES = [

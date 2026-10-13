@@ -204,17 +204,33 @@
 }
 
 .use-cases-intro__layout {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(380px, 480px);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
   align-items: center;
+  justify-content: space-between;
 }
 
 .use-cases-intro__copy {
-  max-width: 520px;
+  max-width: 580px;
 }
 
-.use-cases-intro__copy .left-title {
-  margin-top: 0.75rem;
+.use-cases-intro__copy .left-title,
+.use-cases-intro__title {
+  margin-top: 0;
+  font-family: 'Gabarito', sans-serif;
+  font-size: clamp(2.35rem, 3.5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0b0f19;
+  letter-spacing: -0.025em;
+  max-width: 580px;
+}
+
+@media (max-width: 960px) {
+  .use-cases-intro__copy .left-title,
+  .use-cases-intro__title {
+    font-size: clamp(2rem, 5vw, 40px);
+  }
 }
 
 .use-cases-intro__copy .left-copy {

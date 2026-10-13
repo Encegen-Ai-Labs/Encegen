@@ -245,7 +245,7 @@ function TraditionalVsEncegenCard() {
     <div
       style={{
         width: '100%',
-        maxWidth: 540,
+        maxWidth: 480,
         background: '#070C24',
         borderRadius: 20,
         border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -463,7 +463,7 @@ export default function UseCases() {
       {/* AI understands */}
       <section className="section section--light use-cases-intro">
         <div className="container split use-cases-intro__layout" style={{ alignItems: 'center' }}>
-          <div className="use-cases-intro__copy" style={{ maxWidth: 540 }}>
+          <div className="use-cases-intro__copy" style={{ maxWidth: 580, width: '100%' }}>
             <p
               className="shead__eyebrow"
               style={{
@@ -478,18 +478,20 @@ export default function UseCases() {
               PROCESS INTELLIGENCE + AI
             </p>
             <h2
-              className="left-title"
+              className="left-title use-cases-intro__title"
               style={{
                 marginTop: 0,
-                fontSize: 'clamp(2.1rem, 3.4vw, 2.9rem)',
+                fontFamily: "'Gabarito', sans-serif",
+                fontSize: 'clamp(2.35rem, 3.5vw, 48px)',
                 fontWeight: 800,
-                lineHeight: 1.15,
+                lineHeight: 1.1,
                 color: '#0b0f19',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.025em',
+                maxWidth: 580,
               }}
             >
-              AI that understands your<br />
-              business - not just your<br />
+              AI that understands&nbsp;your<br />
+              business - not just&nbsp;your<br />
               data.
             </h2>
             <p
@@ -499,10 +501,10 @@ export default function UseCases() {
                 fontSize: '1.02rem',
                 lineHeight: 1.65,
                 color: '#64748b',
-                maxWidth: 480,
+                maxWidth: 500,
               }}
             >
-              Most AI tools analyze data in isolation. Encagen AI understands full
+              Most AI tools analyze data in isolation. Encegen AI understands full
               process context, identifies breakdowns, and triggers automated fixes
               directly in operational systems.
             </p>
@@ -528,30 +530,30 @@ export default function UseCases() {
                 <span>Continuously learns with every process cycle</span>
               </div>
             </div>
-            <div style={{ marginTop: '30px' }}>
+            <div style={{ marginTop: '28px' }}>
               <Link
                 to="/platform#how-it-works"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '12px 24px',
+                  padding: '10px 22px',
                   borderRadius: '9999px',
                   background: '#EDE9FE',
                   color: '#6366f1',
-                  fontSize: '0.92rem',
+                  fontSize: '0.88rem',
                   fontWeight: 600,
                   textDecoration: 'none',
-                  boxShadow: '0 4px 14px rgba(99, 102, 241, 0.16)',
-                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+                  boxShadow: '0 2px 8px rgba(99, 102, 241, 0.12)',
+                  transition: 'background 0.15s ease',
                 }}
               >
                 <span>Learn how it works</span>
-                <ArrowRightExact size={15} color="#6366f1" />
+                <ArrowRightExact size={14} color="#6366f1" />
               </Link>
             </div>
           </div>
-          <div className="top-right-panel-frame" style={{ maxWidth: 540, width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <div className="top-right-panel-frame" style={{ maxWidth: 480, width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
             <TraditionalVsEncegenCard />
           </div>
         </div>

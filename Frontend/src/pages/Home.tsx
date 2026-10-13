@@ -220,7 +220,7 @@ export default function Home() {
   ], [t])
 
   return (
-    <>
+    <div className="home-page">
       <PageHero
         className="home-reference-hero"
         badge={t('home.heroBadge', 'Process Intelligence Platform')}
@@ -555,6 +555,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
